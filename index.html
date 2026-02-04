@@ -1,0 +1,1008 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KORVEX | Premium Korean Cosmetic Export Solutions</title>
+    <meta name="description" content="Connecting Korean cosmetic exporters with global clinics and partners. Premium B2B cosmetic export consulting and partner matching services.">
+    
+    <!-- Fonts - SpaceX inspired -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Orbitron:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            /* New color scheme based on provided codes */
+            --bg-primary: #0B0B0B;
+            --bg-secondary: #1a1a1a;
+            --gold-primary: #C9A24D;
+            --gold-light: #E5C16E;
+            --gold-dark: #A8863B;
+            --text-primary: #FFFFFF;
+            --text-secondary: #B5B5B5;
+            --text-muted: #888888;
+            --gradient-gold: linear-gradient(135deg, var(--gold-primary) 0%, var(--gold-light) 100%);
+            --gradient-dark: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
+            --gradient-hero: linear-gradient(135deg, rgba(11,11,11,0.95) 0%, rgba(26,26,26,0.95) 100%);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Reset all link colors */
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        a:link,
+        a:visited,
+        a:hover,
+        a:active {
+            color: inherit;
+            text-decoration: none;
+            outline: none;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 30px;
+        }
+
+        /* Navigation - Premium space-tech style */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(11, 11, 11, 0.98);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            z-index: 2147483647;
+            border-bottom: 1px solid rgba(201, 162, 77, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+
+        .logo {
+            font-family: 'Orbitron', monospace;
+            font-size: 1.8rem;
+            font-weight: 700;
+            background: var(--gradient-gold);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo::before {
+            content: 'KV';
+            font-family: 'Orbitron', monospace;
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--gold-primary);
+            background: none;
+            -webkit-text-fill-color: var(--gold-primary);
+            padding: 4px 8px;
+            border: 2px solid var(--gold-primary);
+            border-radius: 4px;
+            letter-spacing: 1px;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2.5rem;
+            margin: 0;
+            padding: 0;
+        }
+
+        .nav-links li {
+            display: block;
+        }
+
+        .nav-links a {
+            color: var(--text-primary);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            letter-spacing: 0.5px;
+            transition: all 0.3s ease;
+            position: relative;
+            outline: none;
+            display: block;
+            padding: 0.5rem 0;
+        }
+
+        .nav-links a:link,
+        .nav-links a:visited,
+        .nav-links a:hover,
+        .nav-links a:active {
+            color: var(--text-primary);
+            text-decoration: none;
+        }
+
+        .nav-links a:hover {
+            color: var(--gold-primary);
+            text-decoration: none;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--gradient-gold);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* Hero Section - Desktop: 1920x1080, Mobile: 1080x1350 */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            background: var(--gradient-hero);
+            position: relative;
+            overflow: hidden;
+            padding-top: 100px;
+        }
+
+        /* Desktop (1920x1080) - Landscape */
+        @media screen and (min-width: 769px) {
+            .hero {
+                min-height: 100vh;
+            }
+            
+            .hero-background-slider {
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                z-index: 1;
+            }
+            
+            .hero-bg-image {
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background-size: cover;
+                background-position: center center;
+                background-repeat: no-repeat;
+                opacity: 0;
+                transition: opacity 2s ease-in-out;
+            }
+        }
+
+        /* Mobile (1080x1350) - Portrait */
+        @media screen and (max-width: 768px) {
+            .hero {
+                min-height: 135vw; /* 1080x1350 비율 유지 */
+                padding-top: 80px;
+            }
+            
+            .hero-background-slider {
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                z-index: 1;
+            }
+            
+            .hero-bg-image {
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background-size: cover;
+                background-position: center center;
+                background-repeat: no-repeat;
+                opacity: 0;
+                transition: opacity 2s ease-in-out;
+            }
+        }
+
+        .hero-bg-image.active {
+            opacity: 0.7;
+        }
+
+        .hero-bg-image:nth-child(1) {
+            background-image: url('https://sspark.genspark.ai/cfimages?u1=958ElnIvWCLeQIaztkK1NMfH0%2BxMSn7%2Fgu0gok7M9x51SYlMoSYFV6G0WofbsmFInHTfx10kUwRUB40ec0%2F95Nsb4EdTWVci7gYKYtVsQLj4slHSmTYsLx8TYecmfGNOVy28HIMOjkza0g0j%2FBc0xDVfJJVcu4f2YKS9ygA0%2B5%2FxFmZaBGFNKYLAnTAl&u2=ZCTahW6tj7hlMS%2Fz&width=2560');
+            filter: brightness(1.1) contrast(1.1) saturate(1.2);
+            background-position: center top;
+        }
+
+        .hero-bg-image:nth-child(2) {
+            background-image: url('https://sspark.genspark.ai/cfimages?u1=lfgBhBZLJbD%2F1d45sc1LVBrRAZZF1zPoaQJyXo93YGxN7uqIOEDQdE9jN%2BrPLSEj793yif00QVUTodHqqrQCH7eIigMgorhuUlzfUNNO%2FlHrskvghuesdTIgRPc%2F6m4TkbdZsqQa4OBlt9UxYn0%3D&u2=xGCZKWoZJa9fLqRd&width=2560');
+            filter: brightness(1.1) contrast(1.2) saturate(1.2);
+        }
+
+        .hero-bg-image:nth-child(3) {
+            background-image: url('https://sspark.genspark.ai/cfimages?u1=ZxGGcYOe158zy%2BCv6J9Rff6CfEYvd4rvghyc6jtfgXtI1aKIdjOEwm2EnGrxf68cskLaRl6ScUPZ2LzHQnc5nieCkU7O2qF6b0FRNw3JODwe4XKn57YpkQmSEqknh57ifTKPYIFIFD8KPMwx8zHSUzrK6GJgnNN9glAxnt79ZvCFPXsBIWdQDYhDUX3Y%2BFphCL6bwwqFiRnj63QYXQ%3D%3D&u2=MHKW%2BuzMqNKidERW&width=2560');
+            filter: brightness(1.3) contrast(1.1) saturate(1.4);
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(11,11,11,0.2) 0%, rgba(26,26,26,0.15) 100%);
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 900px;
+            text-align: center;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-family: 'Orbitron', monospace;
+            font-size: clamp(1.8rem, 3.5vw, 3rem);
+            font-weight: 400;
+            line-height: 1.3;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, var(--text-primary) 0%, var(--gold-light) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: -0.5px;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .hero-subtitle {
+            font-size: 1rem;
+            color: var(--gold-primary);
+            margin-bottom: 1rem;
+            font-weight: 400;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            opacity: 0.9;
+        }
+
+        .hero-description {
+            font-size: 1rem;
+            color: var(--text-secondary);
+            margin-bottom: 2.5rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.6;
+            opacity: 0.85;
+            animation: float 6s ease-in-out infinite;
+            animation-delay: 1s;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            background: var(--gradient-gold);
+            color: var(--bg-primary);
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+        }
+
+        /* Sections */
+        .section {
+            padding: 8rem 0;
+        }
+
+        .section-title {
+            font-family: 'Orbitron', monospace;
+            font-size: 3rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 1rem;
+            background: var(--gradient-gold);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: 1px;
+        }
+
+        .section-subtitle {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            text-align: center;
+            margin-bottom: 4rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Premium Services Section */
+        .services {
+            background: var(--bg-secondary);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 3rem;
+        }
+
+        .service-card {
+            background: linear-gradient(135deg, rgba(26,26,26,0.8) 0%, rgba(11,11,11,0.9) 100%);
+            padding: 3rem;
+            border-radius: 20px;
+            border: 1px solid rgba(201, 162, 77, 0.2);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(201, 162, 77, 0.1), transparent);
+            transition: left 0.6s ease;
+        }
+
+        .service-card:hover::before {
+            left: 100%;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--gold-primary);
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5);
+        }
+
+        .service-icon {
+            width: 70px;
+            height: 70px;
+            background: var(--gradient-gold);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 2rem;
+            font-size: 1.8rem;
+            color: var(--bg-primary);
+        }
+
+        .service-card h3 {
+            font-family: 'Orbitron', monospace;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--gold-primary);
+            letter-spacing: 0.5px;
+        }
+
+        .service-card p {
+            color: var(--text-secondary);
+            line-height: 1.7;
+            font-size: 1.05rem;
+        }
+
+        /* Global Network Section - Premium style */
+        .global-network {
+            background: var(--gradient-dark);
+            position: relative;
+        }
+
+        .world-map {
+            position: relative;
+            height: 500px;
+            margin: 4rem 0;
+            background: url('https://sspark.genspark.ai/cfimages?u1=aXuibKcxaMlyPlSngsjDrhqTVHY6XGDxPEW%2Fdg5nJqY1EgYHPueUBClJtqCk4osvNkV4LCDp7dPARL%2Bo9Mt%2By4Nii864VfZ2%2Bte9Ved0FUhFeOSbSo3p%2FPuYvBNwio6k%2BMTFZMnEIiM3dGu%2FNGRw2dv5jD2WK1g%3D&u2=%2FBQP%2BXPom3BKC4Xa&width=2560') center/contain no-repeat;
+            border-radius: 20px;
+            overflow: hidden;
+            border: 1px solid rgba(201, 162, 77, 0.3);
+        }
+
+        .world-map::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, 
+                rgba(201, 162, 77, 0.1) 0%, 
+                rgba(11, 11, 11, 0.8) 50%, 
+                rgba(201, 162, 77, 0.1) 100%);
+        }
+
+        .connection-lines {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        /* Connection lines and dots removed for cleaner design */
+        .connection-lines {
+            display: none;
+        }
+
+        /* Process Section */
+        .process {
+            background: var(--bg-secondary);
+        }
+
+        .process-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 4rem;
+        }
+
+        .process-step {
+            text-align: center;
+            padding: 2rem;
+            position: relative;
+        }
+
+        .step-number {
+            width: 80px;
+            height: 80px;
+            background: var(--gradient-gold);
+            color: var(--bg-primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            font-weight: 700;
+            margin: 0 auto 2rem;
+            font-family: 'Orbitron', monospace;
+        }
+
+        .process-step h3 {
+            font-family: 'Orbitron', monospace;
+            font-size: 1.3rem;
+            color: var(--gold-primary);
+            margin-bottom: 1rem;
+        }
+
+        .process-step p {
+            color: var(--text-secondary);
+        }
+
+        /* About/CEO Section */
+        .about {
+            background: var(--bg-primary);
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 5rem;
+            align-items: start;
+        }
+
+        .about-content h2 {
+            font-family: 'Orbitron', monospace;
+            font-size: 2.5rem;
+            color: var(--gold-primary);
+            margin-bottom: 2rem;
+            letter-spacing: 1px;
+        }
+
+        .about-content p {
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        .ceo-card {
+            background: linear-gradient(135deg, rgba(26,26,26,0.8) 0%, rgba(11,11,11,0.9) 100%);
+            padding: 3rem;
+            border-radius: 20px;
+            border: 1px solid rgba(201, 162, 77, 0.3);
+            position: sticky;
+            top: 120px;
+        }
+
+        .ceo-name {
+            font-family: 'Orbitron', monospace;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--gold-primary);
+            margin-bottom: 0.5rem;
+            letter-spacing: 1px;
+        }
+
+        .ceo-title {
+            color: var(--text-secondary);
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        .contact-item i {
+            margin-right: 1rem;
+            color: var(--gold-primary);
+            width: 20px;
+        }
+
+        /* Contact Section */
+        .contact {
+            background: var(--gradient-dark);
+            text-align: center;
+        }
+
+        .contact-methods {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            margin-top: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .contact-method {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1.5rem 2rem;
+            background: rgba(26,26,26,0.8);
+            border-radius: 15px;
+            border: 1px solid rgba(201, 162, 77, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .contact-method:hover {
+            border-color: var(--gold-primary);
+            transform: translateY(-3px);
+        }
+
+        .contact-method i {
+            font-size: 1.5rem;
+            color: var(--gold-primary);
+        }
+
+        .contact-method div {
+            text-align: left;
+        }
+
+        .contact-method h4 {
+            font-size: 1.1rem;
+            margin-bottom: 0.2rem;
+            color: var(--text-primary);
+        }
+
+        .contact-method p {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--bg-primary);
+            padding: 3rem 0;
+            text-align: center;
+            border-top: 1px solid rgba(201, 162, 77, 0.2);
+        }
+
+        .footer-content {
+            color: var(--text-secondary);
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero {
+                padding-top: 120px;
+                min-height: 100vh;
+                height: auto;
+            }
+
+            .hero h1 {
+                font-size: 3rem;
+            }
+
+            .section-title {
+                font-size: 2.2rem;
+            }
+
+            .about-grid {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .process-steps {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-methods {
+                flex-direction: column;
+                align-items: center;
+                gap: 1.5rem;
+            }
+
+            .section {
+                padding: 4rem 0;
+            }
+
+            .container {
+                padding: 0 20px;
+            }
+        }
+
+        /* Smooth scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--bg-primary);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--gold-primary);
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--gold-light);
+        }
+
+        /* Remove default link colors and styles */
+        * {
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        a:focus {
+            outline: none;
+            box-shadow: none;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <div class="nav-container">
+                <div class="logo">KORVEX</div>
+                <ul class="nav-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#network">Global Network</a></li>
+                    <li><a href="#process">Process</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-background-slider">
+            <div class="hero-bg-image active"></div>
+            <div class="hero-bg-image"></div>
+            <div class="hero-bg-image"></div>
+        </div>
+        <div class="container">
+            <div class="hero-content">
+                <h1>Connecting Korean Cosmetic Exporters with Global Partners</h1>
+                <div class="hero-subtitle">Premium B2B Export Solutions</div>
+                <a href="#contact" class="cta-button">Start Partnership</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Premium Services Section -->
+    <section id="services" class="section services">
+        <div class="container">
+            <h2 class="section-title">What We Do</h2>
+            <p class="section-subtitle">
+                Comprehensive export solutions tailored for premium Korean cosmetics
+            </p>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-globe-americas"></i>
+                    </div>
+                    <h3>Export Market Access</h3>
+                    <p>
+                        Strategic market entry planning and execution. We identify optimal markets for your products and establish direct channels to premium clinics and distributors worldwide.
+                    </p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-file-contract"></i>
+                    </div>
+                    <h3>Regulatory Support</h3>
+                    <p>
+                        Complete regulatory compliance assistance including documentation, registration, and standard consulting. Navigate complex international regulations with expert guidance.
+                    </p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-handshake"></i>
+                    </div>
+                    <h3>Partner Matching</h3>
+                    <p>
+                        Strategic B2B partner identification and matching. Connect with verified distributors, clinics, and medical institutions through our extensive global network.
+                    </p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>Market Intelligence</h3>
+                    <p>
+                        Data-driven market analysis and competitive intelligence. Make informed decisions with comprehensive market insights and trend analysis.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Global Network Section -->
+    <section id="network" class="section global-network">
+        <div class="container">
+            <h2 class="section-title">Global Network</h2>
+            <p class="section-subtitle">
+                Strategic partnerships connecting Korea's premium cosmetics with medical institutions worldwide
+            </p>
+            <div class="world-map">
+                <!-- Connection dots removed for cleaner look -->
+            </div>
+            <div style="text-align: center; margin-top: 3rem;">
+                <p style="color: var(--text-secondary); font-size: 1.1rem; opacity: 0.8;">
+                    Korea → Asia → Europe → Americas → Middle East
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Section -->
+    <section id="process" class="section process">
+        <div class="container">
+            <h2 class="section-title">Our Process</h2>
+            <p class="section-subtitle">
+                Streamlined approach to global cosmetic export success
+            </p>
+            <div class="process-steps">
+                <div class="process-step">
+                    <div class="step-number">1</div>
+                    <h3>Consultation</h3>
+                    <p>Initial assessment of your products and export goals</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">2</div>
+                    <h3>Market Analysis</h3>
+                    <p>Comprehensive market research and opportunity identification</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">3</div>
+                    <h3>Partner Matching</h3>
+                    <p>Strategic introduction to verified international partners</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">4</div>
+                    <h3>Export Support</h3>
+                    <p>End-to-end export execution and ongoing partnership management</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section about">
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-content">
+                    <h2>Your Strategic Partner in Global Cosmetic Export</h2>
+                    <p>
+                        KORVEX specializes in premium Korean cosmetic export solutions, bridging the gap between Korea's innovative beauty industry and global medical institutions. Our expertise extends beyond traditional export services to comprehensive market development and strategic partnership building.
+                    </p>
+                    <p>
+                        With deep knowledge of both Korean cosmetic innovation and international market requirements, we provide end-to-end solutions that ensure successful market entry and sustained growth for our partners worldwide.
+                    </p>
+                </div>
+                <div class="ceo-card">
+                    <div class="ceo-name">Taegyeom Kim</div>
+                    <div class="ceo-title">CEO | Business Development Strategist</div>
+                    <p style="color: var(--text-secondary); margin-bottom: 2rem;">
+                        Visionary leader with extensive experience in Korea-Global medical and cosmetic business development, specializing in premium B2B partnerships and market expansion strategies.
+                    </p>
+                    <div class="ceo-contact">
+                        <div class="contact-item">
+                            <i class="fas fa-phone"></i>
+                            <span>+60-11-1602-3115 (Malaysia)</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-phone"></i>
+                            <span>+82-10-2896-2172 (Korea)</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <span>korvexgrp.outlook.com</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Kuala Lumpur | Seoul</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section contact">
+        <div class="container">
+            <h2 class="section-title">Start Global Partnership</h2>
+            <p class="section-subtitle">
+                Ready to expand your Korean cosmetics globally? Let's build a successful international partnership.
+            </p>
+            <div class="contact-methods">
+                <div class="contact-method">
+                    <i class="fab fa-whatsapp"></i>
+                    <div>
+                        <h4>WhatsApp</h4>
+                        <p>+60-11-1602-3115</p>
+                    </div>
+                </div>
+                <div class="contact-method">
+                    <i class="fas fa-comment"></i>
+                    <div>
+                        <h4>KakaoTalk</h4>
+                        <p>korvex</p>
+                    </div>
+                </div>
+                <div class="contact-method">
+                    <i class="fas fa-envelope"></i>
+                    <div>
+                        <h4>Email</h4>
+                        <p>korvexgrp.outlook.com</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <p>&copy; 2024 KORVEX. Premium Korean Cosmetic Export Solutions.</p>
+                <p>Connecting Global Markets with Korea's Finest Cosmetic Innovations.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scroll behavior for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add scroll effect to navigation
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 100) {
+                nav.style.background = 'rgba(11, 11, 11, 0.98)';
+                nav.style.backdropFilter = 'blur(20px)';
+            } else {
+                nav.style.background = 'rgba(11, 11, 11, 0.95)';
+            }
+        });
+
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe sections for animation
+        document.querySelectorAll('.section').forEach(section => {
+            section.style.opacity = '0';
+            section.style.transform = 'translateY(30px)';
+            section.style.transition = 'all 0.6s ease';
+            observer.observe(section);
+        });
+
+        // Hero background image slider
+        const bgImages = document.querySelectorAll('.hero-bg-image');
+        let currentBgIndex = 0;
+
+        function changeBackgroundImage() {
+            bgImages[currentBgIndex].classList.remove('active');
+            currentBgIndex = (currentBgIndex + 1) % bgImages.length;
+            bgImages[currentBgIndex].classList.add('active');
+        }
+
+        // Change background image every 5 seconds
+        setInterval(changeBackgroundImage, 5000);
+    </script>
+    </script>
+</body>
+</html>
