@@ -34,8 +34,8 @@
             --gold-light: #E5C16E;
             --gold-dark: #A8863B;
             --text-primary: #FFFFFF;
-            --text-secondary: #B5B5B5;
-            --text-muted: #888888;
+            --text-secondary: #C5C5C5;
+            --text-muted: #989898;
             --gradient-gold: linear-gradient(135deg, var(--gold-primary) 0%, var(--gold-light) 100%);
             --gradient-dark: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
             --gradient-hero: linear-gradient(135deg, rgba(11,11,11,0.95) 0%, rgba(26,26,26,0.95) 100%);
@@ -99,7 +99,7 @@
 
         .logo {
             font-family: 'Orbitron', monospace;
-            font-size: 1.8rem;
+            font-size: 1.4srem;
             font-weight: 700;
             background: var(--gradient-gold);
             -webkit-background-clip: text;
@@ -251,8 +251,15 @@
         }
 
         .hero-bg-image:nth-child(2) {
+            background-image: url('/images/skincares%20imagess.webp');
+            filter: brightness(1.35) contrast(1.1) saturate(1.15);
+            background-position: center top;
+        }
+
+        .hero-bg-image:nth-child(3) {
             background-image: url('/images/백그라운드2.webp');
             filter: brightness(1.35) contrast(1.1) saturate(1.15);
+            background-position: center top;
         }
 
         .hero::after {
@@ -738,7 +745,7 @@ KORVEX는 한국 화장품 수출 및 해외 B2B 유통을 전문으로 하는 �
         <div class="container">
             <div class="nav-container">
                 <div class="logo">
-                <img src="/images/korvex%20logo%20KV.jpg"alt="KORVEX Logo" class="logo-image">
+                <img src="/images/logo%20nobg.png"alt="KORVEX Logo" class="logo-image">
                 KORVEX
                 </div>
                 <ul class="nav-links">
@@ -755,6 +762,7 @@ KORVEX는 한국 화장품 수출 및 해외 B2B 유통을 전문으로 하는 �
     <section id="home" class="hero">
         <div class="hero-background-slider">
             <div class="hero-bg-image active"></div>
+            <div class="hero-bg-image"></div>
             <div class="hero-bg-image"></div>
         </div>
         <div class="container">
@@ -914,7 +922,7 @@ Trusted Korean Cosmetic Export Partner for Clinics Worldwide
                         </div>
                         <div class="contact-item">
                             <i class="fas fa-map-marker-alt"></i>
-                            <span>Kuala Lumpur | Seoul</span>
+                            <span>Seoul | Kuala Lumpur</span>
                         </div>
                     </div>
                 </div>
@@ -967,7 +975,7 @@ Trusted Korean Cosmetic Export Partner for Clinics Worldwide
     <footer>
         <div class="container">
             <div class="footer-content">
-                <p>&copy; 2024 KORVEX. Premium Korean Cosmetic Export Solutions.</p>
+                <p>&copy; 2022 KORVEX. Premium Korean Cosmetic Export Solutions.</p>
                 <p>Connecting Global Markets with Korea's Finest Cosmetic Innovations.</p>
             </div>
         </div>
