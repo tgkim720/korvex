@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="google-site-verification" content="5rIhHGV2qQYGbqmmKfiBE57CyqNtspo5LnMaJ8GNTSg" />
@@ -18,8 +18,26 @@
 <meta property="og:description" content="Connecting Korean cosmetic exporters with global clinics and distributors.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://korvexgrp.com">
+<!-- Open Graph Image (소셜 공유용) -->
+<meta property="og:image" content="https://korvexgrp.com/images/OG%20image%20logo.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="KORVEX - Premium Korean Cosmetic Export">
+<meta property="og:image:type" content="image/jpeg">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://korvexgrp.com/images/OG%20image%20logo.png">
 
 <link rel="canonical" href="https://korvexgrp.com">
+<link rel="canonical" href="https://korvexgrp.com">
+
+<!-- 다국어 지원 (향후 확장용) -->
+<link rel="alternate" hreflang="en" href="https://korvexgrp.com">
+<link rel="alternate" hreflang="ko" href="https://korvexgrp.com/ko">
+<link rel="alternate" hreflang="ms" href="https://korvexgrp.com/ms">
+<link rel="alternate" hreflang="id" href="https://korvexgrp.com/id">
+<link rel="alternate" hreflang="x-default" href="https://korvexgrp.com">
 
     <!-- Fonts - SpaceX inspired -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Orbitron:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -784,7 +802,110 @@
             outline: none;
             box-shadow: none;
         }
-    </style>
+        
+        /* WhatsApp 플로팅 버튼 */
+        .whatsapp-float {
+            position: fixed;
+            width: 60px;
+            height: 60px;
+            bottom: 30px;
+            right: 30px;
+            background: #25D366;
+            color: #FFFFFF;
+            border-radius: 50%;
+            text-align: center;
+            font-size: 30px;
+            box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+            z-index: 999999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+        
+        .whatsapp-float:hover {
+            background: #128C7E;
+            transform: scale(1.1);
+            box-shadow: 0 6px 30px rgba(37, 211, 102, 0.6);
+        }
+        
+        .whatsapp-float i {
+            color: #FFFFFF;
+            line-height: 60px;
+        }
+        
+        /* 모바일에서 크기 조정 */
+        @media (max-width: 768px) {
+            .whatsapp-float {
+                width: 50px;
+                height: 50px;
+                bottom: 20px;
+                right: 20px;
+                font-size: 26px;
+            }
+            
+            .whatsapp-float i {
+                line-height: 50px;
+            }
+        }
+        
+        /* 애니메이션 효과 (선택사항) */
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
+            }
+            70% {
+                box-shadow: 0 0 0 15px rgba(37, 211, 102, 0);
+            }
+            100% {
+                box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+            }
+        }
+        
+        .whatsapp-float {
+            animation: pulse 2s infinite;
+        }
+        
+        .whatsapp-float:hover {
+            animation: none;
+        }
+            </style>
+    
+    <!-- Schema.org 구조화 데이터 -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "KORVEX",
+  "url": "https://korvexgrp.com",
+  "logo": "https://korvexgrp.com/images/logo%20nobg.png",
+  "description": "Korean cosmetic export company specializing in premium skincare and aesthetic products for clinics worldwide",
+  "contactPoint": [
+    {
+      "@type": "ContactPoint",
+      "telephone": "+60-11-1602-3115",
+      "contactType": "Sales",
+      "areaServed": ["MY", "SG", "AE", "US", "EU"],
+      "availableLanguage": ["en", "ko", "ms"]
+    }
+  ],
+  "founder": {
+    "@type": "Person",
+    "name": "Taegyeom Kim",
+    "jobTitle": "CEO"
+  },
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Seoul",
+    "addressCountry": "KR"
+  },
+  "sameAs": [
+    "https://wa.me/601116023115",
+    "https://open.kakao.com/o/sZ6WqVei"
+  ]
+}
+</script>
 </head>
 <body>
     <section style="display:none;">
@@ -817,6 +938,14 @@ KORVEX는 한국 화장품 수출 및 해외 B2B 유통을 전문으로 하는 �
             </div> 
         </div>
     </nav>
+    
+    <!-- WhatsApp 플로팅 버튼 -->
+    <a href="https://wa.me/601116023115?text=Hello%20KORVEX%2C%20I'm%20interested%20in%20your%20Korean%20cosmetic%20products" 
+    class="whatsapp-float" 
+    target="_blank"
+    aria-label="Contact us on WhatsApp">
+    <i class="fab fa-whatsapp"></i>
+    </a>
 
     <!-- Hero Section -->
     <section id="home" class="hero">
