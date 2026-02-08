@@ -223,7 +223,7 @@
                 background-position: center center;
                 background-repeat: no-repeat;
                 opacity: 0;
-                transition: opacity 2s ease-in-out;
+                transition: opacity 1.6s ease-in-out;
             }
         }
 
@@ -263,7 +263,7 @@
         /* 데스크톱 전용 이미지 (769px 이상) */
         @media screen and (min-width: 769px) {
         .hero-bg-image:nth-child(1) {
-            background-image: url('/images/백그라운드1.avif');
+            background-image: url('/images/데스크탑%20모델.webp');
             filter: brightness(1.35) contrast(1.1) saturate(1.15);
             background-position: center top;
         }
@@ -287,7 +287,7 @@
         /* 모바일 전용 이미지 (768px 이하) */
         @media screen and (max-width: 768px) {
             .hero-bg-image:nth-child(1) {
-                background-image: url('/images/백그라운드1.avif');
+                background-image: url('/images/모바일%20모델.webp');
                 filter: brightness(1.35) contrast(1.1) saturate(1.15);
                 background-position: center center;
             }
@@ -1002,9 +1002,9 @@ KORVEX는 B2B 바이어를 위한 한국 화장품 소싱 및 수출 코디네�
                 <div class="why-icon" style="width: 60px; height: 60px; background: var(--gradient-gold); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.8rem; margin-bottom: 1.5rem;">
                     📋
                 </div>
-                <h3 style="color: var(--gold-primary); font-size: 1.3rem; margin-bottom: 1rem; font-family: 'Orbitron', monospace;">Regulatory Support (Documentation-First)</h3>
+                <h3 style="color: var(--gold-primary); font-size: 1.3rem; margin-bottom: 1rem; font-family: 'Orbitron', monospace;">Regulatory Expertise</h3>
                 <p style="color: var(--text-secondary); line-height: 1.7;">
-                    We provide complete product documentation (INCI, COA, MSDS/SDS, CFS/Free Sale where available, labels/packaging info) to help importers or regulatory agents handle local registration and clearance smoothly.
+                    Navigating Malaysia, Singapore, or Middle East regulations? We support export documentation and can guide required paperwork to reduce delays and compliance risks.
                 </p>
             </div>
 
@@ -1309,46 +1309,62 @@ KORVEX는 B2B 바이어를 위한 한국 화장품 소싱 및 수출 코디네�
         </div>
     </section>
 
-    <!-- Contact Section -->
-    <section id="contact" class="section contact">
-    <div class="container">
-        <h2 class="section-title">Request Product List</h2>
-            <p class="section-subtitle">
-            Tell us what products you are looking for.
-            </p>
+<!-- Contact Section -->
+<section id="contact" class="section contact">
+  <div class="container">
+    <h2 class="section-title">Request Product List</h2>
+    <p class="section-subtitle">
+      Tell us what products you are looking for.
+    </p>
 
-        <div class="contact-methods">
+    <div class="contact-methods">
 
-            <!-- WhatsApp -->
-            <a href="https://wa.me/601116023115" target="_blank" class="contact-method">
-                <i class="fab fa-whatsapp"></i>
-                <div>
-                    <h4>WhatsApp</h4>
-                    <p>+60-11-1602-3115</p>
-                </div>
-            </a>
-
-            <!-- KakaoTalk Open Profile -->
-            <a href="https://open.kakao.com/o/sZ6WqVei" target="_blank" class="contact-method">
-            <i class="fas fa-comment"></i>
-              <div>
-              <h4>KakaoTalk</h4>
-              <p>Direct Chat</p>
-             </div>
-            </a>
-
-            <!-- Email -->
-            <a href="mailto:korvexgrp@outlook.com" class="contact-method">
-                <i class="fas fa-envelope"></i>
-                <div>
-                    <h4>Email</h4>
-                    <p>korvexgrp@outlook.com</p>
-                </div>
-            </a>
-
+      <!-- WhatsApp -->
+      <a href="https://wa.me/601116023115" target="_blank" class="contact-method">
+        <i class="fab fa-whatsapp"></i>
+        <div>
+          <h4>WhatsApp</h4>
+          <p>+60-11-1602-3115</p>
         </div>
+      </a>
+
+      <!-- KakaoTalk -->
+      <a href="https://open.kakao.com/o/sZ6WqVei" target="_blank" class="contact-method">
+        <i class="fas fa-comment"></i>
+        <div>
+          <h4>KakaoTalk</h4>
+          <p>Direct Chat</p>
+        </div>
+      </a>
+
+      <!-- Email -->
+      <a href="mailto:korvexgrp@outlook.com" class="contact-method">
+        <i class="fas fa-envelope"></i>
+        <div>
+          <h4>Email</h4>
+          <p>korvexgrp@outlook.com</p>
+        </div>
+      </a>
+
+    </div> <!-- ✅ contact-methods 끝 -->
+
+    <!-- ✅ Business Hours (여기로 이동) -->
+    <div style="margin-top: 2.5rem; text-align: center;">
+      <p style="color: #FFFFFF; font-size: 0.95rem; font-weight: 500; margin-bottom: 0.4rem;">
+        <i class="fas fa-clock" style="margin-right:6px; color:#C9A24D;"></i>
+        Business Hours
+      </p>
+      <p style="color: #FFFFFF; font-size: 0.85rem; opacity: 0.85; margin-bottom: 0.2rem;">
+        Mon–Fri | Korea Standard Time (KST)
+      </p>
+      <p style="color: #FFFFFF; font-size: 0.85rem; opacity: 0.85;">
+        Fast response via WhatsApp &amp; KakaoTalk
+      </p>
     </div>
+
+  </div>
 </section>
+
 
     <!-- Footer -->
     <footer>
@@ -1419,7 +1435,7 @@ KORVEX는 B2B 바이어를 위한 한국 화장품 소싱 및 수출 코디네�
             bgImages[currentBgIndex].classList.add('active');
         }
 
-        // Change background image every 5 seconds
+        // Change background image every 3.5 seconds
         setInterval(changeBackgroundImage, 5000);
                 
         // 햄버거 메뉴 토글 + 스크롤 잠금
