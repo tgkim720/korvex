@@ -792,6 +792,15 @@
                         border-radius: 28px !important;
                         letter-spacing: 0.5px !important;
                     }
+                    .averon-points { 
+                        display: grid;
+                        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+                        gap: 14px;
+                        text-align: center;
+                        }
+                        @media (max-width: 768px) {
+                        .averon-points { display: none !important; }
+                    }
                 }
 
                 /* Smooth scrolling */
@@ -959,10 +968,7 @@ KORVEX는 B2B 바이어를 위한 한국 화장품 소싱 및 수출 코디네�
     
                 <ul class="nav-links" id="navLinks">
                     <li><a href="#home">Home</a></li>
-                    <!-- NEW: AVERON (새 창) -->
-                    <li><a href="averon.html" target="_blank" rel="noopener">AVERON</a></li>
-                    <li><a href="#why-us">Why Us</a></li>
-                    <li><a href="#services">Solutions</a></li>
+                    <li><a href="averon.html">AVERON</a></li>
                     <li><a href="#contact">Contact</a></li>
                 </ul>
             </div> 
@@ -989,7 +995,9 @@ KORVEX는 B2B 바이어를 위한 한국 화장품 소싱 및 수출 코디네�
             <div class="hero-content">
                 <h1>Korean Clinic-Grade Skincare</h1>
                 <div class="hero-subtitle">Proprietary brand development • Export coordination for professional partners</div>
-                <a href="#averon" class="cta-button">Explore AVERON</a>
+                <a href="averon.html" class="cta-button averon-cta" style="margin-bottom:0;">
+                Enter AVERON
+                </a>
             </div>
         </div>
     </section>
@@ -1004,383 +1012,46 @@ KORVEX는 B2B 바이어를 위한 한국 화장품 소싱 및 수출 코디네�
     </p>
 
     <div style="max-width: 920px; margin: 0 auto; border: 1px solid rgba(201,162,77,0.18); border-radius: 18px; padding: 2.2rem; background: rgba(26,26,26,0.65);">
-      <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 14px; text-align:center;">
-        <div style="border: 1px solid rgba(201,162,77,0.12); border-radius: 14px; padding: 16px; background: rgba(11,11,11,0.35);">
-          <div style="color: var(--gold-primary); font-weight:700; margin-bottom:6px;">Clinic-First</div>
-          <div style="color: var(--text-secondary); opacity:0.95;">Built for professional protocols & daily treatment flow.</div>
-        </div>
-        <div style="border: 1px solid rgba(201,162,77,0.12); border-radius: 14px; padding: 16px; background: rgba(11,11,11,0.35);">
-          <div style="color: var(--gold-primary); font-weight:700; margin-bottom:6px;">Functional Formulas</div>
-          <div style="color: var(--text-secondary); opacity:0.95;">Hydration, comfort, and barrier-feel stability.</div>
-        </div>
-        <div style="border: 1px solid rgba(201,162,77,0.12); border-radius: 14px; padding: 16px; background: rgba(11,11,11,0.35);">
-          <div style="color: var(--gold-primary); font-weight:700; margin-bottom:6px;">Export-Ready</div>
-          <div style="color: var(--text-secondary); opacity:0.95;">Documentation & shipment coordination available for partners.</div>
-        </div>
-      </div>
+  
+  <div class="averon-points">
+    <div style="border: 1px solid rgba(201,162,77,0.12); border-radius: 14px; padding: 16px; background: rgba(11,11,11,0.35);">
+      <div style="color: var(--gold-primary); font-weight:700; margin-bottom:6px;">Clinic-First</div>
+      <div style="color: var(--text-secondary); opacity:0.95;">Built for professional protocols & daily treatment flow.</div>
+    </div>
+
+    <div style="border: 1px solid rgba(201,162,77,0.12); border-radius: 14px; padding: 16px; background: rgba(11,11,11,0.35);">
+      <div style="color: var(--gold-primary); font-weight:700; margin-bottom:6px;">Functional Formulas</div>
+      <div style="color: var(--text-secondary); opacity:0.95;">Hydration, comfort, and barrier-feel stability.</div>
+    </div>
+
+    <div style="border: 1px solid rgba(201,162,77,0.12); border-radius: 14px; padding: 16px; background: rgba(11,11,11,0.35);">
+      <div style="color: var(--gold-primary); font-weight:700; margin-bottom:6px;">Export-Ready</div>
+      <div style="color: var(--text-secondary); opacity:0.95;">Documentation & shipment coordination available for partners.</div>
+    </div>
+  </div>
+
+  <div style="margin-top: 20px; display:flex; justify-content:center;">
+    <a href="averon.html" class="cta-button" style="margin-bottom:0; padding:0.9rem 1.4rem; font-size:0.95rem;">
+      Visit AVERON
+    </a>
+  </div>
+</div>
 
       <div style="margin-top: 20px; display:flex; justify-content:center;">
-            <a href="averon.html" target="_blank" rel="noopener" class="cta-button averon-cta" style="margin-bottom:0;">Visit AVERON Page</a>
-      </div>
-
-      <div class="averon-note" style="margin-top: 14px; font-size: 12px; color: #9a9a9a;">
-        Developed and managed within the KORVEX
-      </div>
+            <a href="averon.html" class="cta-button" style="margin-bottom:0; padding:0.9rem 1.4rem; font-size:0.95rem;">
+                Visit AVERON
+            </a>      
+        </div>
     </div>
   </div>
 </section>
 
-        <!-- Why KORVEX Section -->
-        <section id="why-us" class="section" style="background: var(--bg-secondary); padding: 6rem 2rem;">
-        
-        <div class="container">
-            <h2 class="section-title">Why Choose KORVEX?</h2>
-        <p class="section-subtitle" style="max-width: 700px; margin: 0 auto 4rem; color: var(--text-secondary);">
-            Behind AVERON and partner supply — KORVEX coordinates sourcing, documentation, and export execution.
-        </p>
-        
-        <div class="why-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; max-width: 1200px; margin: 0 auto;">
-            
-            <!-- Card 1: Clinic-Focused Expertise -->
-            <div class="why-card" style="background: var(--bg-primary); padding: 2.5rem; border-radius: 20px; border: 1px solid rgba(201, 162, 77, 0.1); transition: all 0.3s ease;">
-                <div class="why-icon" style="width: 60px; height: 60px; background: var(--gradient-gold); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.8rem; margin-bottom: 1.5rem;">
-                    🏥
-                </div>
-                <h3 style="color: var(--gold-primary); font-size: 1.3rem; margin-bottom: 1rem; font-family: 'Orbitron', monospace;">Clinic-Focused Expertise</h3>
-                <p style="color: var(--text-secondary); line-height: 1.7;">
-                    We understand what clinics need. Medical-grade products, reliable documentation, and suppliers who speak your language—not generic cosmetics.
-                </p>
-            </div>
-
-            <!-- Card 2: Direct CEO Access -->
-            <div class="why-card" style="background: var(--bg-primary); padding: 2.5rem; border-radius: 20px; border: 1px solid rgba(201, 162, 77, 0.1); transition: all 0.3s ease;">
-                <div class="why-icon" style="width: 60px; height: 60px; background: var(--gradient-gold); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.8rem; margin-bottom: 1.5rem;">
-                    💬
-                </div>
-                <h3 style="color: var(--gold-primary); font-size: 1.3rem; margin-bottom: 1rem; font-family: 'Orbitron', monospace;">Direct CEO Access</h3>
-                <p style="color: var(--text-secondary); line-height: 1.7;">
-                    No middlemen. No automated responses. Talk directly to the CEO via WhatsApp or KakaoTalk. Fast decisions, real conversations.
-                </p>
-            </div>
-
-            <!-- Card 3: Regulatory Expertise -->
-            <div class="why-card" style="background: var(--bg-primary); padding: 2.5rem; border-radius: 20px; border: 1px solid rgba(201, 162, 77, 0.1); transition: all 0.3s ease;">
-                <div class="why-icon" style="width: 60px; height: 60px; background: var(--gradient-gold); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.8rem; margin-bottom: 1.5rem;">
-                    📋
-                </div>
-                <h3 style="color: var(--gold-primary); font-size: 1.3rem; margin-bottom: 1rem; font-family: 'Orbitron', monospace;">Regulatory Expertise</h3>
-                <p style="color: var(--text-secondary); line-height: 1.7;">
-                    Navigating Malaysia, Singapore, or Middle East regulations? We support export documentation and can guide required paperwork to reduce delays and compliance risks.
-                </p>
-            </div>
-
-            <!-- Card 4: Asia-Pacific Focus -->
-            <div class="why-card" style="background: var(--bg-primary); padding: 2.5rem; border-radius: 20px; border: 1px solid rgba(201, 162, 77, 0.1); transition: all 0.3s ease;">
-                <div class="why-icon" style="width: 60px; height: 60px; background: var(--gradient-gold); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.8rem; margin-bottom: 1.5rem;">
-                    🌏
-                </div>
-                <h3 style="color: var(--gold-primary); font-size: 1.3rem; margin-bottom: 1rem; font-family: 'Orbitron', monospace;">Asia-Pacific Focus</h3>
-                <p style="color: var(--text-secondary); line-height: 1.7;">
-                    Deep understanding of Southeast Asian and Middle Eastern market needs. Tailored solutions for regional regulatory requirements.
-                </p>
-            </div>
-
-        </div>
-    </div>
-</section>
-
-    <!-- Premium Services Section -->
-<section id="services" class="section">
-    <div class="container">
-        <h2 class="section-title">What We Provide</h2>
-        <p class="section-subtitle">Practical solutions for clinics serious about Korean aesthetics</p>
-        
-        <div class="services-grid">
-            
-            <!-- Card 1: Curated Korean Products -->
-            <div class="service-card">
-                <div class="service-icon">✨</div>
-                <h3>Private Label Development</h3>
-                <p>We develop proprietary private label lines and coordinate production with qualified Korean manufacturing partners (subject to project terms).</p>
-                <ul style="text-align: left; color: var(--text-muted); margin-top: 1rem; list-style: none; padding-left: 0;">
-                    <li style="margin: 0.5rem 0;">✓ Functional dermacosmetic concept planning</li>
-                    <li style="margin: 0.5rem 0;">✓ Packaging & SKU structure (pro / retail by partner request)</li>
-                    <li style="margin: 0.5rem 0;">✓ Export-ready coordination with documentation support</li>
-                </ul>
-            </div>
-
-            <!-- Card 2: Complete Documentation Package -->
-            <div class="service-card">
-                <div class="service-icon">📄</div>
-                <h3>Complete Documentation Package</h3>
-                <p>Everything your customs broker and regulatory authority needs—delivered before shipment.</p>
-                <ul style="text-align: left; color: var(--text-muted); margin-top: 1rem; list-style: none; padding-left: 0;">
-                    <li style="margin: 0.5rem 0;">✓ Full ingredient lists (INCI)</li>
-                    <li style="margin: 0.5rem 0;">✓ Certificates of Analysis (COA)</li>
-                    <li style="margin: 0.5rem 0;">✓ MSDS / Safety Data Sheets</li>
-                    <li style="margin: 0.5rem 0;">✓ Export certifications</li>
-                </ul>
-            </div>
-
-            <!-- Card 3: Transparent Supply Chain -->
-            <div class="service-card">
-                <div class="service-icon">🔗</div>
-                <h3>Transparent Supply Chain</h3>
-                <p>Direct sourcing from Korean manufacturers when partnership terms allow. Transparent quotation and supplier disclosure upon request.</p>
-                <ul style="text-align: left; color: var(--text-muted); margin-top: 1rem; list-style: none; padding-left: 0;">
-                    <li style="margin: 0.5rem 0;">✓ MOQ flexibility depending on product and manufacturer</li>
-                    <li style="margin: 0.5rem 0;">✓ Private label / OEM available</li>
-                    <li style="margin: 0.5rem 0;">✓ High-volume orders supported</li>
-                </ul>
-            </div>
-
-            <!-- Card 4: End-to-End Logistics -->
-            <div class="service-card">
-                <div class="service-icon">🚚</div>
-                <h3>End-to-End Logistics</h3>
-                <p>From manufacturer pickup in Korea to your destination. We handle export, shipping, and tracking.</p>
-                <ul style="text-align: left; color: var(--text-muted); margin-top: 1rem; list-style: none; padding-left: 0;">
-                    <li style="margin: 0.5rem 0;">✓ Air & sea freight options</li>
-                    <li style="margin: 0.5rem 0;">✓ Real-time shipment tracking</li>
-                    <li style="margin: 0.5rem 0;">✓ Customs clearance support</li>
-                </ul>
-            </div>
-
-        </div>
-    </div>
-</section>
-
-    <!-- Korean Aesthetic Supply Network Section -->
-    <section id="network" class="section global-network">
-        <div class="container">
-            <h2 class="section-title">Korean Aesthetic Supply Network</h2>
-            <p class="section-subtitle">
-                Building access to Korean manufacturers and export-ready aesthetic products for clinics and distributors
-            </p>
-            <div class="world-map">
-                <!-- Connection dots removed for cleaner look -->
-            </div>
-            <div style="text-align: center; margin-top: 3rem;">
-                <p style="color: var(--text-secondary); font-size: 1.1rem; opacity: 0.8;">
-                    <br>From Korea to the World — Tailored for Global Markets<br>
-                    <br>Asia • Europe • Middle East • Americas<br>
-                </p>
-            </div>
-        </div>
-    </section>
-
-<!-- Brand Focus Section -->
-<section id="brands" class="section brands">
-    <style>
-        .brands {
-            background: var(--bg-primary);
-        }
-
-        .brand-categories {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 2.5rem;
-            margin-top: 3rem;
-        }
-
-        .brand-type {
-            background: linear-gradient(135deg, rgba(26,26,26,0.8) 0%, rgba(11,11,11,0.9) 100%);
-            padding: 2.5rem;
-            border-radius: 20px;
-            border: 1px solid rgba(201, 162, 77, 0.2);
-            transition: all 0.3s ease;
-        }
-
-        .brand-type:hover {
-            transform: translateY(-5px);
-            border-color: var(--gold-primary);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
-        }
-
-        .brand-type h3 {
-            font-family: 'Orbitron', monospace;
-            color: var(--gold-primary);
-            font-size: 1.4rem;
-            margin-bottom: 1rem;
-            letter-spacing: 0.5px;
-        }
-
-        .brand-type > p {
-            color: var(--text-secondary);
-            margin-bottom: 1.5rem;
-            font-size: 0.95rem;
-        }
-
-        .brand-type ul {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
-
-        .brand-type li {
-            color: var(--text-secondary);
-            padding: 0.7rem 0;
-            border-bottom: 1px solid rgba(201, 162, 77, 0.1);
-            font-size: 0.95rem;
-            display: flex;
-            align-items: center;
-        }
-
-        .brand-type li:before {
-            content: "✓";
-            color: var(--gold-primary);
-            font-weight: bold;
-            margin-right: 0.8rem;
-            font-size: 1.1rem;
-        }
-
-        .brand-type li:last-child {
-            border-bottom: none;
-        }
-
-        .cta-button-small {
-            display: inline-block;
-            padding: 0.8rem 1.8rem;
-            background: var(--gradient-gold);
-            color: var(--bg-primary);
-            text-decoration: none;
-            border-radius: 50px;
-            font-weight: 600;
-            font-size: 0.9rem;
-            transition: all 0.3s ease;
-            letter-spacing: 0.5px;
-            text-transform: uppercase;
-            margin-top: 1.5rem;
-        }
-
-        .cta-button-small:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(201, 162, 77, 0.3);
-        }
-
-        .brand-disclaimer {
-            text-align: center;
-            margin-top: 3rem;
-            color: var(--text-muted);
-            font-size: 0.9rem;
-            font-style: italic;
-            padding: 1.5rem;
-            background: rgba(26,26,26,0.3);
-            border-radius: 10px;
-            border: 1px solid rgba(201, 162, 77, 0.1);
-        }
-
-        @media (max-width: 768px) {
-            .brand-categories {
-                grid-template-columns: 1fr;
-                gap: 1.5rem;
-            }
-            
-            .brand-type {
-                padding: 2rem;
-            }
-        }
-    </style>
-    
-    <div class="container">
-        <h2 class="section-title">Our Product Focus</h2>
-        <p class="section-subtitle">
-            We specialize in clinical-grade Korean brands for professional use
-        </p>
-        
-        <div class="brand-categories">
-            <div class="brand-type">
-            <h3>Clinical & Dermacosmetics</h3>
-            <p>Medical-grade formulations for professional results</p>
-            <ul>
-                <li>Advanced peptide serums</li>
-                <li>Clinical-strength retinol products</li>
-                <li>Professional peeling solutions</li>
-                <li>Medical-grade moisturizers</li>
-            </ul>
-        </div>
-            
-            <div class="brand-type">
-                <h3>Post-Procedure Care</h3>
-                <p>Recovery and healing formulations</p>
-                <ul>
-                    <li>Soothing recovery creams</li>
-                    <li>Barrier-repair serums</li>
-                    <li>Anti-inflammatory ampoules</li>
-                    <li>Calming sheet masks</li>
-                </ul>
-            </div>
-            
-            <div class="brand-type">
-                <h3>Custom Sourcing</h3>
-                <p>Can't find what you need? We source specific brands and products for your clinic</p>
-                <a href="#contact" class="cta-button-small">Request Specific Brand</a>
-            </div>
-        </div>
-        
-        <div class="brand-disclaimer">
-            *Product availability subject to manufacturer partnership confirmation. We are actively building our supplier network and can source specific products upon request.
-        </div>
-    </div>
-</section>
-    <!-- About Section -->
-    <section id="about" class="section about">
-        <div class="container">
-            <div class="about-grid">
-                <div class="about-content">
-                    <h2>Your Gateway to Verified Korean Skincare & Aesthetic Products</h2>
-
-                    <p>
-                    KORVEX supports sourcing and export coordination for Korean skincare, dermacosmetic, and aesthetic products for clinics and distributors.
-                    We coordinate with Korean manufacturers and partners to support stable supply, consistent quality, and competitive export pricing.                    </p>
-
-                    <p>
-                    With strong knowledge of production and international regulatory requirements, we coordinate product sourcing, documentation, and shipment to support smooth and reliable cross-border trade.
-                    </p>
-
-            <ul style="color:#B5B5B5; line-height:1.8; margin-left: 2rem;">
-            <li>MOQ flexibility depending on product and manufacturer</li>
-            <li>Private label / OEM available</li>
-            <li>High-volume orders supported</li>
-            </ul>
-
-
-                </div>
-                <div class="ceo-card">
-                    <div class="ceo-name">Taegyeom Kim</div>
-                    <div class="ceo-title">CEO | Business Developer</div>
-                    <p style="color: var(--text-secondary); margin-bottom: 2rem;">
-                        Korea–Global market development focused on medical aesthetics and clinic-oriented export partnerships.
-                    </p>
-                    <div class="ceo-contact">
-                        <div class="contact-item">
-                            <i class="fas fa-phone"></i>
-                            <span>+60-11-1602-3115 (Malaysia)</span>
-                        </div>
-                        <div class="contact-item">
-                            <i class="fas fa-phone"></i>
-                            <span>+82-10-2896-2172 (Korea)</span>
-                        </div>
-                        <div class="contact-item">
-                            <i class="fas fa-envelope"></i>
-                            <a href="mailto:korvexgrp@outlook.com">korvexgrp@outlook.com</a>
-                        </div>
-                        <div class="contact-item">
-                            <i class="fas fa-map-marker-alt"></i>
-                            <span>Seoul | Kuala Lumpur</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
 <!-- Contact Section -->
 <section id="contact" class="section contact">
   <div class="container">
-    <h2 class="section-title">Request Product List</h2>
+    <h2 class="section-title">Business Inquiries</h2>
     <p class="section-subtitle">
-      Tell us what products you are looking for.
+      For distribution, clinics, or partnership inquiries regarding AVERON.
     </p>
 
     <div class="contact-methods">
@@ -1440,7 +1111,7 @@ KORVEX는 B2B 바이어를 위한 한국 화장품 소싱 및 수출 코디네�
 
             <!-- Identity clarification -->
             <p class="identity-note">
-            KORVEX is a Korea-based product development and export platform supporting proprietary brands and professional supply partners.
+            KORVEX is the holding and operating entity behind AVERON.
             </p>
         </div>
     </div>
