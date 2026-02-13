@@ -772,6 +772,26 @@
                     .container {
                         padding: 0 20px;
                     }
+
+                    .averon-note {
+                        display: none !important;
+                    }
+                    
+                /* ===== AVERON mobile cleanup ===== */
+                    .averon-flagship { padding: 3.2rem 1.2rem !important; }
+                    .averon-flagship .hero-subtitle { font-size: 0.75rem !important; margin-bottom: 8px !important; }
+                    .averon-flagship .section-title { font-size: 2.1rem !important; }
+                    .averon-flagship .section-subtitle { font-size: 0.95rem !important; margin-bottom: 1.2rem !important; }
+                    .averon-flagship .container > div[style*="max-width: 920px"] { padding: 1.6rem 1.2rem !important; }
+                    .averon-flagship .container > div[style*="max-width: 920px"] > div[style*="display:grid"] { display: none !important; }
+                    .averon-flagship .cta-button.averon-cta {
+                        width: 100% !important;
+                        max-width: 420px;
+                        padding: 0.9rem 1.1rem !important;
+                        font-size: 0.9rem !important;
+                        border-radius: 28px !important;
+                        letter-spacing: 0.5px !important;
+                    }
                 }
 
                 /* Smooth scrolling */
@@ -974,9 +994,9 @@ KORVEX는 B2B 바이어를 위한 한국 화장품 소싱 및 수출 코디네�
         </div>
     </section>
 
-    <!-- Proprietary Brand Section -->
-    <section id="averon" class="section" style="background: var(--bg-primary); padding: 5rem 2rem;">
-  <div class="container" style="text-align:center;">
+    <!-- AVERON Section -->
+    <section id="averon" class="section averon-flagship" style="background: var(--bg-primary); padding: 5rem 2rem;">
+    <div class="container" style="text-align:center;">
     <p class="hero-subtitle" style="margin-bottom:10px;">Flagship Brand</p>
     <h2 class="section-title" style="font-size: 2.6rem;">AVERON</h2>
     <p class="section-subtitle" style="max-width: 760px; margin: 0 auto 2rem; color: var(--text-secondary);">
@@ -999,12 +1019,11 @@ KORVEX는 B2B 바이어를 위한 한국 화장품 소싱 및 수출 코디네�
         </div>
       </div>
 
-      <div style="margin-top: 20px; display:flex; gap:12px; justify-content:center; flex-wrap:wrap;">
-        <a href="averon.html" target="_blank" rel="noopener" class="cta-button" style="margin-bottom:0;">Visit AVERON Page</a>
-        <a href="#contact" class="cta-button" style="margin-bottom:0; background: transparent; color: var(--text-primary); border:1px solid rgba(201,162,77,0.35);">Request Catalog</a>
+      <div style="margin-top: 20px; display:flex; justify-content:center;">
+            <a href="averon.html" target="_blank" rel="noopener" class="cta-button averon-cta" style="margin-bottom:0;">Visit AVERON Page</a>
       </div>
 
-      <div style="margin-top: 14px; font-size: 12px; color: #9a9a9a;">
+      <div class="averon-note" style="margin-top: 14px; font-size: 12px; color: #9a9a9a;">
         Developed and managed within the KORVEX
       </div>
     </div>
