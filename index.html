@@ -5,19 +5,17 @@
     <meta name="google-site-verification" content="5rIhHGV2qQYGbqmmKfiBE57CyqNtspo5LnMaJ8GNTSg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <title>KORVEX | Korean Aesthetic & Clinic Skincare Export (B2B Only)</title>
+    <title>KORVEX | Korean Aesthetic & Clinic Skincare Export</title>
     
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='black'/%3E%3Ctext x='50%25' y='55%25' font-size='48' fill='%23C9A24D' font-family='Arial' font-weight='700' text-anchor='middle'%3EKV%3C/text%3E%3C/svg%3E">
     
-    <meta name="description" content="KORVEX is a Korea-based B2B export partner specializing in professional aesthetic and clinic-grade skincare. We work exclusively with distributors and importers to support market entry and regulatory documentation.">
-    <meta name="keywords" content="Korean cosmetic export, K-beauty exporter, Korean cosmetics supplier, Korean skincare wholesale, beauty product exporter Korea, cosmetic B2B, aesthetic clinic supplier, medical aesthetics distributor, OEM cosmetics Korea, private label cosmetics Korea, 화장품 수출, 한국 화장품 수출업체, 화장품 해외유통, 화장품 도매, 의료미용기기 수출">
+    <meta name="description" content="KORVEX is a Korea-based B2B export partner for clinic-grade skincare. We develop proprietary private label lines and support export coordination for distributors and import partners.">
+    <meta name="robots" content="index, follow">
 
-<meta name="robots" content="index, follow">
-
-<meta property="og:title" content="KORVEX | Korean Aesthetic & Clinic Skincare Export (B2B Only)">
-<meta property="og:description" content="Korea-based sourcing and export coordination for global B2B buyers.">
-<meta property="og:type" content="website">
+<meta property="og:title" content="KORVEX | Korean Aesthetic & Clinic Skincare Export (B2B Only)"><meta property="og:type" content="website">
+<meta property="og:description" content="Korea-based export partner. Proprietary private label development and export coordination for B2B partners.">
 <meta property="og:url" content="https://korvexgrp.com">
+
 <!-- Open Graph Image (소셜 공유용) -->
 <meta property="og:image" content="https://korvexgrp.com/images/OG%20image%20logo.png">
 <meta property="og:image:width" content="1200">
@@ -270,19 +268,19 @@
         /* 데스크톱 전용 이미지 (769px 이상) */
         @media screen and (min-width: 769px) {
         .hero-bg-image:nth-child(1) {
-            background-image: url('/images/데스크탑%20모델.webp');
+            background-image: url('images/데스크탑%20모델.webp');
             filter: brightness(1.05) contrast(1.06) saturate(1.06);
             background-position: center top;
         }
 
         .hero-bg-image:nth-child(2) {
-            background-image: url('/images/skincares%20imagess.webp');
+            background-image: url('images/skincares%20imagess.webp');
             filter: brightness(1.35) contrast(1.1) saturate(1.15);
             background-position: center top;
         }
 
         .hero-bg-image:nth-child(3) {
-            background-image: url('/images/백그라운드2.webp');
+            background-image: url('images/백그라운드2.webp');
             filter: brightness(1.35) contrast(1.1) saturate(1.15);
             background-position: center top;
         }
@@ -294,18 +292,18 @@
         /* 모바일 전용 이미지 (768px 이하) */
         @media screen and (max-width: 768px) {
             .hero-bg-image:nth-child(1) {
-                background-image: url('/images/모바일%20모델.webp');
+                background-image: url('images/모바일%20모델.webp');
                 filter: brightness(1.05) contrast(1.06) saturate(1.06);
                 background-position: center center;
             }
             .hero-bg-image:nth-child(2) {
-                background-image: url('/images/로션백그라운드%20모바일전용.avif');
+                background-image: url('images/로션백그라운드%20모바일전용.avif');
                 filter: brightness(1.35) contrast(1.1) saturate(1.15);
                 background-position: center center;
             }
             
             .hero-bg-image:nth-child(3) {
-                background-image: url('/images/백그라운드2.webp');  /* 3번 추가 */
+                background-image: url('images/백그라운드2.webp');  /* 3번 추가 */
                 filter: brightness(1.35) contrast(1.1) saturate(1.15);
                 background-position: center center;
             }
@@ -505,7 +503,7 @@
             position: relative;
             height: 500px;
             margin: 4rem 0;
-            background: url('/images/우주사진.avif') center/cover no-repeat;
+            background: url('images/우주사진.avif') center/cover no-repeat;
             border-radius: 20px;
             overflow: hidden;
             border: 1px solid rgba(201, 162, 77, 0.3);
@@ -779,6 +777,10 @@
                 /* Smooth scrolling */
                 html {
                     scroll-behavior: smooth;
+                    /* Make anchor jumps respect fixed header */
+                    :root { --header-offset: 90px; } /* 대충 값, 실제 nav 높이 비슷하게 */
+                    html { scroll-padding-top: var(--header-offset); }
+                    section[id] { scroll-margin-top: var(--header-offset); }
                 }
         
         /* Custom scrollbar */
@@ -924,7 +926,7 @@ KORVEX는 B2B 바이어를 위한 한국 화장품 소싱 및 수출 코디네�
         <div class="container">
             <div class="nav-container">
                 <div class="logo">
-                <img src="/images/logo%20nobg.png" alt="KORVEX Logo" class="logo-image">
+                <img src="images/logo%20nobg.png" alt="KORVEX Logo" class="logo-image">
                 KORVEX
                 </div>
 
@@ -938,6 +940,8 @@ KORVEX는 B2B 바이어를 위한 한국 화장품 소싱 및 수출 코디네�
                 <ul class="nav-links" id="navLinks">
                     <li><a href="#home">Home</a></li>
                     <li><a href="#why-us">Why Us</a></li>
+                    <!-- NEW: AVERON (새 창) -->
+                    <li><a href="averon.html" target="_blank" rel="noopener">AVERON</a></li>
                     <li><a href="#services">Solutions</a></li>
                     <li><a href="#contact">Contact</a></li>
                 </ul>
@@ -963,22 +967,21 @@ KORVEX는 B2B 바이어를 위한 한국 화장품 소싱 및 수출 코디네�
         </div>
         <div class="container">
             <div class="hero-content">
-                <h1>Korean Professional Skincare Export for Clinics & Distributors</h1>
-                <div class="hero-subtitle">Export Sourcing from Korea</div>
-                <p class="hero-subtitle">
-                Korean Export & B2B Trading Partner for Clinics and Distributors
-                </p>
-                <a href="#contact" class="cta-button">Request Product Catalog</a>
+                <h1>Korean Skincare Export & Private Label Development</h1>
+                <div class="hero-subtitle">Clinic-grade supply for clinics & distributors</div>
+                <a href="#contact" class="cta-button">Request PB Catalog</a>
             </div>
         </div>
     </section>
-    <p class="identity-note">
-        KORVEX is a dedicated B2B export partner for professional cosmetic and aesthetic brands, operating independently in the beauty industry.
-    </p>
-<!-- Why KORVEX Section -->
-<section id="why-us" class="section" style="background: var(--bg-secondary); padding: 6rem 2rem;">
-    <div class="container">
-        <h2 class="section-title">Why Choose KORVEX?</h2>
+        <!-- Why KORVEX Section -->
+        <section id="why-us" class="section" style="background: var(--bg-secondary); padding: 6rem 2rem;">
+        
+        <p class="identity-note" style="margin-top:0; margin-bottom: 16px; color: var(--text-secondary); opacity:0.85;">
+            KORVEX is a Korea-based export company specializing in professional cosmetic supply and private label development
+        </p>
+        
+        <div class="container">
+            <h2 class="section-title">Why Choose KORVEX?</h2>
         <p class="section-subtitle" style="max-width: 700px; margin: 0 auto 4rem; color: var(--text-secondary);">
             We are a Korea-based sourcing and export coordination partner for clinic-focused products.
         </p>
@@ -1033,6 +1036,27 @@ KORVEX는 B2B 바이어를 위한 한국 화장품 소싱 및 수출 코디네�
     </div>
 </section>
 
+<section class="section" style="background: var(--bg-primary); padding: 4.5rem 2rem;">
+  <div class="container" style="text-align:center;">
+    <h2 class="section-title" style="font-size: 2.2rem;">Proprietary Brand</h2>
+    <p class="section-subtitle" style="max-width: 760px; margin: 0 auto 2rem; color: var(--text-secondary);">
+      KORVEX develops and exports its own functional dermacosmetic line for professional use.
+    </p>
+
+    <div style="max-width: 880px; margin: 0 auto; border: 1px solid rgba(201,162,77,0.18); border-radius: 18px; padding: 2.2rem; background: rgba(26,26,26,0.65);">
+      <h3 style="font-family:'Orbitron', monospace; color: var(--gold-primary); font-size: 1.4rem; margin-bottom: 0.6rem;">
+        AVERON
+      </h3>
+      <p style="color: var(--text-secondary); opacity:0.95; margin-bottom: 1.2rem;">
+        Functional Skin Science.
+      </p>
+        <a href="averon.html" target="_blank" rel="noopener" class="cta-button" style="margin-bottom:0;">
+        Explore AVERON
+        </a>
+    </div>
+  </div>
+</section>
+
     <!-- Premium Services Section -->
 <section id="services" class="section">
     <div class="container">
@@ -1044,12 +1068,12 @@ KORVEX는 B2B 바이어를 위한 한국 화장품 소싱 및 수출 코디네�
             <!-- Card 1: Curated Korean Products -->
             <div class="service-card">
                 <div class="service-icon">✨</div>
-                <h3>Curated Korean Products</h3>
-                <p>Medical-grade skincare, dermacosmetics, and post-procedure care lines from Korean manufacturers (subject to supplier availability).</p>
+                <h3>Private Label Development</h3>
+                <p>We develop proprietary private label lines and coordinate production with qualified Korean manufacturing partners (subject to project terms).</p>
                 <ul style="text-align: left; color: var(--text-muted); margin-top: 1rem; list-style: none; padding-left: 0;">
-                    <li style="margin: 0.5rem 0;">✓ Clinical-strength formulations</li>
-                    <li style="margin: 0.5rem 0;">✓ Post-treatment recovery products</li>
-                    <li style="margin: 0.5rem 0;">✓ Professional peels & serums</li>
+                    <li style="margin: 0.5rem 0;">✓ Functional dermacosmetic concept planning</li>
+                    <li style="margin: 0.5rem 0;">✓ Packaging & SKU structure (pro / retail by partner request)</li>
+                    <li style="margin: 0.5rem 0;">✓ Export-ready coordination with documentation support</li>
                 </ul>
             </div>
 
@@ -1058,11 +1082,11 @@ KORVEX는 B2B 바이어를 위한 한국 화장품 소싱 및 수출 코디네�
                 <div class="service-icon">📄</div>
                 <h3>Complete Documentation Package</h3>
                 <p>Everything your customs broker and regulatory authority needs—delivered before shipment.</p>
-                <ul style="text-align: left; color: var(--text-muted); margin-top: 1rem; list-style: none; padding-left: 0; margin-left: 2rem;">
-                    <li style="margin: 0.5rem 0;">• Full ingredient lists (INCI)</li>
-                    <li style="margin: 0.5rem 0;">• Certificates of Analysis (COA)</li>
-                    <li style="margin: 0.5rem 0;">• MSDS / Safety Data Sheets</li>
-                    <li style="margin: 0.5rem 0;">• Export certifications</li>
+                <ul style="text-align: left; color: var(--text-muted); margin-top: 1rem; list-style: none; padding-left: 0;">
+                    <li style="margin: 0.5rem 0;">✓ Full ingredient lists (INCI)</li>
+                    <li style="margin: 0.5rem 0;">✓ Certificates of Analysis (COA)</li>
+                    <li style="margin: 0.5rem 0;">✓ MSDS / Safety Data Sheets</li>
+                    <li style="margin: 0.5rem 0;">✓ Export certifications</li>
                 </ul>
             </div>
 
@@ -1071,10 +1095,10 @@ KORVEX는 B2B 바이어를 위한 한국 화장품 소싱 및 수출 코디네�
                 <div class="service-icon">🔗</div>
                 <h3>Transparent Supply Chain</h3>
                 <p>Direct sourcing from Korean manufacturers when partnership terms allow. Transparent quotation and supplier disclosure upon request.</p>
-                <ul style="text-align: left; color: var(--text-muted); margin-top: 1rem; list-style: none; padding-left: 0; margin-left: 2rem;">
-                    <li style="margin: 0.5rem 0;">• MOQ flexibility depending on product and manufacturer</li>
-                    <li style="margin: 0.5rem 0;">• Private label / OEM available</li>
-                    <li style="margin: 0.5rem 0;">• High-volume orders supported</li>
+                <ul style="text-align: left; color: var(--text-muted); margin-top: 1rem; list-style: none; padding-left: 0;">
+                    <li style="margin: 0.5rem 0;">✓ MOQ flexibility depending on product and manufacturer</li>
+                    <li style="margin: 0.5rem 0;">✓ Private label / OEM available</li>
+                    <li style="margin: 0.5rem 0;">✓ High-volume orders supported</li>
                 </ul>
             </div>
 
@@ -1379,7 +1403,7 @@ KORVEX는 B2B 바이어를 위한 한국 화장품 소싱 및 수출 코디네�
     <footer>
     <div class="container">
         <div class="footer-content">
-            <p>&copy; 2022 KORVEX. Korean Cosmetic Export & B2B Trading.</p>
+            <p>&copy; 2022 KORVEX. Korean Cosmetic Export.</p>
             <p>Korea-based sourcing and export coordination for global B2B buyers.</p>
 
             <!-- Identity clarification -->
@@ -1391,19 +1415,29 @@ KORVEX는 B2B 바이어를 위한 한국 화장품 소싱 및 수출 코디네�
 </footer>
 
     <script>
-        // Smooth scroll behavior for navigation links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
+        // Smooth scroll behavior for navigation links (with fixed-nav offset)
+                    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                    anchor.addEventListener('click', function (e) {
+                        const href = this.getAttribute('href');
+                        if (!href || href === '#') return;
+                    
+                        const target = document.querySelector(href);
+                        if (!target) return;
+                    
+                        e.preventDefault();
+                    
+                        const nav = document.querySelector('nav');
+                        const navHeight = nav ? nav.offsetHeight : 0;
+                        const extraGap = 12; // 약간 여유
+                    
+                        const targetTop = target.getBoundingClientRect().top + window.pageYOffset;
+                        const scrollTo = targetTop - navHeight - extraGap;
+                        window.scrollTo({
+                        top: scrollTo,
+                        behavior: 'smooth'
+                        });
                     });
-                }
-            });
-        });
+                    });
 
         // Add scroll effect to navigation
         window.addEventListener('scroll', () => {

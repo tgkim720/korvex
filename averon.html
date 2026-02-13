@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>AVERON | Functional Skin Science</title>
+  <meta name="description" content="AVERON is a functional dermacosmetic line developed by KORVEX. Built for professional care with a focus on skin balance, hydration, and barrier comfort." />
+  <meta name="robots" content="index, follow" />
+
+  <link rel="canonical" href="https://korvexgrp.com/averon.html" />
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --bg: #FFFFFF;
+      --bg-soft: #F6F7F8;
+      --charcoal: #1E1E1E;
+      --charcoal-2: #2A2A2A;
+      --text: #111111;
+      --muted: #555555;
+      --line: rgba(0,0,0,0.12);
+    }
+
+        html { scroll-padding-top: 110px; }
+        section[id] { scroll-margin-top: 110px; }
+        
+    *{ margin:0; padding:0; box-sizing:border-box; }
+    body{
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+    a{ color: inherit; text-decoration:none; }
+
+    .wrap{ max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+
+    /* Top bar */
+    .topbar{
+      position: sticky;
+      top: 0;
+      z-index: 9999;
+      background: rgba(255,255,255,0.92);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--line);
+    }
+    .topbar-inner{
+        display:flex;
+        flex-direction: column;      /* 핵심: 세로 스택 */
+        align-items:center;          /* 가운데 정렬 */
+        justify-content:center;
+        padding: 18px 0 14px;
+        gap: 12px;
+    }
+
+    .logo{
+      display:flex;
+        flex-direction: column;
+        align-items: center;         /* 가운데 */
+        text-align: center;
+        gap: 2px;
+    }
+    .logo .brand{
+      letter-spacing: 0.18em;
+      font-weight: 700;
+      font-size: 18px;
+      color: var(--charcoal);
+    }
+    .logo .tag{
+      font-size: 12px;
+      color: var(--muted);
+      letter-spacing: 0.04em;
+    }
+
+    .nav{
+        display:flex;
+        justify-content: center;     /* 메뉴 줄 가운데 */
+        align-items: center;
+        flex-wrap: wrap;             /* 작은 화면에서 줄바꿈 */
+        gap: 18px;
+        font-size: 14px;
+        color: var(--charcoal-2);
+    }
+    .nav a{
+      padding: 8px 10px;
+      border-radius: 10px;
+    }
+    .nav a:hover{
+      background: var(--bg-soft);
+    }
+
+    /* Hero */
+    .hero{
+      padding: 72px 0 56px;
+      background: linear-gradient(180deg, #ffffff 0%, #f8f8f8 100%);
+    }
+    .hero h1{
+      font-size: clamp(28px, 4vw, 44px);
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+      color: var(--charcoal);
+      margin-bottom: 14px;
+    }
+    .hero .subtitle{
+      font-size: 16px;
+      color: var(--muted);
+      max-width: 760px;
+    }
+
+    .badge{
+        display:inline-block;
+        font-size: 11px;
+        letter-spacing: 0.08em;
+        color: #777;
+        background: transparent;
+        border: none;
+        margin-top: 6px;
+    }
+
+    .cta-row{
+      margin-top: 24px;
+      display:flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .btn{
+      display:inline-block;
+      padding: 12px 18px;
+      border-radius: 14px;
+      font-weight: 600;
+      font-size: 14px;
+      border: 1px solid var(--charcoal);
+      background: var(--charcoal);
+      color: #fff;
+    }
+    .btn.secondary{
+      background: transparent;
+      color: var(--charcoal);
+      border: 1px solid var(--line);
+    }
+
+    /* Sections */
+    .section{ padding: 52px 0; }
+    .section h2{
+      font-size: 22px;
+      color: var(--charcoal);
+      margin-bottom: 10px;
+      letter-spacing: -0.01em;
+    }
+    .section p{ color: var(--muted); }
+
+    .grid{
+      margin-top: 18px;
+      display:grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 16px;
+    }
+    .card{
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 20px;
+    }
+    .card h3{
+      color: var(--charcoal);
+      font-size: 16px;
+      margin-bottom: 8px;
+    }
+    .list{
+      margin-top: 10px;
+      padding-left: 18px;
+      color: var(--muted);
+      line-height: 1.9;
+      font-size: 14px;
+    }
+
+    /* Products */
+    .product-title{
+      display:flex;
+      align-items:flex-end;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .pill{
+      font-size: 12px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 6px 10px;
+      color: var(--charcoal-2);
+      background: var(--bg-soft);
+    }
+
+    /* Footer */
+    footer{
+      padding: 28px 0;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 13px;
+      background: #fff;
+    }
+    .foot-row{
+      display:flex;
+      justify-content: space-between;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    @media (max-width: 640px){
+      .topbar-inner{ padding: 12px 0; }
+      .nav{ gap: 8px; }
+      .nav a{ padding: 8px; }
+      .nav{ gap: 10px; }
+      .nav a{ padding: 8px 8px; }
+    }
+  </style>
+</head>
+
+<body>
+  <header class="topbar">
+  <div class="wrap">
+    <div class="topbar-inner">
+
+      <!-- Center Brand -->
+      <div class="logo">
+        <div class="brand">AVERON</div>
+        <div class="tag">Functional Skin Science</div>
+      </div>
+
+      <!-- Bottom Menu -->
+      <nav class="nav">
+        <a href="#about">About</a>
+        <a href="#products">Products</a>
+        <a href="#documents">Documents</a>
+        <a href="#contact">Contact</a>
+        <a href="https://korvexgrp.com" target="_blank" rel="noopener">KORVEX</a>
+      </nav>
+
+    </div>
+  </div>
+</header>
+
+  <main>
+    <section class="hero">
+      <div class="wrap">
+        <div class="badge">Developed by KORVEX</div>
+        <h1>Functional Dermacosmetics for Professional Care</h1>
+        <p class="subtitle">
+          AVERON is designed to support skin balance,
+          hydration, and barrier comfort for professional use.
+        </p>
+
+        <div class="cta-row">
+          <a class="btn" href="#products">View Core Products</a>
+          <a class="btn secondary" href="#contact">Request Catalog & Quotation</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="section">
+      <div class="wrap">
+        <h2>Why AVERON</h2>
+        <p>
+          Built around core functional outcomes—calming comfort, hydration support, and barrier-feel stability—without over-claiming.
+        </p>
+
+        <div class="grid">
+          <div class="card">
+            <h3>Functional Focus</h3>
+            <p>Designed for everyday professional routines and protocol compatibility.</p>
+          </div>
+          <div class="card">
+            <h3>Professional Sizing</h3>
+            <p>Core SKUs prioritize clinic workflow and stable replenishment planning.</p>
+          </div>
+          <div class="card">
+            <h3>Export Coordination</h3>
+            <p>Document support and export coordination are provided under project terms.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="products" class="section" style="background: var(--bg-soft);">
+      <div class="wrap">
+        <div class="product-title">
+          <div>
+            <h2>Core Products</h2>
+            <p>Two core SKUs for professional use (final specs TBC).</p>
+          </div>
+          <div class="pill">Pro sizes: 100ml / 150ml</div>
+        </div>
+
+        <div class="grid">
+          <div class="card">
+            <h3>Calming Ampoule</h3>
+            <p>Protocol-friendly ampoule focused on soothing comfort and long-lasting hydration.</p>
+            <ul class="list">
+              <li>Use-case: daily clinic base / post-care comfort</li>
+              <li>Planned volume: 100ml</li>
+              <li>Key ingredients (planned): soothing & hydration complex (final formula TBC)</li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <h3>Barrier Cream</h3>
+            <p>Moisturizing cream designed to reduce dryness discomfort and support barrier-feel stability.</p>
+            <ul class="list">
+              <li>Use-case: finishing step / sealing hydration</li>
+              <li>Planned volume: 150ml</li>
+              <li>Texture: non-greasy comfort feel (final TBC)</li>
+            </ul>
+          </div>
+        </div>
+
+        <div style="margin-top: 18px; color: var(--muted); font-size: 13px;">
+          Retail mini-SKUs (30ml / 50ml) are developed upon distributor/RP request.
+        </div>
+      </div>
+    </section>
+
+    <section id="documents" class="section">
+      <div class="wrap">
+        <h2>Manufacturer Documents</h2>
+        <p>Available for partner review (subject to manufacturer and project terms). Detailed docs can be shared upon request (NDA available).</p>
+
+        <div class="grid">
+          <div class="card">
+            <h3>Document List</h3>
+            <ul class="list">
+              <li>Factory certifications (e.g., ISO / GMP, if applicable)</li>
+              <li>COA / MSDS / INCI list</li>
+              <li>Product specification sheet</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3>Important Note</h3>
+            <ul class="list">
+              <li>Final specifications/claims are confirmed after quotation & manufacturing confirmation.</li>
+              <li>Full INCI is published only after final formula confirmation.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="section" style="background: #fff;">
+      <div class="wrap">
+        <h2>Request Catalog & Quotation</h2>
+        <p>Contact KORVEX to receive the PB catalog and project quotation.</p>
+
+        <div class="cta-row" style="margin-top: 16px;">
+          <a class="btn" href="mailto:korvexgrp@outlook.com">Email KORVEX</a>
+          <a class="btn secondary" href="https://wa.me/601116023115" target="_blank" rel="noopener">WhatsApp</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+  <div class="wrap">
+    <div class="foot-row">
+      <div>© AVERON</div>
+      <div style="opacity:0.9;">Functional Skin Science</div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+      const href = this.getAttribute('href');
+      if (!href || href === '#') return;
+
+      const target = document.querySelector(href);
+      if (!target) return;
+
+      e.preventDefault();
+
+      const topbar = document.querySelector('.topbar');
+      const barHeight = topbar ? topbar.offsetHeight : 0;
+      const extraGap = 12;
+
+      const targetTop = target.getBoundingClientRect().top + window.pageYOffset;
+      const scrollTo = targetTop - barHeight - extraGap;
+
+      window.scrollTo({ top: scrollTo, behavior: 'smooth' });
+    });
+  });
+</script>
+
+</body>
+</html>
