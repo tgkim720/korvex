@@ -1,1551 +1,396 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="google-site-verification" content="5rIhHGV2qQYGbqmmKfiBE57CyqNtspo5LnMaJ8GNTSg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <title>KORVEX | Korean Aesthetic & Clinic Skincare Export</title>
-    
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='black'/%3E%3Ctext x='50%25' y='55%25' font-size='48' fill='%23C9A24D' font-family='Arial' font-weight='700' text-anchor='middle'%3EKV%3C/text%3E%3C/svg%3E">
-    
-    <meta name="description" content="KORVEX is a Korea-based B2B export partner for clinic-grade skincare. We develop proprietary private label lines and support export coordination for distributors and import partners.">
-    <meta name="robots" content="index, follow">
-
-<meta property="og:title" content="KORVEX | Korean Aesthetic & Clinic Skincare Export (B2B Only)"><meta property="og:type" content="website">
-<meta property="og:description" content="Korea-based export partner. Proprietary private label development and export coordination for B2B partners.">
-<meta property="og:url" content="https://korvexgrp.com">
-
-<!-- Open Graph Image (소셜 공유용) -->
-<meta property="og:image" content="https://korvexgrp.com/images/OG%20image%20logo.png">
-<meta property="og:image:width" content="1200">
-<meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="KORVEX - Premium Korean Cosmetic Export">
-<meta property="og:image:type" content="image/jpeg">
-
-<!-- Twitter Card -->
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://korvexgrp.com/images/OG%20image%20logo.png">
-
-<link rel="canonical" href="https://korvexgrp.com">
-
-<!-- 다국어 지원 (향후 확장용) -->
-<link rel="alternate" hreflang="en" href="https://korvexgrp.com">
-<link rel="alternate" hreflang="ko" href="https://korvexgrp.com/ko">
-<link rel="alternate" hreflang="ms" href="https://korvexgrp.com/ms">
-<link rel="alternate" hreflang="id" href="https://korvexgrp.com/id">
-<link rel="alternate" hreflang="x-default" href="https://korvexgrp.com">
-
-    <!-- Fonts - SpaceX inspired -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Orbitron:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
-    <style>
-        :root {
-            /* New color scheme based on provided codes */
-            --bg-primary: #0B0B0B;
-            --bg-secondary: #1a1a1a;
-            --gold-primary: #C9A24D;
-            --gold-light: #E5C16E;
-            --gold-dark: #A8863B;
-            --text-primary: #FFFFFF;
-            --text-secondary: #C5C5C5;
-            --text-muted: #989898;
-            --gradient-gold: linear-gradient(135deg, var(--gold-primary) 0%, var(--gold-light) 100%);
-            --gradient-dark: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
-            --gradient-hero: linear-gradient(135deg, rgba(11,11,11,0.95) 0%, rgba(26,26,26,0.95) 100%);
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-            background: var(--bg-primary);
-            color: var(--text-primary);
-            line-height: 1.6;
-            overflow-x: hidden;
-        }
-
-        /* Reset all link colors */
-        a {
-            color: inherit;
-            text-decoration: none;
-        }
-
-        a:link,
-        a:visited,
-        a:hover,
-        a:active {
-            color: inherit;
-            text-decoration: none;
-            outline: none;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 30px;
-        }
-
-        /* Navigation - Premium space-tech style */
-        nav {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            background: rgba(11, 11, 11, 0.98);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            z-index: 2147483647;
-            border-bottom: 1px solid rgba(201, 162, 77, 0.2);
-            transition: all 0.3s ease;
-        }
-
-        .nav-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1rem 0;
-        }
-
-        .logo {
-            font-family: 'Orbitron', monospace;
-            font-size: 1.4rem;
-            font-weight: 700;
-            background: var(--gradient-gold);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-        .logo-image {
-                height: 45px;
-                width: auto;
-                margin-right: 5px;
-        }
-
-        .nav-links {
-            display: flex;
-            list-style: none;
-            gap: 2.5rem;
-            margin: 0;
-            padding: 0;
-        }
-
-        .nav-links li {
-            display: block;
-        }
-
-        .nav-links a {
-            color: var(--text-primary);
-            text-decoration: none;
-            font-weight: 500;
-            font-size: 0.95rem;
-            letter-spacing: 0.5px;
-            transition: all 0.3s ease;
-            position: relative;
-            outline: none;
-            display: block;
-            padding: 0.5rem 0;
-        }
-
-        .nav-links a:link,
-        .nav-links a:visited,
-        .nav-links a:hover,
-        .nav-links a:active {
-            color: var(--text-primary);
-            text-decoration: none;
-        }
-
-        .nav-links a:hover {
-            color: var(--gold-primary);
-            text-decoration: none;
-        }
-
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: var(--gradient-gold);
-            transition: width 0.3s ease;
-        }
-
-        .nav-links a:hover::after {
-            width: 100%;
-        }
-       
-        .identity-note {
-            font-size: 12px;
-            color: #777;
-            margin-top: 8px;
-            text-align: center;
-        }      
-
-        /* Hero Section - Desktop: 1920x1080, Mobile: 1080x1350 */
-        .hero {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            background: var(--gradient-hero);
-            position: relative;
-            overflow: hidden;
-            padding-top: 100px;
-        }
-
-        /* Desktop (1920x1080) - Landscape */
-        @media screen and (min-width: 769px) {
-            .hero {
-                min-height: 100vh;
-            }
-            
-            .hero-background-slider {
-                position: absolute;
-                top: 0;
-                left: 0;
-                right: 0;
-                bottom: 0;
-                z-index: 1;
-            }
-            
-            .hero-bg-image {
-                position: absolute;
-                top: 0;
-                left: 0;
-                right: 0;
-                bottom: 0;
-                background-size: cover;
-                background-position: center center;
-                background-repeat: no-repeat;
-                opacity: 0;
-                transition: opacity 1.6s ease-in-out;
-            }
-        }
-
-        /* Mobile (1080x1350) - Portrait */
-        @media screen and (max-width: 768px) {
-            .hero {
-                min-height: 135vw; /* 1080x1350 비율 유지 */
-                padding-top: 80px;
-            }
-            
-            .hero-background-slider {
-                position: absolute;
-                top: 0;
-                left: 0;
-                right: 0;
-                bottom: 0;
-                z-index: 1;
-            }
-            
-            .hero-bg-image {
-                position: absolute;
-                top: 0;
-                left: 0;
-                right: 0;
-                bottom: 0;
-                background-size: cover;
-                background-position: center center;
-                background-repeat: no-repeat;
-                opacity: 0;
-                transition: opacity 2s ease-in-out;
-            }
-        }
-
-        .hero-bg-image.active {
-            opacity: 0.88;
-        }
-        /* 데스크톱 전용 이미지 (769px 이상) */
-        @media screen and (min-width: 769px) {
-        .hero-bg-image:nth-child(1) {
-            background-image: url('images/데스크탑%20모델.webp');
-            filter: brightness(1.05) contrast(1.06) saturate(1.06);
-            background-position: center top;
-        }
-
-        .hero-bg-image:nth-child(2) {
-            background-image: url('images/skincares%20imagess.webp');
-            filter: brightness(1.35) contrast(1.1) saturate(1.15);
-            background-position: center top;
-        }
-
-        .hero-bg-image:nth-child(3) {
-            background-image: url('images/백그라운드2.webp');
-            filter: brightness(1.35) contrast(1.1) saturate(1.15);
-            background-position: center top;
-        }
-        .hero-bg-image:nth-child(4) {
-            background: #0B0B0B;  /* 검은 바탕 */
-        }
-        }
-        
-        /* 모바일 전용 이미지 (768px 이하) */
-        @media screen and (max-width: 768px) {
-            .hero-bg-image:nth-child(1) {
-                background-image: url('images/모바일%20모델.webp');
-                filter: brightness(1.05) contrast(1.06) saturate(1.06);
-                background-position: center center;
-            }
-            .hero-bg-image:nth-child(2) {
-                background-image: url('images/로션백그라운드%20모바일전용.avif');
-                filter: brightness(1.35) contrast(1.1) saturate(1.15);
-                background-position: center center;
-            }
-            
-            .hero-bg-image:nth-child(3) {
-                background-image: url('images/백그라운드2.webp');  /* 3번 추가 */
-                filter: brightness(1.35) contrast(1.1) saturate(1.15);
-                background-position: center center;
-            }
-            
-            .hero-bg-image:nth-child(4) {
-                background: #0B0B0B;  /* 검은 바탕 */
-            }
-        }       
-
-        .hero::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(135deg, rgba(11,11,11,0.04) 0%, rgba(11,11,11,0.10) 100%);
-            z-index: 1;
-        }
-
-        .hero-content {
-            position: relative;
-            z-index: 2;
-            max-width: 900px;
-            text-align: center;
-            margin: 0 auto;
-        }
-
-        .hero h1 {
-            font-family: 'Orbitron', monospace;
-            font-size: clamp(1.5rem, 5vw, 3rem);  /* 1.8rem → 1.5rem */
-            font-weight: 400;
-            line-height: 1.3;
-            margin-bottom: 1.5rem;
-            background: linear-gradient(135deg, var(--text-primary) 0%, var(--gold-light) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            letter-spacing: -0.5px;
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-10px); }
-        }
-
-        .hero-subtitle {
-            font-size: 0.85rem;  /* 1rem → 0.85rem */
-            color: var(--gold-primary);
-            margin-bottom: 1rem;
-            font-weight: 400;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            opacity: 0.9;
-        }
-
-        .hero-description {
-            font-size: 1rem;
-            color: var(--text-secondary);
-            margin-bottom: 2.5rem;
-            max-width: 700px;
-            margin-left: auto;
-            margin-right: auto;
-            line-height: 1.6;
-            opacity: 0.85;
-            animation: float 6s ease-in-out infinite;
-            animation-delay: 1s;
-        }
-
-        .cta-button {
-            display: inline-block;
-            padding: 1rem 2.5rem;
-            background: var(--gradient-gold);
-            color: var(--bg-primary);
-            text-decoration: none;
-            border-radius: 50px;
-            font-weight: 600;
-            font-size: 1rem;
-            transition: all 0.3s ease;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            margin-bottom: 3rem;
-        }
-
-        .cta-button:hover {
-            transform: translateY(-3px);
-        }
-
-        /* Sections */
-        .section {
-            padding: 8rem 0;
-        }
-        /* 첫 번째 섹션(Why Us)만 위쪽 패딩 줄이기 */
-        .section:first-of-type {
-            padding-top: 4rem;
-        }
-
-        .section-title {
-            font-family: 'Orbitron', monospace;
-            font-size: 3rem;
-            font-weight: 700;
-            text-align: center;
-            margin-bottom: 1rem;
-            background: var(--gradient-gold);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            letter-spacing: 1px;
-        }
-
-        .section-subtitle {
-            font-size: 1.2rem;
-            color: var(--text-secondary);
-            text-align: center;
-            margin-bottom: 4rem;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        /* Premium Services Section */
-        .services {
-            background: var(--bg-secondary);
-        }
-
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 3rem;
-        }
-
-        .service-card {
-            background: linear-gradient(135deg, rgba(26,26,26,0.8) 0%, rgba(11,11,11,0.9) 100%);
-            padding: 3rem;
-            border-radius: 20px;
-            border: 1px solid rgba(201, 162, 77, 0.2);
-            transition: all 0.4s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .service-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(201, 162, 77, 0.1), transparent);
-            transition: left 0.6s ease;
-        }
-
-        .service-card:hover::before {
-            left: 100%;
-        }
-
-        .service-card:hover {
-            transform: translateY(-10px);
-            border-color: var(--gold-primary);
-            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5);
-        }
-
-        .service-icon {
-            width: 70px;
-            height: 70px;
-            background: var(--gradient-gold);
-            border-radius: 15px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 2rem;
-            font-size: 1.8rem;
-            color: var(--bg-primary);
-        }
-
-        .service-card h3 {
-            font-family: 'Orbitron', monospace;
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-            color: var(--gold-primary);
-            letter-spacing: 0.5px;
-        }
-
-        .service-card p {
-            color: var(--text-secondary);
-            line-height: 1.7;
-            font-size: 1.05rem;
-        }
-
-        /* Global Network Section - Premium style */
-        .global-network {
-            background: var(--gradient-dark);
-            position: relative;
-        }
-
-        .world-map {
-            position: relative;
-            height: 500px;
-            margin: 4rem 0;
-            background: url('images/우주사진.avif') center/cover no-repeat;
-            border-radius: 20px;
-            overflow: hidden;
-            border: 1px solid rgba(201, 162, 77, 0.3);
-        }
-
-        .world-map::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-             background: linear-gradient(45deg,
-             rgba(201, 162, 77, 0.08) 0%,
-             rgba(11, 11, 11, 0.35) 50%,
-             rgba(201, 162, 77, 0.08) 100%);
-        }
-
-        .connection-lines {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            overflow: hidden;
-        }
-
-        /* Connection lines and dots removed for cleaner design */
-        .connection-lines {
-            display: none;
-        }
-
-        /* About/CEO Section */
-        .about {
-            background: var(--bg-primary);
-        }
-
-        .about-grid {
-            display: grid;
-            grid-template-columns: 2fr 1fr;
-            gap: 5rem;
-            align-items: start;
-        }
-
-        .about-content h2 {
-            font-family: 'Orbitron', monospace;
-            font-size: 2.5rem;
-            color: var(--gold-primary);
-            margin-bottom: 2rem;
-            letter-spacing: 1px;
-        }
-
-        .about-content p {
-            color: var(--text-secondary);
-            margin-bottom: 2rem;
-            font-size: 1.1rem;
-            line-height: 1.8;
-        }
-
-        .ceo-card {
-            background: linear-gradient(135deg, rgba(26,26,26,0.8) 0%, rgba(11,11,11,0.9) 100%);
-            padding: 3rem;
-            border-radius: 20px;
-            border: 1px solid rgba(201, 162, 77, 0.3);
-            position: sticky;
-            top: 120px;
-        }
-
-        .ceo-name {
-            font-family: 'Orbitron', monospace;
-            font-size: 1.8rem;
-            font-weight: 700;
-            color: var(--gold-primary);
-            margin-bottom: 0.5rem;
-            letter-spacing: 1px;
-        }
-
-        .ceo-title {
-            color: var(--text-secondary);
-            font-weight: 600;
-            margin-bottom: 1.5rem;
-            font-size: 1.1rem;
-        }
-
-        .contact-item {
-            display: flex;
-            align-items: center;
-            margin-bottom: 1rem;
-            color: var(--text-secondary);
-            font-size: 0.95rem;
-        }
-
-        .contact-item i {
-            margin-right: 1rem;
-            color: var(--gold-primary);
-            width: 20px;
-        }
-
-        /* Contact Section */
-        .contact {
-            background: var(--gradient-dark);
-            text-align: center;
-        }
-
-        .contact-methods {
-            display: flex;
-            justify-content: center;
-            gap: 3rem;
-            margin-top: 3rem;
-            flex-wrap: wrap;
-        }
-
-        .contact-method {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            padding: 1.5rem 2rem;
-            background: rgba(26,26,26,0.8);
-            border-radius: 15px;
-            border: 1px solid rgba(201, 162, 77, 0.3);
-            transition: all 0.3s ease;
-        }
-
-        .contact-method:hover {
-            border-color: var(--gold-primary);
-            transform: translateY(-3px);
-        }
-
-        .contact-method i {
-            font-size: 1.5rem;
-            color: var(--gold-primary);
-        }
-
-        .contact-method div {
-            text-align: left;
-        }
-
-        .contact-method h4 {
-            font-size: 1.1rem;
-            margin-bottom: 0.2rem;
-            color: var(--text-primary);
-        }
-
-        .contact-method p {
-            color: var(--text-secondary);
-            font-size: 0.9rem;
-        }
-
-        /* Footer */
-        footer {
-            background: var(--bg-primary);
-            padding: 3rem 0;
-            text-align: center;
-            border-top: 1px solid rgba(201, 162, 77, 0.2);
-        }
-
-        .footer-content {
-            color: var(--text-secondary);
-        }
-
-                    /* 햄버거 버튼 스타일 */
-        .hamburger {
-            display: none;
-            flex-direction: column;
-            gap: 5px;
-            background: none;
-            border: none;
-            cursor: pointer;
-            padding: 8px;
-            z-index: 1000;
-        }
-        
-        .hamburger span {
-            width: 25px;
-            height: 3px;
-            background: var(--gold-primary);
-            border-radius: 3px;
-            transition: all 0.3s ease;
-        }
-        
-        /* 햄버거 활성화 시 X자 애니메이션 */
-        .hamburger.active span:nth-child(1) {
-            transform: rotate(45deg) translate(8px, 8px);
-        }
-        
-        .hamburger.active span:nth-child(2) {
-            opacity: 0;
-        }
-        
-        .hamburger.active span:nth-child(3) {
-            transform: rotate(-45deg) translate(7px, -7px);
-        }
-        
-        /* Mobile Responsive */
-        @media (max-width: 768px) {
-            .hamburger {
-                display: flex;
-            }
-            
-            .nav-links {
-                position: fixed;
-                top: 70px;
-                left: -100%;
-                width: 100%;
-                height: calc(100vh - 70px);
-                background: rgba(11, 11, 11, 0.98);
-                backdrop-filter: blur(20px);
-                flex-direction: column;
-                justify-content: flex-start;
-                align-items: center;
-                padding: 3rem 0;
-                gap: 0;
-                transition: left 0.3s ease;
-                border-top: 1px solid rgba(201, 162, 77, 0.2);
-            }
-            
-            .nav-links.active {
-                left: 0;
-            }
-            
-            .nav-links li {
-                width: 100%;
-                text-align: center;
-                border-bottom: 1px solid rgba(201, 162, 77, 0.1);
-            }
-            
-            .nav-links a {
-                display: block;
-                padding: 1.5rem 2rem;
-                font-size: 1.1rem;
-            }
-        
-            .hero {
-                padding-top: 120px;
-                min-height: 100vh;
-                height: auto;
-            }
-        
-            .hero h1 {
-                font-size: 1.8rem;
-            }
-        
-                    .section-title {
-                        font-size: 2.2rem;
-                    }
-        
-                    .about-grid {
-                        grid-template-columns: 1fr;
-                        gap: 3rem;
-                    }
-        
-                    .services-grid {
-                        grid-template-columns: 1fr;
-                    }
-        
-                    .contact-methods {
-                        flex-direction: column;
-                        align-items: center;
-                        gap: 1.5rem;
-                    }
-        
-                    .section {
-                        padding: 4rem 0;
-                    }
-        
-                    .container {
-                        padding: 0 20px;
-                    }
-                    /* AVERON 모바일에서 하단 문구 숨김 */
-                    .averon-note {
-                        display: none !important;
-                    }
-
-                /* ===== AVERON mobile cleanup ===== */
-                    .averon-flagship { padding: 3.2rem 1.2rem !important; }
-                    .averon-flagship .hero-subtitle { font-size: 0.75rem !important; margin-bottom: 8px !important; }
-                    .averon-flagship .section-title { font-size: 2.1rem !important; }
-                    .averon-flagship .section-subtitle { font-size: 0.95rem !important; margin-bottom: 1.2rem !important; }
-                    .averon-flagship .container > div[style*="max-width: 920px"] { padding: 1.6rem 1.2rem !important; }
-                    .averon-flagship .container > div[style*="max-width: 920px"] > div[style*="display:grid"] { display: none !important; }
-                    .averon-flagship .cta-button.averon-cta {
-                        width: 100% !important;
-                        max-width: 420px;
-                        padding: 0.9rem 1.1rem !important;
-                        font-size: 0.9rem !important;
-                        border-radius: 28px !important;
-                        letter-spacing: 0.5px !important;
-                    }
-                }
-
-                /* Smooth scrolling */
-                html {
-                    scroll-behavior: smooth;
-                    /* Make anchor jumps respect fixed header */
-                    :root { --header-offset: 90px; } /* 대충 값, 실제 nav 높이 비슷하게 */
-                    html { scroll-padding-top: var(--header-offset); }
-                    section[id] { scroll-margin-top: var(--header-offset); }
-                }
-        
-        /* Custom scrollbar */
-        ::-webkit-scrollbar {
-            width: 8px;
-        }
-
-        ::-webkit-scrollbar-track {
-            background: var(--bg-primary);
-        }
-
-        ::-webkit-scrollbar-thumb {
-            background: var(--gold-primary);
-            border-radius: 4px;
-        }
-
-        ::-webkit-scrollbar-thumb:hover {
-            background: var(--gold-light);
-        }
-
-        /* Remove default link colors and styles */
-        * {
-            -webkit-tap-highlight-color: transparent;
-        }
-
-        a:focus {
-            outline: none;
-            box-shadow: none;
-        }
-        
-        /* WhatsApp 플로팅 버튼 */
-        .whatsapp-float {
-            position: fixed;
-            width: 60px;
-            height: 60px;
-            bottom: 30px;
-            right: 30px;
-            background: #25D366;
-            color: #FFFFFF;
-            border-radius: 50%;
-            text-align: center;
-            font-size: 30px;
-            box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
-            z-index: 999999;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: all 0.3s ease;
-            text-decoration: none;
-        }
-        
-        .whatsapp-float:hover {
-            background: #128C7E;
-            transform: scale(1.1);
-            box-shadow: 0 6px 30px rgba(37, 211, 102, 0.6);
-        }
-        
-        .whatsapp-float i {
-            color: #FFFFFF;
-            line-height: 60px;
-        }
-        
-        /* 모바일에서 크기 조정 */
-        @media (max-width: 768px) {
-            .whatsapp-float {
-                width: 50px;
-                height: 50px;
-                bottom: 20px;
-                right: 20px;
-                font-size: 26px;
-            }
-            
-            .whatsapp-float i {
-                line-height: 50px;
-            }
-        }
-        
-        /* 애니메이션 효과 (선택사항) */
-        @keyframes pulse {
-            0% {
-                box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
-            }
-            70% {
-                box-shadow: 0 0 0 15px rgba(37, 211, 102, 0);
-            }
-            100% {
-                box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
-            }
-        }
-        
-        .whatsapp-float {
-            animation: pulse 2s infinite;
-        }
-        
-        .whatsapp-float:hover {
-            animation: none;
-        }
-            </style>
-    
-    <!-- Schema.org 구조화 데이터 -->
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Organization",
-  "name": "KORVEX",
-  "url": "https://korvexgrp.com",
-  "logo": "https://korvexgrp.com/images/logo%20nobg.png",
-  "description": "Korean cosmetic export & B2B trading company supporting sourcing and export coordination for clinics and distributors",
-  "contactPoint": [
-    {
-      "@type": "ContactPoint",
-      "telephone": "+60-11-1602-3115",
-      "contactType": "Sales",
-      "areaServed": ["MY", "SG", "AE", "US", "EU"],
-      "availableLanguage": ["en", "ko", "ms"]
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>AVERON | Functional Skin Science</title>
+  <meta name="description" content="AVERON is a functional dermacosmetic line developed by KORVEX. Built for professional care with a focus on skin balance, hydration, and barrier comfort." />
+  <meta name="robots" content="index, follow" />
+
+  <link rel="canonical" href="https://korvexgrp.com/averon.html" />
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --bg: #FFFFFF;
+      --bg-soft: #F6F7F8;
+      --charcoal: #1E1E1E;
+      --charcoal-2: #2A2A2A;
+      --text: #111111;
+      --muted: #555555;
+      --line: rgba(0,0,0,0.12);
     }
-  ],
-  "founder": {
-    "@type": "Person",
-    "name": "Taegyeom Kim",
-    "jobTitle": "CEO"
-  },
-  "address": {
-    "@type": "PostalAddress",
-    "addressLocality": "Seoul",
-    "addressCountry": "KR"
-  },
-  "sameAs": [
-    "https://wa.me/601116023115",
-    "https://open.kakao.com/o/sZ6WqVei"
-  ]
-}
-</script>
+
+        html { scroll-padding-top: 110px; }
+        section[id] { scroll-margin-top: 110px; }
+        
+    *{ margin:0; padding:0; box-sizing:border-box; }
+    body{
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+    a{ color: inherit; text-decoration:none; }
+
+    .wrap{ max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+
+    /* Top bar */
+    .topbar{
+      position: sticky;
+      top: 0;
+      z-index: 9999;
+      background: rgba(255,255,255,0.92);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--line);
+    }
+    .topbar-inner{
+        display:flex;
+        flex-direction: column;      /* 핵심: 세로 스택 */
+        align-items:center;          /* 가운데 정렬 */
+        justify-content:center;
+        padding: 18px 0 14px;
+        gap: 12px;
+    }
+
+    .logo{
+      display:flex;
+        flex-direction: column;
+        align-items: center;         /* 가운데 */
+        text-align: center;
+        gap: 2px;
+    }
+    .logo .brand{
+      letter-spacing: 0.18em;
+      font-weight: 700;
+      font-size: 18px;
+      color: var(--charcoal);
+    }
+    .logo .tag{
+      font-size: 12px;
+      color: var(--muted);
+      letter-spacing: 0.04em;
+    }
+
+    .nav{
+        display:flex;
+        justify-content: center;     /* 메뉴 줄 가운데 */
+        align-items: center;
+        flex-wrap: wrap;             /* 작은 화면에서 줄바꿈 */
+        gap: 18px;
+        font-size: 14px;
+        color: var(--charcoal-2);
+    }
+    .nav a{
+      padding: 8px 10px;
+      border-radius: 10px;
+    }
+    .nav a:hover{
+      background: var(--bg-soft);
+    }
+
+    /* Hero */
+    .hero{
+      padding: 72px 0 56px;
+      background: linear-gradient(180deg, #ffffff 0%, #f8f8f8 100%);
+    }
+    .hero h1{
+      font-size: clamp(28px, 4vw, 44px);
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+      color: var(--charcoal);
+      margin-bottom: 14px;
+    }
+    .hero .subtitle{
+      font-size: 16px;
+      color: var(--muted);
+      max-width: 760px;
+    }
+
+    .badge{
+        display:inline-block;
+        font-size: 11px;
+        letter-spacing: 0.08em;
+        color: #777;
+        background: transparent;
+        border: none;
+        margin-top: 6px;
+    }
+
+    .cta-row{
+      margin-top: 24px;
+      display:flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .btn{
+      display:inline-block;
+      padding: 12px 18px;
+      border-radius: 14px;
+      font-weight: 600;
+      font-size: 14px;
+      border: 1px solid var(--charcoal);
+      background: var(--charcoal);
+      color: #fff;
+    }
+    .btn.secondary{
+      background: transparent;
+      color: var(--charcoal);
+      border: 1px solid var(--line);
+    }
+
+    /* Sections */
+    .section{ padding: 52px 0; }
+    .section h2{
+      font-size: 22px;
+      color: var(--charcoal);
+      margin-bottom: 10px;
+      letter-spacing: -0.01em;
+    }
+    .section p{ color: var(--muted); }
+
+    .grid{
+      margin-top: 18px;
+      display:grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 16px;
+    }
+    .card{
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 20px;
+    }
+    .card h3{
+      color: var(--charcoal);
+      font-size: 16px;
+      margin-bottom: 8px;
+    }
+    .list{
+      margin-top: 10px;
+      padding-left: 18px;
+      color: var(--muted);
+      line-height: 1.9;
+      font-size: 14px;
+    }
+
+    /* Products */
+    .product-title{
+      display:flex;
+      align-items:flex-end;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .pill{
+      font-size: 12px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 6px 10px;
+      color: var(--charcoal-2);
+      background: var(--bg-soft);
+    }
+
+    /* Footer */
+    footer{
+      padding: 28px 0;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 13px;
+      background: #fff;
+    }
+    .foot-row{
+      display:flex;
+      justify-content: space-between;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    @media (max-width: 640px){
+      .topbar-inner{ padding: 12px 0; }
+      .nav{ gap: 8px; }
+      .nav a{ padding: 8px; }
+      .nav{ gap: 10px; }
+      .nav a{ padding: 8px 8px; }
+    }
+  </style>
 </head>
+
 <body>
-    <section style="display:none;">
-KORVEX supports Korean cosmetic sourcing and export coordination for B2B buyers.
-KORVEX는 B2B 바이어를 위한 한국 화장품 소싱 및 수출 코디네이션을 지원합니다.
-</section>
+  <header class="topbar">
+  <div class="wrap">
+    <div class="topbar-inner">
 
-    <!-- Navigation -->
-    <nav>
-        <div class="container">
-            <div class="nav-container">
-                <div class="logo">
-                <img src="images/logo%20nobg.png" alt="KORVEX Logo" class="logo-image">
-                KORVEX
-                </div>
-
-                <!-- 햄버거 버튼 (모바일 전용) -->
-                <button class="hamburger" id="hamburger" aria-label="Toggle menu">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </button>
-    
-                <ul class="nav-links" id="navLinks">
-                    <li><a href="#home">Home</a></li>
-                    <!-- NEW: AVERON (새 창) -->
-                    <li><a href="averon.html" target="_blank" rel="noopener">AVERON</a></li>
-                    <li><a href="#why-us">Why Us</a></li>
-                    <li><a href="#services">Solutions</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
-            </div> 
-        </div>
-    </nav>
-    
-    <!-- WhatsApp 플로팅 버튼 -->
-    <a href="https://wa.me/601116023115?text=Hello%20KORVEX%2C%20I'm%20interested%20in%20your%20Korean%20cosmetic%20products" 
-    class="whatsapp-float" 
-    target="_blank"
-    aria-label="Contact us on WhatsApp">
-    <i class="fab fa-whatsapp"></i>
-    </a>
-
-    <!-- Hero Section -->
-    <section id="home" class="hero">
-        <div class="hero-background-slider">
-            <div class="hero-bg-image active"></div>
-            <div class="hero-bg-image"></div>
-            <div class="hero-bg-image"></div>
-            <div class="hero-bg-image"></div>
-        </div>
-        <div class="container">
-            <div class="hero-content">
-                <h1>Korean Clinic-Grade Skincare</h1>
-                <div class="hero-subtitle">Proprietary brand development • Export coordination for professional partners</div>
-                <a href="#averon" class="cta-button">Explore AVERON</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- AVERON Section -->
-    <section id="averon" class="section averon-flagship" style="background: var(--bg-primary); padding: 5rem 2rem;">
-    <div class="container" style="text-align:center;">
-    <p class="hero-subtitle" style="margin-bottom:10px;">Flagship Brand</p>
-    <h2 class="section-title" style="font-size: 2.6rem;">AVERON</h2>
-    <p class="section-subtitle" style="max-width: 760px; margin: 0 auto 2rem; color: var(--text-secondary);">
-      Functional Skin Science — designed for clinic routines and barrier comfort.
-    </p>
-
-    <div style="max-width: 920px; margin: 0 auto; border: 1px solid rgba(201,162,77,0.18); border-radius: 18px; padding: 2.2rem; background: rgba(26,26,26,0.65);">
-      <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 14px; text-align:center;">
-        <div style="border: 1px solid rgba(201,162,77,0.12); border-radius: 14px; padding: 16px; background: rgba(11,11,11,0.35);">
-          <div style="color: var(--gold-primary); font-weight:700; margin-bottom:6px;">Clinic-First</div>
-          <div style="color: var(--text-secondary); opacity:0.95;">Built for professional protocols & daily treatment flow.</div>
-        </div>
-        <div style="border: 1px solid rgba(201,162,77,0.12); border-radius: 14px; padding: 16px; background: rgba(11,11,11,0.35);">
-          <div style="color: var(--gold-primary); font-weight:700; margin-bottom:6px;">Functional Formulas</div>
-          <div style="color: var(--text-secondary); opacity:0.95;">Hydration, comfort, and barrier-feel stability.</div>
-        </div>
-        <div style="border: 1px solid rgba(201,162,77,0.12); border-radius: 14px; padding: 16px; background: rgba(11,11,11,0.35);">
-          <div style="color: var(--gold-primary); font-weight:700; margin-bottom:6px;">Export-Ready</div>
-          <div style="color: var(--text-secondary); opacity:0.95;">Documentation & shipment coordination available for partners.</div>
-        </div>
+      <!-- Center Brand -->
+      <div class="logo">
+        <div class="brand">AVERON</div>
+        <div class="tag">Functional Skin Science</div>
       </div>
 
-      <div style="margin-top: 20px; display:flex; justify-content:center;">
-            <a href="averon.html" target="_blank" rel="noopener" class="cta-button averon-cta" style="margin-bottom:0;">Visit AVERON Page</a>
-      </div>
+      <!-- Bottom Menu -->
+      <nav class="nav">
+        <a href="#about">About</a>
+        <a href="#products">Products</a>
+        <a href="#documents">Documents</a>
+        <a href="#contact">Contact</a>
+        <a href="https://korvexgrp.com" target="_blank" rel="noopener">KORVEX</a>
+      </nav>
 
-      <div class="averon-note" style="margin-top: 14px; font-size: 12px; color: #9a9a9a;">
-        Developed and managed within the KORVEX
-      </div>
     </div>
   </div>
-</section>
+</header>
 
-        <!-- Why KORVEX Section -->
-        <section id="why-us" class="section" style="background: var(--bg-secondary); padding: 6rem 2rem;">
-        
-        <div class="container">
-            <h2 class="section-title">Why Choose KORVEX?</h2>
-        <p class="section-subtitle" style="max-width: 700px; margin: 0 auto 4rem; color: var(--text-secondary);">
-            Behind AVERON and partner supply — KORVEX coordinates sourcing, documentation, and export execution.
+  <main>
+    <section class="hero">
+      <div class="wrap">
+        <div class="badge">Developed by KORVEX</div>
+        <h1>Functional Dermacosmetics for Professional Care</h1>
+        <p class="subtitle">
+          AVERON is designed to support skin balance,
+          hydration, and barrier comfort for professional use.
         </p>
-        
-        <div class="why-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; max-width: 1200px; margin: 0 auto;">
-            
-            <!-- Card 1: Clinic-Focused Expertise -->
-            <div class="why-card" style="background: var(--bg-primary); padding: 2.5rem; border-radius: 20px; border: 1px solid rgba(201, 162, 77, 0.1); transition: all 0.3s ease;">
-                <div class="why-icon" style="width: 60px; height: 60px; background: var(--gradient-gold); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.8rem; margin-bottom: 1.5rem;">
-                    🏥
-                </div>
-                <h3 style="color: var(--gold-primary); font-size: 1.3rem; margin-bottom: 1rem; font-family: 'Orbitron', monospace;">Clinic-Focused Expertise</h3>
-                <p style="color: var(--text-secondary); line-height: 1.7;">
-                    We understand what clinics need. Medical-grade products, reliable documentation, and suppliers who speak your language—not generic cosmetics.
-                </p>
-            </div>
 
-            <!-- Card 2: Direct CEO Access -->
-            <div class="why-card" style="background: var(--bg-primary); padding: 2.5rem; border-radius: 20px; border: 1px solid rgba(201, 162, 77, 0.1); transition: all 0.3s ease;">
-                <div class="why-icon" style="width: 60px; height: 60px; background: var(--gradient-gold); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.8rem; margin-bottom: 1.5rem;">
-                    💬
-                </div>
-                <h3 style="color: var(--gold-primary); font-size: 1.3rem; margin-bottom: 1rem; font-family: 'Orbitron', monospace;">Direct CEO Access</h3>
-                <p style="color: var(--text-secondary); line-height: 1.7;">
-                    No middlemen. No automated responses. Talk directly to the CEO via WhatsApp or KakaoTalk. Fast decisions, real conversations.
-                </p>
-            </div>
-
-            <!-- Card 3: Regulatory Expertise -->
-            <div class="why-card" style="background: var(--bg-primary); padding: 2.5rem; border-radius: 20px; border: 1px solid rgba(201, 162, 77, 0.1); transition: all 0.3s ease;">
-                <div class="why-icon" style="width: 60px; height: 60px; background: var(--gradient-gold); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.8rem; margin-bottom: 1.5rem;">
-                    📋
-                </div>
-                <h3 style="color: var(--gold-primary); font-size: 1.3rem; margin-bottom: 1rem; font-family: 'Orbitron', monospace;">Regulatory Expertise</h3>
-                <p style="color: var(--text-secondary); line-height: 1.7;">
-                    Navigating Malaysia, Singapore, or Middle East regulations? We support export documentation and can guide required paperwork to reduce delays and compliance risks.
-                </p>
-            </div>
-
-            <!-- Card 4: Asia-Pacific Focus -->
-            <div class="why-card" style="background: var(--bg-primary); padding: 2.5rem; border-radius: 20px; border: 1px solid rgba(201, 162, 77, 0.1); transition: all 0.3s ease;">
-                <div class="why-icon" style="width: 60px; height: 60px; background: var(--gradient-gold); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.8rem; margin-bottom: 1.5rem;">
-                    🌏
-                </div>
-                <h3 style="color: var(--gold-primary); font-size: 1.3rem; margin-bottom: 1rem; font-family: 'Orbitron', monospace;">Asia-Pacific Focus</h3>
-                <p style="color: var(--text-secondary); line-height: 1.7;">
-                    Deep understanding of Southeast Asian and Middle Eastern market needs. Tailored solutions for regional regulatory requirements.
-                </p>
-            </div>
-
+        <div class="cta-row">
+          <a class="btn" href="#products">View Core Products</a>
+          <a class="btn secondary" href="#contact">Request Catalog & Quotation</a>
         </div>
-    </div>
-</section>
-
-    <!-- Premium Services Section -->
-<section id="services" class="section">
-    <div class="container">
-        <h2 class="section-title">What We Provide</h2>
-        <p class="section-subtitle">Practical solutions for clinics serious about Korean aesthetics</p>
-        
-        <div class="services-grid">
-            
-            <!-- Card 1: Curated Korean Products -->
-            <div class="service-card">
-                <div class="service-icon">✨</div>
-                <h3>Private Label Development</h3>
-                <p>We develop proprietary private label lines and coordinate production with qualified Korean manufacturing partners (subject to project terms).</p>
-                <ul style="text-align: left; color: var(--text-muted); margin-top: 1rem; list-style: none; padding-left: 0;">
-                    <li style="margin: 0.5rem 0;">✓ Functional dermacosmetic concept planning</li>
-                    <li style="margin: 0.5rem 0;">✓ Packaging & SKU structure (pro / retail by partner request)</li>
-                    <li style="margin: 0.5rem 0;">✓ Export-ready coordination with documentation support</li>
-                </ul>
-            </div>
-
-            <!-- Card 2: Complete Documentation Package -->
-            <div class="service-card">
-                <div class="service-icon">📄</div>
-                <h3>Complete Documentation Package</h3>
-                <p>Everything your customs broker and regulatory authority needs—delivered before shipment.</p>
-                <ul style="text-align: left; color: var(--text-muted); margin-top: 1rem; list-style: none; padding-left: 0;">
-                    <li style="margin: 0.5rem 0;">✓ Full ingredient lists (INCI)</li>
-                    <li style="margin: 0.5rem 0;">✓ Certificates of Analysis (COA)</li>
-                    <li style="margin: 0.5rem 0;">✓ MSDS / Safety Data Sheets</li>
-                    <li style="margin: 0.5rem 0;">✓ Export certifications</li>
-                </ul>
-            </div>
-
-            <!-- Card 3: Transparent Supply Chain -->
-            <div class="service-card">
-                <div class="service-icon">🔗</div>
-                <h3>Transparent Supply Chain</h3>
-                <p>Direct sourcing from Korean manufacturers when partnership terms allow. Transparent quotation and supplier disclosure upon request.</p>
-                <ul style="text-align: left; color: var(--text-muted); margin-top: 1rem; list-style: none; padding-left: 0;">
-                    <li style="margin: 0.5rem 0;">✓ MOQ flexibility depending on product and manufacturer</li>
-                    <li style="margin: 0.5rem 0;">✓ Private label / OEM available</li>
-                    <li style="margin: 0.5rem 0;">✓ High-volume orders supported</li>
-                </ul>
-            </div>
-
-            <!-- Card 4: End-to-End Logistics -->
-            <div class="service-card">
-                <div class="service-icon">🚚</div>
-                <h3>End-to-End Logistics</h3>
-                <p>From manufacturer pickup in Korea to your destination. We handle export, shipping, and tracking.</p>
-                <ul style="text-align: left; color: var(--text-muted); margin-top: 1rem; list-style: none; padding-left: 0;">
-                    <li style="margin: 0.5rem 0;">✓ Air & sea freight options</li>
-                    <li style="margin: 0.5rem 0;">✓ Real-time shipment tracking</li>
-                    <li style="margin: 0.5rem 0;">✓ Customs clearance support</li>
-                </ul>
-            </div>
-
-        </div>
-    </div>
-</section>
-
-    <!-- Korean Aesthetic Supply Network Section -->
-    <section id="network" class="section global-network">
-        <div class="container">
-            <h2 class="section-title">Korean Aesthetic Supply Network</h2>
-            <p class="section-subtitle">
-                Building access to Korean manufacturers and export-ready aesthetic products for clinics and distributors
-            </p>
-            <div class="world-map">
-                <!-- Connection dots removed for cleaner look -->
-            </div>
-            <div style="text-align: center; margin-top: 3rem;">
-                <p style="color: var(--text-secondary); font-size: 1.1rem; opacity: 0.8;">
-                    <br>From Korea to the World — Tailored for Global Markets<br>
-                    <br>Asia • Europe • Middle East • Americas<br>
-                </p>
-            </div>
-        </div>
+      </div>
     </section>
 
-<!-- Brand Focus Section -->
-<section id="brands" class="section brands">
-    <style>
-        .brands {
-            background: var(--bg-primary);
-        }
-
-        .brand-categories {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 2.5rem;
-            margin-top: 3rem;
-        }
-
-        .brand-type {
-            background: linear-gradient(135deg, rgba(26,26,26,0.8) 0%, rgba(11,11,11,0.9) 100%);
-            padding: 2.5rem;
-            border-radius: 20px;
-            border: 1px solid rgba(201, 162, 77, 0.2);
-            transition: all 0.3s ease;
-        }
-
-        .brand-type:hover {
-            transform: translateY(-5px);
-            border-color: var(--gold-primary);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
-        }
-
-        .brand-type h3 {
-            font-family: 'Orbitron', monospace;
-            color: var(--gold-primary);
-            font-size: 1.4rem;
-            margin-bottom: 1rem;
-            letter-spacing: 0.5px;
-        }
-
-        .brand-type > p {
-            color: var(--text-secondary);
-            margin-bottom: 1.5rem;
-            font-size: 0.95rem;
-        }
-
-        .brand-type ul {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
-
-        .brand-type li {
-            color: var(--text-secondary);
-            padding: 0.7rem 0;
-            border-bottom: 1px solid rgba(201, 162, 77, 0.1);
-            font-size: 0.95rem;
-            display: flex;
-            align-items: center;
-        }
-
-        .brand-type li:before {
-            content: "✓";
-            color: var(--gold-primary);
-            font-weight: bold;
-            margin-right: 0.8rem;
-            font-size: 1.1rem;
-        }
-
-        .brand-type li:last-child {
-            border-bottom: none;
-        }
-
-        .cta-button-small {
-            display: inline-block;
-            padding: 0.8rem 1.8rem;
-            background: var(--gradient-gold);
-            color: var(--bg-primary);
-            text-decoration: none;
-            border-radius: 50px;
-            font-weight: 600;
-            font-size: 0.9rem;
-            transition: all 0.3s ease;
-            letter-spacing: 0.5px;
-            text-transform: uppercase;
-            margin-top: 1.5rem;
-        }
-
-        .cta-button-small:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(201, 162, 77, 0.3);
-        }
-
-        .brand-disclaimer {
-            text-align: center;
-            margin-top: 3rem;
-            color: var(--text-muted);
-            font-size: 0.9rem;
-            font-style: italic;
-            padding: 1.5rem;
-            background: rgba(26,26,26,0.3);
-            border-radius: 10px;
-            border: 1px solid rgba(201, 162, 77, 0.1);
-        }
-
-        @media (max-width: 768px) {
-            .brand-categories {
-                grid-template-columns: 1fr;
-                gap: 1.5rem;
-            }
-            
-            .brand-type {
-                padding: 2rem;
-            }
-        }
-    </style>
-    
-    <div class="container">
-        <h2 class="section-title">Our Product Focus</h2>
-        <p class="section-subtitle">
-            We specialize in clinical-grade Korean brands for professional use
+    <section id="about" class="section">
+      <div class="wrap">
+        <h2>Why AVERON</h2>
+        <p>
+          Built around core functional outcomes—calming comfort, hydration support, and barrier-feel stability—without over-claiming.
         </p>
-        
-        <div class="brand-categories">
-            <div class="brand-type">
-            <h3>Clinical & Dermacosmetics</h3>
-            <p>Medical-grade formulations for professional results</p>
-            <ul>
-                <li>Advanced peptide serums</li>
-                <li>Clinical-strength retinol products</li>
-                <li>Professional peeling solutions</li>
-                <li>Medical-grade moisturizers</li>
-            </ul>
+
+        <div class="grid">
+          <div class="card">
+            <h3>Functional Focus</h3>
+            <p>Designed for everyday professional routines and protocol compatibility.</p>
+          </div>
+          <div class="card">
+            <h3>Professional Sizing</h3>
+            <p>Core SKUs prioritize clinic workflow and stable replenishment planning.</p>
+          </div>
+          <div class="card">
+            <h3>Export Coordination</h3>
+            <p>Document support and export coordination are provided under project terms.</p>
+          </div>
         </div>
-            
-            <div class="brand-type">
-                <h3>Post-Procedure Care</h3>
-                <p>Recovery and healing formulations</p>
-                <ul>
-                    <li>Soothing recovery creams</li>
-                    <li>Barrier-repair serums</li>
-                    <li>Anti-inflammatory ampoules</li>
-                    <li>Calming sheet masks</li>
-                </ul>
-            </div>
-            
-            <div class="brand-type">
-                <h3>Custom Sourcing</h3>
-                <p>Can't find what you need? We source specific brands and products for your clinic</p>
-                <a href="#contact" class="cta-button-small">Request Specific Brand</a>
-            </div>
-        </div>
-        
-        <div class="brand-disclaimer">
-            *Product availability subject to manufacturer partnership confirmation. We are actively building our supplier network and can source specific products upon request.
-        </div>
-    </div>
-</section>
-    <!-- About Section -->
-    <section id="about" class="section about">
-        <div class="container">
-            <div class="about-grid">
-                <div class="about-content">
-                    <h2>Your Gateway to Verified Korean Skincare & Aesthetic Products</h2>
-
-                    <p>
-                    KORVEX supports sourcing and export coordination for Korean skincare, dermacosmetic, and aesthetic products for clinics and distributors.
-                    We coordinate with Korean manufacturers and partners to support stable supply, consistent quality, and competitive export pricing.                    </p>
-
-                    <p>
-                    With strong knowledge of production and international regulatory requirements, we coordinate product sourcing, documentation, and shipment to support smooth and reliable cross-border trade.
-                    </p>
-
-            <ul style="color:#B5B5B5; line-height:1.8; margin-left: 2rem;">
-            <li>MOQ flexibility depending on product and manufacturer</li>
-            <li>Private label / OEM available</li>
-            <li>High-volume orders supported</li>
-            </ul>
-
-
-                </div>
-                <div class="ceo-card">
-                    <div class="ceo-name">Taegyeom Kim</div>
-                    <div class="ceo-title">CEO | Business Developer</div>
-                    <p style="color: var(--text-secondary); margin-bottom: 2rem;">
-                        Korea–Global market development focused on medical aesthetics and clinic-oriented export partnerships.
-                    </p>
-                    <div class="ceo-contact">
-                        <div class="contact-item">
-                            <i class="fas fa-phone"></i>
-                            <span>+60-11-1602-3115 (Malaysia)</span>
-                        </div>
-                        <div class="contact-item">
-                            <i class="fas fa-phone"></i>
-                            <span>+82-10-2896-2172 (Korea)</span>
-                        </div>
-                        <div class="contact-item">
-                            <i class="fas fa-envelope"></i>
-                            <a href="mailto:korvexgrp@outlook.com">korvexgrp@outlook.com</a>
-                        </div>
-                        <div class="contact-item">
-                            <i class="fas fa-map-marker-alt"></i>
-                            <span>Seoul | Kuala Lumpur</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+      </div>
     </section>
 
-<!-- Contact Section -->
-<section id="contact" class="section contact">
-  <div class="container">
-    <h2 class="section-title">Request Product List</h2>
-    <p class="section-subtitle">
-      Tell us what products you are looking for.
-    </p>
-
-    <div class="contact-methods">
-
-      <!-- WhatsApp -->
-      <a href="https://wa.me/601116023115" target="_blank" class="contact-method">
-        <i class="fab fa-whatsapp"></i>
-        <div>
-          <h4>WhatsApp</h4>
-          <p>+60-11-1602-3115</p>
+    <section id="products" class="section" style="background: var(--bg-soft);">
+      <div class="wrap">
+        <div class="product-title">
+          <div>
+            <h2>Core Products</h2>
+            <p>Two core SKUs for professional use (final specs TBC).</p>
+          </div>
+          <div class="pill">Pro sizes: 100ml / 150ml</div>
         </div>
-      </a>
 
-      <!-- KakaoTalk -->
-      <a href="https://open.kakao.com/o/sZ6WqVei" target="_blank" class="contact-method">
-        <i class="fas fa-comment"></i>
-        <div>
-          <h4>KakaoTalk</h4>
-          <p>Direct Chat</p>
+        <div class="grid">
+          <div class="card">
+            <h3>Calming Ampoule</h3>
+            <p>Protocol-friendly ampoule focused on soothing comfort and long-lasting hydration.</p>
+            <ul class="list">
+              <li>Use-case: daily clinic base / post-care comfort</li>
+              <li>Planned volume: 100ml</li>
+              <li>Key ingredients (planned): soothing & hydration complex (final formula TBC)</li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <h3>Barrier Cream</h3>
+            <p>Moisturizing cream designed to reduce dryness discomfort and support barrier-feel stability.</p>
+            <ul class="list">
+              <li>Use-case: finishing step / sealing hydration</li>
+              <li>Planned volume: 150ml</li>
+              <li>Texture: non-greasy comfort feel (final TBC)</li>
+            </ul>
+          </div>
         </div>
-      </a>
 
-      <!-- Email -->
-      <a href="mailto:korvexgrp@outlook.com" class="contact-method">
-        <i class="fas fa-envelope"></i>
-        <div>
-          <h4>Email</h4>
-          <p>korvexgrp@outlook.com</p>
+        <div style="margin-top: 18px; color: var(--muted); font-size: 13px;">
+          Retail mini-SKUs (30ml / 50ml) are developed upon distributor/RP request.
         </div>
-      </a>
+      </div>
+    </section>
 
-    </div> <!-- ✅ contact-methods 끝 -->
+    <section id="documents" class="section">
+      <div class="wrap">
+        <h2>Manufacturer Documents</h2>
+        <p>Available for partner review (subject to manufacturer and project terms). Detailed docs can be shared upon request (NDA available).</p>
 
-    <!-- ✅ Business Hours (여기로 이동) -->
-    <div style="margin-top: 2.5rem; text-align: center;">
-      <p style="color: #FFFFFF; font-size: 0.95rem; font-weight: 500; margin-bottom: 0.4rem;">
-        <i class="fas fa-clock" style="margin-right:6px; color:#C9A24D;"></i>
-        Business Hours
-      </p>
-      <p style="color: #FFFFFF; font-size: 0.85rem; opacity: 0.85; margin-bottom: 0.2rem;">
-        Mon–Fri | Korea Standard Time (KST)
-      </p>
-      <p style="color: #FFFFFF; font-size: 0.85rem; opacity: 0.85;">
-        Fast response via WhatsApp &amp; KakaoTalk
-      </p>
+        <div class="grid">
+          <div class="card">
+            <h3>Document List</h3>
+            <ul class="list">
+              <li>Factory certifications (e.g., ISO / GMP, if applicable)</li>
+              <li>COA / MSDS / INCI list</li>
+              <li>Product specification sheet</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3>Important Note</h3>
+            <ul class="list">
+              <li>Final specifications/claims are confirmed after quotation & manufacturing confirmation.</li>
+              <li>Full INCI is published only after final formula confirmation.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="section" style="background: #fff;">
+      <div class="wrap">
+        <h2>Request Catalog & Quotation</h2>
+        <p>Contact KORVEX to receive the PB catalog and project quotation.</p>
+
+        <div class="cta-row" style="margin-top: 16px;">
+          <a class="btn" href="mailto:korvexgrp@outlook.com">Email KORVEX</a>
+          <a class="btn secondary" href="https://wa.me/601116023115" target="_blank" rel="noopener">WhatsApp</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+  <div class="wrap">
+    <div class="foot-row">
+      <div>© AVERON</div>
+      <div style="opacity:0.9;">Functional Skin Science</div>
     </div>
-
   </div>
-</section>
-
-    <!-- Footer -->
-    <footer>
-    <div class="container">
-        <div class="footer-content">
-            <p>&copy; 2022 KORVEX.</p>
-            <p class="identity-note">Platform for proprietary clinic-grade brands and export coordination.</p>
-
-            <!-- Identity clarification -->
-            <p class="identity-note">
-            KORVEX is a Korea-based product development and export platform supporting proprietary brands and professional supply partners.
-            </p>
-        </div>
-    </div>
 </footer>
 
-    <script>
-        // Smooth scroll behavior for navigation links (with fixed-nav offset)
-                    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                    anchor.addEventListener('click', function (e) {
-                        const href = this.getAttribute('href');
-                        if (!href || href === '#') return;
-                    
-                        const target = document.querySelector(href);
-                        if (!target) return;
-                    
-                        e.preventDefault();
-                    
-                        const nav = document.querySelector('nav');
-                        const navHeight = nav ? nav.offsetHeight : 0;
-                        const extraGap = 12; // 약간 여유
-                    
-                        const targetTop = target.getBoundingClientRect().top + window.pageYOffset;
-                        const scrollTo = targetTop - navHeight - extraGap;
-                        window.scrollTo({
-                        top: scrollTo,
-                        behavior: 'smooth'
-                        });
-                    });
-                    });
+<script>
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+      const href = this.getAttribute('href');
+      if (!href || href === '#') return;
 
-        // Add scroll effect to navigation
-        window.addEventListener('scroll', () => {
-            const nav = document.querySelector('nav');
-            if (window.scrollY > 100) {
-                nav.style.background = 'rgba(11, 11, 11, 0.98)';
-                nav.style.backdropFilter = 'blur(20px)';
-            } else {
-                nav.style.background = 'rgba(11, 11, 11, 0.95)';
-            }
-        });
+      const target = document.querySelector(href);
+      if (!target) return;
 
-        // Intersection Observer for animations
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
+      e.preventDefault();
 
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
-                }
-            });
-        }, observerOptions);
+      const topbar = document.querySelector('.topbar');
+      const barHeight = topbar ? topbar.offsetHeight : 0;
+      const extraGap = 12;
 
-        // Observe sections for animation
-        document.querySelectorAll('.section').forEach(section => {
-            section.style.opacity = '0';
-            section.style.transform = 'translateY(30px)';
-            section.style.transition = 'all 0.6s ease';
-            observer.observe(section);
-        });
+      const targetTop = target.getBoundingClientRect().top + window.pageYOffset;
+      const scrollTo = targetTop - barHeight - extraGap;
 
-        // Hero background image slider
-        const bgImages = document.querySelectorAll('.hero-bg-image');
-        let currentBgIndex = 0;
+      window.scrollTo({ top: scrollTo, behavior: 'smooth' });
+    });
+  });
+</script>
 
-        function changeBackgroundImage() {
-            bgImages[currentBgIndex].classList.remove('active');
-            currentBgIndex = (currentBgIndex + 1) % bgImages.length;
-            bgImages[currentBgIndex].classList.add('active');
-        }
-
-        // Change background image every 3.5 seconds
-        setInterval(changeBackgroundImage, 3500);
-                
-        // 햄버거 메뉴 토글 + 스크롤 잠금
-        const hamburger = document.getElementById('hamburger');
-        const navLinks = document.getElementById('navLinks');
-
-        hamburger.addEventListener('click', (e) => {
-        e.stopPropagation(); // 중요: document 클릭으로 버블링되는 거 방지
-        hamburger.classList.toggle('active');
-        navLinks.classList.toggle('active');
-        document.body.style.overflow = navLinks.classList.contains('active') ? 'hidden' : '';
-        });
-
-        // 메뉴 링크 클릭 시 메뉴 닫기 + 스크롤 해제
-        document.querySelectorAll('.nav-links a').forEach(link => {
-        link.addEventListener('click', () => {
-        hamburger.classList.remove('active');
-        navLinks.classList.remove('active');
-        document.body.style.overflow = '';
-        });
-        });
-        
-        // 메뉴 외부 클릭 시 닫기 + 스크롤 해제
-        document.addEventListener('click', (e) => {
-        if (!hamburger.contains(e.target) && !navLinks.contains(e.target)) {
-            hamburger.classList.remove('active');
-            navLinks.classList.remove('active');
-            document.body.style.overflow = '';
-        }
-        });
-    </script>
 </body>
 </html>
