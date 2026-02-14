@@ -1,1222 +1,938 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="google-site-verification" content="5rIhHGV2qQYGbqmmKfiBE57CyqNtspo5LnMaJ8GNTSg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <title>KORVEX | Korean Aesthetic & Clinic Skincare Export</title>
-    
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='black'/%3E%3Ctext x='50%25' y='55%25' font-size='48' fill='%23C9A24D' font-family='Arial' font-weight='700' text-anchor='middle'%3EKV%3C/text%3E%3C/svg%3E">
-    
-    <meta name="description" content="KORVEX is a Korea-based B2B export partner for clinic-grade skincare. We develop proprietary private label lines and support export coordination for distributors and import partners.">
-    <meta name="robots" content="index, follow">
-
-<meta property="og:title" content="KORVEX | Korean Aesthetic & Clinic Skincare Export (B2B Only)"><meta property="og:type" content="website">
-<meta property="og:description" content="Korea-based export partner. Proprietary private label development and export coordination for B2B partners.">
-<meta property="og:url" content="https://korvexgrp.com">
-
-<!-- Open Graph Image (소셜 공유용) -->
-<meta property="og:image" content="https://korvexgrp.com/images/OG%20image%20logo.png">
-<meta property="og:image:width" content="1200">
-<meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="KORVEX - Premium Korean Cosmetic Export">
-<meta property="og:image:type" content="image/jpeg">
-
-<!-- Twitter Card -->
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://korvexgrp.com/images/OG%20image%20logo.png">
-
-<link rel="canonical" href="https://korvexgrp.com">
-
-<!-- 다국어 지원 (향후 확장용) -->
-<link rel="alternate" hreflang="en" href="https://korvexgrp.com">
-<link rel="alternate" hreflang="ko" href="https://korvexgrp.com/ko">
-<link rel="alternate" hreflang="ms" href="https://korvexgrp.com/ms">
-<link rel="alternate" hreflang="id" href="https://korvexgrp.com/id">
-<link rel="alternate" hreflang="x-default" href="https://korvexgrp.com">
-
-    <!-- Fonts - SpaceX inspired -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Orbitron:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
-    <style>
-        :root {
-            /* New color scheme based on provided codes */
-            --bg-primary: #0B0B0B;
-            --bg-secondary: #1a1a1a;
-            --gold-primary: #C9A24D;
-            --gold-light: #E5C16E;
-            --gold-dark: #A8863B;
-            --text-primary: #FFFFFF;
-            --text-secondary: #C5C5C5;
-            --text-muted: #989898;
-            --gradient-gold: linear-gradient(135deg, var(--gold-primary) 0%, var(--gold-light) 100%);
-            --gradient-dark: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
-            --gradient-hero: linear-gradient(135deg, rgba(11,11,11,0.95) 0%, rgba(26,26,26,0.95) 100%);
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-            background: var(--bg-primary);
-            color: var(--text-primary);
-            line-height: 1.6;
-            overflow-x: hidden;
-        }
-
-        /* Reset all link colors */
-        a {
-            color: inherit;
-            text-decoration: none;
-        }
-
-        a:link,
-        a:visited,
-        a:hover,
-        a:active {
-            color: inherit;
-            text-decoration: none;
-            outline: none;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 30px;
-        }
-
-        /* Navigation - Premium space-tech style */
-        nav {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            background: rgba(11, 11, 11, 0.98);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            z-index: 2147483647;
-            border-bottom: 1px solid rgba(201, 162, 77, 0.2);
-            transition: all 0.3s ease;
-        }
-
-        .nav-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1rem 0;
-        }
-
-        .logo {
-            font-family: 'Orbitron', monospace;
-            font-size: 1.4rem;
-            font-weight: 700;
-            background: var(--gradient-gold);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-        .logo-image {
-                height: 45px;
-                width: auto;
-                margin-right: 5px;
-        }
-
-        .nav-links {
-            display: flex;
-            list-style: none;
-            gap: 2.5rem;
-            margin: 0;
-            padding: 0;
-        }
-
-        .nav-links li {
-            display: block;
-        }
-
-        .nav-links a {
-            color: var(--text-primary);
-            text-decoration: none;
-            font-weight: 500;
-            font-size: 0.95rem;
-            letter-spacing: 0.5px;
-            transition: all 0.3s ease;
-            position: relative;
-            outline: none;
-            display: block;
-            padding: 0.5rem 0;
-        }
-
-        .nav-links a:link,
-        .nav-links a:visited,
-        .nav-links a:hover,
-        .nav-links a:active {
-            color: var(--text-primary);
-            text-decoration: none;
-        }
-
-        .nav-links a:hover {
-            color: var(--gold-primary);
-            text-decoration: none;
-        }
-
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: var(--gradient-gold);
-            transition: width 0.3s ease;
-        }
-
-        .nav-links a:hover::after {
-            width: 100%;
-        }
-       
-        .identity-note {
-            font-size: 12px;
-            color: #777;
-            margin-top: 8px;
-            text-align: center;
-        }      
-
-        /* Hero Section - Desktop: 1920x1080, Mobile: 1080x1350 */
-        .hero {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            background: var(--gradient-hero);
-            position: relative;
-            overflow: hidden;
-            padding-top: 100px;
-        }
-
-        /* Desktop (1920x1080) - Landscape */
-        @media screen and (min-width: 769px) {
-            .hero {
-                min-height: 100vh;
-            }
-            
-            .hero-background-slider {
-                position: absolute;
-                top: 0;
-                left: 0;
-                right: 0;
-                bottom: 0;
-                z-index: 1;
-            }
-            
-            .hero-bg-image {
-                position: absolute;
-                top: 0;
-                left: 0;
-                right: 0;
-                bottom: 0;
-                background-size: cover;
-                background-position: center center;
-                background-repeat: no-repeat;
-                opacity: 0;
-                transition: opacity 1.6s ease-in-out;
-            }
-        }
-
-        /* Mobile (1080x1350) - Portrait */
-        @media screen and (max-width: 768px) {
-            .hero {
-                min-height: 135vw; /* 1080x1350 비율 유지 */
-                padding-top: 80px;
-            }
-            
-            .hero-background-slider {
-                position: absolute;
-                top: 0;
-                left: 0;
-                right: 0;
-                bottom: 0;
-                z-index: 1;
-            }
-            
-            .hero-bg-image {
-                position: absolute;
-                top: 0;
-                left: 0;
-                right: 0;
-                bottom: 0;
-                background-size: cover;
-                background-position: center center;
-                background-repeat: no-repeat;
-                opacity: 0;
-                transition: opacity 2s ease-in-out;
-            }
-        }
-
-        .hero-bg-image.active {
-            opacity: 0.88;
-        }
-        /* 데스크톱 전용 이미지 (769px 이상) */
-        @media screen and (min-width: 769px) {
-        .hero-bg-image:nth-child(1) {
-            background-image: url('images/데스크탑%20모델.webp');
-            filter: brightness(1.05) contrast(1.06) saturate(1.06);
-            background-position: center top;
-        }
-
-        .hero-bg-image:nth-child(2) {
-            background-image: url('images/skincares%20imagess.webp');
-            filter: brightness(1.35) contrast(1.1) saturate(1.15);
-            background-position: center top;
-        }
-
-        .hero-bg-image:nth-child(3) {
-            background-image: url('images/백그라운드2.webp');
-            filter: brightness(1.35) contrast(1.1) saturate(1.15);
-            background-position: center top;
-        }
-        .hero-bg-image:nth-child(4) {
-            background: #0B0B0B;  /* 검은 바탕 */
-        }
-        }
-        
-        /* 모바일 전용 이미지 (768px 이하) */
-        @media screen and (max-width: 768px) {
-            .hero-bg-image:nth-child(1) {
-                background-image: url('images/모바일%20모델.webp');
-                filter: brightness(1.05) contrast(1.06) saturate(1.06);
-                background-position: center center;
-            }
-            .hero-bg-image:nth-child(2) {
-                background-image: url('images/로션백그라운드%20모바일전용.avif');
-                filter: brightness(1.35) contrast(1.1) saturate(1.15);
-                background-position: center center;
-            }
-            
-            .hero-bg-image:nth-child(3) {
-                background-image: url('images/백그라운드2.webp');  /* 3번 추가 */
-                filter: brightness(1.35) contrast(1.1) saturate(1.15);
-                background-position: center center;
-            }
-            
-            .hero-bg-image:nth-child(4) {
-                background: #0B0B0B;  /* 검은 바탕 */
-            }
-        }       
-
-        .hero::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(135deg, rgba(11,11,11,0.04) 0%, rgba(11,11,11,0.10) 100%);
-            z-index: 1;
-        }
-
-        .hero-content {
-            position: relative;
-            z-index: 2;
-            max-width: 900px;
-            text-align: center;
-            margin: 0 auto;
-        }
-
-        .hero h1 {
-            font-family: 'Orbitron', monospace;
-            font-size: clamp(1.5rem, 5vw, 3rem);  /* 1.8rem → 1.5rem */
-            font-weight: 400;
-            line-height: 1.3;
-            margin-bottom: 1.5rem;
-            background: linear-gradient(135deg, var(--text-primary) 0%, var(--gold-light) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            letter-spacing: -0.5px;
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-10px); }
-        }
-
-        .hero-subtitle {
-            font-size: 0.85rem;  /* 1rem → 0.85rem */
-            color: var(--gold-primary);
-            margin-bottom: 1rem;
-            font-weight: 400;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            opacity: 0.9;
-        }
-
-        .hero-description {
-            font-size: 1rem;
-            color: var(--text-secondary);
-            margin-bottom: 2.5rem;
-            max-width: 700px;
-            margin-left: auto;
-            margin-right: auto;
-            line-height: 1.6;
-            opacity: 0.85;
-            animation: float 6s ease-in-out infinite;
-            animation-delay: 1s;
-        }
-
-        .cta-button {
-            display: inline-block;
-            padding: 1rem 2.5rem;
-            background: var(--gradient-gold);
-            color: var(--bg-primary);
-            text-decoration: none;
-            border-radius: 50px;
-            font-weight: 600;
-            font-size: 1rem;
-            transition: all 0.3s ease;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            margin-bottom: 3rem;
-        }
-
-        .cta-button:hover {
-            transform: translateY(-3px);
-        }
-
-        /* Sections */
-        .section {
-            padding: 8rem 0;
-        }
-        /* 첫 번째 섹션(Why Us)만 위쪽 패딩 줄이기 */
-        .section:first-of-type {
-            padding-top: 4rem;
-        }
-
-        .section-title {
-            font-family: 'Orbitron', monospace;
-            font-size: 3rem;
-            font-weight: 700;
-            text-align: center;
-            margin-bottom: 1rem;
-            background: var(--gradient-gold);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            letter-spacing: 1px;
-        }
-
-        .section-subtitle {
-            font-size: 1.2rem;
-            color: var(--text-secondary);
-            text-align: center;
-            margin-bottom: 4rem;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        /* Premium Services Section */
-        .services {
-            background: var(--bg-secondary);
-        }
-
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 3rem;
-        }
-
-        .service-card {
-            background: linear-gradient(135deg, rgba(26,26,26,0.8) 0%, rgba(11,11,11,0.9) 100%);
-            padding: 3rem;
-            border-radius: 20px;
-            border: 1px solid rgba(201, 162, 77, 0.2);
-            transition: all 0.4s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .service-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(201, 162, 77, 0.1), transparent);
-            transition: left 0.6s ease;
-        }
-
-        .service-card:hover::before {
-            left: 100%;
-        }
-
-        .service-card:hover {
-            transform: translateY(-10px);
-            border-color: var(--gold-primary);
-            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5);
-        }
-
-        .service-icon {
-            width: 70px;
-            height: 70px;
-            background: var(--gradient-gold);
-            border-radius: 15px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 2rem;
-            font-size: 1.8rem;
-            color: var(--bg-primary);
-        }
-
-        .service-card h3 {
-            font-family: 'Orbitron', monospace;
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-            color: var(--gold-primary);
-            letter-spacing: 0.5px;
-        }
-
-        .service-card p {
-            color: var(--text-secondary);
-            line-height: 1.7;
-            font-size: 1.05rem;
-        }
-
-        /* Global Network Section - Premium style */
-        .global-network {
-            background: var(--gradient-dark);
-            position: relative;
-        }
-
-        .world-map {
-            position: relative;
-            height: 500px;
-            margin: 4rem 0;
-            background: url('images/우주사진.avif') center/cover no-repeat;
-            border-radius: 20px;
-            overflow: hidden;
-            border: 1px solid rgba(201, 162, 77, 0.3);
-        }
-
-        .world-map::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-             background: linear-gradient(45deg,
-             rgba(201, 162, 77, 0.08) 0%,
-             rgba(11, 11, 11, 0.35) 50%,
-             rgba(201, 162, 77, 0.08) 100%);
-        }
-
-        .connection-lines {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            overflow: hidden;
-        }
-
-        /* Connection lines and dots removed for cleaner design */
-        .connection-lines {
-            display: none;
-        }
-
-        /* About/CEO Section */
-        .about {
-            background: var(--bg-primary);
-        }
-
-        .about-grid {
-            display: grid;
-            grid-template-columns: 2fr 1fr;
-            gap: 5rem;
-            align-items: start;
-        }
-
-        .about-content h2 {
-            font-family: 'Orbitron', monospace;
-            font-size: 2.5rem;
-            color: var(--gold-primary);
-            margin-bottom: 2rem;
-            letter-spacing: 1px;
-        }
-
-        .about-content p {
-            color: var(--text-secondary);
-            margin-bottom: 2rem;
-            font-size: 1.1rem;
-            line-height: 1.8;
-        }
-
-        .ceo-card {
-            background: linear-gradient(135deg, rgba(26,26,26,0.8) 0%, rgba(11,11,11,0.9) 100%);
-            padding: 3rem;
-            border-radius: 20px;
-            border: 1px solid rgba(201, 162, 77, 0.3);
-            position: sticky;
-            top: 120px;
-        }
-
-        .ceo-name {
-            font-family: 'Orbitron', monospace;
-            font-size: 1.8rem;
-            font-weight: 700;
-            color: var(--gold-primary);
-            margin-bottom: 0.5rem;
-            letter-spacing: 1px;
-        }
-
-        .ceo-title {
-            color: var(--text-secondary);
-            font-weight: 600;
-            margin-bottom: 1.5rem;
-            font-size: 1.1rem;
-        }
-
-        .contact-item {
-            display: flex;
-            align-items: center;
-            margin-bottom: 1rem;
-            color: var(--text-secondary);
-            font-size: 0.95rem;
-        }
-
-        .contact-item i {
-            margin-right: 1rem;
-            color: var(--gold-primary);
-            width: 20px;
-        }
-
-        /* Contact Section */
-        .contact {
-            background: var(--gradient-dark);
-            text-align: center;
-        }
-
-        .contact-methods {
-            display: flex;
-            justify-content: center;
-            gap: 3rem;
-            margin-top: 3rem;
-            flex-wrap: wrap;
-        }
-
-        .contact-method {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            padding: 1.5rem 2rem;
-            background: rgba(26,26,26,0.8);
-            border-radius: 15px;
-            border: 1px solid rgba(201, 162, 77, 0.3);
-            transition: all 0.3s ease;
-        }
-
-        .contact-method:hover {
-            border-color: var(--gold-primary);
-            transform: translateY(-3px);
-        }
-
-        .contact-method i {
-            font-size: 1.5rem;
-            color: var(--gold-primary);
-        }
-
-        .contact-method div {
-            text-align: left;
-        }
-
-        .contact-method h4 {
-            font-size: 1.1rem;
-            margin-bottom: 0.2rem;
-            color: var(--text-primary);
-        }
-
-        .contact-method p {
-            color: var(--text-secondary);
-            font-size: 0.9rem;
-        }
-
-        /* Footer */
-        footer {
-            background: var(--bg-primary);
-            padding: 3rem 0;
-            text-align: center;
-            border-top: 1px solid rgba(201, 162, 77, 0.2);
-        }
-
-        .footer-content {
-            color: var(--text-secondary);
-        }
-
-                    /* 햄버거 버튼 스타일 */
-        .hamburger {
-            display: none;
-            flex-direction: column;
-            gap: 5px;
-            background: none;
-            border: none;
-            cursor: pointer;
-            padding: 8px;
-            z-index: 1000;
-        }
-        
-        .hamburger span {
-            width: 25px;
-            height: 3px;
-            background: var(--gold-primary);
-            border-radius: 3px;
-            transition: all 0.3s ease;
-        }
-        
-        /* 햄버거 활성화 시 X자 애니메이션 */
-        .hamburger.active span:nth-child(1) {
-            transform: rotate(45deg) translate(8px, 8px);
-        }
-        
-        .hamburger.active span:nth-child(2) {
-            opacity: 0;
-        }
-        
-        .hamburger.active span:nth-child(3) {
-            transform: rotate(-45deg) translate(7px, -7px);
-        }
-        
-        /* Mobile Responsive */
-        @media (max-width: 768px) {
-            .hamburger {
-                display: flex;
-            }
-            
-            .nav-links {
-                position: fixed;
-                top: 70px;
-                left: -100%;
-                width: 100%;
-                height: calc(100vh - 70px);
-                background: rgba(11, 11, 11, 0.98);
-                backdrop-filter: blur(20px);
-                flex-direction: column;
-                justify-content: flex-start;
-                align-items: center;
-                padding: 3rem 0;
-                gap: 0;
-                transition: left 0.3s ease;
-                border-top: 1px solid rgba(201, 162, 77, 0.2);
-            }
-            
-            .nav-links.active {
-                left: 0;
-            }
-            
-            .nav-links li {
-                width: 100%;
-                text-align: center;
-                border-bottom: 1px solid rgba(201, 162, 77, 0.1);
-            }
-            
-            .nav-links a {
-                display: block;
-                padding: 1.5rem 2rem;
-                font-size: 1.1rem;
-            }
-        
-            .hero {
-                padding-top: 120px;
-                min-height: 100vh;
-                height: auto;
-            }
-        
-            .hero h1 {
-                font-size: 1.8rem;
-            }
-        
-                    .section-title {
-                        font-size: 2.2rem;
-                    }
-        
-                    .about-grid {
-                        grid-template-columns: 1fr;
-                        gap: 3rem;
-                    }
-        
-                    .services-grid {
-                        grid-template-columns: 1fr;
-                    }
-        
-                    .contact-methods {
-                        flex-direction: column;
-                        align-items: center;
-                        gap: 1.5rem;
-                    }
-        
-                    .section {
-                        padding: 4rem 0;
-                    }
-        
-                    .container {
-                        padding: 0 20px;
-                    }
-                    /* AVERON 모바일에서 하단 문구 숨김 */
-                    .averon-note {
-                        display: none !important;
-                    }
-
-                /* ===== AVERON mobile cleanup ===== */
-                    .averon-flagship { padding: 3.2rem 1.2rem !important; }
-                    .averon-flagship .hero-subtitle { font-size: 0.75rem !important; margin-bottom: 8px !important; }
-                    .averon-flagship .section-title { font-size: 2.1rem !important; }
-                    .averon-flagship .section-subtitle { font-size: 0.95rem !important; margin-bottom: 1.2rem !important; }
-                    .averon-flagship .container > div[style*="max-width: 920px"] { padding: 1.6rem 1.2rem !important; }
-                    .averon-flagship .container > div[style*="max-width: 920px"] > div[style*="display:grid"] { display: none !important; }
-                    .averon-flagship .cta-button.averon-cta {
-                        width: 100% !important;
-                        max-width: 420px;
-                        padding: 0.9rem 1.1rem !important;
-                        font-size: 0.9rem !important;
-                        border-radius: 28px !important;
-                        letter-spacing: 0.5px !important;
-                    }
-                    .averon-points { 
-                        display: grid;
-                        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-                        gap: 14px;
-                        text-align: center;
-                        }
-                        @media (max-width: 768px) {
-                        .averon-points { display: none !important; }
-                    }
-                }
-
-                /* Smooth scrolling */
-                html {
-                    scroll-behavior: smooth;
-                    /* Make anchor jumps respect fixed header */
-                    :root { --header-offset: 90px; } /* 대충 값, 실제 nav 높이 비슷하게 */
-                    html { scroll-padding-top: var(--header-offset); }
-                    section[id] { scroll-margin-top: var(--header-offset); }
-                }
-        
-        /* Custom scrollbar */
-        ::-webkit-scrollbar {
-            width: 8px;
-        }
-
-        ::-webkit-scrollbar-track {
-            background: var(--bg-primary);
-        }
-
-        ::-webkit-scrollbar-thumb {
-            background: var(--gold-primary);
-            border-radius: 4px;
-        }
-
-        ::-webkit-scrollbar-thumb:hover {
-            background: var(--gold-light);
-        }
-
-        /* Remove default link colors and styles */
-        * {
-            -webkit-tap-highlight-color: transparent;
-        }
-
-        a:focus {
-            outline: none;
-            box-shadow: none;
-        }
-        
-        /* WhatsApp 플로팅 버튼 */
-        .whatsapp-float {
-            position: fixed;
-            width: 60px;
-            height: 60px;
-            bottom: 30px;
-            right: 30px;
-            background: #25D366;
-            color: #FFFFFF;
-            border-radius: 50%;
-            text-align: center;
-            font-size: 30px;
-            box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
-            z-index: 999999;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: all 0.3s ease;
-            text-decoration: none;
-        }
-        
-        .whatsapp-float:hover {
-            background: #128C7E;
-            transform: scale(1.1);
-            box-shadow: 0 6px 30px rgba(37, 211, 102, 0.6);
-        }
-        
-        .whatsapp-float i {
-            color: #FFFFFF;
-            line-height: 60px;
-        }
-        
-        /* 모바일에서 크기 조정 */
-        @media (max-width: 768px) {
-            .whatsapp-float {
-                width: 50px;
-                height: 50px;
-                bottom: 20px;
-                right: 20px;
-                font-size: 26px;
-            }
-            
-            .whatsapp-float i {
-                line-height: 50px;
-            }
-        }
-        
-        /* 애니메이션 효과 (선택사항) */
-        @keyframes pulse {
-            0% {
-                box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
-            }
-            70% {
-                box-shadow: 0 0 0 15px rgba(37, 211, 102, 0);
-            }
-            100% {
-                box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
-            }
-        }
-        
-        .whatsapp-float {
-            animation: pulse 2s infinite;
-        }
-        
-        .whatsapp-float:hover {
-            animation: none;
-        }
-            </style>
-    
-    <!-- Schema.org 구조화 데이터 -->
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Organization",
-  "name": "KORVEX",
-  "url": "https://korvexgrp.com",
-  "logo": "https://korvexgrp.com/images/logo%20nobg.png",
-  "description": "Korean cosmetic export & B2B trading company supporting sourcing and export coordination for clinics and distributors",
-  "contactPoint": [
-    {
-      "@type": "ContactPoint",
-      "telephone": "+60-11-1602-3115",
-      "contactType": "Sales",
-      "areaServed": ["MY", "SG", "AE", "US", "EU"],
-      "availableLanguage": ["en", "ko", "ms"]
+  <meta charset="UTF-8">
+  <meta name="google-site-verification" content="5rIhHGV2qQYGbqmmKfiBE57CyqNtspo5LnMaJ8GNTSg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>KORVEX | Korean Aesthetic & Clinic Skincare Export</title>
+
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='black'/%3E%3Ctext x='50%25' y='55%25' font-size='48' fill='%23C9A24D' font-family='Arial' font-weight='700' text-anchor='middle'%3EKV%3C/text%3E%3C/svg%3E">
+
+  <meta name="description" content="KORVEX is a Korea-based B2B export partner for clinic-grade skincare. We develop proprietary private label lines and support export coordination for distributors and import partners.">
+  <meta name="robots" content="index, follow">
+
+  <meta property="og:title" content="KORVEX | Korean Aesthetic & Clinic Skincare Export (B2B Only)">
+  <meta property="og:type" content="website">
+  <meta property="og:description" content="Korea-based export partner. Proprietary private label development and export coordination for B2B partners.">
+  <meta property="og:url" content="https://korvexgrp.com">
+
+  <meta property="og:image" content="https://korvexgrp.com/images/OG%20image%20logo.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="KORVEX - Premium Korean Cosmetic Export">
+  <meta property="og:image:type" content="image/jpeg">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://korvexgrp.com/images/OG%20image%20logo.png">
+
+  <link rel="canonical" href="https://korvexgrp.com">
+
+  <link rel="alternate" hreflang="en" href="https://korvexgrp.com">
+  <link rel="alternate" hreflang="ko" href="https://korvexgrp.com/ko">
+  <link rel="alternate" hreflang="ms" href="https://korvexgrp.com/ms">
+  <link rel="alternate" hreflang="id" href="https://korvexgrp.com/id">
+  <link rel="alternate" hreflang="x-default" href="https://korvexgrp.com">
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Orbitron:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <style>
+    :root {
+      --bg-primary: #0B0B0B;
+      --bg-secondary: #1a1a1a;
+      --gold-primary: #C9A24D;
+      --gold-light: #E5C16E;
+      --gold-dark: #A8863B;
+      --text-primary: #FFFFFF;
+      --text-secondary: #C5C5C5;
+      --text-muted: #989898;
+      --gradient-gold: linear-gradient(135deg, var(--gold-primary) 0%, var(--gold-light) 100%);
+      --gradient-dark: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
+      --gradient-hero: linear-gradient(135deg, rgba(11,11,11,0.95) 0%, rgba(26,26,26,0.95) 100%);
+      --header-offset: 74px;
     }
-  ],
-  "founder": {
-    "@type": "Person",
-    "name": "Taegyeom Kim",
-    "jobTitle": "CEO"
-  },
-  "address": {
-    "@type": "PostalAddress",
-    "addressLocality": "Seoul",
-    "addressCountry": "KR"
-  },
-  "sameAs": [
-    "https://wa.me/601116023115",
-    "https://open.kakao.com/o/sZ6WqVei"
-  ]
-}
-</script>
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--bg-primary);
+      color: var(--text-primary);
+      line-height: 1.6;
+      overflow-x: hidden;
+      padding-top: var(--header-offset); /* fixed nav 보정 */
+    }
+
+    a { color: inherit; text-decoration: none; }
+    a:link, a:visited, a:hover, a:active { color: inherit; text-decoration: none; outline: none; }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 30px;
+    }
+
+    /* ===== Navigation (old hamburger 방식) ===== */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background: rgba(255,255,255,0.98);
+      backdrop-filter: none;
+      -webkit-backdrop-filter: none;
+      z-index: 2147483647;
+      border-bottom: 1px solid rgba(201, 162, 77, 0.22);
+      transition: background 0.25s ease, backdrop-filter 0.25s ease, border-color 0.25s ease;
+    }
+
+    .nav-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 0;
+    }
+
+    .logo {
+      -webkit-text-fill-color: initial;
+      background: none;
+      color: var(--gold-primary);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .logo-image {
+      height: 45px;
+      width: auto;
+    }
+
+    .nav-links {
+      display: flex;
+      list-style: none;
+      gap: 2.5rem;
+      margin: 0;
+      padding: 0;
+    }
+
+    .nav-links li { display: block; }
+
+    .nav-links a {
+      color: var(--gold-primary);
+      position: relative; /* ✅ after 밑줄 버그 수정 */
+    }
+
+    .nav-links a:hover { color: var(--gold-light); }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--gradient-gold);
+      transition: width 0.3s ease;
+    }
+
+    .nav-links a:hover::after { width: 100%; }
+
+    .identity-note {
+      font-size: 12px;
+      color: #777;
+      margin-top: 8px;
+      text-align: center;
+    }
+
+    /* ===== Hero Section ===== */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      background: none;
+      position: relative;
+      overflow: hidden;
+      padding-top: 100px;
+    }
+
+    @media screen and (min-width: 769px) {
+      .hero { min-height: 100vh; }
+      .hero-background-slider { position: absolute; top: 0; left: 0; right: 0; bottom: 0; z-index: 1; }
+      .hero-bg-image { position: absolute; inset: 0; background-size: cover; background-position: center center; background-repeat: no-repeat; opacity: 0; transition: opacity 1.6s ease-in-out; }
+    }
+
+    @media screen and (max-width: 768px) {
+      .hero { min-height: 135vw; padding-top: 80px; }
+      .hero-background-slider { position: absolute; inset: 0; z-index: 1; }
+      .hero-bg-image { position: absolute; inset: 0; background-size: cover; background-position: center center; background-repeat: no-repeat; opacity: 0; transition: opacity 2s ease-in-out; }
+    }
+
+    .hero-bg-image.active { opacity: 0.88; }
+
+    @media screen and (min-width: 769px) {
+      .hero-bg-image:nth-child(1) { background-image: url('images/데스크탑%20모델.webp'); filter: brightness(1.05) contrast(1.06) saturate(1.06); background-position: center top; }
+      .hero-bg-image:nth-child(2) { background-image: url('images/skincares%20imagess.webp'); filter: brightness(1.35) contrast(1.1) saturate(1.15); background-position: center top; }
+      .hero-bg-image:nth-child(3) { background-image: url('images/백그라운드2.webp'); filter: brightness(1.35) contrast(1.1) saturate(1.15); background-position: center top; }
+      .hero-bg-image:nth-child(4) { background: #0B0B0B; }
+    }
+
+    @media screen and (max-width: 768px) {
+      .hero-bg-image:nth-child(1) { background-image: url('images/모바일%20모델.webp'); filter: brightness(1.05) contrast(1.06) saturate(1.06); background-position: center center; }
+      .hero-bg-image:nth-child(2) { background-image: url('images/로션백그라운드%20모바일전용.avif'); filter: brightness(1.35) contrast(1.1) saturate(1.15); background-position: center center; }
+      .hero-bg-image:nth-child(3) { background-image: url('images/백그라운드2.webp'); filter: brightness(1.35) contrast(1.1) saturate(1.15); background-position: center center; }
+      .hero-bg-image:nth-child(4) { background: #0B0B0B; }
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 900px;
+      text-align: center;
+      margin: 0 auto;
+    }
+
+    .hero h1 {
+      font-family: 'Orbitron', monospace;
+      font-size: clamp(1.5rem, 5vw, 3rem);
+      font-weight: 400;
+      line-height: 1.3;
+      margin-bottom: 1.5rem;
+      background: linear-gradient(135deg, var(--text-primary) 0%, var(--gold-light) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      letter-spacing: -0.5px;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-10px); }
+    }
+
+    .hero-subtitle {
+      font-size: 0.85rem;
+      color: var(--gold-primary);
+      margin-bottom: 1rem;
+      font-weight: 400;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      opacity: 0.9;
+    }
+
+    .hero-description {
+      font-size: 1rem;
+      color: var(--text-secondary);
+      margin-bottom: 2.5rem;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+      line-height: 1.6;
+      opacity: 0.85;
+      animation: float 6s ease-in-out infinite;
+      animation-delay: 1s;
+    }
+
+    .cta-button {
+      display: inline-block;
+      padding: 1rem 2.5rem;
+      background: var(--gradient-gold);
+      color: var(--bg-primary);
+      border-radius: 50px;
+      font-weight: 600;
+      font-size: 1rem;
+      transition: all 0.3s ease;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 3rem;
+    }
+
+    .cta-button:hover { transform: translateY(-3px); }
+
+    /* Sections */
+    .section { padding: 8rem 0; }
+    .section:first-of-type { padding-top: 4rem; }
+
+    .section-title {
+      font-family: 'Orbitron', monospace;
+      font-size: 3rem;
+      font-weight: 700;
+      text-align: center;
+      margin-bottom: 1rem;
+      background: var(--gradient-gold);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      letter-spacing: 1px;
+    }
+
+    .section-subtitle {
+      font-size: 1.2rem;
+      color: var(--text-secondary);
+      text-align: center;
+      margin-bottom: 4rem;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* Premium Services */
+    .services { background: var(--bg-secondary); }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 3rem;
+    }
+
+    .service-card {
+      background: linear-gradient(135deg, rgba(26,26,26,0.8) 0%, rgba(11,11,11,0.9) 100%);
+      padding: 3rem;
+      border-radius: 20px;
+      border: 1px solid rgba(201, 162, 77, 0.2);
+      transition: all 0.4s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .service-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(201, 162, 77, 0.1), transparent);
+      transition: left 0.6s ease;
+    }
+
+    .service-card:hover::before { left: 100%; }
+
+    .service-card:hover {
+      transform: translateY(-10px);
+      border-color: var(--gold-primary);
+      box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5);
+    }
+
+    .service-icon {
+      width: 70px;
+      height: 70px;
+      background: var(--gradient-gold);
+      border-radius: 15px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 2rem;
+      font-size: 1.8rem;
+      color: var(--bg-primary);
+    }
+
+    .service-card h3 {
+      font-family: 'Orbitron', monospace;
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+      color: var(--gold-primary);
+      letter-spacing: 0.5px;
+    }
+
+    .service-card p {
+      color: var(--text-secondary);
+      line-height: 1.7;
+      font-size: 1.05rem;
+    }
+
+    /* Contact */
+    .contact {
+      background: var(--gradient-dark);
+      text-align: center;
+    }
+
+    .contact-methods {
+      display: flex;
+      justify-content: center;
+      gap: 3rem;
+      margin-top: 3rem;
+      flex-wrap: wrap;
+    }
+
+    .contact-method {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding: 1.5rem 2rem;
+      background: rgba(26,26,26,0.8);
+      border-radius: 15px;
+      border: 1px solid rgba(201, 162, 77, 0.3);
+      transition: all 0.3s ease;
+    }
+
+    .contact-method:hover {
+      border-color: var(--gold-primary);
+      transform: translateY(-3px);
+    }
+
+    .contact-method i { font-size: 1.5rem; color: var(--gold-primary); }
+    .contact-method div { text-align: left; }
+    .contact-method h4 { font-size: 1.1rem; margin-bottom: 0.2rem; color: var(--text-primary); }
+    .contact-method p { color: var(--text-secondary); font-size: 0.9rem; }
+
+    /* Footer */
+    footer {
+      background: var(--bg-primary);
+      padding: 3rem 0;
+      text-align: center;
+      border-top: 1px solid rgba(201, 162, 77, 0.2);
+    }
+
+    .footer-content { color: var(--text-secondary); }
+
+    /* ===== Hamburger button ===== */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 8px;
+      z-index: 1000;
+    }
+
+    .hamburger span {
+      width: 25px;
+      height: 3px;
+      background: var(--gold-primary);
+      border-radius: 3px;
+      transition: all 0.3s ease;
+    }
+
+    .hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(8px, 8px); }
+    .hamburger.active span:nth-child(2) { opacity: 0; }
+    .hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(7px, -7px); }
+
+    @media (max-width: 768px) {
+      .hamburger { display: flex; }
+
+      .nav-links {
+        position: fixed;
+        top: 70px;
+        left: -100%;
+        width: 100%;
+        height: calc(100vh - 70px);
+        background: rgba(11, 11, 11, 0.98);
+        backdrop-filter: blur(20px);
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        padding: 3rem 0;
+        gap: 0;
+        transition: left 0.3s ease;
+        border-top: 1px solid rgba(201, 162, 77, 0.2);
+      }
+
+      .nav-links.active { left: 0; }
+
+      .nav-links li {
+        width: 100%;
+        text-align: center;
+        border-bottom: 1px solid rgba(201, 162, 77, 0.1);
+      }
+
+      .nav-links a {
+        display: block;
+        padding: 1.5rem 2rem;
+        font-size: 1.1rem;
+      }
+
+      .hero { padding-top: 120px; min-height: 100vh; height: auto; }
+      .hero h1 { font-size: 1.8rem; }
+      .section-title { font-size: 2.2rem; }
+      .services-grid { grid-template-columns: 1fr; }
+      .contact-methods { flex-direction: column; align-items: center; gap: 1.5rem; }
+      .section { padding: 4rem 0; }
+      .container { padding: 0 20px; }
+
+      .averon-note { display: none !important; }
+
+      .averon-points { display: none !important; }
+    }
+
+    /* Smooth scrolling */
+    html { scroll-behavior: smooth; scroll-padding-top: var(--header-offset); }
+    section[id] { scroll-margin-top: var(--header-offset); }
+
+    /* Custom scrollbar */
+    ::-webkit-scrollbar { width: 8px; }
+    ::-webkit-scrollbar-track { background: var(--bg-primary); }
+    ::-webkit-scrollbar-thumb { background: var(--gold-primary); border-radius: 4px; }
+    ::-webkit-scrollbar-thumb:hover { background: var(--gold-light); }
+
+    * { -webkit-tap-highlight-color: transparent; }
+    a:focus { outline: none; box-shadow: none; }
+
+    /* WhatsApp floating */
+    .whatsapp-float {
+      position: fixed;
+      width: 60px;
+      height: 60px;
+      bottom: 30px;
+      right: 30px;
+      background: #25D366;
+      color: #FFFFFF;
+      border-radius: 50%;
+      text-align: center;
+      font-size: 30px;
+      box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+      z-index: 999999;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      animation: pulse 2s infinite;
+    }
+
+    .whatsapp-float:hover {
+      background: #128C7E;
+      transform: scale(1.1);
+      box-shadow: 0 6px 30px rgba(37, 211, 102, 0.6);
+      animation: none;
+    }
+
+    .whatsapp-float i { color: #FFFFFF; line-height: 60px; }
+
+    @media (max-width: 768px) {
+      .whatsapp-float {
+        width: 50px;
+        height: 50px;
+        bottom: 20px;
+        right: 20px;
+        font-size: 26px;
+      }
+      .whatsapp-float i { line-height: 50px; }
+    }
+
+    @keyframes pulse {
+      0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
+      70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+    }
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "KORVEX",
+    "url": "https://korvexgrp.com",
+    "logo": "https://korvexgrp.com/images/logo%20nobg.png",
+    "description": "Korean cosmetic export & B2B trading company supporting sourcing and export coordination for clinics and distributors",
+    "contactPoint": [
+      {
+        "@type": "ContactPoint",
+        "telephone": "+60-11-1602-3115",
+        "contactType": "Sales",
+        "areaServed": ["MY", "SG", "AE", "US", "EU"],
+        "availableLanguage": ["en", "ko", "ms"]
+      }
+    ],
+    "founder": {
+      "@type": "Person",
+      "name": "Taegyeom Kim",
+      "jobTitle": "CEO"
+    },
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Seoul",
+      "addressCountry": "KR"
+    },
+    "sameAs": [
+      "https://wa.me/601116023115",
+      "https://open.kakao.com/o/sZ6WqVei"
+    ]
+  }
+  </script>
 </head>
+
 <body>
-    <section style="display:none;">
-KORVEX supports Korean cosmetic sourcing and export coordination for B2B buyers.
-KORVEX는 B2B 바이어를 위한 한국 화장품 소싱 및 수출 코디네이션을 지원합니다.
-</section>
+  <section style="display:none;">
+    KORVEX supports Korean cosmetic sourcing and export coordination for B2B buyers.
+    KORVEX는 B2B 바이어를 위한 한국 화장품 소싱 및 수출 코디네이션을 지원합니다.
+  </section>
 
-    <!-- Navigation -->
-    <nav>
-        <div class="container">
-            <div class="nav-container">
-                <div class="logo">
-                <img src="images/logo%20nobg.png" alt="KORVEX Logo" class="logo-image">
-                KORVEX
-                </div>
+  <!-- ✅ 정상 NAV (햄버거 방식) -->
+  <nav>
+    <div class="container nav-container">
+      <a href="#home" class="logo" aria-label="KORVEX Home">
+        <img src="images/logo%20nobg.png" alt="KORVEX Logo" class="logo-image">
+        <span style="font-family:'Orbitron', monospace; letter-spacing:2px; font-weight:700;">KORVEX</span>
+      </a>
 
-                <!-- 햄버거 버튼 (모바일 전용) -->
-                <button class="hamburger" id="hamburger" aria-label="Toggle menu">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </button>
-    
-                <ul class="nav-links" id="navLinks">
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="averon.html">AVERON</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
-            </div> 
-        </div>
-    </nav>
-    
-    <!-- WhatsApp 플로팅 버튼 -->
-    <a href="https://wa.me/601116023115?text=Hello%20KORVEX%2C%20I'm%20interested%20in%20your%20Korean%20cosmetic%20products" 
-    class="whatsapp-float" 
-    target="_blank"
-    aria-label="Contact us on WhatsApp">
+      <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#averon-gateway">Explore AVERON</a></li>
+        <li><a href="#why-us">Platform overview</a></li>
+        <li><a href="#services">What we coordinate</a></li>
+        <li><a href="#focus">Product focus</a></li>
+        <li><a href="#contact">Business inquiry</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- WhatsApp Floating -->
+  <a href="https://wa.me/601116023115?text=Hello%20KORVEX%2C%20I'm%20interested%20in%20your%20clinic-grade%20skincare"
+     class="whatsapp-float" target="_blank" aria-label="Contact us on WhatsApp">
     <i class="fab fa-whatsapp"></i>
-    </a>
+  </a>
 
-    <!-- Hero Section -->
-    <section id="home" class="hero">
-        <div class="hero-background-slider">
-            <div class="hero-bg-image active"></div>
-            <div class="hero-bg-image"></div>
-            <div class="hero-bg-image"></div>
-            <div class="hero-bg-image"></div>
-        </div>
-        <div class="container">
-            <div class="hero-content">
-                <h1>Korean Clinic-Grade Skincare</h1>
-                <div class="hero-subtitle">Proprietary brand development • Export coordination for professional partners</div>
-                <a href="averon.html" class="cta-button averon-cta" style="margin-bottom:0;">
-                Enter AVERON
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- AVERON Section -->
-    <section id="averon" class="section averon-flagship" style="background: var(--bg-primary); padding: 5rem 2rem;">
-    <div class="container" style="text-align:center;">
-    <p class="hero-subtitle" style="margin-bottom:10px;">Flagship Brand</p>
-    <h2 class="section-title" style="font-size: 2.6rem;">AVERON</h2>
-    <p class="section-subtitle" style="max-width: 760px; margin: 0 auto 2rem; color: var(--text-secondary);">
-      Functional Skin Science — designed for clinic routines and barrier comfort.
-    </p>
-
-    <div style="max-width: 920px; margin: 0 auto; border: 1px solid rgba(201,162,77,0.18); border-radius: 18px; padding: 2.2rem; background: rgba(26,26,26,0.65);">
-  
-  <div class="averon-points">
-    <div style="border: 1px solid rgba(201,162,77,0.12); border-radius: 14px; padding: 16px; background: rgba(11,11,11,0.35);">
-      <div style="color: var(--gold-primary); font-weight:700; margin-bottom:6px;">Clinic-First</div>
-      <div style="color: var(--text-secondary); opacity:0.95;">Built for professional protocols & daily treatment flow.</div>
+  <!-- Hero -->
+  <section id="home" class="hero">
+    <div class="hero-background-slider">
+      <div class="hero-bg-image active"></div>
+      <div class="hero-bg-image"></div>
+      <div class="hero-bg-image"></div>
+      <div class="hero-bg-image"></div>
     </div>
-
-    <div style="border: 1px solid rgba(201,162,77,0.12); border-radius: 14px; padding: 16px; background: rgba(11,11,11,0.35);">
-      <div style="color: var(--gold-primary); font-weight:700; margin-bottom:6px;">Functional Formulas</div>
-      <div style="color: var(--text-secondary); opacity:0.95;">Hydration, comfort, and barrier-feel stability.</div>
-    </div>
-
-    <div style="border: 1px solid rgba(201,162,77,0.12); border-radius: 14px; padding: 16px; background: rgba(11,11,11,0.35);">
-      <div style="color: var(--gold-primary); font-weight:700; margin-bottom:6px;">Export-Ready</div>
-      <div style="color: var(--text-secondary); opacity:0.95;">Documentation & shipment coordination available for partners.</div>
-    </div>
-  </div>
-
-  <div style="margin-top: 20px; display:flex; justify-content:center;">
-    <a href="averon.html" class="cta-button" style="margin-bottom:0; padding:0.9rem 1.4rem; font-size:0.95rem;">
-      Visit AVERON
-    </a>
-  </div>
-</div>
-
-      <div style="margin-top: 20px; display:flex; justify-content:center;">
-            <a href="averon.html" class="cta-button" style="margin-bottom:0; padding:0.9rem 1.4rem; font-size:0.95rem;">
-                Visit AVERON
-            </a>      
-        </div>
-    </div>
-  </div>
-</section>
-
-<!-- Contact Section -->
-<section id="contact" class="section contact">
-  <div class="container">
-    <h2 class="section-title">Business Inquiries</h2>
-    <p class="section-subtitle">
-      For distribution, clinics, or partnership inquiries regarding AVERON.
-    </p>
-
-    <div class="contact-methods">
-
-      <!-- WhatsApp -->
-      <a href="https://wa.me/601116023115" target="_blank" class="contact-method">
-        <i class="fab fa-whatsapp"></i>
-        <div>
-          <h4>WhatsApp</h4>
-          <p>+60-11-1602-3115</p>
-        </div>
-      </a>
-
-      <!-- KakaoTalk -->
-      <a href="https://open.kakao.com/o/sZ6WqVei" target="_blank" class="contact-method">
-        <i class="fas fa-comment"></i>
-        <div>
-          <h4>KakaoTalk</h4>
-          <p>Direct Chat</p>
-        </div>
-      </a>
-
-      <!-- Email -->
-      <a href="mailto:korvexgrp@outlook.com" class="contact-method">
-        <i class="fas fa-envelope"></i>
-        <div>
-          <h4>Email</h4>
-          <p>korvexgrp@outlook.com</p>
-        </div>
-      </a>
-
-    </div> <!-- ✅ contact-methods 끝 -->
-
-    <!-- ✅ Business Hours (여기로 이동) -->
-    <div style="margin-top: 2.5rem; text-align: center;">
-      <p style="color: #FFFFFF; font-size: 0.95rem; font-weight: 500; margin-bottom: 0.4rem;">
-        <i class="fas fa-clock" style="margin-right:6px; color:#C9A24D;"></i>
-        Business Hours
-      </p>
-      <p style="color: #FFFFFF; font-size: 0.85rem; opacity: 0.85; margin-bottom: 0.2rem;">
-        Mon–Fri | Korea Standard Time (KST)
-      </p>
-      <p style="color: #FFFFFF; font-size: 0.85rem; opacity: 0.85;">
-        Fast response via WhatsApp &amp; KakaoTalk
-      </p>
-    </div>
-
-  </div>
-</section>
-
-    <!-- Footer -->
-    <footer>
     <div class="container">
-        <div class="footer-content">
-            <p>&copy; 2022 KORVEX.</p>
-            <p class="identity-note">Platform for proprietary clinic-grade brands and export coordination.</p>
+      <div class="hero-content">
+        <h1>Clinic-Grade Skin Science Platform</h1>
+        <div class="hero-subtitle">Structured Development. Controlled Distribution.</div>
 
-            <!-- Identity clarification -->
-            <p class="identity-note">
-            KORVEX is the holding and operating entity behind AVERON.
-            </p>
+        <div style="display:flex; gap:12px; justify-content:center; flex-wrap:wrap; margin-top:18px;">
+          <a href="#contact" class="cta-button" style="margin-bottom:0;">Business Inquiry</a>
+          <a href="#averon-gateway" class="cta-button" style="margin-bottom:0; background:transparent; color:var(--gold-primary); border:1px solid rgba(201,162,77,0.55);">
+            Explore AVERON
+          </a>
         </div>
+      </div>
     </div>
-</footer>
+  </section>
 
-    <script>
-        // Smooth scroll behavior for navigation links (with fixed-nav offset)
-                    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                    anchor.addEventListener('click', function (e) {
-                        const href = this.getAttribute('href');
-                        if (!href || href === '#') return;
-                    
-                        const target = document.querySelector(href);
-                        if (!target) return;
-                    
-                        e.preventDefault();
-                    
-                        const nav = document.querySelector('nav');
-                        const navHeight = nav ? nav.offsetHeight : 0;
-                        const extraGap = 12; // 약간 여유
-                    
-                        const targetTop = target.getBoundingClientRect().top + window.pageYOffset;
-                        const scrollTo = targetTop - navHeight - extraGap;
-                        window.scrollTo({
-                        top: scrollTo,
-                        behavior: 'smooth'
-                        });
-                    });
-                    });
+  <!-- Why KORVEX -->
+  <section id="why-us" class="section" style="background: var(--bg-secondary); padding: 6rem 2rem;">
+    <div class="container">
+      <h2 class="section-title">Why Choose KORVEX?</h2>
+      <p class="section-subtitle" style="max-width: 780px; margin: 0 auto 4rem; color: var(--text-secondary);">
+        KORVEX is a clinic-grade distribution platform — built to help clinics and distributors source, document, and export Korean skincare reliably.
+      </p>
 
-        // Add scroll effect to navigation
-        window.addEventListener('scroll', () => {
-            const nav = document.querySelector('nav');
-            if (window.scrollY > 100) {
-                nav.style.background = 'rgba(11, 11, 11, 0.98)';
-                nav.style.backdropFilter = 'blur(20px)';
-            } else {
-                nav.style.background = 'rgba(11, 11, 11, 0.95)';
-            }
-        });
+      <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem;">
+        <div style="background: var(--bg-primary); padding: 2.5rem; border-radius: 20px; border: 1px solid rgba(201, 162, 77, 0.12);">
+          <div style="width:60px;height:60px;background:var(--gradient-gold);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.8rem;margin-bottom:1.5rem;">🏥</div>
+          <h3 style="color: var(--gold-primary); font-size: 1.25rem; margin-bottom: 1rem; font-family:'Orbitron', monospace;">Clinic-First Positioning</h3>
+          <p style="color: var(--text-secondary); line-height: 1.7;">
+            We focus on clinic routines, professional use-cases, and distributor execution — not generic consumer cosmetics.
+          </p>
+        </div>
 
-        // Intersection Observer for animations
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
+        <div style="background: var(--bg-primary); padding: 2.5rem; border-radius: 20px; border: 1px solid rgba(201, 162, 77, 0.12);">
+          <div style="width:60px;height:60px;background:var(--gradient-gold);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.8rem;margin-bottom:1.5rem;">⚡</div>
+          <h3 style="color: var(--gold-primary); font-size: 1.25rem; margin-bottom: 1rem; font-family:'Orbitron', monospace;">Fast, Direct Execution</h3>
+          <p style="color: var(--text-secondary); line-height: 1.7;">
+            Direct decision-making, fast communication, and export-ready coordination for professional partners.
+          </p>
+        </div>
 
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
-                }
-            });
-        }, observerOptions);
+        <div style="background: var(--bg-primary); padding: 2.5rem; border-radius: 20px; border: 1px solid rgba(201, 162, 77, 0.12);">
+          <div style="width:60px;height:60px;background:var(--gradient-gold);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.8rem;margin-bottom:1.5rem;">📋</div>
+          <h3 style="color: var(--gold-primary); font-size: 1.25rem; margin-bottom: 1rem; font-family:'Orbitron', monospace;">Documentation Support</h3>
+          <p style="color: var(--text-secondary); line-height: 1.7;">
+            We support export documentation coordination (COA, MSDS, INCI, packing docs) based on project scope.
+          </p>
+        </div>
 
-        // Observe sections for animation
-        document.querySelectorAll('.section').forEach(section => {
-            section.style.opacity = '0';
-            section.style.transform = 'translateY(30px)';
-            section.style.transition = 'all 0.6s ease';
-            observer.observe(section);
-        });
+        <div style="background: var(--bg-primary); padding: 2.5rem; border-radius: 20px; border: 1px solid rgba(201, 162, 77, 0.12);">
+          <div style="width:60px;height:60px;background:var(--gradient-gold);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.8rem;margin-bottom:1.5rem;">🌏</div>
+          <h3 style="color: var(--gold-primary); font-size: 1.25rem; margin-bottom: 1rem; font-family:'Orbitron', monospace;">SEA & Global Focus</h3>
+          <p style="color: var(--text-secondary); line-height: 1.7;">
+            Strong fit for Southeast Asia clinics/distributors and cross-border supply coordination from Korea.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-        // Hero background image slider
-        const bgImages = document.querySelectorAll('.hero-bg-image');
-        let currentBgIndex = 0;
+  <!-- What We Provide -->
+  <section id="services" class="section services">
+    <div class="container">
+      <h2 class="section-title">What We Provide</h2>
+      <p class="section-subtitle">Practical export solutions for clinic & distributor partners</p>
 
-        function changeBackgroundImage() {
-            bgImages[currentBgIndex].classList.remove('active');
-            currentBgIndex = (currentBgIndex + 1) % bgImages.length;
-            bgImages[currentBgIndex].classList.add('active');
+      <div class="services-grid">
+        <div class="service-card">
+          <div class="service-icon">🧪</div>
+          <h3>Proprietary Brand Development</h3>
+          <p>We build private label / proprietary lines and coordinate production with qualified Korean partners (project-based).</p>
+          <ul style="text-align:left;color:var(--text-muted);margin-top:1rem;list-style:none;padding-left:0;">
+            <li style="margin:0.5rem 0;">✓ Concept planning for clinic routines</li>
+            <li style="margin:0.5rem 0;">✓ Packaging & SKU planning</li>
+            <li style="margin:0.5rem 0;">✓ Export readiness & execution support</li>
+          </ul>
+        </div>
+
+        <div class="service-card">
+          <div class="service-icon">📄</div>
+          <h3>Documentation Coordination</h3>
+          <p>We help coordinate essential documents to reduce customs friction (scope dependent).</p>
+          <ul style="text-align:left;color:var(--text-muted);margin-top:1rem;list-style:none;padding-left:0;">
+            <li style="margin:0.5rem 0;">✓ INCI / ingredient list</li>
+            <li style="margin:0.5rem 0;">✓ COA (if available by manufacturer)</li>
+            <li style="margin:0.5rem 0;">✓ MSDS / SDS (if applicable)</li>
+            <li style="margin:0.5rem 0;">✓ Packing & export docs</li>
+          </ul>
+        </div>
+
+        <div class="service-card">
+          <div class="service-icon">🔗</div>
+          <h3>Supply Coordination</h3>
+          <p>We coordinate sourcing and production workflow with partner manufacturers depending on product category and MOQ.</p>
+          <ul style="text-align:left;color:var(--text-muted);margin-top:1rem;list-style:none;padding-left:0;">
+            <li style="margin:0.5rem 0;">✓ Product-category specific MOQ</li>
+            <li style="margin:0.5rem 0;">✓ OEM / private label support</li>
+            <li style="margin:0.5rem 0;">✓ Stable reorder planning</li>
+          </ul>
+        </div>
+
+        <div class="service-card">
+          <div class="service-icon">🚚</div>
+          <h3>Export & Logistics</h3>
+          <p>We coordinate export shipping options based on order size and destination (air/sea).</p>
+          <ul style="text-align:left;color:var(--text-muted);margin-top:1rem;list-style:none;padding-left:0;">
+            <li style="margin:0.5rem 0;">✓ Air & sea options</li>
+            <li style="margin:0.5rem 0;">✓ Shipment tracking</li>
+            <li style="margin:0.5rem 0;">✓ Customs coordination support</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Product Focus -->
+  <section id="focus" class="section" style="background: var(--bg-primary);">
+    <div class="container">
+      <h2 class="section-title">Our Product Focus</h2>
+      <p class="section-subtitle">Clinic-grade skincare categories built for professional routines</p>
+
+      <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2.5rem; margin-top: 3rem;">
+        <div style="background: linear-gradient(135deg, rgba(26,26,26,0.8) 0%, rgba(11,11,11,0.9) 100%); padding: 2.5rem; border-radius: 20px; border: 1px solid rgba(201,162,77,0.2);">
+          <h3 style="font-family:'Orbitron', monospace; color: var(--gold-primary); font-size: 1.4rem; margin-bottom: 1rem;">Clinical & Dermacosmetics</h3>
+          <p style="color: var(--text-secondary); margin-bottom: 1.5rem; font-size: 0.95rem;">Functional formulas for professional outcomes</p>
+          <ul style="list-style:none; padding:0; margin:0;">
+            <li style="color:var(--text-secondary); padding:0.7rem 0; border-bottom:1px solid rgba(201,162,77,0.1);">✓ Barrier comfort & hydration</li>
+            <li style="color:var(--text-secondary); padding:0.7rem 0; border-bottom:1px solid rgba(201,162,77,0.1);">✓ Calming / post-treatment feel</li>
+            <li style="color:var(--text-secondary); padding:0.7rem 0; border-bottom:1px solid rgba(201,162,77,0.1);">✓ Texture stability for routines</li>
+          </ul>
+        </div>
+
+        <div style="background: linear-gradient(135deg, rgba(26,26,26,0.8) 0%, rgba(11,11,11,0.9) 100%); padding: 2.5rem; border-radius: 20px; border: 1px solid rgba(201,162,77,0.2);">
+          <h3 style="font-family:'Orbitron', monospace; color: var(--gold-primary); font-size: 1.4rem; margin-bottom: 1rem;">Post-Procedure Care</h3>
+          <p style="color: var(--text-secondary); margin-bottom: 1.5rem; font-size: 0.95rem;">Recovery-first product concepts</p>
+          <ul style="list-style:none; padding:0; margin:0;">
+            <li style="color:var(--text-secondary); padding:0.7rem 0; border-bottom:1px solid rgba(201,162,77,0.1);">✓ Soothing creams & gels</li>
+            <li style="color:var(--text-secondary); padding:0.7rem 0; border-bottom:1px solid rgba(201,162,77,0.1);">✓ Barrier-support serums</li>
+            <li style="color:var(--text-secondary); padding:0.7rem 0; border-bottom:1px solid rgba(201,162,77,0.1);">✓ Mask / patch formats (project-based)</li>
+          </ul>
+        </div>
+
+        <div style="background: linear-gradient(135deg, rgba(26,26,26,0.8) 0%, rgba(11,11,11,0.9) 100%); padding: 2.5rem; border-radius: 20px; border: 1px solid rgba(201,162,77,0.2);">
+          <h3 style="font-family:'Orbitron', monospace; color: var(--gold-primary); font-size: 1.4rem; margin-bottom: 1rem;">Custom Requests</h3>
+          <p style="color: var(--text-secondary); margin-bottom: 1.5rem; font-size: 0.95rem;">If you have a target format, we can discuss feasibility.</p>
+          <a href="#contact" class="cta-button" style="margin-bottom:0; padding:0.85rem 1.4rem; font-size:0.95rem;">Request Product List</a>
+        </div>
+      </div>
+
+      <div style="text-align:center; margin-top: 3rem; color: var(--text-muted); font-size: 0.9rem; font-style: italic; padding: 1.5rem; background: rgba(26,26,26,0.3); border-radius: 10px; border: 1px solid rgba(201,162,77,0.1);">
+        *Product availability and documents depend on manufacturer partnership and project scope.
+      </div>
+    </div>
+  </section>
+
+  <!-- AVERON Gateway -->
+  <section id="averon-gateway" class="section" style="background: var(--bg-secondary); padding: 6rem 2rem;">
+    <div class="container" style="text-align:center;">
+      <p class="hero-subtitle" style="margin-bottom:10px;">Introducing AVERON</p>
+      <h2 class="section-title" style="font-size: 2.6rem;">AVERON</h2>
+      <p class="section-subtitle" style="max-width: 760px; margin: 0 auto 2rem; color: var(--text-secondary);">
+        Clinic-grade dermacosmetic line — Built through structured formulation and R&D coordination.
+      </p>
+
+      <div style="max-width: 920px; margin: 0 auto; border: 1px solid rgba(201,162,77,0.18); border-radius: 18px; padding: 2.2rem; background: rgba(11,11,11,0.55);">
+        <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 14px; text-align:center;">
+          <div style="border: 1px solid rgba(201,162,77,0.12); border-radius: 14px; padding: 16px; background: rgba(26,26,26,0.55);">
+            <div style="color: var(--gold-primary); font-weight:700; margin-bottom:6px;">R&D Theme</div>
+            <div style="color: var(--text-secondary); opacity:0.95;">White/charcoal clinical identity.</div>
+          </div>
+          <div style="border: 1px solid rgba(201,162,77,0.12); border-radius: 14px; padding: 16px; background: rgba(26,26,26,0.55);">
+            <div style="color: var(--gold-primary); font-weight:700; margin-bottom:6px;">Product-First</div>
+            <div style="color: var(--text-secondary); opacity:0.95;">Short brand story, long product proof.</div>
+          </div>
+          <div style="border: 1px solid rgba(201,162,77,0.12); border-radius: 14px; padding: 16px; background: rgba(26,26,26,0.55);">
+            <div style="color: var(--gold-primary); font-weight:700; margin-bottom:6px;">Testing & Docs</div>
+            <div style="color: var(--text-secondary); opacity:0.95;">Claims backed by process & documents.</div>
+          </div>
+        </div>
+
+        <div style="margin-top: 20px; display:flex; justify-content:center;">
+          <a href="averon.html" class="cta-button" style="margin-bottom:0;">Explore the Brand</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" class="section contact">
+    <div class="container">
+      <h2 class="section-title">Business Inquiries</h2>
+      <p class="section-subtitle">Reach us via WhatsApp, KakaoTalk, or Email</p>
+
+      <div class="contact-methods">
+        <a class="contact-method"
+           href="https://wa.me/601116023115?text=Hello%20KORVEX%2C%20I'm%20interested%20in%20your%20clinic-grade%20skincare"
+           target="_blank" rel="noopener">
+          <i class="fab fa-whatsapp"></i>
+          <div>
+            <h4>WhatsApp</h4>
+            <p>Direct Contact</p>
+          </div>
+        </a>
+
+        <a class="contact-method"
+           href="https://open.kakao.com/o/sZ6WqVei"
+           target="_blank" rel="noopener">
+          <i class="fas fa-comment"></i>
+          <div>
+            <h4>KakaoTalk</h4>
+            <p>Open Chat</p>
+          </div>
+        </a>
+
+        <a class="contact-method" href="mailto:korvexgrp@outlook.com">
+          <i class="fas fa-envelope"></i>
+          <div>
+            <h4>Email</h4>
+            <p>korvexgrp@outlook.com</p>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <p>&copy; 2022 KORVEX.</p>
+        <p class="identity-note">Platform for proprietary clinic-grade brands and export coordination.</p>
+        <p class="identity-note">KORVEX is the holding and operating entity behind AVERON.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Smooth scroll behavior for navigation links (with fixed-nav offset)
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        const href = this.getAttribute('href');
+        if (!href || href === '#') return;
+
+        const target = document.querySelector(href);
+        if (!target) return;
+
+        e.preventDefault();
+
+        const nav = document.querySelector('nav');
+        const navHeight = nav ? nav.offsetHeight : 0;
+        const extraGap = 12;
+
+        const targetTop = target.getBoundingClientRect().top + window.pageYOffset;
+        const scrollTo = targetTop - navHeight - extraGap;
+
+        window.scrollTo({ top: scrollTo, behavior: 'smooth' });
+      });
+    });
+
+    // Add scroll effect to navigation
+    window.addEventListener('scroll', () => {
+      const nav = document.querySelector('nav');
+      if (!nav) return;
+      const atTop = window.scrollY <= 5;
+
+      if (atTop) {
+        nav.style.background = 'rgba(255,255,255,0.98)';
+        nav.style.backdropFilter = 'none';
+        nav.style.webkitBackdropFilter = 'none';
+        nav.style.borderBottomColor = 'rgba(201, 162, 77, 0.22)';
+      } else {
+        nav.style.background = 'rgba(255,255,255,0)';
+        nav.style.backdropFilter = 'none';
+        nav.style.webkitBackdropFilter = 'none';
+        nav.style.borderBottomColor = 'rgba(201, 162, 77, 0.0)';
+      }
+    });
+
+    // Intersection Observer for animations
+    const observerOptions = { threshold: 0.1, rootMargin: '0px 0px -50px 0px' };
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = '1';
+          entry.target.style.transform = 'translateY(0)';
         }
+      });
+    }, observerOptions);
 
-        // Change background image every 3.5 seconds
-        setInterval(changeBackgroundImage, 3500);
-                
-        // 햄버거 메뉴 토글 + 스크롤 잠금
-        const hamburger = document.getElementById('hamburger');
-        const navLinks = document.getElementById('navLinks');
+    document.querySelectorAll('.section').forEach(section => {
+      section.style.opacity = '0';
+      section.style.transform = 'translateY(30px)';
+      section.style.transition = 'all 0.6s ease';
+      observer.observe(section);
+    });
 
-        hamburger.addEventListener('click', (e) => {
-        e.stopPropagation(); // 중요: document 클릭으로 버블링되는 거 방지
+    // Hero background image slider
+    const bgImages = document.querySelectorAll('.hero-bg-image');
+    let currentBgIndex = 0;
+
+    function changeBackgroundImage() {
+      bgImages[currentBgIndex].classList.remove('active');
+      currentBgIndex = (currentBgIndex + 1) % bgImages.length;
+      bgImages[currentBgIndex].classList.add('active');
+    }
+    setInterval(changeBackgroundImage, 3500);
+
+    // ✅ Hamburger open/close (old style)
+    const hamburger = document.getElementById('hamburger');
+    const navLinks = document.getElementById('navLinks');
+
+    if (hamburger && navLinks) {
+      hamburger.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const isOpen = navLinks.classList.toggle('active');
         hamburger.classList.toggle('active');
-        navLinks.classList.toggle('active');
-        document.body.style.overflow = navLinks.classList.contains('active') ? 'hidden' : '';
-        });
+        hamburger.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+        document.body.style.overflow = isOpen ? 'hidden' : '';
+      });
 
-        // 메뉴 링크 클릭 시 메뉴 닫기 + 스크롤 해제
-        document.querySelectorAll('.nav-links a').forEach(link => {
+      document.querySelectorAll('.nav-links a').forEach(link => {
         link.addEventListener('click', () => {
-        hamburger.classList.remove('active');
-        navLinks.classList.remove('active');
-        document.body.style.overflow = '';
+          hamburger.classList.remove('active');
+          navLinks.classList.remove('active');
+          hamburger.setAttribute('aria-expanded', 'false');
+          document.body.style.overflow = '';
         });
-        });
-        
-        // 메뉴 외부 클릭 시 닫기 + 스크롤 해제
-        document.addEventListener('click', (e) => {
+      });
+
+      document.addEventListener('click', (e) => {
         if (!hamburger.contains(e.target) && !navLinks.contains(e.target)) {
-            hamburger.classList.remove('active');
-            navLinks.classList.remove('active');
-            document.body.style.overflow = '';
+          hamburger.classList.remove('active');
+          navLinks.classList.remove('active');
+          hamburger.setAttribute('aria-expanded', 'false');
+          document.body.style.overflow = '';
         }
-        });
-    </script>
+      });
+    }
+  </script>
 </body>
 </html>
