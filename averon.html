@@ -23,9 +23,6 @@
       --muted: #555555;
       --line: rgba(0,0,0,0.12);
     }
-
-        html { scroll-padding-top: 110px; }
-        section[id] { scroll-margin-top: 110px; }
         
     *{ margin:0; padding:0; box-sizing:border-box; }
     body{
@@ -144,6 +141,7 @@
 
     /* Sections */
     .section{ padding: 52px 0; }
+    .section.soft{ background: var(--bg-soft); }
     .section h2{
       font-size: 22px;
       color: var(--charcoal);
@@ -210,12 +208,16 @@
     }
 
     @media (max-width: 640px){
-      .topbar-inner{ padding: 12px 0; }
-      .nav{ gap: 8px; }
-      .nav a{ padding: 8px; }
-      .nav{ gap: 10px; }
-      .nav a{ padding: 8px 8px; }
-    }
+  .topbar-inner{ padding: 12px 0; }
+  .nav{ gap: 10px; }
+  .nav a{ padding: 8px 8px; }
+   }
+
+   .topbar{
+  backdrop-filter: blur(14px);
+  will-change: transform;
+  }
+
   </style>
 </head>
 
@@ -284,7 +286,7 @@
       </div>
     </section>
 
-    <section id="products" class="section" style="background: var(--bg-soft);">
+    <section id="products" class="section soft">
       <div class="wrap">
         <div class="product-title">
           <div>
@@ -347,7 +349,7 @@
       </div>
     </section>
 
-    <section id="contact" class="section" style="background: #fff;">
+    <section id="contact" class="section">
       <div class="wrap">
         <h2>Request Catalog & Quotation</h2>
         <p>Contact KORVEX to receive the PB catalog and project quotation.</p>
@@ -370,25 +372,40 @@
 </footer>
 
 <script>
-  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-      const href = this.getAttribute('href');
-      if (!href || href === '#') return;
+  function scrollWithOffset(hash, behavior = 'smooth') {
+    if (!hash || hash === '#') return;
 
-      const target = document.querySelector(href);
-      if (!target) return;
+    const target = document.querySelector(hash);
+    if (!target) return;
+
+    const topbar = document.querySelector('.topbar');
+    const barHeight = topbar ? topbar.offsetHeight : 0;
+    const extraGap = 12;
+
+    const targetTop = target.getBoundingClientRect().top + window.pageYOffset;
+    const scrollTo = targetTop - barHeight - extraGap;
+
+    window.scrollTo({ top: scrollTo, behavior });
+  }
+
+  // 1) 메뉴 클릭 시: 부드럽게 이동 + 주소 해시 업데이트
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      const hash = a.getAttribute('href');
+      if (!hash || hash === '#') return;
+      if (!document.querySelector(hash)) return;
 
       e.preventDefault();
-
-      const topbar = document.querySelector('.topbar');
-      const barHeight = topbar ? topbar.offsetHeight : 0;
-      const extraGap = 12;
-
-      const targetTop = target.getBoundingClientRect().top + window.pageYOffset;
-      const scrollTo = targetTop - barHeight - extraGap;
-
-      window.scrollTo({ top: scrollTo, behavior: 'smooth' });
+      history.pushState(null, '', hash);
+      scrollWithOffset(hash, 'smooth');
     });
+  });
+
+  // 2) URL로 직접 진입(또는 새로고침) 시: 즉시 보정
+  window.addEventListener('load', () => {
+    if (location.hash) {
+      scrollWithOffset(location.hash, 'auto');
+    }
   });
 </script>
 
