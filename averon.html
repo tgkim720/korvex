@@ -90,10 +90,56 @@
     }
 
     /* Hero */
-    .hero{
-      padding: 72px 0 56px;
-      background: linear-gradient(180deg, #ffffff 0%, #f8f8f8 100%);
-    }
+.hero{
+  padding: 72px 0 56px;
+  position: relative;
+  background: var(--bg-soft);
+  overflow: hidden;
+}
+
+/* hero background images */
+.hero::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background-image: url("images/아베론히어로데스크탑.jpg");
+  background-size: cover;
+  background-position: center right;
+  background-repeat: no-repeat;
+  opacity: 1;
+  z-index: 0;
+}
+
+/* subtle overlay for text readability */
+.hero::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background: linear-gradient(90deg, rgba(255,255,255,0.92) 0%, rgba(255,255,255,0.72) 45%, rgba(255,255,255,0.20) 100%);
+  z-index: 0;
+}
+
+/* content above background */
+.hero .wrap{
+  position: relative;
+  z-index: 1;
+}
+
+/* mobile image swap */
+@media (max-width: 768px){
+  .hero{
+    padding: 56px 0 44px;
+  }
+  .hero::before{
+    background-image: url("images/아베론히어로%20모바일.jpg");
+    background-position: center center;
+  }
+  .hero::after{
+    background: linear-gradient(180deg, rgba(255,255,255,0.92) 0%, rgba(255,255,255,0.70) 55%, rgba(255,255,255,0.22) 100%);
+  }
+}
+
+
     .hero h1{
       font-size: clamp(28px, 4vw, 44px);
       line-height: 1.2;
@@ -234,13 +280,13 @@
 
       <!-- Bottom Menu -->
       <nav class="nav">
-        <a href="#about">About</a>
+        <a href="#science">Science</a>
         <a href="#products">Products</a>
+        <a href="#quality">Quality</a>
         <a href="#documents">Documents</a>
         <a href="#contact">Contact</a>
         <a href="https://korvexgrp.com" target="_blank" rel="noopener">KORVEX</a>
       </nav>
-
     </div>
   </div>
 </header>
@@ -262,9 +308,9 @@
       </div>
     </section>
 
-    <section id="about" class="section">
+    <section id="science" class="section">
       <div class="wrap">
-        <h2>Why AVERON</h2>
+        <h2>Science</h2>
         <p>
           Built around core functional outcomes—calming comfort, hydration support, and barrier-feel stability—without over-claiming.
         </p>
@@ -323,6 +369,43 @@
         </div>
       </div>
     </section>
+    <section id="quality" class="section">
+  <div class="wrap">
+    <h2>Quality System</h2>
+    <p>
+      Quality and documentation readiness are structured for professional partners. Detailed materials are shared upon request (NDA available).
+    </p>
+
+    <div class="grid">
+      <div class="card">
+        <h3>QC & Batch Consistency</h3>
+        <ul class="list">
+          <li>Defined QC checkpoints for each batch</li>
+          <li>Consistency-focused production control</li>
+          <li>Partner-facing documentation flow</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h3>R&amp;D & Stability Approach</h3>
+        <ul class="list">
+          <li>Stability and compatibility review (as applicable)</li>
+          <li>Formula finalization aligned with project terms</li>
+          <li>Spec confirmation prior to mass production</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h3>Certifications & Compliance</h3>
+        <ul class="list">
+          <li>Factory certificates (e.g., ISO / GMP if applicable)</li>
+          <li>Export documentation support (COA/MSDS/INCI)</li>
+          <li>Shared upon partner review</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
 
     <section id="documents" class="section">
       <div class="wrap">
