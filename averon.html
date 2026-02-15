@@ -9,20 +9,30 @@
   <meta name="robots" content="index, follow" />
 
   <link rel="canonical" href="https://korvexgrp.com/averon.html" />
+  <link rel="icon" type="image/svg+xml"
+  href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='48' fill='white'/%3E%3Ctext x='50%25' y='54%25' text-anchor='middle' font-family='Inter,Arial,sans-serif' font-size='58' font-weight='700' fill='%231E1E1E' dominant-baseline='middle'%3EA%3C/text%3E%3C/svg%3E">
 
   <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
   <style>
     :root{
-      --bg: #FFFFFF;
-      --bg-soft: #F6F7F8;
-      --charcoal: #1E1E1E;
-      --charcoal-2: #2A2A2A;
-      --text: #111111;
-      --muted: #555555;
-      --line: rgba(0,0,0,0.12);
-    }
+  /* Background: off-white / light grey */
+  --bg: #F8F8F6;
+  --bg-soft: #F1F2F3;
+
+  /* Accent: charcoal */
+  --charcoal: #1E1E1E;
+  --charcoal-2: #2A2A2A;
+  --text: #111111;
+  --muted: #5A5A5A;
+
+  /* Highlight: subtle silver */
+  --silver: #D6D6D6;
+  --silver-2: #C9C9C9;
+
+  --line: rgba(30,30,30,0.12);
+}
         
     *{ margin:0; padding:0; box-sizing:border-box; }
     body{
@@ -42,7 +52,7 @@
       z-index: 9999;
       background: rgba(255,255,255,0.92);
       backdrop-filter: blur(14px);
-      border-bottom: 1px solid var(--line);
+      border-bottom: 1px solid rgba(214,214,214,0.8);
     }
     .topbar-inner{
         display:flex;
@@ -88,6 +98,41 @@
     .nav a:hover{
       background: var(--bg-soft);
     }
+    /* Nav underline + active state */
+.nav a{
+  position: relative;
+}
+
+.nav a::after{
+  content:"";
+  position:absolute;
+  left: 10px;
+  right: 10px;
+  bottom: 4px;
+  height: 2px;
+  background: rgba(30,30,30,0.55); /* charcoal */
+  border-radius: 999px;
+  transform: scaleX(0);
+  transform-origin: center;
+  transition: transform 0.22s ease, opacity 0.22s ease;
+  opacity: 0.0;
+}
+
+.nav a:hover::after{
+  transform: scaleX(1);
+  opacity: 0.55;
+}
+
+/* active (current section) */
+.nav a.is-active{
+  background: rgba(241,242,243,0.9); /* --bg-soft */
+}
+
+.nav a.is-active::after{
+  transform: scaleX(1);
+  opacity: 0.85;
+}
+
 
     /* Hero */
 .hero{
@@ -115,7 +160,13 @@
   content:"";
   position:absolute;
   inset:0;
-  background: linear-gradient(90deg, rgba(255,255,255,0.92) 0%, rgba(255,255,255,0.72) 45%, rgba(255,255,255,0.20) 100%);
+  background: linear-gradient(
+    90deg,
+    rgba(248,248,246,0.88) 0%,
+    rgba(248,248,246,0.58) 34%,
+    rgba(248,248,246,0.16) 62%,
+    rgba(248,248,246,0.06) 100%
+  );
   z-index: 0;
 }
 
@@ -135,8 +186,13 @@
     background-position: center center;
   }
   .hero::after{
-    background: linear-gradient(180deg, rgba(255,255,255,0.92) 0%, rgba(255,255,255,0.70) 55%, rgba(255,255,255,0.22) 100%);
-  }
+  background: linear-gradient(
+    180deg,
+    rgba(248,248,246,0.92) 0%,
+    rgba(248,248,246,0.68) 55%,
+    rgba(248,248,246,0.22) 100%
+  );
+}
 }
 
 
@@ -146,6 +202,7 @@
       letter-spacing: -0.02em;
       color: var(--charcoal);
       margin-bottom: 14px;
+      text-shadow: 0 2px 10px rgba(0,0,0,0.08);
     }
     .hero .subtitle{
       font-size: 16px;
@@ -203,11 +260,12 @@
       gap: 16px;
     }
     .card{
-      background: #fff;
-      border: 1px solid var(--line);
-      border-radius: 18px;
-      padding: 20px;
-    }
+  background: rgba(255,255,255,0.92);
+  border: 1px solid rgba(214,214,214,0.85); /* subtle silver */
+  border-radius: 18px;
+  padding: 20px;
+  box-shadow: 0 10px 26px rgba(0,0,0,0.04);
+}
     .card h3{
       color: var(--charcoal);
       font-size: 16px;
@@ -280,13 +338,13 @@
 
       <!-- Bottom Menu -->
       <nav class="nav">
-        <a href="#science">Science</a>
-        <a href="#products">Products</a>
-        <a href="#quality">Quality</a>
-        <a href="#documents">Documents</a>
-        <a href="#contact">Contact</a>
-        <a href="https://korvexgrp.com" target="_blank" rel="noopener">KORVEX</a>
-      </nav>
+  <a href="#science" data-nav="science">Science</a>
+  <a href="#products" data-nav="products">Products</a>
+  <a href="#quality" data-nav="quality">Quality</a>
+  <a href="#documents" data-nav="documents">Documents</a>
+  <a href="#contact" data-nav="contact">Contact</a>
+  <a href="https://korvexgrp.com" target="_blank" rel="noopener">KORVEX</a>
+</nav>
     </div>
   </div>
 </header>
@@ -312,32 +370,33 @@
       <div class="wrap">
         <h2>Science</h2>
         <p>
-          Built around core functional outcomes—calming comfort, hydration support, and barrier-feel stability—without over-claiming.
-        </p>
+  AVERON is structured around barrier comfort, hydration support, and protocol-friendly textures — designed for professional routines without overstated claims.
+</p>
 
-        <div class="grid">
-          <div class="card">
-            <h3>Functional Focus</h3>
-            <p>Designed for everyday professional routines and protocol compatibility.</p>
-          </div>
-          <div class="card">
-            <h3>Professional Sizing</h3>
-            <p>Core SKUs prioritize clinic workflow and stable replenishment planning.</p>
-          </div>
-          <div class="card">
-            <h3>Export Coordination</h3>
-            <p>Document support and export coordination are provided under project terms.</p>
-          </div>
-        </div>
-      </div>
-    </section>
+<div class="grid">
+  <div class="card">
+    <h3>Barrier-First Logic</h3>
+    <p>Formulation direction prioritizes comfort feel, hydration retention, and non-disruptive daily use.</p>
+  </div>
+  <div class="card">
+    <h3>Layering & Texture Control</h3>
+    <p>Designed for clinic protocols: fast absorption, clean finish, and easy layering across steps.</p>
+  </div>
+  <div class="card">
+    <h3>Transparency by Documentation</h3>
+    <p>Partner review can include COA/MSDS/INCI and specification sheets under project terms (NDA available).</p>
+  </div>
+</div>
+</div>
+</section>
 
     <section id="products" class="section soft">
       <div class="wrap">
         <div class="product-title">
           <div>
             <h2>Core Products</h2>
-            <p>Two core SKUs for professional use (final specs TBC).</p>
+            <p>Two core SKUs for professional routines. Final specifications are confirmed after quotation and manufacturing confirmation.
+            </p>
           </div>
           <div class="pill">Pro sizes: 100ml / 150ml</div>
         </div>
@@ -349,7 +408,7 @@
             <ul class="list">
               <li>Use-case: daily clinic base / post-care comfort</li>
               <li>Planned volume: 100ml</li>
-              <li>Key ingredients (planned): soothing & hydration complex (final formula TBC)</li>
+              <li>Key direction: soothing + hydration complex (final formula confirmed after production confirmation)</li>
             </ul>
           </div>
 
@@ -359,7 +418,7 @@
             <ul class="list">
               <li>Use-case: finishing step / sealing hydration</li>
               <li>Planned volume: 150ml</li>
-              <li>Texture: non-greasy comfort feel (final TBC)</li>
+              <li>Texture: non-greasy comfort feel (final texture confirmed after production confirmation)</li>
             </ul>
           </div>
         </div>
@@ -473,16 +532,21 @@
 
   // 1) 메뉴 클릭 시: 부드럽게 이동 + 주소 해시 업데이트
   document.querySelectorAll('a[href^="#"]').forEach(a => {
-    a.addEventListener('click', e => {
-      const hash = a.getAttribute('href');
-      if (!hash || hash === '#') return;
-      if (!document.querySelector(hash)) return;
+  a.addEventListener('click', e => {
+    const hash = a.getAttribute('href');
+    if (!hash || hash === '#') return;
+    if (!document.querySelector(hash)) return;
 
-      e.preventDefault();
-      history.pushState(null, '', hash);
-      scrollWithOffset(hash, 'smooth');
-    });
+    e.preventDefault();
+    history.pushState(null, '', hash);
+
+    // 클릭 즉시 active 반영
+    setActiveById(hash.replace('#',''));
+
+    scrollWithOffset(hash, 'smooth');
   });
+});
+
 
   // 2) URL로 직접 진입(또는 새로고침) 시: 즉시 보정
   window.addEventListener('load', () => {
@@ -490,6 +554,42 @@
       scrollWithOffset(location.hash, 'auto');
     }
   });
+  // ===== Active nav highlight (scroll spy) =====
+const navLinks = Array.from(document.querySelectorAll('.nav a[data-nav]'));
+const sections = navLinks
+  .map(a => document.querySelector(a.getAttribute('href')))
+  .filter(Boolean);
+
+function setActiveById(id) {
+  navLinks.forEach(a => {
+    const isMatch = a.getAttribute('href') === `#${id}`;
+    a.classList.toggle('is-active', isMatch);
+  });
+}
+
+function getCurrentSectionId() {
+  const topbar = document.querySelector('.topbar');
+  const barHeight = topbar ? topbar.offsetHeight : 0;
+  const offset = barHeight + 18; // same 느낌으로 여유
+
+  let currentId = sections[0]?.id;
+
+  for (const sec of sections) {
+    const rect = sec.getBoundingClientRect();
+    if (rect.top - offset <= 0) currentId = sec.id;
+  }
+  return currentId;
+}
+
+function onScrollSpy() {
+  const id = getCurrentSectionId();
+  if (id) setActiveById(id);
+}
+
+// 초기 1회 + 스크롤/리사이즈 반영
+window.addEventListener('load', onScrollSpy);
+window.addEventListener('scroll', onScrollSpy, { passive: true });
+window.addEventListener('resize', onScrollSpy);
 </script>
 
 </body>
