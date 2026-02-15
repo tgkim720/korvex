@@ -801,7 +801,56 @@
             outline: none;
             box-shadow: none;
         }
-        
+        /* ===== Brand card click effect (Floating + Shine) ===== */
+.brand-card {
+  position: relative;
+  overflow: hidden;
+  transform: translateY(0) scale(1);
+  transition: transform 0.28s ease, box-shadow 0.28s ease, border-color 0.28s ease;
+  will-change: transform;
+}
+
+/* hover는 살짝만 (원치 않으면 지워도 됨) */
+.brand-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(220,220,220,0.9);
+}
+
+.brand-card.selected {
+  transform: translateY(-10px) scale(1.02);
+  border-color: rgba(235,235,235,0.95);
+  box-shadow:
+    0 28px 70px rgba(0,0,0,0.65),
+    0 0 0 1px rgba(255,255,255,0.22) inset,
+    0 0 28px rgba(255,255,255,0.10);
+}
+
+/* Shine layer */
+.brand-card::after {
+  content: "";
+  position: absolute;
+  top: -40%;
+  left: -120%;
+  width: 60%;
+  height: 180%;
+  transform: rotate(25deg);
+  background: linear-gradient(
+    90deg,
+    rgba(255,255,255,0) 0%,
+    rgba(255,255,255,0.10) 35%,
+    rgba(255,255,255,0.35) 50%,
+    rgba(255,255,255,0.10) 65%,
+    rgba(255,255,255,0) 100%
+  );
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Trigger: click → add .shine once */
+.brand-card.shine::after {
+  opacity: 1;
+  animation: shineSweep 0.9s ease-out 1;
+}
         /* WhatsApp 플로팅 버튼 */
         .whatsapp-float {
             position: fixed;
@@ -1014,8 +1063,18 @@ KORVEX는 B2B 수입/프로 파트너를 대상으로 자사 보유 클리닉 �
     <div style="max-width: 980px; margin: 0 auto; display:flex; justify-content:center;">
       
       <!-- AVERON card -->
-      <div style="text-align:center; border: 1px solid rgba(255,255,255,0.10); border-radius: 18px; padding: 2.2rem; background: #2F3133; box-shadow: 0 18px 50px rgba(0,0,0,0.55);">
-        <div style="color: #EDEDED; font-weight:700; letter-spacing:1px; margin-bottom:8px;">AVERON</div>
+      <div id="averonCard" class="brand-card" style="text-align:center; border: 1px solid rgba(192,192,192,0.85); border-radius: 18px; padding: 2.2rem; background: #2F3133; box-shadow: 0 18px 50px rgba(0,0,0,0.55), 0 0 0 1px rgba(192,192,192,0.25) inset; cursor:pointer;">
+        <div style="
+            color: #FFFFFF;
+            font-weight: 800;
+            letter-spacing: 2.5px;
+            margin-bottom: 10px;
+            font-size: 1.55rem;
+            text-transform: uppercase;
+            text-shadow: 0 0 12px rgba(192,192,192,0.35), 0 0 24px rgba(255,255,255,0.18);
+            ">
+            AVERON
+            </div>
         <div style="color: rgba(255,255,255,0.88); opacity:1; margin-bottom:14px;">
           Functional Skin Science — designed for clinic routines and barrier comfort.
         </div>
@@ -1240,6 +1299,20 @@ KORVEX는 B2B 수입/프로 파트너를 대상으로 자사 보유 클리닉 �
 </footer>
 
     <script>
+        // ===== AVERON card: click -> floating + shine =====
+            const averonCard = document.getElementById('averonCard');
+            
+            if (averonCard) {
+            averonCard.addEventListener('click', () => {
+                averonCard.classList.toggle('selected');
+
+                averonCard.classList.remove('shine');
+                void averonCard.offsetWidth;
+                averonCard.classList.add('shine');
+            
+                setTimeout(() => averonCard.classList.remove('shine'), 950);
+            });
+            }
         // Smooth scroll behavior for navigation links (with fixed-nav offset)
                     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
                     anchor.addEventListener('click', function (e) {
