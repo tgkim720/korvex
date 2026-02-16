@@ -38,55 +38,209 @@
 
     .wrap{ max-width: 1100px; margin: 0 auto; padding: 0 24px; }
 
-    /* Topbar */
-    .topbar{
-      position: sticky;
-      top: 0;
-      z-index: 9999;
-      background: rgba(248,248,246,0.92);
-      backdrop-filter: blur(14px);
-      border-bottom: 1px solid rgba(214,214,214,0.85);
-    }
-    .topbar-inner{
-      display:flex;
-      align-items:center;
-      justify-content: space-between;
-      padding: 10px 0;
-      gap: 12px;
-    }
+/* Top bar (same as AVERON main) */
+.topbar{
+  position: sticky;
+  top: 0;
+  z-index: 9999;
+  background: rgba(255,255,255,0.92);
+  backdrop-filter: blur(14px);
+  border-bottom: 1px solid rgba(214,214,214,0.8);
+}
+.topbar-inner{
+  position: relative;
+  padding: 16px 0 12px;
+  min-height: 74px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
-    .brandlock{
-      display:flex;
-      flex-direction: column;
-      gap: 2px;
-    }
-    .brandlock .brand{
-      letter-spacing: 0.18em;
-      font-weight: 700;
-      font-size: 20px; 
-      color: var(--charcoal);
-    }
-    .brandlock .tag{
-      font-size: 12px;
-      color: var(--muted);
-      letter-spacing: 0.04em;
-    }
+.logo{
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 2px;
+  pointer-events: none;
+}
+.logo .brand{
+  letter-spacing: 0.22em;
+  font-weight: 800;
+  font-size: 20px;
+  color: var(--charcoal);
+}
+.logo .tag{
+  font-size: 10.5px;
+  color: var(--muted);
+  letter-spacing: 0.06em;
+}
 
-    .top-actions{
-      display:flex;
-      gap: 10px;
-      align-items:center;
-      flex-wrap: wrap;
-      justify-content: flex-end;
-    }
-    .chip{
-      font-size: 12px;
-      border: 1px solid var(--line);
-      border-radius: 999px;
-      padding: 7px 10px;
-      background: rgba(255,255,255,0.7);
-      color: var(--charcoal-2);
-    }
+.nav{
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 18px;
+  font-size: 14px;
+  color: var(--charcoal-2);
+}
+.nav a{
+  position: relative;
+  padding: 8px 10px;
+  border-radius: 10px;
+}
+.nav a:hover{ background: var(--bg-soft); }
+
+.nav a::after{
+  content:"";
+  position:absolute;
+  left: 10px;
+  right: 10px;
+  bottom: 4px;
+  height: 2px;
+  background: rgba(30,30,30,0.55);
+  border-radius: 999px;
+  transform: scaleX(0);
+  transform-origin: center;
+  transition: transform 0.22s ease, opacity 0.22s ease;
+  opacity: 0.0;
+}
+.nav a:hover::after{
+  transform: scaleX(1);
+  opacity: 0.55;
+}
+
+/* Hamburger */
+.hamburger{
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 44px;
+  height: 44px;
+  border: 1px solid rgba(30,30,30,0.14);
+  border-radius: 14px;
+  background: rgba(246,245,242,0.78);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  flex-direction: column;
+  cursor: pointer;
+  padding: 0;
+  transition: transform 0.28s cubic-bezier(.2,.9,.2,1), background 0.28s ease;
+}
+.hamburger:active{
+  transform: translateY(-50%) translateY(1px);
+}
+.hamburger span{
+  width: 18px;
+  height: 2px;
+  border-radius: 999px;
+  background: rgba(30,30,30,0.72);
+  transition: transform 0.56s cubic-bezier(.2,.9,.2,1), opacity 0.30s ease;
+}
+.topbar.is-open .hamburger span:nth-child(1){
+  transform: translateY(6px) rotate(45deg);
+}
+.topbar.is-open .hamburger span:nth-child(2){
+  opacity: 0;
+}
+.topbar.is-open .hamburger span:nth-child(3){
+  transform: translateY(-6px) rotate(-45deg);
+}
+
+/* Mobile dropdown nav */
+@media (max-width: 768px){
+  .hamburger{ display:flex; }
+
+  .nav{
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 74px;
+    z-index: 9999;
+
+    visibility: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+    will-change: transform, opacity;
+
+    padding: 14px 16px 18px;
+    background: rgba(246,245,242,0.92);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+    border-bottom: 1px solid rgba(30,30,30,0.12);
+
+    transform: translateY(-14px);
+    opacity: 0;
+    pointer-events: none;
+
+    transition:
+      transform 0.62s cubic-bezier(.2,.9,.2,1),
+      opacity 0.32s cubic-bezier(.2,.9,.2,1);
+  }
+
+  .topbar.is-open .nav{
+    visibility: visible;
+    transform: translateY(0);
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .nav a{
+    width: 100%;
+    max-width: 520px;
+    text-align: center;
+    padding: 14px 14px;
+    border-radius: 14px;
+    border: 1px solid rgba(30,30,30,0.10);
+    background: rgba(255,255,255,0.62);
+    margin: 7px 0;
+  }
+
+  .nav a:hover{ background: rgba(255,255,255,0.82); }
+}
+
+/* Backdrop */
+.nav-backdrop{
+  position: fixed;
+  inset: 0;
+  z-index: 9998;
+
+  background:
+    radial-gradient(1200px 700px at 50% 10%,
+      rgba(246,245,242,0.72) 0%,
+      rgba(246,245,242,0.52) 45%,
+      rgba(246,245,242,0.38) 100%
+    ),
+    linear-gradient(180deg,
+      rgba(0,0,0,0.06) 0%,
+      rgba(0,0,0,0.10) 60%,
+      rgba(0,0,0,0.14) 100%
+    );
+
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.32s cubic-bezier(.2,.9,.2,1);
+}
+
+.topbar.is-open ~ .nav-backdrop{
+  opacity: 1;
+  pointer-events: auto;
+}
+
 
     /* Hero */
 .hero{
@@ -328,19 +482,35 @@
 </head>
 
 <body>
-  <header class="topbar">
-    <div class="wrap">
-      <div class="topbar-inner">
-        <div class="brandlock">
-          <div class="brand">AVERON</div>
-        </div>
-        <div class="top-actions">
-          <a class="chip" href="averon.html">← Back to AVERON</a>
-          <a class="chip" href="https://korvexgrp.com" target="_blank" rel="noopener">KORVEX</a>
-        </div>
+<header class="topbar">
+  <div class="wrap">
+    <div class="topbar-inner">
+
+      <!-- Center Brand (absolute center) -->
+      <div class="logo">
+        <div class="brand">AVERON</div>
+        <div class="tag">Functional Skin Science</div>
       </div>
+
+      <!-- Mobile Hamburger (right) -->
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+
+      <!-- Bottom Menu -->
+      <nav class="nav" id="navMenu">
+        <a href="averon-brandphilosophy.html">Brand Philosophy</a>
+        <a href="averon.html#products" data-nav="products">Products</a>
+        <a href="averon-documents.html">Manufacturing & Certificates</a>
+        <a href="averon.html#contact" data-nav="contact">Contact</a>
+        <a href="https://korvexgrp.com" target="_blank" rel="noopener">KORVEX</a>
+      </nav>
+
     </div>
-  </header>
+  </div>
+</header>
+<div class="nav-backdrop" id="navBackdrop" aria-hidden="true"></div>
+
 
   <section class="hero">
 <div class="wrap">
@@ -404,19 +574,16 @@
     </div>
   </section>
 
-  <!-- ✅ 2) Your responsible seller registration -->
   <section class="section" style="background: var(--bg-soft); border-top: 1px solid rgba(214,214,214,0.65); border-bottom: 1px solid rgba(214,214,214,0.65);">
     <div class="wrap">
-      <h2>Seller Registration</h2>
+      <h2>Regulatory Registration</h2>
 
       <div class="grid seller-grid">
         <div class="card">
-          <h3>Cosmetics Responsible Seller</h3>
+          <h3>Cosmetics Responsible Person</h3>
           <p>Registration certificate can be provided to partners for onboarding and verification.</p>
-
-          <!-- ✅ 네 이미지 파일명으로 교체 -->
           <div class="imgframe">
-            <img src="images/Cosmetic_Responsible_Seller.png" alt="Cosmetics Responsible Seller Registration">
+            <img src="images/RPmasking.jpg" alt="Cosmetics Responsible Person Registration">
           </div>
         </div>
 
@@ -476,5 +643,53 @@
       </div>
     </div>
   </footer>
+  <script>
+  (function(){
+    const topbar = document.querySelector('.topbar');
+    const hamburger = document.getElementById('hamburger');
+    const navMenu = document.getElementById('navMenu');
+    const backdrop = document.getElementById('navBackdrop');
+
+    if(!topbar || !hamburger || !navMenu || !backdrop) return;
+
+    function openMenu(){
+      topbar.classList.add('is-open');
+      backdrop.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+      hamburger.setAttribute('aria-expanded', 'true');
+    }
+
+    function closeMenu(){
+      topbar.classList.remove('is-open');
+      backdrop.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+      hamburger.setAttribute('aria-expanded', 'false');
+    }
+
+    function toggleMenu(){
+      if(topbar.classList.contains('is-open')) closeMenu();
+      else openMenu();
+    }
+
+    hamburger.addEventListener('click', (e) => {
+      e.stopPropagation();
+      toggleMenu();
+    });
+
+    backdrop.addEventListener('click', closeMenu);
+
+    navMenu.querySelectorAll('a').forEach(a => {
+      a.addEventListener('click', () => closeMenu());
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if(e.key === 'Escape') closeMenu();
+    });
+
+    window.addEventListener('resize', () => {
+      if(window.innerWidth > 768) closeMenu();
+    });
+  })();
+</script>
 </body>
 </html>
