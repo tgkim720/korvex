@@ -89,13 +89,14 @@
     }
 
     /* Hero */
-    .hero{
-      position: relative;
-      padding: 56px 0 34px;
-      overflow: hidden;
-      background: var(--bg-soft);
-      border-bottom: 1px solid rgba(214,214,214,0.75);
-    }
+.hero{
+  position: relative;
+  min-height: 520px;
+  padding: 72px 0 56px;
+  overflow: hidden;
+  background: var(--bg-soft);
+  border-bottom: 1px solid rgba(214,214,214,0.75);
+}
 
     .hero::before{
       content:"";
@@ -115,21 +116,21 @@
   z-index: 0;
   background: linear-gradient(
     90deg,
-    rgba(246,245,242,0.92) 0%,
-    rgba(246,245,242,0.72) 45%,
-    rgba(246,245,242,0.30) 75%,
-    rgba(246,245,242,0.12) 100%
+    rgba(246,245,242,0.82) 0%,
+    rgba(246,245,242,0.58) 45%,
+    rgba(246,245,242,0.22) 75%,
+    rgba(246,245,242,0.10) 100%
   );
 }
     .hero .wrap{ position: relative; z-index: 1; }
 
     .kicker{
-      display:inline-block;
-      font-size: 11px;
-      letter-spacing: 0.10em;
-      color: #6b6b6b;
-      margin-bottom: 10px;
-    }
+  display:inline-block;
+  font-size: 11px;
+  letter-spacing: 0.10em;
+  color: #6b6b6b;
+  margin-bottom: 14px;
+}
     h1{
       font-size: clamp(26px, 3.6vw, 38px);
       line-height: 1.15;
@@ -144,13 +145,13 @@
       font-size: 15px;
     }
 
-    .cta-row{
-      margin-top: 14px;
-      display:flex;
-      gap: 10px;
-      flex-wrap: wrap;
-      align-items:center;
-    }
+.cta-row{
+  margin-top: 18px;
+  display:flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  align-items:center;
+}
     .btn{
       display:inline-block;
       padding: 12px 16px;
@@ -234,6 +235,15 @@
       display: block;
     }
 
+/* Desktop/Mobile image swap for manufacturing certificate image */
+.manuf-cert .img-mobile{ display:block; }
+.manuf-cert .img-desktop{ display:none; }
+
+@media (min-width: 900px){
+  .manuf-cert .img-mobile{ display:none; }
+  .manuf-cert .img-desktop{ display:block; }
+}
+
     footer{
       padding: 24px 0;
       border-top: 1px solid var(--line);
@@ -248,25 +258,41 @@
       flex-wrap: wrap;
     }
 
+    /* ===== Seller Registration: better desktop layout ===== */
+.seller-grid{
+  align-items: start; /* 카드 높이 같게 늘어나지 않게 */
+}
+
+@media (min-width: 900px){
+  .seller-grid{
+    grid-template-columns: 1.25fr 0.75fr; /* 왼쪽(이미지) 더 넓게 */
+  }
+  .seller-grid .card:last-child{
+    align-self: start;     /* 오른쪽 카드가 위에 붙게 */
+    position: sticky;      /* 스크롤시도 깔끔 */
+    top: 92px;             /* topbar 아래 적당히 */
+  }
+}
+
     @media (max-width: 768px){
   .hero{
-    min-height: 420px;
-    padding: 44px 0;
-    display: flex;
-    align-items: center;
-  }
+  min-height: 420px;
+  padding: 56px 0 44px;
+  display: flex;
+  align-items: flex-start;
+}
   .hero::before{
     background-image: url("images/averon_doc_hero_mobile.jpg");
     background-position: center;
   }
   .hero::after{
-    background: linear-gradient(
-      180deg,
-      rgba(246,245,242,0.92) 0%,
-      rgba(246,245,242,0.72) 55%,
-      rgba(246,245,242,0.30) 100%
-    );
-  }
+  background: linear-gradient(
+    180deg,
+    rgba(246,245,242,0.86) 0%,
+    rgba(246,245,242,0.58) 55%,
+    rgba(246,245,242,0.20) 100%
+  );
+}
 }
   </style>
 </head>
@@ -277,7 +303,7 @@
       <div class="topbar-inner">
         <div class="brandlock">
           <div class="brand">AVERON</div>
-          <div class="tag">Documents & Certificates</div>
+          <div class="tag">Manufacturing & Certificates</div>
         </div>
         <div class="top-actions">
           <a class="chip" href="averon.html">← Back to AVERON</a>
@@ -290,7 +316,7 @@
   <section class="hero">
     <div class="wrap">
       <div class="kicker">Partner review • Export documentation • NDA available</div>
-      <h1>Documents & Certificates</h1>
+      <h1>Manufacturing & Certificates</h1>
       <p class="sub">
         We provide essential partner-facing documents for professional import workflows.
       </p>
@@ -309,9 +335,13 @@
       <p class="lead">
         AVERON is developed in collaboration with a pharmaceutical & biotech partner for a documentation-ready manufacturing approach.
       </p>
-      <div class="imgframe">
-        <img src="images/Manufactured%20in%20an%20FDA-registered%20facility.jpg" alt="Manufacturing certificates overview">
-      </div>
+<div class="imgframe manuf-cert">
+  <!-- Desktop -->
+  <img class="img-desktop" src="images/Manufactured%20in%20an%20FDA_desktop.jpg" alt="Manufacturing certificates overview (desktop)">
+
+  <!-- Mobile -->
+  <img class="img-mobile" src="images/Manufactured%20in%20an%20FDA-registered%20facility.jpg" alt="Manufacturing certificates overview (mobile)">
+</div>
 
       <div class="grid">
         <div class="card">
@@ -348,7 +378,7 @@
     <div class="wrap">
       <h2>Seller Registration</h2>
 
-      <div class="grid">
+      <div class="grid seller-grid">
         <div class="card">
           <h3>Cosmetics Responsible Seller</h3>
           <p>Registration certificate can be provided to partners for onboarding and verification.</p>
