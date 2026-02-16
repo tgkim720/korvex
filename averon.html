@@ -139,6 +139,14 @@
   opacity: 0.85;
 }
 
+/* 모바일 메뉴 열려 있을 때 active underline 숨김 */
+@media (max-width: 768px){
+  .topbar.is-open .nav a.is-active::after{
+    opacity: 0;
+    transform: scaleX(0);
+  }
+}
+
 /* ===== Mobile Hamburger + Drop-down Nav (Lux off-white) ===== */
 
 /* Hamburger button (mobile) */
