@@ -1,60 +1,451 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<title>AVERON | Brand Philosophy</title>
-<link rel="canonical" href="https://korvexgrp.com/averon-brandphilosophy.html">
-<link rel="icon" type="image/svg+xml"
-href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='48' fill='white'/%3E%3Ctext x='50%25' y='54%25' text-anchor='middle' font-family='Inter,Arial,sans-serif' font-size='58' font-weight='700' fill='%231E1E1E'%3EA%3C/text%3E%3C/svg%3E">
+  <title>AVERON | Brand Philosophy</title>
+  <meta name="description" content="AVERON brand philosophy: barrier-first logic, texture control for professional layering, and documentation transparency." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://korvexgrp.com/averon-brandphilosophy.html" />
 
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/svg+xml"
+    href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='48' fill='white'/%3E%3Ctext x='50%25' y='54%25' text-anchor='middle' font-family='Inter,Arial,sans-serif' font-size='58' font-weight='700' fill='%231E1E1E' dominant-baseline='middle'%3EA%3C/text%3E%3C/svg%3E" />
 
-<style>
-body{
-font-family:'Inter',sans-serif;
-background:#F8F8F6;
-margin:0;
-padding:60px 24px;
-color:#1E1E1E;
-max-width:900px;
-margin:auto;
-}
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-h1{
-font-size:32px;
-margin-bottom:20px;
-}
+  <style>
+    :root{
+      /* Background: off-white / light grey */
+      --bg: #F8F8F6;
+      --bg-soft: #F1F2F3;
 
-.card{
-background:white;
-border-radius:16px;
-padding:24px;
-margin-bottom:20px;
-box-shadow:0 10px 25px rgba(0,0,0,0.04);
-}
-</style>
+      /* Accent: charcoal */
+      --charcoal: #1E1E1E;
+      --charcoal-2: #2A2A2A;
+      --text: #111111;
+      --muted: #5A5A5A;
+
+      /* Highlight: subtle silver */
+      --silver: #D6D6D6;
+      --silver-2: #C9C9C9;
+
+      --line: rgba(30,30,30,0.12);
+    }
+
+    *{ margin:0; padding:0; box-sizing:border-box; }
+    body{
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      padding-top: 74px; /* topbar offset */
+    }
+    a{ color: inherit; text-decoration:none; }
+
+    .wrap{ max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+
+    /* ===== Top bar (same as main) ===== */
+    .topbar{
+      position: sticky;
+      top: 0;
+      z-index: 9999;
+      background: rgba(255,255,255,0.92);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid rgba(214,214,214,0.8);
+    }
+    .topbar-inner{
+      position: relative;
+      padding: 16px 0 12px;
+      min-height: 74px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .logo{
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      display:flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 2px;
+      pointer-events: none;
+    }
+    .logo .brand{
+      letter-spacing: 0.22em;
+      font-weight: 800;
+      font-size: 20px;
+      color: var(--charcoal);
+    }
+    .logo .tag{
+      font-size: 10.5px;
+      color: var(--muted);
+      letter-spacing: 0.06em;
+    }
+
+    .nav{
+      display:flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 18px;
+      font-size: 14px;
+      color: var(--charcoal-2);
+    }
+    .nav a{
+      padding: 8px 10px;
+      border-radius: 10px;
+      position: relative;
+    }
+    .nav a:hover{ background: var(--bg-soft); }
+
+    .nav a::after{
+      content:"";
+      position:absolute;
+      left: 10px;
+      right: 10px;
+      bottom: 4px;
+      height: 2px;
+      background: rgba(30,30,30,0.55);
+      border-radius: 999px;
+      transform: scaleX(0);
+      transform-origin: center;
+      transition: transform 0.22s ease, opacity 0.22s ease;
+      opacity: 0.0;
+    }
+    .nav a:hover::after{
+      transform: scaleX(1);
+      opacity: 0.55;
+    }
+
+    .nav a.is-active{
+      background: rgba(241,242,243,0.9);
+    }
+    .nav a.is-active::after{
+      transform: scaleX(1);
+      opacity: 0.85;
+    }
+
+    /* 모바일 메뉴 열려 있을 때 active underline 숨김 */
+    @media (max-width: 768px){
+      .topbar.is-open .nav a.is-active::after{
+        opacity: 0;
+        transform: scaleX(0);
+      }
+    }
+
+    /* Hamburger */
+    .hamburger{
+      position: absolute;
+      right: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 44px;
+      height: 44px;
+      border: 1px solid rgba(30,30,30,0.14);
+      border-radius: 14px;
+      background: rgba(246,245,242,0.78);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      flex-direction: column;
+      cursor: pointer;
+      padding: 0;
+      transition: transform 0.28s cubic-bezier(.2,.9,.2,1), background 0.28s ease;
+    }
+    .hamburger:active{ transform: translateY(-50%) translateY(1px); }
+    .hamburger span{
+      width: 18px;
+      height: 2px;
+      border-radius: 999px;
+      background: rgba(30,30,30,0.72);
+      transition: transform 0.56s cubic-bezier(.2,.9,.2,1), opacity 0.30s ease;
+    }
+    .topbar.is-open .hamburger span:nth-child(1){ transform: translateY(6px) rotate(45deg); }
+    .topbar.is-open .hamburger span:nth-child(2){ opacity: 0; }
+    .topbar.is-open .hamburger span:nth-child(3){ transform: translateY(-6px) rotate(-45deg); }
+
+    @media (max-width: 768px){
+      .hamburger{ display:flex; }
+
+      .nav{
+        display: flex;
+        position: fixed;
+        left: 0;
+        right: 0;
+        top: 74px;
+        z-index: 9999;
+        visibility: hidden;
+        flex-direction: column;
+        align-items: center;
+        gap: 0;
+        will-change: transform, opacity;
+
+        padding: 14px 16px 18px;
+        background: rgba(246,245,242,0.92);
+        backdrop-filter: blur(18px);
+        -webkit-backdrop-filter: blur(18px);
+        border-bottom: 1px solid rgba(30,30,30,0.12);
+
+        transform: translateY(-14px);
+        opacity: 0;
+        pointer-events: none;
+
+        transition:
+          transform 0.62s cubic-bezier(.2,.9,.2,1),
+          opacity 0.32s cubic-bezier(.2,.9,.2,1);
+      }
+
+      .topbar.is-open .nav{
+        visibility: visible;
+        transform: translateY(0);
+        opacity: 1;
+        pointer-events: auto;
+      }
+
+      .nav a{
+        width: 100%;
+        max-width: 520px;
+        text-align: center;
+        padding: 14px 14px;
+        border-radius: 14px;
+        border: 1px solid rgba(30,30,30,0.10);
+        background: rgba(255,255,255,0.62);
+        margin: 7px 0;
+      }
+
+      .nav a:hover{ background: rgba(255,255,255,0.82); }
+    }
+
+    .nav-backdrop{
+      position: fixed;
+      inset: 0;
+      z-index: 9998;
+      background:
+        radial-gradient(1200px 700px at 50% 10%,
+          rgba(246,245,242,0.72) 0%,
+          rgba(246,245,242,0.52) 45%,
+          rgba(246,245,242,0.38) 100%
+        ),
+        linear-gradient(180deg,
+          rgba(0,0,0,0.06) 0%,
+          rgba(0,0,0,0.10) 60%,
+          rgba(0,0,0,0.14) 100%
+        );
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.32s cubic-bezier(.2,.9,.2,1);
+    }
+    .topbar.is-open ~ .nav-backdrop{
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    /* ===== Page content ===== */
+    .hero{
+      padding: 120px 0 56px;
+    }
+    h1{
+      font-size: clamp(30px, 3.6vw, 44px);
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+      color: var(--charcoal);
+      margin-bottom: 10px;
+    }
+    .lead{
+      color: var(--muted);
+      max-width: 760px;
+      font-size: 15px;
+    }
+
+    section{
+      padding: 28px 0;
+    }
+
+    .grid{
+      margin-top: 18px;
+      display:grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 16px;
+    }
+
+    /* Cards: subtle silver border */
+    .card{
+      background: rgba(255,255,255,0.96);
+      border-radius: 22px;
+      padding: 32px;
+      border: 1px solid rgba(214,214,214,0.85);
+      box-shadow:
+        0 20px 45px rgba(0,0,0,0.04),
+        0 0 0 1px rgba(255,255,255,0.6) inset;
+      transition: transform .5s cubic-bezier(.2,.9,.2,1), box-shadow .4s ease;
+    }
+    .card:hover{
+      transform: translateY(-6px);
+      box-shadow:
+        0 30px 70px rgba(0,0,0,0.08),
+        0 0 0 1px rgba(255,255,255,0.7) inset;
+    }
+    .card h3{
+      font-size: 16px;
+      color: var(--charcoal);
+      margin-bottom: 8px;
+      letter-spacing: -0.01em;
+    }
+    .card p{
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.8;
+    }
+
+    footer{
+      padding: 28px 0;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 13px;
+      background: #fff;
+      margin-top: 40px;
+    }
+    .foot-row{
+      display:flex;
+      justify-content: space-between;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    @media (max-width: 640px){
+      .hero{ padding: 92px 0 40px; }
+    }
+  </style>
 </head>
 
 <body>
+  <!-- Topbar (same as main) -->
+  <header class="topbar">
+    <div class="wrap">
+      <div class="topbar-inner">
 
-<h1>Brand Philosophy</h1>
+        <div class="logo">
+          <div class="brand">AVERON</div>
+          <div class="tag">Functional Skin Science</div>
+        </div>
 
-<div class="card">
-<h3>Barrier-First Logic</h3>
-<p>Formulation direction prioritizes hydration retention and non-disruptive daily use.</p>
-</div>
+        <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
 
-<div class="card">
-<h3>Layering & Texture Control</h3>
-<p>Designed for professional protocols with fast absorption and clean finish.</p>
-</div>
+        <nav class="nav" id="navMenu">
+          <a href="averon-brandphilosophy.html">Brand Philosophy</a>
+          <a href="averon.html#products">Products</a>
+          <a href="averon-documents.html">Manufacturing & Certificates</a>
+          <a href="averon.html#contact">Contact</a>
+          <a href="https://korvexgrp.com" target="_blank" rel="noopener">KORVEX</a>
+        </nav>
 
-<div class="card">
-<h3>Documentation Transparency</h3>
-<p>COA / MSDS / INCI available under project terms.</p>
-</div>
+      </div>
+    </div>
+  </header>
+  <div class="nav-backdrop" id="navBackdrop" aria-hidden="true"></div>
 
+  <!-- Content -->
+  <main>
+    <section class="hero">
+      <div class="wrap">
+        <h1>Brand Philosophy</h1>
+        <p class="lead">
+          AVERON is built around practical skin balance for professional routines—barrier-first logic,
+          controlled textures for layering, and documentation transparency for partner workflows.
+        </p>
+      </div>
+    </section>
+
+    <section>
+      <div class="wrap">
+        <div class="grid">
+          <div class="card">
+            <h3>Barrier-First Logic</h3>
+            <p>Formulation direction prioritizes hydration retention and non-disruptive daily use.</p>
+          </div>
+
+          <div class="card">
+            <h3>Layering & Texture Control</h3>
+            <p>Designed for professional protocols with fast absorption and a clean finish.</p>
+          </div>
+
+          <div class="card">
+            <h3>Documentation Transparency</h3>
+            <p>COA / MSDS(SDS) / INCI available under project terms (NDA available upon request).</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <div class="foot-row">
+        <div>© AVERON</div>
+        <div style="opacity:0.9;">Functional Skin Science</div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Hamburger logic (same as main) -->
+  <script>
+    (function(){
+      const topbar = document.querySelector('.topbar');
+      const hamburger = document.getElementById('hamburger');
+      const navMenu = document.getElementById('navMenu');
+      const backdrop = document.getElementById('navBackdrop');
+
+      if(!topbar || !hamburger || !navMenu || !backdrop) return;
+
+      function openMenu(){
+        topbar.classList.add('is-open');
+        backdrop.setAttribute('aria-hidden', 'false');
+        document.body.style.overflow = 'hidden';
+        hamburger.setAttribute('aria-expanded', 'true');
+      }
+
+      function closeMenu(){
+        topbar.classList.remove('is-open');
+        backdrop.setAttribute('aria-hidden', 'true');
+        document.body.style.overflow = '';
+        hamburger.setAttribute('aria-expanded', 'false');
+      }
+
+      function toggleMenu(){
+        if(topbar.classList.contains('is-open')) closeMenu();
+        else openMenu();
+      }
+
+      hamburger.addEventListener('click', (e) => {
+        e.stopPropagation();
+        toggleMenu();
+      });
+
+      backdrop.addEventListener('click', closeMenu);
+
+      navMenu.querySelectorAll('a').forEach(a => {
+        a.addEventListener('click', () => closeMenu());
+      });
+
+      document.addEventListener('keydown', (e) => {
+        if(e.key === 'Escape') closeMenu();
+      });
+
+      window.addEventListener('resize', () => {
+        if(window.innerWidth > 768) closeMenu();
+      });
+    })();
+  </script>
 </body>
 </html>
