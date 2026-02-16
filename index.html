@@ -825,6 +825,44 @@
     0 0 28px rgba(255,255,255,0.10);
 }
 
+/* Click-reactive jewel flash (radial highlight) */
+.brand-card::before{
+  content:"";
+  position:absolute;
+  inset:-2px;
+  pointer-events:none;
+  opacity:0;
+  border-radius: inherit;
+
+  /* 클릭 지점(mx,my)에 빛이 맺히는 느낌 */
+  background:
+    radial-gradient(
+      260px 180px at var(--mx, 50%) var(--my, 35%),
+      rgba(255,255,255,0.38) 0%,
+      rgba(255,255,255,0.14) 22%,
+      rgba(255,255,255,0.00) 60%
+    ),
+    linear-gradient(
+      135deg,
+      rgba(255,255,255,0.06) 0%,
+      rgba(255,255,255,0.00) 40%
+    );
+
+  mix-blend-mode: screen; /* 금속/유리 광택 느낌 */
+  filter: blur(0.2px);
+}
+
+/* 클릭 시 flash */
+.brand-card.shine::before{
+  animation: jewelFlash 520ms ease-out 1;
+}
+
+@keyframes jewelFlash{
+  0%   { opacity: 0; transform: scale(0.98); }
+  20%  { opacity: 1; transform: scale(1); }
+  100% { opacity: 0; transform: scale(1.02); }
+}
+
 /* Shine layer */
 .brand-card::after {
   content: "";
@@ -850,6 +888,11 @@
 .brand-card.shine::after {
   opacity: 1;
   animation: shineSweep 0.9s ease-out 1;
+}
+@keyframes shineSweep {
+  0%   { left: -120%; opacity: 0; }
+  10%  { opacity: 0.9; }
+  100% { left: 140%; opacity: 0; }
 }
         /* WhatsApp 플로팅 버튼 */
         .whatsapp-float {
@@ -1298,16 +1341,26 @@ KORVEX는 B2B 수입/프로 파트너를 대상으로 자사 보유 클리닉 �
             const averonCard = document.getElementById('averonCard');
             
             if (averonCard) {
-            averonCard.addEventListener('click', () => {
-                averonCard.classList.toggle('selected');
-
-                averonCard.classList.remove('shine');
-                void averonCard.offsetWidth;
-                averonCard.classList.add('shine');
+            averonCard.addEventListener('pointerdown', (e) => {
+  const rect = averonCard.getBoundingClientRect();
+  const x = e.clientX - rect.left;
+  const y = e.clientY - rect.top;
             
-                setTimeout(() => averonCard.classList.remove('shine'), 950);
-            });
+  // 클릭 위치를 CSS 변수로 전달 (jewelFlash가 이걸 씀)
+  averonCard.style.setProperty('--mx', `${x}px`);
+  averonCard.style.setProperty('--my', `${y}px`);
+
+  averonCard.classList.toggle('selected');
+
+  // Shine 재트리거
+  averonCard.classList.remove('shine');
+  void averonCard.offsetWidth;
+  averonCard.classList.add('shine');
+
+  setTimeout(() => averonCard.classList.remove('shine'), 950);
+});
             }
+
         // Smooth scroll behavior for navigation links (with fixed-nav offset)
                     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
                     anchor.addEventListener('click', function (e) {
