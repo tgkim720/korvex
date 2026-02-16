@@ -250,20 +250,23 @@
 
     @media (max-width: 768px){
   .hero{
-    padding: 44px 0 28px;
+    min-height: 420px;
+    padding: 44px 0;
+    display: flex;
+    align-items: center;
   }
   .hero::before{
     background-image: url("images/averon_doc_hero_mobile.jpg");
     background-position: center;
   }
   .hero::after{
-  background: linear-gradient(
-    180deg,
-    rgba(246,245,242,0.92) 0%,
-    rgba(246,245,242,0.72) 55%,
-    rgba(246,245,242,0.30) 100%
-  );
-}
+    background: linear-gradient(
+      180deg,
+      rgba(246,245,242,0.92) 0%,
+      rgba(246,245,242,0.72) 55%,
+      rgba(246,245,242,0.30) 100%
+    );
+  }
 }
   </style>
 </head>

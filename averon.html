@@ -136,8 +136,11 @@
 
     /* Hero */
 .hero{
-  padding: 72px 0 56px;
   position: relative;
+  min-height: 520px;
+  padding: 64px 0;
+  display: flex;
+  align-items: center;
   background: var(--bg-soft);
   overflow: hidden;
 }
@@ -179,20 +182,23 @@
 /* mobile image swap */
 @media (max-width: 768px){
   .hero{
-    padding: 56px 0 44px;
+    min-height: 420px;
+    padding: 44px 0;
+    display: flex;
+    align-items: center;
   }
   .hero::before{
     background-image: url("images/아베론히어로%20모바일.jpg");
     background-position: center center;
   }
   .hero::after{
-  background: linear-gradient(
-    180deg,
-    rgba(248,248,246,0.92) 0%,
-    rgba(248,248,246,0.68) 55%,
-    rgba(248,248,246,0.22) 100%
-  );
-}
+    background: linear-gradient(
+      180deg,
+      rgba(248,248,246,0.92) 0%,
+      rgba(248,248,246,0.68) 55%,
+      rgba(248,248,246,0.22) 100%
+    );
+  }
 }
 
 
