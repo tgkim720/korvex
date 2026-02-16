@@ -108,10 +108,19 @@
       opacity: 1;
       z-index: 0;
     }
-    .hero::after {
-      display:none;
-      z-index: 0;
-    }
+.hero::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  z-index: 0;
+  background: linear-gradient(
+    90deg,
+    rgba(246,245,242,0.92) 0%,
+    rgba(246,245,242,0.72) 45%,
+    rgba(246,245,242,0.30) 75%,
+    rgba(246,245,242,0.12) 100%
+  );
+}
     .hero .wrap{ position: relative; z-index: 1; }
 
     .kicker{
@@ -240,22 +249,22 @@
     }
 
     @media (max-width: 768px){
-      .hero{ padding: 44px 0 28px; }
-      .hero::before{
-        background-image: url("images/averon_doc_hero_mobile.jpg"); /* <-- 모바일 히어로 교체 */
-        background-position: center;
-      }
-      .hero::after{
-        background: linear-gradient(
-          180deg,
-          rgba(248,248,246,0.92) 0%,
-          rgba(248,248,246,0.74) 55%,
-          rgba(248,248,246,0.26) 100%
-        );
-      }
-      .topbar-inner{ padding: 12px 0; }
-      .top-actions{ justify-content: flex-start; }
-    }
+  .hero{
+    padding: 44px 0 28px;
+  }
+  .hero::before{
+    background-image: url("images/averon_doc_hero_mobile.jpg");
+    background-position: center;
+  }
+  .hero::after{
+  background: linear-gradient(
+    180deg,
+    rgba(246,245,242,0.92) 0%,
+    rgba(246,245,242,0.72) 55%,
+    rgba(246,245,242,0.30) 100%
+  );
+}
+}
   </style>
 </head>
 
@@ -335,9 +344,6 @@
   <section class="section" style="background: var(--bg-soft); border-top: 1px solid rgba(214,214,214,0.65); border-bottom: 1px solid rgba(214,214,214,0.65);">
     <div class="wrap">
       <h2>Seller Registration</h2>
-      <p class="lead">
-        Cosmetics Responsible Seller registration is available for partner due diligence. We can provide PDF copies upon request.
-      </p>
 
       <div class="grid">
         <div class="card">
@@ -379,10 +385,6 @@
           <h3>INCI / Spec Sheet</h3>
           <p>Ingredient list and product specification for regulatory review.</p>
         </div>
-      </div>
-
-      <div class="note">
-        We do not publish full regulatory packets publicly. Documents are shared directly with qualified partners.
       </div>
 
   <div class="grid" style="margin-top:14px;">
