@@ -133,6 +133,171 @@
   opacity: 0.85;
 }
 
+/* ===== Mobile hamburger + backdrop (AVERON main) ===== */
+
+/* 햄버거 버튼 */
+.menu-toggle{
+  display:none;
+  width: 44px;
+  height: 40px;
+  border: 1px solid var(--line);
+  background: rgba(255,255,255,0.78);
+  border-radius: 12px;
+  cursor: pointer;
+  position: relative;
+  padding: 0;
+}
+
+.menu-toggle:active{
+  transform: translateY(1px);
+}
+
+/* 3줄 아이콘 (pure CSS) */
+.menu-toggle .hamburger{
+  position:absolute;
+  left: 50%;
+  top: 50%;
+  width: 18px;
+  height: 2px;
+  background: var(--charcoal);
+  border-radius: 999px;
+  transform: translate(-50%, -50%);
+  transition: transform 0.22s ease, opacity 0.22s ease;
+}
+
+.menu-toggle .hamburger::before,
+.menu-toggle .hamburger::after{
+  content:"";
+  position:absolute;
+  left: 0;
+  width: 18px;
+  height: 2px;
+  background: var(--charcoal);
+  border-radius: 999px;
+  transition: transform 0.22s ease, top 0.22s ease;
+}
+
+.menu-toggle .hamburger::before{ top: -6px; }
+.menu-toggle .hamburger::after{ top: 6px; }
+
+/* 열렸을 때 X로 변환 */
+.topbar.is-open .menu-toggle .hamburger{
+  background: transparent;
+}
+.topbar.is-open .menu-toggle .hamburger::before{
+  top: 0;
+  transform: rotate(45deg);
+}
+.topbar.is-open .menu-toggle .hamburger::after{
+  top: 0;
+  transform: rotate(-45deg);
+}
+
+/* 백드롭 (오프화이트 럭셔리) */
+.nav-backdrop{
+  position: fixed;
+  inset: 0;
+
+  /* 밝은 오프화이트 틴트 + 아주 약한 다크닝 */
+  background:
+    radial-gradient(1200px 700px at 50% 15%,
+      rgba(246,245,242,0.70) 0%,
+      rgba(246,245,242,0.50) 45%,
+      rgba(246,245,242,0.36) 100%
+    ),
+    linear-gradient(
+      180deg,
+      rgba(0,0,0,0.06) 0%,
+      rgba(0,0,0,0.10) 60%,
+      rgba(0,0,0,0.14) 100%
+    );
+
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+
+  z-index: 9998;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.28s cubic-bezier(.2,.9,.2,1);
+}
+
+.topbar.is-open ~ .nav-backdrop{
+  opacity: 1;
+  pointer-events: auto;
+}
+
+@media (max-width: 768px){
+  .topbar-inner{
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 0;
+    gap: 10px;
+  }
+
+  .logo{
+    align-items: flex-start;
+    text-align: left;
+  }
+
+  .menu-toggle{
+    display: inline-flex;
+    align-items:center;
+    justify-content:center;
+  }
+
+  /* ===== nav slide-down ===== */
+  .nav{
+    /* 레이아웃은 유지하되, 높이/투명도로 숨김 */
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 6px;
+
+    width: 100%;
+    margin-top: 10px;
+
+    border-top: 1px solid rgba(214,214,214,0.7);
+
+    /* 애니메이션 핵심 */
+    max-height: 0;
+    opacity: 0;
+    transform: translateY(-12px);
+    overflow: hidden;
+    pointer-events: none;
+
+transition:
+  max-height 0.48s cubic-bezier(.2,.9,.2,1),
+  opacity 0.26s cubic-bezier(.2,.9,.2,1),
+  transform 0.38s cubic-bezier(.2,.9,.2,1);
+  }
+
+  .topbar.is-open .nav{
+    max-height: 420px;         /* 메뉴 길이에 맞게 충분히 크게 */
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+
+  /* 메뉴 아이템: 고급스러운 패널 느낌 */
+  .topbar.is-open .nav a{
+    padding: 12px 12px;
+    border-radius: 14px;
+    background: rgba(246,245,242,0.92);
+    border: 1px solid rgba(30,30,30,0.08);
+    box-shadow: 0 10px 24px rgba(0,0,0,0.06);
+  }
+
+  .topbar.is-open .nav a:hover{
+    background: rgba(255,255,255,0.78);
+  }
+
+  /* underline 효과는 모바일에서 제거 */
+  .nav a::after{
+    display:none;
+  }
+}
+
 
     /* Hero */
 .hero{
@@ -319,8 +484,8 @@
 
     @media (max-width: 640px){
   .topbar-inner{ padding: 12px 0; }
-  .nav{ gap: 10px; }
-  .nav a{ padding: 8px 8px; }
+/* .nav{ gap: 10px; }
+   .nav a{ padding: 8px 8px; } */
    }
 
    .topbar{
@@ -342,8 +507,12 @@
         <div class="tag">Functional Skin Science</div>
       </div>
 
-      <!-- Bottom Menu -->
-<nav class="nav">
+<!-- Bottom Menu -->
+<button class="menu-toggle" type="button" aria-expanded="false" aria-controls="averonNav" aria-label="Open menu">
+  <span class="hamburger" aria-hidden="true"></span>
+</button>
+
+<nav class="nav" id="averonNav">
   <a href="averon-brandphilosophy.html">Brand Philosophy</a>
   <a href="#products" data-nav="products">Products</a>
   <a href="averon-documents.html">Manufacturing & Certificates</a>
@@ -353,6 +522,7 @@
     </div>
   </div>
 </header>
+<div class="nav-backdrop" hidden></div>
 
   <main>
     <section class="hero">
@@ -509,6 +679,72 @@ function onScrollSpy() {
 window.addEventListener('load', onScrollSpy);
 window.addEventListener('scroll', onScrollSpy, { passive: true });
 window.addEventListener('resize', onScrollSpy);
+
+// ===== Mobile hamburger + backdrop behavior =====
+const topbar = document.querySelector('.topbar');
+const toggleBtn = document.querySelector('.menu-toggle');
+const navEl = document.getElementById('averonNav');
+const backdrop = document.querySelector('.nav-backdrop');
+
+function openMenu() {
+  topbar.classList.add('is-open');
+  toggleBtn.setAttribute('aria-expanded', 'true');
+  if (backdrop) {
+    backdrop.hidden = false;
+    requestAnimationFrame(() => backdrop.classList.add('is-show')); // optional (CSS 없이도 OK)
+  }
+  // 모바일에서만 스크롤 잠금
+  if (window.matchMedia('(max-width: 768px)').matches) {
+    document.body.style.overflow = 'hidden';
+  }
+}
+
+function closeMenu() {
+  topbar.classList.remove('is-open');
+  toggleBtn.setAttribute('aria-expanded', 'false');
+  if (backdrop) {
+    backdrop.classList.remove('is-show');
+    backdrop.hidden = true;
+  }
+  document.body.style.overflow = '';
+}
+
+function toggleMenu() {
+  const isOpen = topbar.classList.contains('is-open');
+  isOpen ? closeMenu() : openMenu();
+}
+
+if (toggleBtn && topbar && navEl) {
+  toggleBtn.addEventListener('click', (e) => {
+    e.stopPropagation();
+    toggleMenu();
+  });
+
+  // 백드롭 클릭하면 닫기
+  if (backdrop) {
+    backdrop.addEventListener('click', () => closeMenu());
+  }
+
+  // 메뉴 링크 클릭하면 닫기(모바일)
+  navEl.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      if (window.matchMedia('(max-width: 768px)').matches) closeMenu();
+    });
+  });
+
+  // ESC 닫기
+  window.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && topbar.classList.contains('is-open')) closeMenu();
+  });
+
+  // 화면 커지면(데스크탑) 강제 정리
+  window.addEventListener('resize', () => {
+    if (!window.matchMedia('(max-width: 768px)').matches) {
+      closeMenu();
+      if (backdrop) backdrop.hidden = true;
+    }
+  });
+}
 </script>
 
 </body>

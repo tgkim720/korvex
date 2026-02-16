@@ -124,6 +124,32 @@
 }
     .hero .wrap{ position: relative; z-index: 1; }
 
+/* Hero content spacing */
+.hero .wrap{
+  position: relative;
+  z-index: 1;
+  height: 100%;
+}
+
+.hero-stack{
+  max-width: 760px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;              /* ✅ 단락 간 자연스런 간격 */
+  padding-top: 28px;      /* ✅ 너무 위에 붙는 느낌 방지 */
+}
+
+@media (min-width: 900px){
+  .hero{
+    display: flex;
+    align-items: center;  /* ✅ 데스크탑에서 위로 붙지 않게 */
+  }
+  .hero-stack{
+    padding-top: 0;       /* 가운데 정렬일 땐 위 패딩 제거 */
+    gap: 18px;            /* 데스크탑은 살짝 더 여유 */
+  }
+}
+
     .kicker{
   display:inline-block;
   font-size: 11px;
@@ -274,7 +300,7 @@
   }
 }
 
-    @media (max-width: 768px){
+  @media (max-width: 768px){
   .hero{
   min-height: 420px;
   padding: 56px 0 44px;
@@ -292,6 +318,10 @@
     rgba(246,245,242,0.58) 55%,
     rgba(246,245,242,0.20) 100%
   );
+}
+.hero-stack{
+  padding-top: 10px;  /* 모바일은 위 여백 살짝만 */
+  gap: 14px;
 }
 }
   </style>
@@ -314,19 +344,21 @@
   </header>
 
   <section class="hero">
-    <div class="wrap">
-      <div class="kicker">Partner review • Export documentation • NDA available</div>
-      <h1>Manufacturing & Certificates</h1>
-      <p class="sub">
-        We provide essential partner-facing documents for professional import workflows.
-      </p>
+<div class="wrap">
+  <div class="hero-stack">
+    <div class="kicker">Partner review • Export documentation • NDA available</div>
+    <h1>Manufacturing & Certificates</h1>
+    <p class="sub">
+      We provide essential partner-facing documents for professional import workflows.
+    </p>
 
-      <div class="cta-row">
-        <a class="btn" href="mailto:korvexgrp@outlook.com?subject=AVERON%20Documents%20Request">Request Documents</a>
-        <a class="btn secondary" href="https://wa.me/601116023115" target="_blank" rel="noopener">WhatsApp</a>
-      </div>
+    <div class="cta-row">
+      <a class="btn" href="mailto:korvexgrp@outlook.com?subject=AVERON%20Documents%20Request">Request Documents</a>
+      <a class="btn secondary" href="https://wa.me/601116023115" target="_blank" rel="noopener">WhatsApp</a>
     </div>
-  </section>
+  </div>
+</div>
+</section>
 
   <!-- ✅ 1) Manufacturing certificates (brief) -->
   <section class="section">
