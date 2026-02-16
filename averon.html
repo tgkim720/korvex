@@ -55,32 +55,38 @@
       border-bottom: 1px solid rgba(214,214,214,0.8);
     }
     .topbar-inner{
-        display:flex;
-        flex-direction: column;      /* 핵심: 세로 스택 */
-        align-items:center;          /* 가운데 정렬 */
-        justify-content:center;
-        padding: 18px 0 14px;
-        gap: 12px;
-    }
+  position: relative;
+  padding: 16px 0 12px;
+  min-height: 74px;
+  display: flex;
+  align-items: center;
+  justify-content: center; /* 가운데 정렬 기준 */
+}
 
     .logo{
-      display:flex;
-        flex-direction: column;
-        align-items: center;         /* 가운데 */
-        text-align: center;
-        gap: 2px;
-    }
-    .logo .brand{
-      letter-spacing: 0.18em;
-      font-weight: 700;
-      font-size: 18px;
-      color: var(--charcoal);
-    }
-    .logo .tag{
-      font-size: 12px;
-      color: var(--muted);
-      letter-spacing: 0.04em;
-    }
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 2px;
+  pointer-events: none; /* 로고가 햄버거 클릭 방해 X */
+}
+
+.logo .brand{
+  letter-spacing: 0.22em;
+  font-weight: 800;
+  font-size: 20px; /* 더 크게 */
+  color: var(--charcoal);
+}
+
+.logo .tag{
+  font-size: 10.5px; /* 더 작게 */
+  color: var(--muted);
+  letter-spacing: 0.06em;
+}
 
     .nav{
         display:flex;
@@ -133,171 +139,143 @@
   opacity: 0.85;
 }
 
-/* ===== Mobile hamburger + backdrop (AVERON main) ===== */
+/* ===== Mobile Hamburger + Drop-down Nav (Lux off-white) ===== */
 
-/* 햄버거 버튼 */
-.menu-toggle{
-  display:none;
-  width: 44px;
-  height: 40px;
-  border: 1px solid var(--line);
-  background: rgba(255,255,255,0.78);
-  border-radius: 12px;
-  cursor: pointer;
-  position: relative;
-  padding: 0;
-}
-
-.menu-toggle:active{
-  transform: translateY(1px);
-}
-
-/* 3줄 아이콘 (pure CSS) */
-.menu-toggle .hamburger{
-  position:absolute;
-  left: 50%;
+/* Hamburger button (mobile) */
+.hamburger{
+  position: absolute;
+  right: 0;
   top: 50%;
+  transform: translateY(-50%);
+  width: 44px;
+  height: 44px;
+  border: 1px solid rgba(30,30,30,0.14);
+  border-radius: 14px;
+  background: rgba(246,245,242,0.78);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  display: none;          /* desktop hidden */
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  flex-direction: column;
+  cursor: pointer;
+  padding: 0;
+  transition: transform 0.28s cubic-bezier(.2,.9,.2,1), background 0.28s ease;
+}
+
+.hamburger:active{
+  transform: translateY(-50%) translateY(1px);
+}
+
+.hamburger span{
   width: 18px;
   height: 2px;
-  background: var(--charcoal);
   border-radius: 999px;
-  transform: translate(-50%, -50%);
-  transition: transform 0.22s ease, opacity 0.22s ease;
+  background: rgba(30,30,30,0.72);
+  transition: transform 0.56s cubic-bezier(.2,.9,.2,1), opacity 0.30s ease;
 }
 
-.menu-toggle .hamburger::before,
-.menu-toggle .hamburger::after{
-  content:"";
-  position:absolute;
-  left: 0;
-  width: 18px;
-  height: 2px;
-  background: var(--charcoal);
-  border-radius: 999px;
-  transition: transform 0.22s ease, top 0.22s ease;
+/* open -> X */
+.topbar.is-open .hamburger span:nth-child(1){
+  transform: translateY(6px) rotate(45deg);
+}
+.topbar.is-open .hamburger span:nth-child(2){
+  opacity: 0;
+}
+.topbar.is-open .hamburger span:nth-child(3){
+  transform: translateY(-6px) rotate(-45deg);
 }
 
-.menu-toggle .hamburger::before{ top: -6px; }
-.menu-toggle .hamburger::after{ top: 6px; }
+/* Mobile dropdown nav */
+@media (max-width: 768px){
+  .hamburger{ display:flex; }
 
-/* 열렸을 때 X로 변환 */
-.topbar.is-open .menu-toggle .hamburger{
-  background: transparent;
-}
-.topbar.is-open .menu-toggle .hamburger::before{
-  top: 0;
-  transform: rotate(45deg);
-}
-.topbar.is-open .menu-toggle .hamburger::after{
-  top: 0;
-  transform: rotate(-45deg);
+  /* nav becomes dropdown panel */
+  .nav{
+    display: flex; /* 이미 있지만, 혹시 다른 display가 덮이면 고정 */
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 74px; /* topbar height baseline */
+    z-index: 9999;
+    visibility: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+    will-change: transform, opacity;
+
+    padding: 14px 16px 18px;
+    background: rgba(246,245,242,0.92);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+    border-bottom: 1px solid rgba(30,30,30,0.12);
+
+    /* start hidden */
+    transform: translateY(-14px);
+    opacity: 0;
+    pointer-events: none;
+
+    /* “묵직”하게 */
+    transition:
+      transform 0.62s cubic-bezier(.2,.9,.2,1),
+      opacity 0.32s cubic-bezier(.2,.9,.2,1);
+  }
+
+  .topbar.is-open .nav{
+    visibility: visible;
+    transform: translateY(0);
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .nav a{
+    width: 100%;
+    max-width: 520px;
+    text-align: center;
+    padding: 14px 14px;
+    border-radius: 14px;
+    border: 1px solid rgba(30,30,30,0.10);
+    background: rgba(255,255,255,0.62);
+    margin: 7px 0;
+  }
+
+  .nav a:hover{
+    background: rgba(255,255,255,0.82);
+  }
 }
 
-/* 백드롭 (오프화이트 럭셔리) */
+/* Backdrop (lux off-white) */
 .nav-backdrop{
   position: fixed;
   inset: 0;
+  z-index: 9998;
 
-  /* 밝은 오프화이트 틴트 + 아주 약한 다크닝 */
   background:
-    radial-gradient(1200px 700px at 50% 15%,
-      rgba(246,245,242,0.70) 0%,
-      rgba(246,245,242,0.50) 45%,
-      rgba(246,245,242,0.36) 100%
+    radial-gradient(1200px 700px at 50% 10%,
+      rgba(246,245,242,0.72) 0%,
+      rgba(246,245,242,0.52) 45%,
+      rgba(246,245,242,0.38) 100%
     ),
-    linear-gradient(
-      180deg,
+    linear-gradient(180deg,
       rgba(0,0,0,0.06) 0%,
       rgba(0,0,0,0.10) 60%,
       rgba(0,0,0,0.14) 100%
     );
 
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
 
-  z-index: 9998;
   opacity: 0;
   pointer-events: none;
-  transition: opacity 0.28s cubic-bezier(.2,.9,.2,1);
+  transition: opacity 0.32s cubic-bezier(.2,.9,.2,1);
 }
 
 .topbar.is-open ~ .nav-backdrop{
   opacity: 1;
   pointer-events: auto;
 }
-
-@media (max-width: 768px){
-  .topbar-inner{
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    padding: 12px 0;
-    gap: 10px;
-  }
-
-  .logo{
-    align-items: flex-start;
-    text-align: left;
-  }
-
-  .menu-toggle{
-    display: inline-flex;
-    align-items:center;
-    justify-content:center;
-  }
-
-  /* ===== nav slide-down ===== */
-  .nav{
-    /* 레이아웃은 유지하되, 높이/투명도로 숨김 */
-    display: flex;
-    flex-direction: column;
-    align-items: stretch;
-    gap: 6px;
-
-    width: 100%;
-    margin-top: 10px;
-
-    border-top: 1px solid rgba(214,214,214,0.7);
-
-    /* 애니메이션 핵심 */
-    max-height: 0;
-    opacity: 0;
-    transform: translateY(-12px);
-    overflow: hidden;
-    pointer-events: none;
-
-transition:
-  max-height 0.48s cubic-bezier(.2,.9,.2,1),
-  opacity 0.26s cubic-bezier(.2,.9,.2,1),
-  transform 0.38s cubic-bezier(.2,.9,.2,1);
-  }
-
-  .topbar.is-open .nav{
-    max-height: 420px;         /* 메뉴 길이에 맞게 충분히 크게 */
-    opacity: 1;
-    transform: translateY(0);
-    pointer-events: auto;
-  }
-
-  /* 메뉴 아이템: 고급스러운 패널 느낌 */
-  .topbar.is-open .nav a{
-    padding: 12px 12px;
-    border-radius: 14px;
-    background: rgba(246,245,242,0.92);
-    border: 1px solid rgba(30,30,30,0.08);
-    box-shadow: 0 10px 24px rgba(0,0,0,0.06);
-  }
-
-  .topbar.is-open .nav a:hover{
-    background: rgba(255,255,255,0.78);
-  }
-
-  /* underline 효과는 모바일에서 제거 */
-  .nav a::after{
-    display:none;
-  }
-}
-
 
     /* Hero */
 .hero{
@@ -501,28 +479,30 @@ transition:
   <div class="wrap">
     <div class="topbar-inner">
 
-      <!-- Center Brand -->
-      <div class="logo">
-        <div class="brand">AVERON</div>
-        <div class="tag">Functional Skin Science</div>
-      </div>
+  <!-- Center Brand (absolute center) -->
+  <div class="logo">
+    <div class="brand">AVERON</div>
+    <div class="tag">Functional Skin Science</div>
+  </div>
 
-<!-- Bottom Menu -->
-<button class="menu-toggle" type="button" aria-expanded="false" aria-controls="averonNav" aria-label="Open menu">
-  <span class="hamburger" aria-hidden="true"></span>
-</button>
+  <!-- Mobile Hamburger (right) -->
+  <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
 
-<nav class="nav" id="averonNav">
-  <a href="averon-brandphilosophy.html">Brand Philosophy</a>
-  <a href="#products" data-nav="products">Products</a>
-  <a href="averon-documents.html">Manufacturing & Certificates</a>
-  <a href="#contact" data-nav="contact">Contact</a>
-  <a href="https://korvexgrp.com" target="_blank" rel="noopener">KORVEX</a>
-</nav>
-    </div>
+  <!-- Bottom Menu -->
+  <nav class="nav" id="navMenu">
+    <a href="averon-brandphilosophy.html">Brand Philosophy</a>
+    <a href="#products" data-nav="products">Products</a>
+    <a href="averon-documents.html">Manufacturing & Certificates</a>
+    <a href="#contact" data-nav="contact">Contact</a>
+    <a href="https://korvexgrp.com" target="_blank" rel="noopener">KORVEX</a>
+  </nav>
+
+</div>
   </div>
 </header>
-<div class="nav-backdrop" hidden></div>
+<div class="nav-backdrop" id="navBackdrop" aria-hidden="true"></div>
 
   <main>
     <section class="hero">
@@ -603,6 +583,59 @@ transition:
 </footer>
 
 <script>
+  (function(){
+    const topbar = document.querySelector('.topbar');
+    const hamburger = document.getElementById('hamburger');
+    const navMenu = document.getElementById('navMenu');
+    const backdrop = document.getElementById('navBackdrop');
+
+    if(!topbar || !hamburger || !navMenu || !backdrop) return;
+
+    function openMenu(){
+      topbar.classList.add('is-open');
+      backdrop.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+      hamburger.setAttribute('aria-expanded', 'true');
+    }
+
+    function closeMenu(){
+      topbar.classList.remove('is-open');
+      backdrop.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+      hamburger.setAttribute('aria-expanded', 'false');
+    }
+
+    function toggleMenu(){
+      if(topbar.classList.contains('is-open')) closeMenu();
+      else openMenu();
+    }
+
+    hamburger.addEventListener('click', (e) => {
+      e.stopPropagation();
+      toggleMenu();
+    });
+
+    backdrop.addEventListener('click', closeMenu);
+
+    // 메뉴 클릭하면 닫기 (내부 anchor 포함)
+    navMenu.querySelectorAll('a').forEach(a => {
+      a.addEventListener('click', () => closeMenu());
+    });
+
+    // ESC로 닫기
+    document.addEventListener('keydown', (e) => {
+      if(e.key === 'Escape') closeMenu();
+    });
+
+    // 화면 커지면(데스크탑) 강제 리셋
+    window.addEventListener('resize', () => {
+      if(window.innerWidth > 768) closeMenu();
+    });
+  })();
+</script>
+
+
+<script>
   function scrollWithOffset(hash, behavior = 'smooth') {
     if (!hash || hash === '#') return;
 
@@ -679,72 +712,6 @@ function onScrollSpy() {
 window.addEventListener('load', onScrollSpy);
 window.addEventListener('scroll', onScrollSpy, { passive: true });
 window.addEventListener('resize', onScrollSpy);
-
-// ===== Mobile hamburger + backdrop behavior =====
-const topbar = document.querySelector('.topbar');
-const toggleBtn = document.querySelector('.menu-toggle');
-const navEl = document.getElementById('averonNav');
-const backdrop = document.querySelector('.nav-backdrop');
-
-function openMenu() {
-  topbar.classList.add('is-open');
-  toggleBtn.setAttribute('aria-expanded', 'true');
-  if (backdrop) {
-    backdrop.hidden = false;
-    requestAnimationFrame(() => backdrop.classList.add('is-show')); // optional (CSS 없이도 OK)
-  }
-  // 모바일에서만 스크롤 잠금
-  if (window.matchMedia('(max-width: 768px)').matches) {
-    document.body.style.overflow = 'hidden';
-  }
-}
-
-function closeMenu() {
-  topbar.classList.remove('is-open');
-  toggleBtn.setAttribute('aria-expanded', 'false');
-  if (backdrop) {
-    backdrop.classList.remove('is-show');
-    backdrop.hidden = true;
-  }
-  document.body.style.overflow = '';
-}
-
-function toggleMenu() {
-  const isOpen = topbar.classList.contains('is-open');
-  isOpen ? closeMenu() : openMenu();
-}
-
-if (toggleBtn && topbar && navEl) {
-  toggleBtn.addEventListener('click', (e) => {
-    e.stopPropagation();
-    toggleMenu();
-  });
-
-  // 백드롭 클릭하면 닫기
-  if (backdrop) {
-    backdrop.addEventListener('click', () => closeMenu());
-  }
-
-  // 메뉴 링크 클릭하면 닫기(모바일)
-  navEl.querySelectorAll('a').forEach(link => {
-    link.addEventListener('click', () => {
-      if (window.matchMedia('(max-width: 768px)').matches) closeMenu();
-    });
-  });
-
-  // ESC 닫기
-  window.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && topbar.classList.contains('is-open')) closeMenu();
-  });
-
-  // 화면 커지면(데스크탑) 강제 정리
-  window.addEventListener('resize', () => {
-    if (!window.matchMedia('(max-width: 768px)').matches) {
-      closeMenu();
-      if (backdrop) backdrop.hidden = true;
-    }
-  });
-}
 </script>
 
 </body>
