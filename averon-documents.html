@@ -96,29 +96,20 @@
       background: var(--bg-soft);
       border-bottom: 1px solid rgba(214,214,214,0.75);
     }
-    
+
     .hero::before{
       content:"";
       position:absolute;
       inset:0;
-      background-image: url("images/averon_doc_hero_desktp.jpg"); /* <-- 교체 */
+      background-image: url("images/averon_doc_hero_desktp.jpg");
       background-size: cover;
       background-position: center;
       background-repeat: no-repeat;
       opacity: 1;
       z-index: 0;
     }
-    .hero::after{
-      content:"";
-      position:absolute;
-      inset:0;
-      background: linear-gradient(
-        90deg,
-        rgba(248,248,246,0.93) 0%,
-        rgba(248,248,246,0.74) 42%,
-        rgba(248,248,246,0.22) 75%,
-        rgba(248,248,246,0.12) 100%
-      );
+    .hero::after {
+      display:none;
       z-index: 0;
     }
     .hero .wrap{ position: relative; z-index: 1; }
@@ -290,16 +281,11 @@
       <h1>Documents & Certificates</h1>
       <p class="sub">
         We provide essential partner-facing documents for professional import workflows.
-        Sensitive materials can be shared under NDA upon request.
       </p>
 
       <div class="cta-row">
         <a class="btn" href="mailto:korvexgrp@outlook.com?subject=AVERON%20Documents%20Request">Request Documents</a>
         <a class="btn secondary" href="https://wa.me/601116023115" target="_blank" rel="noopener">WhatsApp</a>
-      </div>
-
-      <div class="note">
-        Notes: Final specs and claims are confirmed after quotation and manufacturing confirmation. Availability may vary by SKU and project scope.
       </div>
     </div>
   </section>
@@ -309,9 +295,11 @@
     <div class="wrap">
       <h2>Manufacturing Certificates (Summary)</h2>
       <p class="lead">
-        AVERON is produced in a facility with manufacturing-related certifications and test documentation.
-        We avoid naming third parties publicly; verification materials can be provided directly to qualified partners.
+        AVERON is developed in collaboration with a pharmaceutical & biotech partner for a documentation-ready manufacturing approach.
       </p>
+      <div class="imgframe">
+        <img src="images/manufacturer_certificates.png" alt="Manufacturing certificates overview">
+      </div>
 
       <div class="grid">
         <div class="card">
@@ -339,15 +327,6 @@
             <li>Provided for verification upon request</li>
           </ul>
         </div>
-      </div>
-
-      <!-- ✅ 네가 만든 1366x768 인증서 편집 이미지 넣기 -->
-      <div class="imgframe">
-        <img src="images/manufacturer_certificates.png" alt="Manufacturing certificates overview">
-      </div>
-
-      <div class="note">
-        The certificate overview image above is for reference. Exact document names/validity/scope can be shared for verification during partner onboarding.
       </div>
     </div>
   </section>
@@ -379,20 +358,6 @@
             <li>Certificates and verification materials</li>
           </ul>
         </div>
-
-        <div class="card">
-          <h3>Request Checklist</h3>
-          <p>To receive the correct document set quickly, send:</p>
-          <ul class="list">
-            <li>Target country / market</li>
-            <li>SKU(s) of interest</li>
-            <li>Required document list</li>
-          </ul>
-          <div class="cta-row">
-            <a class="btn" href="mailto:korvexgrp@outlook.com?subject=AVERON%20Documents%20Request">Email</a>
-            <a class="btn secondary" href="https://wa.me/601116023115" target="_blank" rel="noopener">WhatsApp</a>
-          </div>
-        </div>
       </div>
     </div>
   </section>
@@ -401,11 +366,6 @@
   <section class="section">
     <div class="wrap">
       <h2>Export Document Set (Available)</h2>
-      <p class="lead">
-        Standard documents can be provided depending on market needs and project scope.
-        We share only what is relevant for partner review and import processes.
-      </p>
-
       <div class="grid">
         <div class="card">
           <h3>COA</h3>
@@ -424,7 +384,22 @@
       <div class="note">
         We do not publish full regulatory packets publicly. Documents are shared directly with qualified partners.
       </div>
+
+  <div class="grid" style="margin-top:14px;">
+  <div class="card">
+    <h3>Request Checklist</h3>
+    <p>To receive the correct document set quickly, send:</p>
+    <ul class="list">
+      <li>Target country / market</li>
+      <li>SKU(s) of interest</li>
+      <li>Required document list</li>
+    </ul>
+    <div class="cta-row">
+      <a class="btn" href="mailto:korvexgrp@outlook.com?subject=AVERON%20Documents%20Request">Email</a>
+      <a class="btn secondary" href="https://wa.me/601116023115" target="_blank" rel="noopener">WhatsApp</a>
     </div>
+  </div>
+</div>
   </section>
 
   <footer>
