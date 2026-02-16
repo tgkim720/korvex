@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>AVERON | Documents</title>
+  <meta name="description" content="AVERON documentation for partner review: COA, MSDS, INCI, and compliance-ready materials (NDA available)." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://korvexgrp.com/averon-documents.html" />
+
+  <!-- Favicon (same style as your A icon) -->
+  <link rel="icon" type="image/svg+xml"
+    href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='48' fill='white'/%3E%3Ctext x='50%25' y='54%25' text-anchor='middle' font-family='Inter,Arial,sans-serif' font-size='58' font-weight='700' fill='%231E1E1E' dominant-baseline='middle'%3EA%3C/text%3E%3C/svg%3E">
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --bg: #F8F8F6;
+      --bg-soft: #F1F2F3;
+      --charcoal: #1E1E1E;
+      --charcoal-2: #2A2A2A;
+      --text: #111111;
+      --muted: #5A5A5A;
+      --silver: #D6D6D6;
+      --line: rgba(30,30,30,0.12);
+    }
+
+    *{ margin:0; padding:0; box-sizing:border-box; }
+    body{
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+    a{ color: inherit; text-decoration:none; }
+
+    .wrap{ max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+
+    /* Topbar */
+    .topbar{
+      position: sticky;
+      top: 0;
+      z-index: 9999;
+      background: rgba(248,248,246,0.92);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid rgba(214,214,214,0.85);
+    }
+    .topbar-inner{
+      display:flex;
+      align-items:center;
+      justify-content: space-between;
+      padding: 14px 0;
+      gap: 12px;
+    }
+
+    .brandlock{
+      display:flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+    .brandlock .brand{
+      letter-spacing: 0.18em;
+      font-weight: 700;
+      font-size: 16px;
+      color: var(--charcoal);
+    }
+    .brandlock .tag{
+      font-size: 12px;
+      color: var(--muted);
+      letter-spacing: 0.04em;
+    }
+
+    .top-actions{
+      display:flex;
+      gap: 10px;
+      align-items:center;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+    .chip{
+      font-size: 12px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 7px 10px;
+      background: rgba(255,255,255,0.7);
+      color: var(--charcoal-2);
+    }
+
+    /* Hero */
+    .hero{
+      position: relative;
+      padding: 56px 0 34px;
+      overflow: hidden;
+      background: var(--bg-soft);
+      border-bottom: 1px solid rgba(214,214,214,0.75);
+    }
+    .hero::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      /* ✅ Ctrl+F: YOUR_CERT_MONTAGE */
+      background-image: url("images/YOUR_CERT_MONTAGE.jpg");
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      opacity: 1;
+      z-index: 0;
+    }
+    .hero::after{
+      content:"";
+      position:absolute;
+      inset:0;
+      background: linear-gradient(
+        90deg,
+        rgba(248,248,246,0.92) 0%,
+        rgba(248,248,246,0.70) 42%,
+        rgba(248,248,246,0.20) 75%,
+        rgba(248,248,246,0.10) 100%
+      );
+      z-index: 0;
+    }
+    .hero .wrap{ position: relative; z-index: 1; }
+
+    .kicker{
+      display:inline-block;
+      font-size: 11px;
+      letter-spacing: 0.10em;
+      color: #6b6b6b;
+      margin-bottom: 10px;
+    }
+    h1{
+      font-size: clamp(26px, 3.6vw, 38px);
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+      color: var(--charcoal);
+      text-shadow: 0 2px 12px rgba(0,0,0,0.06);
+      margin-bottom: 10px;
+    }
+    .sub{
+      color: var(--muted);
+      max-width: 760px;
+      font-size: 15px;
+    }
+
+    /* Sections */
+    .section{ padding: 44px 0; }
+    .section.soft{ background: var(--bg-soft); }
+    .section h2{
+      font-size: 20px;
+      color: var(--charcoal);
+      margin-bottom: 10px;
+      letter-spacing: -0.01em;
+    }
+
+    .grid{
+      margin-top: 16px;
+      display:grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 14px;
+    }
+    .card{
+      background: rgba(255,255,255,0.92);
+      border: 1px solid rgba(214,214,214,0.85);
+      border-radius: 18px;
+      padding: 18px;
+      box-shadow: 0 10px 26px rgba(0,0,0,0.04);
+    }
+    .card h3{
+      font-size: 15px;
+      color: var(--charcoal);
+      margin-bottom: 8px;
+    }
+    .card p{
+      color: var(--muted);
+      font-size: 14px;
+    }
+    .list{
+      margin-top: 10px;
+      padding-left: 18px;
+      color: var(--muted);
+      line-height: 1.85;
+      font-size: 14px;
+    }
+
+    .cta-row{
+      margin-top: 14px;
+      display:flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      align-items:center;
+    }
+    .btn{
+      display:inline-block;
+      padding: 12px 16px;
+      border-radius: 14px;
+      font-weight: 600;
+      font-size: 14px;
+      border: 1px solid var(--charcoal);
+      background: var(--charcoal);
+      color: #fff;
+    }
+    .btn.secondary{
+      background: transparent;
+      color: var(--charcoal);
+      border: 1px solid var(--line);
+    }
+
+    /* small note block */
+    .note{
+      margin-top: 12px;
+      padding: 12px 14px;
+      border-radius: 14px;
+      border: 1px solid rgba(214,214,214,0.85);
+      background: rgba(255,255,255,0.6);
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.7;
+    }
+
+    footer{
+      padding: 24px 0;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 13px;
+      background: rgba(255,255,255,0.6);
+    }
+    .foot-row{
+      display:flex;
+      justify-content: space-between;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    @media (max-width: 768px){
+      .hero{ padding: 44px 0 28px; }
+      .hero::after{
+        background: linear-gradient(
+          180deg,
+          rgba(248,248,246,0.92) 0%,
+          rgba(248,248,246,0.72) 55%,
+          rgba(248,248,246,0.26) 100%
+        );
+      }
+      .topbar-inner{ padding: 12px 0; }
+      .top-actions{ justify-content: flex-start; }
+    }
+  </style>
+</head>
+
+<body>
+  <header class="topbar">
+    <div class="wrap">
+      <div class="topbar-inner">
+        <div class="brandlock">
+          <div class="brand">AVERON</div>
+          <div class="tag">Documents for Partner Review</div>
+        </div>
+        <div class="top-actions">
+          <a class="chip" href="averon.html">← Back to AVERON</a>
+          <a class="chip" href="https://korvexgrp.com" target="_blank" rel="noopener">KORVEX</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="wrap">
+      <div class="kicker">Export-ready documentation • NDA available</div>
+      <h1>Documents & Compliance Materials</h1>
+      <p class="sub">
+        We provide partner-facing documentation for professional import workflows.
+        Materials are shared under project terms, and sensitive documents can be provided under NDA.
+      </p>
+
+      <div class="cta-row">
+        <a class="btn" href="mailto:korvexgrp@outlook.com?subject=AVERON%20Documents%20Request">Request Documents</a>
+        <a class="btn secondary" href="https://wa.me/601116023115" target="_blank" rel="noopener">WhatsApp</a>
+      </div>
+
+      <div class="note">
+        Notes: Final specs and claims are confirmed after quotation and manufacturing confirmation. Document availability may vary by SKU and project scope.
+      </div>
+    </div>
+  </section>
+
+  <!-- Documents types -->
+  <section class="section">
+    <div class="wrap">
+      <h2>Document Types</h2>
+
+      <div class="grid">
+        <div class="card">
+          <h3>COA (Certificate of Analysis)</h3>
+          <p>Batch-level analysis report for partner review.</p>
+          <ul class="list">
+            <li>Provided per batch / per shipment (where applicable)</li>
+            <li>Supports import documentation workflow</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3>MSDS / SDS</h3>
+          <p>Safety data sheet for transport and handling.</p>
+          <ul class="list">
+            <li>Commonly requested by freight / customs</li>
+            <li>Shared under project terms</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3>INCI & Spec Sheet</h3>
+          <p>Ingredient list and product specification for regulatory review.</p>
+          <ul class="list">
+            <li>Full INCI is shared after final formula confirmation</li>
+            <li>Includes packaging / volume / usage guidance</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Manufacturing readiness (no partner name) -->
+  <section class="section soft">
+    <div class="wrap">
+      <h2>Manufacturing Readiness</h2>
+      <p style="color: var(--muted); font-size:14px; max-width: 900px;">
+        AVERON is manufactured in a facility operating under structured quality and documentation processes.
+        Relevant certificates and test reports can be shared upon request (subject to validity and scope).
+      </p>
+
+      <div class="grid">
+        <div class="card">
+          <h3>Quality System</h3>
+          <ul class="list">
+            <li>Cosmetics GMP-oriented processes (where applicable)</li>
+            <li>Batch consistency and QC checkpoints</li>
+            <li>Documentation-ready workflow</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3>Certificates (Examples)</h3>
+          <ul class="list">
+            <li>ISO 22716 / ISO 9001 (where applicable)</li>
+            <li>Vegan certification (where applicable)</li>
+            <li>Additional certificates available upon review</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3>Testing & Safety</h3>
+          <ul class="list">
+            <li>Micro / stability-related reports (as applicable)</li>
+            <li>Partner review with NDA option</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="note">
+        We avoid naming third parties publicly. Certificates and reports can be provided directly to qualified partners for verification.
+      </div>
+    </div>
+  </section>
+
+  <!-- Your business registration proof (Responsible seller) -->
+  <section class="section">
+    <div class="wrap">
+      <h2>Seller / Export Handling</h2>
+      <div class="grid">
+        <div class="card">
+          <h3>Cosmetics Responsible Seller Registration</h3>
+          <p>Registration certificate can be provided upon request for partner due diligence.</p>
+          <ul class="list">
+            <li>Useful for distributor onboarding</li>
+            <li>Shared as PDF under project request</li>
+          </ul>
+
+          <!-- Optional: a preview image -->
+          <!-- ✅ Ctrl+F: YOUR_SELLER_CERT -->
+          <!-- <div style="margin-top:12px;">
+            <img src="images/YOUR_SELLER_CERT.jpg" alt="Cosmetics Responsible Seller Registration" style="width:100%; border-radius:14px; border:1px solid rgba(214,214,214,0.85);">
+          </div> -->
+        </div>
+
+        <div class="card">
+          <h3>NDA Option</h3>
+          <p>We can share sensitive documents under NDA for regulated markets.</p>
+          <ul class="list">
+            <li>COA/MSDS/INCI/Certificates</li>
+            <li>Facility and process documentation (where applicable)</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3>Request Flow</h3>
+          <p>Fastest way: message us with your target market and required documents.</p>
+          <ul class="list">
+            <li>Country / market</li>
+            <li>SKU of interest</li>
+            <li>Requested document list</li>
+          </ul>
+          <div class="cta-row">
+            <a class="btn" href="mailto:korvexgrp@outlook.com?subject=AVERON%20Documents%20Request">Email</a>
+            <a class="btn secondary" href="https://wa.me/601116023115" target="_blank" rel="noopener">WhatsApp</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="wrap">
+      <div class="foot-row">
+        <div>© AVERON</div>
+        <div style="opacity:0.9;">Documents are shared under project terms • NDA available</div>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
