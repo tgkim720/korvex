@@ -5,11 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <title>AVERON | Documents</title>
-  <meta name="description" content="AVERON documentation for partner review: COA, MSDS, INCI, and compliance-ready materials (NDA available)." />
+  <meta name="description" content="AVERON documentation and certificates for partner review. NDA available upon request." />
   <meta name="robots" content="index, follow" />
   <link rel="canonical" href="https://korvexgrp.com/averon-documents.html" />
 
-  <!-- Favicon (same style as your A icon) -->
+  <!-- Favicon -->
   <link rel="icon" type="image/svg+xml"
     href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='48' fill='white'/%3E%3Ctext x='50%25' y='54%25' text-anchor='middle' font-family='Inter,Arial,sans-serif' font-size='58' font-weight='700' fill='%231E1E1E' dominant-baseline='middle'%3EA%3C/text%3E%3C/svg%3E">
 
@@ -96,11 +96,12 @@
       background: var(--bg-soft);
       border-bottom: 1px solid rgba(214,214,214,0.75);
     }
+    
     .hero::before{
       content:"";
       position:absolute;
       inset:0;
-      background-image: url("images/certificates.png");
+      background-image: url("images/averon_doc_hero_desktp.jpg"); /* <-- 교체 */
       background-size: cover;
       background-position: center;
       background-repeat: no-repeat;
@@ -113,10 +114,10 @@
       inset:0;
       background: linear-gradient(
         90deg,
-        rgba(248,248,246,0.92) 0%,
-        rgba(248,248,246,0.70) 42%,
-        rgba(248,248,246,0.20) 75%,
-        rgba(248,248,246,0.10) 100%
+        rgba(248,248,246,0.93) 0%,
+        rgba(248,248,246,0.74) 42%,
+        rgba(248,248,246,0.22) 75%,
+        rgba(248,248,246,0.12) 100%
       );
       z-index: 0;
     }
@@ -143,14 +144,41 @@
       font-size: 15px;
     }
 
+    .cta-row{
+      margin-top: 14px;
+      display:flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      align-items:center;
+    }
+    .btn{
+      display:inline-block;
+      padding: 12px 16px;
+      border-radius: 14px;
+      font-weight: 600;
+      font-size: 14px;
+      border: 1px solid var(--charcoal);
+      background: var(--charcoal);
+      color: #fff;
+    }
+    .btn.secondary{
+      background: transparent;
+      color: var(--charcoal);
+      border: 1px solid var(--line);
+    }
+
     /* Sections */
-    .section{ padding: 44px 0; }
-    .section.soft{ background: var(--bg-soft); }
+    .section{ padding: 42px 0; }
     .section h2{
       font-size: 20px;
       color: var(--charcoal);
       margin-bottom: 10px;
       letter-spacing: -0.01em;
+    }
+    .lead{
+      color: var(--muted);
+      font-size: 14px;
+      max-width: 900px;
     }
 
     .grid{
@@ -183,30 +211,6 @@
       font-size: 14px;
     }
 
-    .cta-row{
-      margin-top: 14px;
-      display:flex;
-      gap: 10px;
-      flex-wrap: wrap;
-      align-items:center;
-    }
-    .btn{
-      display:inline-block;
-      padding: 12px 16px;
-      border-radius: 14px;
-      font-weight: 600;
-      font-size: 14px;
-      border: 1px solid var(--charcoal);
-      background: var(--charcoal);
-      color: #fff;
-    }
-    .btn.secondary{
-      background: transparent;
-      color: var(--charcoal);
-      border: 1px solid var(--line);
-    }
-
-    /* small note block */
     .note{
       margin-top: 12px;
       padding: 12px 14px;
@@ -216,6 +220,18 @@
       color: var(--muted);
       font-size: 13px;
       line-height: 1.7;
+    }
+
+    .imgframe{
+      margin-top: 12px;
+      border-radius: 14px;
+      overflow: hidden;
+      border: 1px solid rgba(214,214,214,0.85);
+      background: rgba(255,255,255,0.65);
+    }
+    .imgframe img{
+      width: 100%;
+      display: block;
     }
 
     footer{
@@ -234,11 +250,15 @@
 
     @media (max-width: 768px){
       .hero{ padding: 44px 0 28px; }
+      .hero::before{
+        background-image: url("images/averon-docs-hero-mobile.jpg"); /* <-- 모바일 히어로 교체 */
+        background-position: center;
+      }
       .hero::after{
         background: linear-gradient(
           180deg,
           rgba(248,248,246,0.92) 0%,
-          rgba(248,248,246,0.72) 55%,
+          rgba(248,248,246,0.74) 55%,
           rgba(248,248,246,0.26) 100%
         );
       }
@@ -254,7 +274,7 @@
       <div class="topbar-inner">
         <div class="brandlock">
           <div class="brand">AVERON</div>
-          <div class="tag">Documents for Partner Review</div>
+          <div class="tag">Documents & Certificates</div>
         </div>
         <div class="top-actions">
           <a class="chip" href="averon.html">← Back to AVERON</a>
@@ -266,11 +286,11 @@
 
   <section class="hero">
     <div class="wrap">
-      <div class="kicker">Export-ready documentation • NDA available</div>
-      <h1>Documents & Compliance Materials</h1>
+      <div class="kicker">Partner review • Export documentation • NDA available</div>
+      <h1>Documents & Certificates</h1>
       <p class="sub">
-        We provide partner-facing documentation for professional import workflows.
-        Materials are shared under project terms, and sensitive documents can be provided under NDA.
+        We provide essential partner-facing documents for professional import workflows.
+        Sensitive materials can be shared under NDA upon request.
       </p>
 
       <div class="cta-row">
@@ -279,133 +299,130 @@
       </div>
 
       <div class="note">
-        Notes: Final specs and claims are confirmed after quotation and manufacturing confirmation. Document availability may vary by SKU and project scope.
+        Notes: Final specs and claims are confirmed after quotation and manufacturing confirmation. Availability may vary by SKU and project scope.
       </div>
     </div>
   </section>
 
-<!-- Documentation & Compliance -->
-<section class="section">
-  <div class="wrap">
-    <h2>Documentation & Compliance</h2>
-    <p style="color: var(--muted); font-size:14px; max-width: 920px;">
-      Partner-facing documentation can be provided for professional import workflows.
-      We avoid naming third parties publicly; relevant certificates and reports can be shared directly with qualified partners (NDA available).
-    </p>
-
-    <!-- Certificates visual (your edited 1366x768 image) -->
-    <div style="margin-top:14px;">
-      <img src="images/manufacturer_certificates.png"
-           alt="Compliance certificates and reports (examples)"
-           style="width:100%; border-radius:16px; border:1px solid rgba(214,214,214,0.85); box-shadow: 0 14px 30px rgba(0,0,0,0.06);">
-    </div>
-
-    <div class="grid" style="margin-top:16px;">
-      <!-- Document Types -->
-      <div class="card">
-        <h3>COA (Certificate of Analysis)</h3>
-        <p>Batch-level analysis report for partner review.</p>
-        <ul class="list">
-          <li>Provided per batch / shipment (where applicable)</li>
-          <li>Supports import documentation workflows</li>
-        </ul>
-      </div>
-
-      <div class="card">
-        <h3>MSDS / SDS</h3>
-        <p>Safety data sheet for transport and handling.</p>
-        <ul class="list">
-          <li>Often requested by freight / customs</li>
-          <li>Shared under project terms</li>
-        </ul>
-      </div>
-
-      <div class="card">
-        <h3>INCI & Specification Sheet</h3>
-        <p>Ingredient list and product specification for regulatory review.</p>
-        <ul class="list">
-          <li>Full INCI shared after final formula confirmation</li>
-          <li>Packaging / volume / usage guidance included</li>
-        </ul>
-      </div>
-
-      <!-- Readiness / Proof -->
-      <div class="card">
-        <h3>Quality System & Batch Control</h3>
-        <p>Structured QC checkpoints and documentation-ready process.</p>
-        <ul class="list">
-          <li>Consistency-focused production control</li>
-          <li>Partner-facing documentation flow</li>
-        </ul>
-      </div>
-
-      <div class="card">
-        <h3>Certificates & Reports (Examples)</h3>
-        <p>Relevant certificates and test reports can be provided upon request.</p>
-        <ul class="list">
-          <li>ISO 22716 / ISO 9001 (where applicable)</li>
-          <li>Vegan certification (where applicable)</li>
-          <li>Additional compliance materials on request</li>
-        </ul>
-      </div>
-
-      <div class="card">
-        <h3>Verification</h3>
-        <p>Documents can be shared for verification under NDA where required.</p>
-        <ul class="list">
-          <li>COA / SDS / INCI / Certificates</li>
-          <li>Market-specific document packs (if applicable)</li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="note">
-      Notes: Document availability may vary by SKU and project scope. Final specs and claims are confirmed after quotation and manufacturing confirmation.
-    </div>
-  </div>
-</section>
-
-  <!-- Your business registration proof (Responsible seller) -->
+  <!-- ✅ 1) Manufacturing certificates (brief) -->
   <section class="section">
     <div class="wrap">
-      <h2>Export Handling</h2>
+      <h2>Manufacturing Certificates (Summary)</h2>
+      <p class="lead">
+        AVERON is produced in a facility with manufacturing-related certifications and test documentation.
+        We avoid naming third parties publicly; verification materials can be provided directly to qualified partners.
+      </p>
+
       <div class="grid">
         <div class="card">
-          <h3>Cosmetics Responsible Seller Registration</h3>
-          <p>Registration certificate can be provided upon request for partner due diligence.</p>
+          <h3>Key Certificates (Examples)</h3>
           <ul class="list">
-            <li>Useful for distributor onboarding</li>
-            <li>Shared as PDF under project request</li>
+            <li>ISO 9001 (where applicable)</li>
+            <li>ISO 22716 (Cosmetics GMP, where applicable)</li>
+            <li>Vegan certificate (where applicable)</li>
           </ul>
+        </div>
 
-          <!-- Optional: a preview image -->
-          <div style="margin-top:12px;">
-            <img src="images/Cosmetic_Responsible_Seller.png" alt="Cosmetics Responsible Seller Registration" style="width:100%; border-radius:14px; border:1px solid rgba(214,214,214,0.85);">
+        <div class="card">
+          <h3>Test / Batch Documentation</h3>
+          <ul class="list">
+            <li>COA (Certificate of Analysis) for partner review</li>
+            <li>Additional test reports (as applicable)</li>
+            <li>Shared under project terms (NDA available)</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3>Facility Registration</h3>
+          <ul class="list">
+            <li>FDA-related registration documentation (where applicable)</li>
+            <li>Provided for verification upon request</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- ✅ 네가 만든 1366x768 인증서 편집 이미지 넣기 -->
+      <div class="imgframe">
+        <img src="images/manufacturer_certificates.png" alt="Manufacturing certificates overview">
+      </div>
+
+      <div class="note">
+        The certificate overview image above is for reference. Exact document names/validity/scope can be shared for verification during partner onboarding.
+      </div>
+    </div>
+  </section>
+
+  <!-- ✅ 2) Your responsible seller registration -->
+  <section class="section" style="background: var(--bg-soft); border-top: 1px solid rgba(214,214,214,0.65); border-bottom: 1px solid rgba(214,214,214,0.65);">
+    <div class="wrap">
+      <h2>Seller Registration</h2>
+      <p class="lead">
+        Cosmetics Responsible Seller registration is available for partner due diligence. We can provide PDF copies upon request.
+      </p>
+
+      <div class="grid">
+        <div class="card">
+          <h3>Cosmetics Responsible Seller</h3>
+          <p>Registration certificate can be provided to partners for onboarding and verification.</p>
+
+          <!-- ✅ 네 이미지 파일명으로 교체 -->
+          <div class="imgframe">
+            <img src="images/Cosmetic_Responsible_Seller.png" alt="Cosmetics Responsible Seller Registration">
           </div>
         </div>
 
         <div class="card">
           <h3>NDA Option</h3>
-          <p>We can share sensitive documents under NDA for regulated markets.</p>
+          <p>For regulated markets, sensitive documents can be shared under NDA.</p>
           <ul class="list">
-            <li>COA/MSDS/INCI/Certificates</li>
-            <li>Facility and process documentation (where applicable)</li>
+            <li>COA / MSDS(SDS) / INCI / Spec sheet</li>
+            <li>Certificates and verification materials</li>
           </ul>
         </div>
 
         <div class="card">
-          <h3>Request Flow</h3>
-          <p>Fastest way: message us with your target market and required documents.</p>
+          <h3>Request Checklist</h3>
+          <p>To receive the correct document set quickly, send:</p>
           <ul class="list">
-            <li>Country / market</li>
-            <li>SKU of interest</li>
-            <li>Requested document list</li>
+            <li>Target country / market</li>
+            <li>SKU(s) of interest</li>
+            <li>Required document list</li>
           </ul>
           <div class="cta-row">
             <a class="btn" href="mailto:korvexgrp@outlook.com?subject=AVERON%20Documents%20Request">Email</a>
             <a class="btn secondary" href="https://wa.me/601116023115" target="_blank" rel="noopener">WhatsApp</a>
           </div>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ✅ 3) Export docs (short, no duplication) -->
+  <section class="section">
+    <div class="wrap">
+      <h2>Export Document Set (Available)</h2>
+      <p class="lead">
+        Standard documents can be provided depending on market needs and project scope.
+        We share only what is relevant for partner review and import processes.
+      </p>
+
+      <div class="grid">
+        <div class="card">
+          <h3>COA</h3>
+          <p>Batch-level analysis report for partner review (where applicable).</p>
+        </div>
+        <div class="card">
+          <h3>MSDS / SDS</h3>
+          <p>Safety documentation for transport and handling.</p>
+        </div>
+        <div class="card">
+          <h3>INCI / Spec Sheet</h3>
+          <p>Ingredient list and product specification for regulatory review.</p>
+        </div>
+      </div>
+
+      <div class="note">
+        We do not publish full regulatory packets publicly. Documents are shared directly with qualified partners.
       </div>
     </div>
   </section>
