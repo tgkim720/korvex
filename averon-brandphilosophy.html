@@ -465,7 +465,73 @@
       padding: 7px 10px;
       background: rgba(255,255,255,0.62);
     }
-
+ /* ===== Scientific Basis ===== */
+    .sci{
+      padding: 44px 0;
+      background: #fff;
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+    }
+    .sci-head{
+      display:flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin-bottom: 14px;
+    }
+    .sci h2{
+      font-size: 18px;
+      letter-spacing: -0.01em;
+      color: var(--charcoal);
+      line-height: 1.2;
+    }
+    .sci-sub{
+      color: var(--muted);
+      font-size: 13px;
+      max-width: 760px;
+      line-height: 1.7;
+    }
+    .sci-grid{
+      display:grid;
+      grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+      gap: 14px;
+      margin-top: 14px;
+    }
+    .sci-card{
+      background: rgba(255,255,255,0.96);
+      border: 1px solid rgba(214,214,214,0.85);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 16px 16px 14px;
+      display:flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .sci-card h3{
+      font-size: 14px;
+      letter-spacing: -0.01em;
+      color: var(--charcoal);
+      line-height: 1.25;
+    }
+    .sci-card ul{
+      padding-left: 18px;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.85;
+    }
+    .refs{
+      margin-top: auto;
+      border-top: 1px solid rgba(214,214,214,0.7);
+      padding-top: 10px;
+      font-size: 12px;
+      color: rgba(30,30,30,0.68);
+      line-height: 1.55;
+    }
+    .refs a{
+      text-decoration: underline;
+      text-underline-offset: 2px;
+    }
     footer{
       padding: 28px 0;
       border-top: 1px solid var(--line);
@@ -736,6 +802,77 @@
               <span class="mini">Comfort</span>
               <span class="mini">Integrity</span>
             </div>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ✅ Scientific Basis (Short, citable bullets) -->
+  <section class="sci">
+    <div class="wrap">
+      <div class="sci-head">
+        <div>
+          <h2>Scientific Basis</h2>
+          <div class="sci-sub">
+            AVERON’s “foundation before performance” philosophy aligns with established skin-barrier science.
+            Below are concise references partners can review for barrier integrity, hydration metrics, and moisturizer-driven barrier support.
+          </div>
+        </div>
+        <span class="code">S-01</span>
+      </div>
+
+      <div class="sci-grid">
+
+        <!-- S-01 -->
+        <article class="sci-card">
+          <h3>Barrier integrity is central to hydration stability</h3>
+          <ul>
+            <li>The stratum corneum functions as a semi-permeable barrier that limits water loss.</li>
+            <li>The “bricks and mortar” concept describes corneocytes (bricks) and intercellular lipids (mortar) supporting barrier function.</li>
+            <li>When barrier components are disrupted, water loss increases and skin becomes less resilient.</li>
+          </ul>
+          <div class="refs">
+            Ref: <a href="https://pubmed.ncbi.nlm.nih.gov/17313091/" target="_blank" rel="noopener">PubMed: 17313091</a> (Two compartment model; bricks &amp; mortar; barrier role)
+          </div>
+        </article>
+
+        <!-- S-02 -->
+        <article class="sci-card">
+          <h3>TEWL is a widely used objective barrier metric</h3>
+          <ul>
+            <li>Transepidermal water loss (TEWL) is widely used to assess barrier function in research and clinical contexts.</li>
+            <li>Higher TEWL generally indicates a more compromised barrier.</li>
+          </ul>
+          <div class="refs">
+            Ref: <a href="https://www.sciencedirect.com/science/article/pii/S0022202X18325764" target="_blank" rel="noopener">J Invest Dermatol (TEWL measurement review)</a><br>
+            Ref: <a href="https://pubmed.ncbi.nlm.nih.gov/19799976/" target="_blank" rel="noopener">PubMed: 19799976</a> (TEWL as water vapor flux; barrier characterization)
+          </div>
+        </article>
+
+        <!-- S-03 -->
+        <article class="sci-card">
+          <h3>Hydration can be measured; barrier support depends on formulation</h3>
+          <ul>
+            <li>Skin surface hydration is commonly assessed using capacitance (e.g., Corneometer) and related instruments.</li>
+            <li>Moisturizer composition can influence barrier outcomes over time (e.g., TEWL changes can vary by formula).</li>
+          </ul>
+          <div class="refs">
+            Ref: <a href="https://pubmed.ncbi.nlm.nih.gov/27327056/" target="_blank" rel="noopener">PubMed: 27327056</a> (Hydration instruments + TEWL in moisturizer evaluation)<br>
+            Ref: <a href="https://pubmed.ncbi.nlm.nih.gov/17300239/" target="_blank" rel="noopener">PubMed: 17300239</a> (Long-term moisturizer RCT; barrier outcomes depend on composition)
+          </div>
+        </article>
+
+        <!-- S-04 -->
+        <article class="sci-card">
+          <h3>NMF relates to stratum corneum hydration capacity</h3>
+          <ul>
+            <li>Natural Moisturizing Factor (NMF) components contribute to hydration within the stratum corneum.</li>
+            <li>Reduced NMF is linked with reduced hydration capacity in specific contexts (e.g., filaggrin genotype studies).</li>
+          </ul>
+          <div class="refs">
+            Ref: <a href="https://academic.oup.com/bjd/article/161/5/1098/6642304" target="_blank" rel="noopener">Br J Dermatol (NMF as biomarker; filaggrin genotype)</a>
           </div>
         </article>
 
