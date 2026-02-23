@@ -1,0 +1,942 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>SERONEL | Brand Philosophy</title>
+  <meta name="description" content="SERONEL brand philosophy: clinic-protocol grade formulations designed to be safe and comfortable for daily care." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://korvexgrp.com/seronel-brandphilosophy.html" />
+
+  <link rel="icon" type="image/svg+xml"
+    href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='48' fill='white'/%3E%3Ctext x='50%25' y='54%25' text-anchor='middle' font-family='Inter,Arial,sans-serif' font-size='58' font-weight='700' fill='%231E1E1E' dominant-baseline='middle'%3EA%3C/text%3E%3C/svg%3E">
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --bg: #F8F8F6;
+      --bg-soft: #F1F2F3;
+
+      --charcoal: #1E1E1E;
+      --charcoal-2: #2A2A2A;
+      --text: #111111;
+      --muted: #5A5A5A;
+
+      --silver: #D6D6D6;
+      --silver-2: #C9C9C9;
+      --line: rgba(30,30,30,0.12);
+
+      --card: rgba(255,255,255,0.92);
+      --shadow: 0 10px 26px rgba(0,0,0,0.04);
+      --radius: 18px;
+    }
+
+    *{ margin:0; padding:0; box-sizing:border-box; }
+    html, body{ height:100%; }
+    body{
+      margin: 0 !important;
+      padding: 0 !important; /* ✅ 탑바 위 여백 원천 차단 */
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      -webkit-text-size-adjust: 100%;
+    }
+    a{ color: inherit; text-decoration:none; }
+
+    .wrap{ max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+
+    /* ===== Top bar (same structure as main) ===== */
+    .topbar{
+      position: sticky;
+      top: 0;
+      z-index: 9999;
+      background: rgba(255,255,255,0.92);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border-bottom: 1px solid rgba(214,214,214,0.8);
+      will-change: transform;
+
+      /* ✅ iOS safe-area: 탑바가 “살짝 내려와 보이는” 느낌 방지 */
+      padding-top: env(safe-area-inset-top);
+    }
+    .topbar-inner{
+  position: relative;
+  padding: 14px 0 12px;
+  display: flex;
+  flex-direction: column;     /* 로고 위, 메뉴 아래 */
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+    .logo{
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 2px;
+  pointer-events: none;
+}
+    .logo .brand{
+      letter-spacing: 0.22em;
+      font-weight: 800;
+      font-size: 20px;
+      color: var(--charcoal);
+    }
+    .logo .tag{
+      font-size: 10.5px;
+      color: var(--muted);
+      letter-spacing: 0.06em;
+    }
+
+    .nav{
+      display:flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 18px;
+      font-size: 14px;
+      color: var(--charcoal-2);
+      width: 100%;
+    }
+    .nav a{
+      padding: 8px 10px;
+      border-radius: 10px;
+      position: relative;
+    }
+    .nav a:hover{ background: var(--bg-soft); }
+
+    .nav a::after{
+      content:"";
+      position:absolute;
+      left: 10px;
+      right: 10px;
+      bottom: 4px;
+      height: 2px;
+      background: rgba(30,30,30,0.55);
+      border-radius: 999px;
+      transform: scaleX(0);
+      transform-origin: center;
+      transition: transform 0.22s ease, opacity 0.22s ease;
+      opacity: 0.0;
+    }
+    .nav a:hover::after{
+      transform: scaleX(1);
+      opacity: 0.55;
+    }
+
+    /* ✅ 현재 페이지(active) 처리: Brand Philosophy 링크만 기본 underline */
+    .nav a.is-active{
+      background: rgba(241,242,243,0.9);
+    }
+    .nav a.is-active::after{
+      transform: scaleX(1);
+      opacity: 0.85;
+    }
+
+    /* 모바일 메뉴 열려 있을 때 active underline 숨김 */
+    @media (max-width: 768px){
+      .topbar.is-open .nav a.is-active::after{
+        opacity: 0;
+        transform: scaleX(0);
+      }
+    }
+
+    /* Hamburger */
+    .hamburger{
+      position: absolute;
+      right: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 44px;
+      height: 44px;
+      border: 1px solid rgba(30,30,30,0.14);
+      border-radius: 14px;
+      background: rgba(246,245,242,0.78);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      flex-direction: column;
+      cursor: pointer;
+      padding: 0;
+      transition: transform 0.28s cubic-bezier(.2,.9,.2,1), background 0.28s ease;
+    }
+    .hamburger:active{
+      transform: translateY(-50%) translateY(1px);
+    }
+    .hamburger span{
+      width: 18px;
+      height: 2px;
+      border-radius: 999px;
+      background: rgba(30,30,30,0.72);
+      transition: transform 0.56s cubic-bezier(.2,.9,.2,1), opacity 0.30s ease;
+    }
+    .topbar.is-open .hamburger span:nth-child(1){
+      transform: translateY(6px) rotate(45deg);
+    }
+    .topbar.is-open .hamburger span:nth-child(2){
+      opacity: 0;
+    }
+    .topbar.is-open .hamburger span:nth-child(3){
+      transform: translateY(-6px) rotate(-45deg);
+    }
+
+    @media (max-width: 768px){
+      .hamburger{ display:flex; }
+
+      .nav{
+        position: fixed;
+        left: 0;
+        right: 0;
+        top: calc(74px + env(safe-area-inset-top));
+        z-index: 9999;
+        visibility: hidden;
+        flex-direction: column;
+        align-items: center;
+        gap: 0;
+        will-change: transform, opacity;
+
+        padding: 14px 16px 18px;
+        background: rgba(246,245,242,0.92);
+        backdrop-filter: blur(18px);
+        -webkit-backdrop-filter: blur(18px);
+        border-bottom: 1px solid rgba(30,30,30,0.12);
+
+        transform: translateY(-14px);
+        opacity: 0;
+        pointer-events: none;
+
+        transition:
+          transform 0.62s cubic-bezier(.2,.9,.2,1),
+          opacity 0.32s cubic-bezier(.2,.9,.2,1);
+      }
+
+      .topbar.is-open .nav{
+        visibility: visible;
+        transform: translateY(0);
+        opacity: 1;
+        pointer-events: auto;
+      }
+
+      .nav a{
+        width: 100%;
+        max-width: 520px;
+        text-align: center;
+        padding: 14px 14px;
+        border-radius: 14px;
+        border: 1px solid rgba(30,30,30,0.10);
+        background: rgba(255,255,255,0.62);
+        margin: 7px 0;
+      }
+      .nav a:hover{ background: rgba(255,255,255,0.82); }
+    }
+
+    .nav-backdrop{
+      position: fixed;
+      inset: 0;
+      z-index: 9998;
+
+      background:
+        radial-gradient(1200px 700px at 50% 10%,
+          rgba(246,245,242,0.72) 0%,
+          rgba(246,245,242,0.52) 45%,
+          rgba(246,245,242,0.38) 100%
+        ),
+        linear-gradient(180deg,
+          rgba(0,0,0,0.06) 0%,
+          rgba(0,0,0,0.10) 60%,
+          rgba(0,0,0,0.14) 100%
+        );
+
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.32s cubic-bezier(.2,.9,.2,1);
+    }
+    .topbar.is-open ~ .nav-backdrop{
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    /* ===== Page (Tech/Data style) ===== */
+    .hero{
+      position: relative;
+      padding: 54px 0 34px;
+      background: var(--bg-soft);
+      border-bottom: 1px solid rgba(214,214,214,0.75);
+      overflow: hidden;
+    }
+    .hero::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:
+        radial-gradient(900px 420px at 20% 30%, rgba(30,30,30,0.06) 0%, transparent 60%),
+        radial-gradient(900px 420px at 80% 20%, rgba(30,30,30,0.05) 0%, transparent 55%),
+        linear-gradient(180deg, rgba(255,255,255,0.55) 0%, rgba(255,255,255,0) 100%);
+      pointer-events:none;
+    }
+    .hero .wrap{ position: relative; z-index: 1; }
+
+    .kicker{
+      display:inline-block;
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      color: #6b6b6b;
+      margin-bottom: 10px;
+    }
+    .hero h1{
+      font-size: clamp(26px, 3.6vw, 40px);
+      line-height: 1.12;
+      letter-spacing: -0.02em;
+      color: var(--charcoal);
+      margin-bottom: 12px;
+    }
+    .hero p{
+      color: var(--muted);
+      max-width: 880px;
+      font-size: 15px;
+    }
+    .manifesto{
+      font-size: 18px;
+      font-weight: 500;
+      color: var(--charcoal);
+      letter-spacing: -0.01em;
+      margin-top: 10px;
+      max-width: 880px;
+    }
+
+    .meta-row{
+      margin-top: 18px;
+      display:flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+    }
+    .chip{
+      display:inline-flex;
+      align-items:center;
+      gap: 8px;
+      padding: 8px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(30,30,30,0.12);
+      background: rgba(255,255,255,0.62);
+      color: var(--charcoal-2);
+      font-size: 12px;
+    }
+    .dot{
+      width: 7px;
+      height: 7px;
+      border-radius: 999px;
+      background: rgba(30,30,30,0.45);
+      display:inline-block;
+    }
+
+    .section{
+      padding: 44px 0;
+    }
+
+    .grid{
+      display:grid;
+      grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+      gap: 16px;
+      margin-top: 18px;
+    }
+
+    .value-card{
+      background: var(--card);
+      border: 1px solid rgba(214,214,214,0.85); /* ✅ subtle silver border */
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      display:flex;
+      flex-direction: column;
+      min-height: 100%;
+    }
+
+    .value-media{
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      background: rgba(255,255,255,0.6);
+      border-bottom: 1px solid rgba(214,214,214,0.7);
+    }
+    .value-media img{
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display:block;
+    }
+    /* 이미지 위 “데이터 오버레이” */
+    .overlay{
+      position:absolute;
+      left: 14px;
+      bottom: 14px;
+      right: 14px;
+      display:flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      pointer-events:none;
+    }
+    .metric{
+      display:inline-flex;
+      align-items:center;
+      gap: 8px;
+      padding: 8px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.45);
+      background: rgba(30,30,30,0.38);
+      color: rgba(255,255,255,0.96);
+      font-size: 12px;
+      letter-spacing: 0.02em;
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+    }
+    .metric b{
+      font-weight: 700;
+      letter-spacing: 0.04em;
+    }
+
+    .value-body{
+      padding: 18px 18px 20px;
+      display:flex;
+      flex-direction: column;
+      gap: 10px;
+      flex: 1;
+    }
+    .value-title{
+      display:flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    .value-title h3{
+      font-size: 16px;
+      color: var(--charcoal);
+      letter-spacing: -0.01em;
+      line-height: 1.25;
+    }
+    .code{
+      font-size: 11px;
+      color: rgba(30,30,30,0.55);
+      border: 1px solid rgba(30,30,30,0.12);
+      border-radius: 999px;
+      padding: 6px 9px;
+      background: rgba(241,242,243,0.8);
+      letter-spacing: 0.10em;
+    }
+
+    .value-body p{
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.75;
+    }
+
+    .bullets{
+      margin-top: 4px;
+      padding-left: 18px;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.9;
+    }
+
+    .divider{
+      margin-top: auto;
+      padding-top: 12px;
+      border-top: 1px solid rgba(214,214,214,0.7);
+      display:flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    .mini{
+      font-size: 12px;
+      color: rgba(30,30,30,0.72);
+      border: 1px solid rgba(30,30,30,0.12);
+      border-radius: 999px;
+      padding: 7px 10px;
+      background: rgba(255,255,255,0.62);
+    }
+ /* ===== Scientific Basis ===== */
+    .sci{
+      padding: 44px 0;
+      background: #fff;
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+    }
+    .sci-head{
+      display:flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin-bottom: 14px;
+    }
+    .sci h2{
+      font-size: 18px;
+      letter-spacing: -0.01em;
+      color: var(--charcoal);
+      line-height: 1.2;
+    }
+    .sci-sub{
+      color: var(--muted);
+      font-size: 13px;
+      max-width: 760px;
+      line-height: 1.7;
+    }
+    .sci-grid{
+      display:grid;
+      grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+      gap: 14px;
+      margin-top: 14px;
+    }
+    .sci-card{
+      background: rgba(255,255,255,0.96);
+      border: 1px solid rgba(214,214,214,0.85);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 16px 16px 14px;
+      display:flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .sci-card h3{
+      font-size: 14px;
+      letter-spacing: -0.01em;
+      color: var(--charcoal);
+      line-height: 1.25;
+    }
+    .sci-card ul{
+      padding-left: 18px;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.85;
+    }
+    .refs{
+      margin-top: auto;
+      border-top: 1px solid rgba(214,214,214,0.7);
+      padding-top: 10px;
+      font-size: 12px;
+      color: rgba(30,30,30,0.68);
+      line-height: 1.55;
+    }
+    .refs a{
+      text-decoration: underline;
+      text-underline-offset: 2px;
+    }
+    footer{
+      padding: 28px 0;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 13px;
+      background: #fff;
+    }
+    .foot-row{
+      display:flex;
+      justify-content: space-between;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    @media (max-width: 640px){
+      .topbar-inner{ padding: 12px 0; }
+      .hero{ padding: 44px 0 26px; }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- ✅ Topbar (same pattern) -->
+  <header class="topbar">
+    <div class="wrap">
+      <div class="topbar-inner">
+        <div class="logo">
+          <div class="brand">SERONEL</div>
+          <div class="tag">Functional Skin Science</div>
+        </div>
+
+        <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+
+        <nav class="nav" id="navMenu">
+          <a class="is-active" href="seronel-brandphilosophy.html">Brand Philosophy</a>
+          <a href="seronel.html#products">Products</a>
+          <a href="seronel-documents.html">Manufacturing & Certificates</a>
+          <a href="seronel.html#contact">Contact</a>
+          <a href="https://korvexgrp.com" target="_blank" rel="noopener">KORVEX</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+  <div class="nav-backdrop" id="navBackdrop" aria-hidden="true"></div>
+
+  <!-- ✅ Hero -->
+  <section class="hero">
+    <div class="wrap">
+      <h1>Brand Philosophy</h1>
+      <p class="manifesto">Foundation before performance.</p>
+    </div>
+  </section>
+ <!-- ✅ Origin Story (Story Card) -->
+  <section class="section">
+    <div class="wrap">
+      <div class="grid">
+
+        <article class="value-card">
+          <div class="value-media">
+            <img src="images/brand_philosophy_hero.webp" alt="SERONEL origin story image">
+
+            <div class="overlay">
+              <span class="metric"><b>ORIGIN</b> Barrier-First</span>
+              <span class="metric"><b>INSIGHT</b> Foundation → Performance</span>
+              <span class="metric"><b>AIM</b> Hydration Retention</span>
+            </div>
+          </div>
+
+          <div class="value-body">
+            <div class="value-title">
+              <h3>Why SERONEL Was Created</h3>
+              <span class="code">O-01</span>
+            </div>
+
+            <p>
+              SERONEL started from a personal problem: persistent inner dryness.
+              No matter how premium or highly recommended a product was, it often felt like it sat on the surface — never truly integrating with the skin.
+            </p>
+
+            <p>
+              Through professional consultation, the insight became clear:
+              when the skin barrier is compromised and dehydration is persistent, the skin struggles to retain moisture and becomes less resilient.
+              In that state, even well-formulated actives may feel inconsistent — not because the formula is “bad,” but because the foundation is unstable.
+            </p>
+
+            <p>
+              That is the core philosophy of SERONEL:
+              <b>foundation before performance.</b>
+              We prioritize barrier integrity and hydration retention first, so the skin is comfortable, stable, and ready — in clinic protocols and in daily routines.
+            </p>
+
+            <ul class="bullets">
+              <li>Barrier-first formulation logic for sensitive and easily disrupted skin</li>
+              <li>Hydration retention and comfort as the baseline</li>
+              <li>Designed to layer smoothly within professional protocols</li>
+              <li>Built for daily use without heaviness or disruption</li>
+            </ul>
+
+            <div class="divider">
+              <span class="mini">Barrier Integrity</span>
+              <span class="mini">Hydration Retention</span>
+              <span class="mini">Comfort-First</span>
+              <span class="mini">Protocol-Compatible</span>
+            </div>
+
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ✅ Values (cards + images) -->
+  <section class="section">
+    <div class="wrap">
+      <div class="grid">
+
+        <!-- 1 -->
+        <article class="value-card">
+          <div class="value-media">
+            <img src="images/philo1.jpg" alt="Clinic-grade formulation concept image">
+            <div class="overlay">
+              <span class="metric"><b>SPEC</b> Protocol-Compatible</span>
+              <span class="metric"><b>FOCUS</b> Skin Comfort</span>
+            </div>
+          </div>
+          <div class="value-body">
+            <div class="value-title">
+              <h3>Clinic-Grade Formulation You Can Trust</h3>
+              <span class="code">V-01</span>
+            </div>
+            <p>
+              Developed with clinical workflows in mind — reliable enough for in-clinic protocols,
+              gentle enough for daily use. SERONEL emphasizes non-disruptive formulation choices to support confidence in professional settings.
+            </p>
+            <ul class="bullets">
+              <li>Protocol-friendly for professional routines</li>
+              <li>Comfort-driven, non-aggressive approach</li>
+              <li>Designed for consistent use across environments</li>
+            </ul>
+            <div class="divider">
+              <span class="mini">Protocol Fit</span>
+              <span class="mini">Low Burden Daily</span>
+              <span class="mini">Barrier-Safe Direction</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- 2 -->
+        <article class="value-card">
+          <div class="value-media">
+            <img src="images/philo2.jpg" alt="Barrier-first logic image">
+            <div class="overlay">
+              <span class="metric"><b>LOGIC</b> Barrier-First</span>
+              <span class="metric"><b>AIM</b> Hydration Retention</span>
+            </div>
+          </div>
+          <div class="value-body">
+            <div class="value-title">
+              <h3>Minimalist, Barrier-First Logic</h3>
+              <span class="code">V-02</span>
+            </div>
+            <p>
+              We prioritize hydration retention and daily non-disruption.
+              The philosophy is simple: support the skin’s balance first, then build performance through compatible actives and textures.
+            </p>
+            <ul class="bullets">
+              <li>Hydration + comfort as the baseline</li>
+              <li>Non-disruptive daily usability</li>
+              <li>Formulation direction optimized for stability</li>
+            </ul>
+            <div class="divider">
+              <span class="mini">Hydration</span>
+              <span class="mini">Comfort</span>
+              <span class="mini">Stability</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- 3 -->
+        <article class="value-card">
+          <div class="value-media">
+            <img src="images/philo3.jpg" alt="Dual purpose professional and daily use image">
+            <div class="overlay">
+              <span class="metric"><b>MODE</b> Pro + Daily</span>
+              <span class="metric"><b>TEXTURE</b> Clean Finish</span>
+            </div>
+          </div>
+          <div class="value-body">
+            <div class="value-title">
+              <h3>Dual-Purpose: Professional & Daily Use</h3>
+              <span class="code">V-03</span>
+            </div>
+            <p>
+              SERONEL bridges clinic and home care: compatible with professional protocols, yet comfortable and practical for everyday routines.
+              The goal is seamless continuity — before, during, and after professional care.
+            </p>
+            <ul class="bullets">
+              <li>Designed for protocol layering & fast absorption</li>
+              <li>Daily routine-friendly without heaviness</li>
+              <li>Supports consistent skin comfort over time</li>
+            </ul>
+            <div class="divider">
+              <span class="mini">Layering</span>
+              <span class="mini">Absorption</span>
+              <span class="mini">Clean Finish</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- 4 -->
+        <article class="value-card">
+          <div class="value-media">
+            <img src="images/philo4.jpg" alt="Documentation and transparency image">
+            <div class="overlay">
+              <span class="metric"><b>DOC</b> COA / SDS / INCI</span>
+              <span class="metric"><b>FLOW</b> Partner Review</span>
+            </div>
+          </div>
+          <div class="value-body">
+            <div class="value-title">
+              <h3>Transparency & Documentation-Ready</h3>
+              <span class="code">V-04</span>
+            </div>
+            <p>
+              Partner onboarding should be fast and clear. SERONEL supports professional review with documentation-ready materials under project terms,
+              helping partners evaluate feasibility across global workflows.
+            </p>
+            <ul class="bullets">
+              <li>COA / SDS(MSDS) / INCI / Spec (project terms)</li>
+              <li>NDA option for sensitive materials</li>
+              <li>Built for professional verification flow</li>
+            </ul>
+            <div class="divider">
+              <span class="mini">Compliance Flow</span>
+              <span class="mini">Partner Review</span>
+              <span class="mini">NDA Option</span>
+            </div>
+          </div>
+        </article>
+
+         <!-- 5 -->
+        <article class="value-card">
+          <div class="value-media">
+            <img src="images/philo5.jpg" alt="Results with comfort graphic emphasizing measurable performance">
+            <div class="overlay">
+              <span class="metric"><b>RESULTS</b> Measurable</span>
+              <span class="metric"><b>COMFORT</b> Integrity-First</span>
+            </div>
+          </div>
+          <div class="value-body">
+            <div class="value-title">
+              <h3>Results With Comfort</h3>
+              <span class="code">V-05</span>
+            </div>
+            <p>
+              We craft formulations that deliver measurable comfort and efficacy — protecting skin integrity while addressing common concerns through balanced actives and time-proven protocols.
+            </p>
+            <ul class="bullets">
+              <li>Performance designed around skin integrity</li>
+              <li>Balanced actives for daily compatibility</li>
+              <li>Protocol-aligned approach for consistent outcomes</li>
+            </ul>
+            <div class="divider">
+              <span class="mini">Efficacy</span>
+              <span class="mini">Comfort</span>
+              <span class="mini">Integrity</span>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ✅ Scientific Basis (Short, citable bullets) -->
+  <section class="sci">
+    <div class="wrap">
+      <div class="sci-head">
+        <div>
+          <h2>Scientific Basis</h2>
+          <div class="sci-sub">
+            SERONEL’s “foundation before performance” philosophy aligns with established skin-barrier science.
+            Below are concise references partners can review for barrier integrity, hydration metrics, and moisturizer-driven barrier support.
+          </div>
+        </div>
+        <span class="code">S-01</span>
+      </div>
+
+      <div class="sci-grid">
+
+        <!-- S-01 -->
+        <article class="sci-card">
+          <h3>Barrier integrity is central to hydration stability</h3>
+          <ul>
+            <li>The stratum corneum functions as a semi-permeable barrier that limits water loss.</li>
+            <li>The “bricks and mortar” concept describes corneocytes (bricks) and intercellular lipids (mortar) supporting barrier function.</li>
+            <li>When barrier components are disrupted, water loss increases and skin becomes less resilient.</li>
+          </ul>
+          <div class="refs">
+            Ref: <a href="https://pubmed.ncbi.nlm.nih.gov/17313091/" target="_blank" rel="noopener">PubMed: 17313091</a> (Two compartment model; bricks &amp; mortar; barrier role)
+          </div>
+        </article>
+
+        <!-- S-02 -->
+        <article class="sci-card">
+          <h3>TEWL is a widely used objective barrier metric</h3>
+          <ul>
+            <li>Transepidermal water loss (TEWL) is widely used to assess barrier function in research and clinical contexts.</li>
+            <li>Higher TEWL generally indicates a more compromised barrier.</li>
+          </ul>
+          <div class="refs">
+            Ref: <a href="https://www.sciencedirect.com/science/article/pii/S0022202X18325764" target="_blank" rel="noopener">J Invest Dermatol (TEWL measurement review)</a><br>
+            Ref: <a href="https://pubmed.ncbi.nlm.nih.gov/19799976/" target="_blank" rel="noopener">PubMed: 19799976</a> (TEWL as water vapor flux; barrier characterization)
+          </div>
+        </article>
+
+        <!-- S-03 -->
+        <article class="sci-card">
+          <h3>Hydration can be measured; barrier support depends on formulation</h3>
+          <ul>
+            <li>Skin surface hydration is commonly assessed using capacitance (e.g., Corneometer) and related instruments.</li>
+            <li>Moisturizer composition can influence barrier outcomes over time (e.g., TEWL changes can vary by formula).</li>
+          </ul>
+          <div class="refs">
+            Ref: <a href="https://pubmed.ncbi.nlm.nih.gov/27327056/" target="_blank" rel="noopener">PubMed: 27327056</a> (Hydration instruments + TEWL in moisturizer evaluation)<br>
+            Ref: <a href="https://pubmed.ncbi.nlm.nih.gov/17300239/" target="_blank" rel="noopener">PubMed: 17300239</a> (Long-term moisturizer RCT; barrier outcomes depend on composition)
+          </div>
+        </article>
+
+        <!-- S-04 -->
+        <article class="sci-card">
+          <h3>NMF relates to stratum corneum hydration capacity</h3>
+          <ul>
+            <li>Natural Moisturizing Factor (NMF) components contribute to hydration within the stratum corneum.</li>
+            <li>Reduced NMF is linked with reduced hydration capacity in specific contexts (e.g., filaggrin genotype studies).</li>
+          </ul>
+          <div class="refs">
+            Ref: <a href="https://academic.oup.com/bjd/article/161/5/1098/6642304" target="_blank" rel="noopener">Br J Dermatol (NMF as biomarker; filaggrin genotype)</a>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="wrap">
+      <div class="foot-row">
+        <div>© SERONEL</div>
+        <div style="opacity:0.9;">Functional Skin Science</div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ✅ Hamburger JS (same behavior) -->
+  <script>
+    (function(){
+      const topbar = document.querySelector('.topbar');
+      const hamburger = document.getElementById('hamburger');
+      const navMenu = document.getElementById('navMenu');
+      const backdrop = document.getElementById('navBackdrop');
+
+      if(!topbar || !hamburger || !navMenu || !backdrop) return;
+
+      function openMenu(){
+        topbar.classList.add('is-open');
+        backdrop.setAttribute('aria-hidden', 'false');
+        document.body.style.overflow = 'hidden';
+        hamburger.setAttribute('aria-expanded', 'true');
+      }
+
+      function closeMenu(){
+        topbar.classList.remove('is-open');
+        backdrop.setAttribute('aria-hidden', 'true');
+        document.body.style.overflow = '';
+        hamburger.setAttribute('aria-expanded', 'false');
+      }
+
+      function toggleMenu(){
+        if(topbar.classList.contains('is-open')) closeMenu();
+        else openMenu();
+      }
+
+      hamburger.addEventListener('click', (e) => {
+        e.stopPropagation();
+        toggleMenu();
+      });
+
+      backdrop.addEventListener('click', closeMenu);
+
+      navMenu.querySelectorAll('a').forEach(a => {
+        a.addEventListener('click', () => closeMenu());
+      });
+
+      document.addEventListener('keydown', (e) => {
+        if(e.key === 'Escape') closeMenu();
+      });
+
+      window.addEventListener('resize', () => {
+        if(window.innerWidth > 768) closeMenu();
+      });
+    })();
+  </script>
+</body>
+</html>
