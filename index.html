@@ -1087,7 +1087,7 @@ KORVEX는 B2B 수입/프로 파트너를 대상으로 자사 보유 클리닉 �
       <div style="background: var(--bg-primary); padding: 2.2rem; border-radius: 18px; border: 1px solid rgba(201,162,77,0.12);">
         <div style="color: var(--gold-primary); font-weight:700; margin-bottom:10px;">Portfolio approach</div>
         <div style="color: var(--text-secondary); opacity:0.95;">
-          We distribute KORVEX-owned clinic-grade brands — starting with SERONEL.
+          We distribute KORVEX-owned clinic-grade brands — starting with BARION.
         </div>
       </div>
     </div>
@@ -1100,8 +1100,8 @@ KORVEX는 B2B 수입/프로 파트너를 대상으로 자사 보유 클리닉 �
     <h2 class="section-title" style="font-size: 2.6rem;">Discover Brand</h2>
     <div style="max-width: 980px; margin: 0 auto; display:flex; justify-content:center;">
       
-      <!-- SERONEL card -->
-      <div id="seronelCard" class="brand-card" style="text-align:center; border: 1px solid rgba(192,192,192,0.85); border-radius: 18px; padding: 2.2rem; background: #2F3133; box-shadow: 0 18px 50px rgba(0,0,0,0.55), 0 0 0 1px rgba(192,192,192,0.25) inset; cursor:pointer;">
+      <!-- BARION card -->
+      <div id="barionCard" class="brand-card" style="text-align:center; border: 1px solid rgba(192,192,192,0.85); border-radius: 18px; padding: 2.2rem; background: #2F3133; box-shadow: 0 18px 50px rgba(0,0,0,0.55), 0 0 0 1px rgba(192,192,192,0.25) inset; cursor:pointer;">
         <div style="
             color: #FFFFFF;
             font-weight: 800;
@@ -1111,7 +1111,7 @@ KORVEX는 B2B 수입/프로 파트너를 대상으로 자사 보유 클리닉 �
             text-transform: uppercase;
             text-shadow: 0 0 12px rgba(192,192,192,0.35), 0 0 24px rgba(255,255,255,0.18);
             ">
-            SERONEL
+            BARION
             </div>
         <div style="color: rgba(255,255,255,0.88); opacity:1; margin-bottom:14px;">
           Functional Skin Science — designed for clinic routines and barrier comfort.
@@ -1123,7 +1123,7 @@ KORVEX는 B2B 수입/프로 파트너를 대상으로 자사 보유 클리닉 �
           </ul>
 
         <div style="display:flex; gap:10px; justify-content:center; flex-wrap:wrap;">
-            <a href="seronel.html" target="_blank" rel="noopener"
+            <a href="barion.html" target="_blank" rel="noopener"
                 style="display:inline-block; margin-bottom:0; padding:0.9rem 1.8rem; border-radius:50px;
                         background:#FFFFFF; color:#2F3133; font-weight:700; letter-spacing:1px; text-transform:uppercase;">
                 Visit Brand
@@ -1337,27 +1337,27 @@ KORVEX는 B2B 수입/프로 파트너를 대상으로 자사 보유 클리닉 �
 </footer>
 
     <script>
-        // ===== SERONEL card: click -> floating + shine =====
-            const seronelCard = document.getElementById('seronelCard');
+        // ===== BARION card: click -> floating + shine =====
+            const barionCard = document.getElementById('barionCard');
             
-            if (seronelCard) {
-            seronelCard.addEventListener('pointerdown', (e) => {
-  const rect = seronelCard.getBoundingClientRect();
+            if (barionCard) {
+            barionCard.addEventListener('pointerdown', (e) => {
+  const rect = barionCard.getBoundingClientRect();
   const x = e.clientX - rect.left;
   const y = e.clientY - rect.top;
             
   // 클릭 위치를 CSS 변수로 전달 (jewelFlash가 이걸 씀)
-  seronelCard.style.setProperty('--mx', `${x}px`);
-  seronelCard.style.setProperty('--my', `${y}px`);
+  barionCard.style.setProperty('--mx', `${x}px`);
+  barionCard.style.setProperty('--my', `${y}px`);
 
-  seronelCard.classList.toggle('selected');
+  barionCard.classList.toggle('selected');
 
   // Shine 재트리거
-  seronelCard.classList.remove('shine');
-  void seronelCard.offsetWidth;
-  seronelCard.classList.add('shine');
+  barionCard.classList.remove('shine');
+  void barionCard.offsetWidth;
+  barionCard.classList.add('shine');
 
-  setTimeout(() => seronelCard.classList.remove('shine'), 950);
+  setTimeout(() => barionCard.classList.remove('shine'), 950);
 });
             }
 
