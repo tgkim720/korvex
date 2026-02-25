@@ -11,7 +11,7 @@
 
   <!-- Favicon -->
   <link rel="icon" type="image/svg+xml"
-    href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='48' fill='white'/%3E%3Ctext x='50%25' y='54%25' text-anchor='middle' font-family='Inter,Arial,sans-serif' font-size='58' font-weight='700' fill='%231E1E1E' dominant-baseline='middle'%3EA%3C/text%3E%3C/svg%3E">
+    href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='48' fill='white'/%3E%3Ctext x='50%25' y='54%25' text-anchor='middle' font-family='Inter,Arial,sans-serif' font-size='58' font-weight='700' fill='%231E1E1E' dominant-baseline='middle'%3EB%3C/text%3E%3C/svg%3E">
 
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
@@ -241,50 +241,72 @@
 }
 
 
-    /* Hero */
+    /* Hero (match BARION main page) */
 .hero{
   position: relative;
   min-height: 520px;
-  padding: 96px 0 64px;
+  padding: 64px 0;
   display: flex;
-  align-items: flex-start;
+  align-items: center; /* ✅ 세로 중앙 */
   background: var(--bg-soft);
   overflow: hidden;
   border-bottom: 1px solid rgba(214,214,214,0.75);
 }
 
-    .hero::before{
-      content:"";
-      position:absolute;
-      inset:0;
-      background-image: url("images/barion_doc_hero_desktop.webp");
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
-      opacity: 1;
-      z-index: 0;
-    }
+/* hero background images */
+.hero::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background-image: url("images/barion_doc_hero_desktop.webp");
+  background-size: cover;
+  background-position: center right; /* ✅ 텍스트 왼쪽 가독성 */
+  background-repeat: no-repeat;
+  opacity: 1;
+  z-index: 0;
+}
+
+/* subtle overlay for text readability */
 .hero::after{
   content:"";
   position:absolute;
   inset:0;
-  z-index: 0;
   background: linear-gradient(
     90deg,
-    rgba(246,245,242,0.82) 0%,
-    rgba(246,245,242,0.58) 45%,
-    rgba(246,245,242,0.22) 75%,
-    rgba(246,245,242,0.10) 100%
+    rgba(246,245,242,0.88) 0%,
+    rgba(246,245,242,0.58) 34%,
+    rgba(246,245,242,0.16) 62%,
+    rgba(246,245,242,0.06) 100%
   );
+  z-index: 0;
 }
+
+/* content above background */
 .hero .wrap{
   position: relative;
-  z-index: 2;
+  z-index: 1;
+  /* ✅ 추가 패딩 금지: hero가 알아서 세로중앙 잡음 */
 }
-@media (min-width: 1100px){
-  .hero .wrap{
-    margin-left: 0;
-    margin-right: auto;
+
+/* mobile image swap */
+@media (max-width: 768px){
+  .hero{
+    min-height: 420px;
+    padding: 44px 0;
+    display: flex;
+    align-items: center; /* ✅ 모바일도 세로 중앙 */
+  }
+  .hero::before{
+    background-image: url("images/barion_doc_hero_mobile.webp");
+    background-position: center center;
+  }
+  .hero::after{
+    background: linear-gradient(
+      180deg,
+      rgba(246,245,242,0.92) 0%,
+      rgba(246,245,242,0.68) 55%,
+      rgba(246,245,242,0.22) 100%
+    );
   }
 }
   .kicker{
@@ -436,27 +458,6 @@
     position: sticky;      /* 스크롤시도 깔끔 */
     top: 92px;             /* topbar 아래 적당히 */
   }
-}
-
- @media (max-width: 768px){
-  .hero{
-    min-height: 420px;
-    padding: 78px 0 44px;      
-    display: flex;
-    align-items: flex-start;
-  }
-  .hero::before{
-    background-image: url("images/barion_doc_hero_mobile.webp");
-    background-position: center;
-  }
-  .hero::after{
-  background: linear-gradient(
-    180deg,
-    rgba(246,245,242,0.86) 0%,
-    rgba(246,245,242,0.58) 55%,
-    rgba(246,245,242,0.20) 100%
-  );
-}
 }
   </style>
 </head>
