@@ -789,6 +789,13 @@
                     .container {
                         padding: 0 20px;
                     }
+    /* Mobile: make Portfolio + About titles match Platform title size */
+                #portfolio .section-title { font-size: 1.85rem !important; }
+                #about .about-content h2 { font-size: 1.85rem !important; }
+
+    /* Mobile: BARION list tighten + keep first item on one line */
+                #portfolio #barionCard ul li { font-size: 0.92rem; }
+                #portfolio #barionCard ul li:first-child { white-space: nowrap; }
                 }
 
         /* Custom scrollbar */
@@ -957,6 +964,7 @@
                 line-height: 50px;
             }
         }
+       
         
         /* 애니메이션 효과 (선택사항) */
         @keyframes pulse {
@@ -1111,7 +1119,7 @@
     <!-- Portfolio -->
 <section id="portfolio" class="section" style="background: var(--bg-primary); padding: 6rem 2rem;">
   <div class="container" style="text-align:center;">
-    <h2 class="section-title" style="font-size: 2.6rem;">Discover Brand</h2>
+    <h2 class="section-title"></h2>Discover Brand</h2>
     <div style="max-width: 980px; margin: 0 auto; display:flex; justify-content:center;">
       
       <!-- BARION card -->
@@ -1128,12 +1136,11 @@
             BARION
             </div>
         <div style="color: rgba(255,255,255,0.88); opacity:1; margin-bottom:14px;">
-          Functional Skin Science — designed for clinic routines and barrier comfort.
+          Clinic-first dermocosmetics for professional routines.
         </div>
         <ul style="text-align:center; color: rgba(255,255,255,0.72); list-style: none; padding-left: 0; margin: 0 0 16px 0;">
           <li style="margin: 0.45rem 0;">Clinic-first formulation logic</li>
           <li style="margin: 0.45rem 0;">Professional-use positioning</li>
-          <li style="margin: 0.45rem 0;">Export-ready documentation flow</li>
           </ul>
 
         <div style="display:flex; gap:10px; justify-content:center; flex-wrap:wrap;">
