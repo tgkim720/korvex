@@ -27,6 +27,7 @@
   <meta name="twitter:image" content="https://korvexgrp.com/images/OG%20image%20logo.png">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Orbitron:wght@400;500;600;700&display=swap" rel="stylesheet">
 
@@ -57,12 +58,11 @@ body{
 }
 
 a{ color: inherit; text-decoration:none; }
-ul{ list-style:none; }
 
 .container{
-  max-width: 1160px;
+  max-width: 1200px;
+  padding: 0 30px;
   margin: 0 auto;
-  padding: 0 26px;
 }
 
     /* Nav (match KORVEX index tone) */
@@ -180,6 +180,30 @@ ul{ list-style:none; }
 
     /* Sections */
     .section{ padding: 76px 0; }
+.section.alt{
+  background: var(--bg2);
+  border-top: 1px solid rgba(201,162,77,0.12);
+  border-bottom: 1px solid rgba(201,162,77,0.12);
+}
+    .section-title{
+  font-family: 'Orbitron', monospace;
+  font-size: 3rem;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 1rem;
+  background: var(--grad-gold);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  letter-spacing: 1px;
+}
+
+@media (max-width: 768px){
+  .section-title{ font-size: 2.2rem; }
+  .section{ padding: 4rem 0; }
+}
+
+    .section{ padding: 76px 0; }
     .section.alt{ background: var(--bg2); border-top: 1px solid rgba(201,162,77,0.12); border-bottom: 1px solid rgba(201,162,77,0.12); }
     .h2{
       font-family: Orbitron, monospace;
@@ -290,15 +314,15 @@ ul{ list-style:none; }
 /* ===== HERO (index.html UI match) ===== */
 .hero{
   position: relative;
-  min-height: 72vh;
+  min-height: 100vh;
   display: flex;
   align-items: center;
   padding: 160px 0 90px;
   overflow: hidden;
 
   background:
-    linear-gradient(135deg, rgba(11,11,11,0.95) 0%, rgba(26,26,26,0.95) 100%),
-    url("/images/korvex_partners_hero.webp");
+  linear-gradient(135deg, rgba(11,11,11,0.55) 0%, rgba(26,26,26,0.55) 100%),
+  url("/images/korvex_partners_hero.webp");
   background-size: cover;
   background-position: center right;
   background-repeat: no-repeat;
@@ -319,7 +343,7 @@ ul{ list-style:none; }
   font-size: clamp(1.5rem, 5vw, 3rem);
   font-weight: 400;
   line-height: 1.3;
-  margin: 0 0 14px 0;
+  margin: 0 0 1.5rem 0;
   background: linear-gradient(135deg, #FFFFFF 0%, var(--gold2) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -330,7 +354,7 @@ ul{ list-style:none; }
 .hero-subtitle{
   font-size: 0.85rem;
   color: var(--gold);
-  margin: 0 0 14px 0;
+  margin: 0 0 1rem 0;
   font-weight: 400;
   letter-spacing: 1px;
   text-transform: uppercase;
@@ -344,6 +368,7 @@ ul{ list-style:none; }
   margin: 0 auto;
   line-height: 1.6;
   opacity: 0.85;
+  margin-bottom: 2.5rem;
 }
 
 /* hero 안 note를 index 톤으로 */
@@ -385,34 +410,63 @@ ul{ list-style:none; }
   }
   .hero h1{ font-size: 1.8rem; }
 }
-/* ===== Contact buttons (center + index tone) ===== */
-.contact-actions{
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  gap: 14px;
-  flex-wrap: wrap;
-  margin-top: 18px;
+/* Contact Section (match index.html) */
+.contact {
+  background: linear-gradient(135deg, var(--bg) 0%, var(--bg2) 100%);
   text-align: center;
 }
 
-.contact-btn{
-  display:inline-block;
-  padding: 1rem 2.5rem;
-  background: var(--grad-gold);
-  color: #0B0B0B;
-  border-radius: 50px;
-
-  font-family: Inter, -apple-system, BlinkMacSystemFont, sans-serif;
-  font-weight: 600;
-  font-size: 1rem;
-
-  transition: all 0.3s ease;
-  letter-spacing: 1px;
-  text-transform: uppercase;
+.contact-methods {
+  display: flex;
+  justify-content: center;
+  gap: 3rem;
+  margin-top: 3rem;
+  flex-wrap: wrap;
 }
-.contact-btn:hover{
+
+.contact-method {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.5rem 2rem;
+  background: rgba(26,26,26,0.8);
+  border-radius: 15px;
+  border: 1px solid rgba(201, 162, 77, 0.3);
+  transition: all 0.3s ease;
+}
+
+.contact-method:hover {
+  border-color: var(--gold);
   transform: translateY(-3px);
+}
+
+.contact-method i {
+  font-size: 1.5rem;
+  color: var(--gold);
+}
+
+.contact-method div {
+  text-align: left;
+}
+
+.contact-method h4 {
+  font-size: 1.1rem;
+  margin-bottom: 0.2rem;
+  color: var(--text);
+}
+
+.contact-method p {
+  color: rgba(255,255,255,0.78);
+  font-size: 0.9rem;
+}
+
+/* mobile: contact methods stack */
+@media (max-width: 768px) {
+  .contact-methods {
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+  }
 }
   </style>
 
@@ -508,19 +562,18 @@ ul{ list-style:none; }
 
       <div class="grid">
         <div class="card">
-          <h3>Documentation-Ready Onboarding</h3>
-          <p>Partner-facing documents for compliance review and import workflows (where applicable).</p>
+          <h3>What to Send</h3>
+          <p>Share your destination market + SKUs + target MOQ. We reply with the exact onboarding pack for your case.</p>
           <ul class="list">
-            <li>COA (as applicable)</li>
-            <li>SDS / MSDS</li>
-            <li>INCI list</li>
-            <li>Specification sheets</li>
-            <li>Verification materials (as applicable)</li>
+            <li>Destination / market</li>
+            <li>SKUs of interest</li>
+            <li>Target MOQ tier</li>
+            <li>Required paperwork list (if any)</li>
           </ul>
         </div>
 
         <div class="card">
-          <h3>Wholesale Structure (Tiered MOQ)</h3>
+          <h3>Wholesale Structure <br> (Tiered MOQ) </br></h3>
           <p>Start with evaluation tiers and scale after market validation.</p>
           <ul class="list">
             <li>Tiered MOQ options (by SKU)</li>
@@ -548,14 +601,6 @@ ul{ list-style:none; }
 
       <div class="faq">
         <details>
-          <summary>Do you provide import documentation (COA / SDS / INCI / spec)?</summary>
-          <p>
-            Yes, where applicable. We support partner workflows with documentation-ready materials such as COA, SDS/MSDS, INCI,
-            and specification sheets. Availability depends on SKU and destination market. Sensitive files can be shared under project terms.
-          </p>
-        </details>
-
-        <details>
           <summary>What is your MOQ structure?</summary>
           <p>
             We support tiered MOQs by SKU so partners can start with evaluation tiers and scale after validation.
@@ -572,30 +617,46 @@ ul{ list-style:none; }
         </details>
 
         <details>
-          <summary>What should I send to get the fastest first reply?</summary>
+          <summary>What should I send to get the fast reply?</summary>
           <p>
-            Send: (1) destination country/market, (2) SKUs of interest, (3) required document list, (4) target MOQ range.
+            Send: 1. destination country/market, 2. SKUs of interest, 3. required document list, 4. target MOQ range.
           </p>
         </details>
       </div>
     </div>
   </section>
 
-  <section class="section" id="contact">
-    <div class="container">
-      <div class="h2">Contact</div>
-      <div class="lead">For wholesale tiers, documentation requests, or distributor onboarding:</div>
+  <!-- Contact Section -->
+<section id="contact" class="section contact">
+  <div class="container">
+    <h2 class="section-title">Request Product List</h2>
 
-      <div class="contact-actions">
-  <a class="contact-btn" href="mailto:korvexgrp@outlook.com?subject=KORVEX%20B2B%20Inquiry%20-%20Import%20Partner">Email</a>
-  <a class="contact-btn" href="https://wa.me/601116023115" target="_blank" rel="noopener">WhatsApp</a>
-</div>
+    <div class="contact-methods">
 
-      <div class="note" style="text-align:center;">
-      If you include destination + doc list + SKUs, we can respond with the exact onboarding package.
+      <!-- WhatsApp -->
+      <a href="https://wa.me/601116023115" target="_blank" class="contact-method">
+        <i class="fab fa-whatsapp"></i>
+        <div>
+          <h4>WhatsApp</h4>
+        </div>
+      </a>
+
+      <!-- Email -->
+      <a href="mailto:korvexgrp@outlook.com" class="contact-method">
+        <i class="fas fa-envelope"></i>
+        <div>
+          <h4>Email</h4>
+        </div>
+      </a>
+
     </div>
+
+    <div class="note" style="text-align:center; margin-top: 2.2rem;">
+      Include destination + SKUs + any compliance requirements, and we’ll reply with the exact onboarding pack.
     </div>
-  </section>
+
+  </div>
+</section>
 
   <footer>
     <div class="container">
