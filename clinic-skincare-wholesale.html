@@ -47,7 +47,11 @@
     }
 
     *{ margin:0; padding:0; box-sizing:border-box; }
+   
     html, body{
+    overflow-wrap: anywhere;
+    word-break: break-word;
+    -webkit-text-size-adjust: 100%;
   width: 100%;
   max-width: 100%;
   overflow-x: hidden;
@@ -67,10 +71,11 @@ a{ color: inherit; text-decoration:none; }
   max-width: 1200px;
   padding: 0 30px;
   margin: 0 auto;
-  img, svg, video, iframe{
+}
+
+img, svg, video, iframe{
   max-width: 100%;
   height: auto;
-}
 }
 
     /* Nav (match KORVEX index tone) */
@@ -544,6 +549,34 @@ a{ color: inherit; text-decoration:none; }
     gap: 35px;
   }
 }
+@media (max-width: 420px){
+  .logo{ font-size: 0.95rem; letter-spacing: 1.5px; }
+  .logo img{ height: 30px; }
+}
+/* ===== Mobile font tuning ===== */
+@media (max-width: 768px){
+
+  .h2{
+    font-size: 1.6rem;
+  }
+
+  .section-title{
+    font-size: 1.9rem;
+  }
+
+  .hero h1{
+    font-size: 1.7rem;
+  }
+
+  .card h3{
+    font-size: 1rem;
+  }
+
+  .lead{
+    font-size: 0.95rem;
+  }
+
+}
   </style>
 
   <!-- Schema: WebPage -->
@@ -566,10 +599,10 @@ a{ color: inherit; text-decoration:none; }
   "mainEntity": [
     {
       "@type": "Question",
-      "name": "Do you manufacture clinic-grade skincare in Korea?",
+      "name": "Do you manufacture in Korea?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes. Production is based in Korea within structured manufacturing environments aligned with clinic-grade skincare export workflows. KORVEX operates as a Korean clinic skincare supplier coordinating portfolio brands under a structured export model."
+        "text": "Yes — made in Korea for clinic/professional export workflows."
       }
     },
     {
@@ -577,31 +610,31 @@ a{ color: inherit; text-decoration:none; }
       "name": "What is your MOQ structure?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "We support tiered MOQs by SKU so partners can start with evaluation tiers and scale after validation. Share your target market + SKUs to receive the correct tiers."
+        "text": "Tiered MOQ by SKU for evaluation and scaling."
       }
     },
     {
       "@type": "Question",
-      "name": "Can new distributors start with lower evaluation MOQs?",
+      "name": "Can new partners start with lower evaluation MOQs?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes. We operate a tiered MOQ structure designed for evaluation and scalable market entry. Import partners can begin with structured entry tiers and expand after validation within their destination market."
+        "text": "Yes — evaluation tiers are available by SKU."
       }
     },
     {
       "@type": "Question",
-      "name": "Who operates regulatory and distribution coordination?",
+      "name": "Who manages onboarding and documentation?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "KORVEX operates the partner onboarding, documentation flow, and distribution coordination. BARION is a portfolio brand line under the KORVEX platform."
+        "text": "KORVEX manages onboarding and documentation flow; BARION is a portfolio brand."
       }
     },
     {
       "@type": "Question",
-      "name": "What should I send to get the fast reply?",
+      "name": "What should I send for a fast reply?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Send: 1. destination country/market, 2. SKUs of interest, 3. any compliance requirements (if applicable), 4. target MOQ range."
+        "text": "Send market, SKUs, target MOQ, and compliance needs (if any)."
       }
     }
   ]
@@ -638,43 +671,45 @@ a{ color: inherit; text-decoration:none; }
     <div class="hero-content">
       <h1>Korean Clinic-Grade Skincare Supplier (FOB Korea)</h1>
 
-     <div class="hero-description">
-  Tiered MOQ • FOB Korea • Documentation-ready
-</div>
+      <div class="hero-description">
+        Tiered MOQ • FOB Korea • Documentation-ready
+      </div>
 
-<a href="#contact" class="cta-button">Start Partner Evaluation</a>
+      <a href="#contact" class="cta-button">Start Partner Evaluation</a>
+
+      <div class="hero-chips" aria-label="Partner requirements">
+        <div class="hero-chip"><span class="hero-dot"></span>Market</div>
+        <div class="hero-chip"><span class="hero-dot"></span>SKUs</div>
+        <div class="hero-chip"><span class="hero-dot"></span>Target MOQ</div>
+        <div class="hero-chip"><span class="hero-dot"></span>Compliance needs</div>
+      </div>
+
+    </div>
+  </div>
 </section>
 
-<section class="section alt">
+<section class="section alt" id="how">
   <div class="container">
-    <div class="h2">Why Work With a Korea-Based Clinic Skincare Supplier?</div>
+    <div class="h2">How Partner Evaluation Works</div>
     <div class="lead">
-      Structured export model designed for importers, RP holders, and clinic distributors.
+      Send the basics. We reply with the exact tiers and document pack.
     </div>
 
     <div class="grid">
-
       <div class="card">
-        <h3>Korea-Based Production</h3>
-        <p>
-          Made in Korea for clinic and professional channels.
-        </p>
+        <h3>1. Send</h3>
+        <p>Market, SKUs, target MOQ, and any compliance needs.</p>
       </div>
 
       <div class="card">
-        <h3>Tiered MOQ Structure</h3>
-        <p>
-          Start small, scale fast with tiered MOQ by SKU.
-        </p>
+        <h3>2. Receive</h3>
+        <p>FOB tiers + lead time + required documents (COA / SDS(MSDS) / INCI / spec).</p>
       </div>
 
       <div class="card">
-        <h3>Platform-Operated Model</h3>
-        <p>
-          One platform flow for portfolio brands and export onboarding.
-        </p>
+        <h3>3. Proceed</h3>
+        <p>Sample → PO → production → export dispatch (FOB Korea).</p>
       </div>
-
     </div>
   </div>
 </section>
@@ -724,10 +759,9 @@ a{ color: inherit; text-decoration:none; }
   <section class="section">
   <div class="container">
 
-    <div class="h2">Korean Clinic Skincare Supplier with Korea-Based Manufacturing</div>
+    <div class="h2">R&D-led Manufacturing (Korea)</div>
     <div class="lead">
-      Manufactured in Korea within structured, quality-controlled facilities 
-      aligned with clinic-grade skincare export workflows.
+      Korea-based production with ongoing formulation development
     </div>
 
     <div class="manufacturer-wrapper">
@@ -737,13 +771,8 @@ a{ color: inherit; text-decoration:none; }
       </div>
 
       <div class="manufacturer-text">
-        <p>
-          Production is based in Korea within structured manufacturing environments.  
-          Operated under a portfolio model coordinated through the KORVEX platform.
-        </p>
-        <p>
-          Designed for import partners seeking long-term, scalable distribution alignment.
-        </p>
+        <p>Made in Korea with R&amp;D-led formulation.</p>
+        <p>Pharma-origin manufacturing partner with continuous formula upgrades.</p>
       </div>
     </div>
 
@@ -751,47 +780,49 @@ a{ color: inherit; text-decoration:none; }
 </section>
 
   <section class="section alt" id="faq">
-    <div class="container">
-      <div class="h2">FAQ</div>
+  <div class="container">
+    <div class="h2">FAQ</div>
 
-      <div class="faq">
-        <details>
-          <summary>Manufacture?</summary>
-          <p>
+    <div class="faq">
+
+      <details>
+        <summary>Do you manufacture in Korea?</summary>
+        <p>
           Yes — made in Korea for clinic/professional export workflows.
-          </p>
-        </details>
+        </p>
+      </details>
 
-        <details>
-          <summary>MOQ?</summary>
-          <p>
-            Tiered MOQ by SKU for evaluation and scaling.
-          </p>
-        </details>
+      <details>
+        <summary>What is your MOQ structure?</summary>
+        <p>
+          Tiered MOQ by SKU for evaluation and scaling.
+        </p>
+      </details>
 
-        <details>
-          <summary>Lower evaluation MOQ?</summary>
-          <p>
+      <details>
+        <summary>Can new partners start with lower evaluation MOQs?</summary>
+        <p>
           Yes — evaluation tiers are available by SKU.
-          </p>
-        </details>
+        </p>
+      </details>
 
-        <details>
-          <summary>Who coordinates?</summary>
-          <p>
-            KORVEX manages onboarding + documentation flow; BARION is a portfolio brand.
-          </p>
-        </details>
+      <details>
+        <summary>Who manages onboarding and documentation?</summary>
+        <p>
+          KORVEX manages onboarding and documentation flow; BARION is a portfolio brand.
+        </p>
+      </details>
 
-        <details>
-          <summary>What to send?</summary>
-          <p>
-            Send market + SKUs + target MOQ + compliance needs (if any).
-          </p>
-        </details>
-      </div>
+      <details>
+        <summary>What should I send for a fast reply?</summary>
+        <p>
+          Send market, SKUs, target MOQ, and compliance needs (if any).
+        </p>
+      </details>
+
     </div>
-  </section>
+  </div>
+</section>
 
   <!-- Contact Section -->
 <section id="contact" class="section contact">
