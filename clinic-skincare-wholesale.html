@@ -179,13 +179,15 @@ a{ color: inherit; text-decoration:none; }
 }
 
     /* Sections */
-    .section{ padding: 76px 0; }
+.section{ padding: 76px 0; }
+
 .section.alt{
   background: var(--bg2);
   border-top: 1px solid rgba(201,162,77,0.12);
   border-bottom: 1px solid rgba(201,162,77,0.12);
 }
-    .section-title{
+
+.section-title{
   font-family: 'Orbitron', monospace;
   font-size: 3rem;
   font-weight: 700;
@@ -203,7 +205,6 @@ a{ color: inherit; text-decoration:none; }
   .section{ padding: 4rem 0; }
 }
 
-    .section{ padding: 76px 0; }
     .section.alt{ background: var(--bg2); border-top: 1px solid rgba(201,162,77,0.12); border-bottom: 1px solid rgba(201,162,77,0.12); }
     .h2{
       font-family: Orbitron, monospace;
@@ -369,6 +370,21 @@ a{ color: inherit; text-decoration:none; }
   line-height: 1.6;
   opacity: 0.85;
   margin-bottom: 2.5rem;
+}
+.cta-button{
+  display:inline-block;
+  padding: 1rem 2.5rem;
+  background: var(--grad-gold);
+  color: var(--bg);
+  border-radius: 50px;
+  font-weight: 600;
+  font-size: 1rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  transition: transform .25s ease;
+}
+.cta-button:hover{
+  transform: translateY(-3px);
 }
 
 /* hero 안 note를 index 톤으로 */
@@ -546,9 +562,8 @@ a{ color: inherit; text-decoration:none; }
         Tiered MOQ • Fast onboarding • Korea-Based Export Partner  
       </div>
 
-      <div class="hero-description">
-        Start Partner Evaluation 
-      </div>
+     <div class="hero-description">
+<a href="#contact" class="cta-button">Start Partner Evaluation</a></div>
     </div>
   </div>
 </section>
@@ -563,7 +578,7 @@ a{ color: inherit; text-decoration:none; }
       <div class="grid">
         <div class="card">
           <h3>What to Send</h3>
-          <p>Share your destination market + SKUs + target MOQ. We reply with the exact onboarding pack for your case.</p>
+          <p>Share your destination market + SKUs + target MOQ. we respond with the relevant MOQ tiers and next steps.</p>
           <ul class="list">
             <li>Destination / market</li>
             <li>SKUs of interest</li>
@@ -573,7 +588,7 @@ a{ color: inherit; text-decoration:none; }
         </div>
 
         <div class="card">
-          <h3>Wholesale Structure <br> (Tiered MOQ) </br></h3>
+          <h3>Wholesale Structure<br><span style="font-weight:400; opacity:.85;">(Tiered MOQ)</span></h3>
           <p>Start with evaluation tiers and scale after market validation.</p>
           <ul class="list">
             <li>Tiered MOQ options (by SKU)</li>
@@ -638,6 +653,7 @@ a{ color: inherit; text-decoration:none; }
         <i class="fab fa-whatsapp"></i>
         <div>
           <h4>WhatsApp</h4>
+          <p>Reply within 24–48h</p>
         </div>
       </a>
 
@@ -646,6 +662,7 @@ a{ color: inherit; text-decoration:none; }
         <i class="fas fa-envelope"></i>
         <div>
           <h4>Email</h4>
+          <p>korvexgrp@outlook.com</p>
         </div>
       </a>
 
