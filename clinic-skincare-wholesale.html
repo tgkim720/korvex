@@ -47,6 +47,11 @@
     }
 
     *{ margin:0; padding:0; box-sizing:border-box; }
+    html, body{
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+}
 
 body{
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
@@ -62,6 +67,10 @@ a{ color: inherit; text-decoration:none; }
   max-width: 1200px;
   padding: 0 30px;
   margin: 0 auto;
+  img, svg, video, iframe{
+  max-width: 100%;
+  height: auto;
+}
 }
 
     /* Nav (match KORVEX index tone) */
@@ -385,6 +394,13 @@ a{ color: inherit; text-decoration:none; }
 .cta-button:hover{
   transform: translateY(-3px);
 }
+@media (max-width: 768px){
+  .cta-button{
+    padding: 0.85rem 1.8rem;
+    font-size: 0.95rem;
+    letter-spacing: 0.8px;
+  }
+}
 
 /* hero 안 note를 index 톤으로 */
 .hero .note{
@@ -620,16 +636,13 @@ a{ color: inherit; text-decoration:none; }
 <section class="hero" id="top">
   <div class="container">
     <div class="hero-content">
-      <h1>Korean Clinic Skincare Supplier & Export Partner (FOB Korea)</h1>
-
-      <div class="hero-subtitle">
-        Tiered MOQ • Fast onboarding • Korea-Based Export Partner  
-      </div>
+      <h1>Korean Clinic-Grade Skincare Supplier (FOB Korea)</h1>
 
      <div class="hero-description">
-<a href="#contact" class="cta-button">Start Partner Evaluation</a></div>
-    </div>
-  </div>
+  Tiered MOQ • FOB Korea • Documentation-ready
+</div>
+
+<a href="#contact" class="cta-button">Start Partner Evaluation</a>
 </section>
 
 <section class="section alt">
@@ -644,24 +657,21 @@ a{ color: inherit; text-decoration:none; }
       <div class="card">
         <h3>Korea-Based Production</h3>
         <p>
-          Manufactured in Korea within structured production environments.
-          Built for professional-use positioning and export alignment.
+          Made in Korea for clinic and professional channels.
         </p>
       </div>
 
       <div class="card">
         <h3>Tiered MOQ Structure</h3>
         <p>
-          Evaluation-friendly MOQ tiers per SKU. 
-          Start with structured entry levels and scale after validation.
+          Start small, scale fast with tiered MOQ by SKU.
         </p>
       </div>
 
       <div class="card">
         <h3>Platform-Operated Model</h3>
         <p>
-          KORVEX operates portfolio brands under a coordinated export structure,
-          supporting distributor and regulatory partner workflows.
+          One platform flow for portfolio brands and export onboarding.
         </p>
       </div>
 
@@ -673,13 +683,13 @@ a{ color: inherit; text-decoration:none; }
     <div class="container">
       <div class="h2">Partner Starter Pack</div>
       <div class="lead">
-        Use this page to request the exact package you need (not generic). Choose your market + SKUs and we respond with the relevant tiers and documents.
+        Send your market + SKUs + target MOQ. We reply with the exact tiers and documents.
       </div>
 
       <div class="grid">
         <div class="card">
           <h3>What to Send</h3>
-          <p>Share your destination market + SKUs + target MOQ. we respond with the relevant MOQ tiers and next steps.</p>
+          <p>Share the basics below to receive the right onboarding pack.</p>
           <ul class="list">
             <li>Destination / market</li>
             <li>SKUs of interest</li>
@@ -690,7 +700,7 @@ a{ color: inherit; text-decoration:none; }
 
         <div class="card">
           <h3>Wholesale Structure<br><span style="font-weight:400; opacity:.85;">(Tiered MOQ)</span></h3>
-          <p>Start with evaluation tiers and scale after market validation.</p>
+          <p>Clear tiers for evaluation → reorder scaling.</p>
           <ul class="list">
             <li>Tiered MOQ options (by SKU)</li>
             <li>FOB Korea alignment</li>
@@ -700,7 +710,7 @@ a{ color: inherit; text-decoration:none; }
 
         <div class="card">
           <h3>Portfolio Brand Distribution</h3>
-          <p>KORVEX operates portfolio brands designed for clinic and professional workflows.</p>
+          <p>KORVEX supplies proprietary clinic-grade brands (starting with BARION).</p>
           <ul class="list">
             <li>BARION (clinic-oriented dermocosmetics)</li>
             <li>Protocol-compatible positioning</li>
@@ -746,41 +756,37 @@ a{ color: inherit; text-decoration:none; }
 
       <div class="faq">
         <details>
-          <summary>Do you manufacture clinic-grade skincare in Korea?</summary>
+          <summary>Manufacture?</summary>
           <p>
-          Yes. Production is based in Korea within structured manufacturing environments aligned with clinic-grade skincare export workflows. 
-          KORVEX operates as a Korean clinic skincare supplier coordinating portfolio brands under a structured export model.
+          Yes — made in Korea for clinic/professional export workflows.
           </p>
         </details>
 
         <details>
-          <summary>What is your MOQ structure?</summary>
+          <summary>MOQ?</summary>
           <p>
-            We support tiered MOQs by SKU so partners can start with evaluation tiers and scale after validation.
-            Share your target market + SKUs to receive the correct tiers.
+            Tiered MOQ by SKU for evaluation and scaling.
           </p>
         </details>
 
         <details>
-          <summary>Can new distributors start with lower evaluation MOQs?</summary>
+          <summary>Lower evaluation MOQ?</summary>
           <p>
-          Yes. We operate a tiered MOQ structure designed for evaluation and scalable market entry. 
-          Import partners can begin with structured entry tiers and expand after validation within their destination market.
+          Yes — evaluation tiers are available by SKU.
           </p>
         </details>
 
         <details>
-          <summary>Who operates regulatory and distribution coordination?</summary>
+          <summary>Who coordinates?</summary>
           <p>
-            KORVEX operates the partner onboarding, documentation flow, and distribution coordination.
-            BARION is a portfolio brand line under the KORVEX platform.
+            KORVEX manages onboarding + documentation flow; BARION is a portfolio brand.
           </p>
         </details>
 
         <details>
-          <summary>What should I send to get the fast reply?</summary>
+          <summary>What to send?</summary>
           <p>
-            Send: 1. destination country/market, 2. SKUs of interest, 3. any compliance requirements (if applicable), 4. target MOQ range.
+            Send market + SKUs + target MOQ + compliance needs (if any).
           </p>
         </details>
       </div>
