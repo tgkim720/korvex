@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BARION Barrier Moisture Complex Cream | Korean Clinic-Grade Dermocosmetic</title>
+  <meta name="description" content="BARION Barrier Moisture Complex Cream – professional Korean dermocosmetic for aesthetic clinics and spa protocols. ISO 22716 GMP certified. Wholesale via KORVEX." />
+  <link rel="canonical" href="https://korvexgrp.com/barion-cream.html" />
+  <link rel="icon" type="image/svg+xml"
+    href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='48' fill='white'/%3E%3Ctext x='50%25' y='54%25' text-anchor='middle' font-family='Inter,Arial,sans-serif' font-size='58' font-weight='700' fill='%231E1E1E' dominant-baseline='middle'%3EB%3C/text%3E%3C/svg%3E">
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="BARION Barrier Moisture Complex Cream">
+  <meta property="og:description" content="Professional Korean dermocosmetic cream for aesthetic clinics and spa protocols.">
+  <meta property="og:type" content="product">
+  <meta property="og:url" content="https://korvexgrp.com/barion-cream.html">
+  <meta property="og:image" content="https://raw.githubusercontent.com/tgkim720/product_images/main/cream/barion_cream_box.png">
+
+  <style>
+    :root {
+      --bg:        #F8F8F6;
+      --bg-soft:   #F1F2F3;
+      --charcoal:  #1E1E1E;
+      --charcoal-2:#2A2A2A;
+      --text:      #111111;
+      --muted:     #5A5A5A;
+      --silver:    #D6D6D6;
+      --line:      rgba(30,30,30,0.12);
+      --accent:    #1E1E1E;
+    }
+
+    *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+
+    body {
+      font-family: 'Inter', -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+    a { color: inherit; text-decoration: none; }
+    .wrap { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+
+    /* ===== Topbar ===== */
+    .topbar {
+      position: sticky; top: 0; z-index: 9999;
+      background: rgba(255,255,255,0.92);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid rgba(214,214,214,0.8);
+    }
+    .topbar-inner {
+      position: relative; padding: 14px 0 12px;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center; gap: 10px;
+    }
+    .logo { display:flex; flex-direction:column; align-items:center; text-align:center; gap:2px; pointer-events:none; }
+    .logo .brand { letter-spacing:.22em; font-weight:800; font-size:20px; color:var(--charcoal); }
+    .logo .tag   { font-size:10.5px; color:var(--muted); letter-spacing:.06em; }
+    .nav { display:flex; justify-content:center; align-items:center; flex-wrap:wrap; gap:18px; font-size:14px; color:var(--charcoal-2); width:100%; }
+    .nav a { padding:8px 10px; border-radius:10px; position:relative; }
+    .nav a:hover { background:var(--bg-soft); }
+    .nav a::after { content:""; position:absolute; left:10px; right:10px; bottom:4px; height:2px; background:rgba(30,30,30,0.55); border-radius:999px; transform:scaleX(0); transform-origin:center; transition:transform 0.22s ease,opacity 0.22s ease; opacity:0; }
+    .nav a:hover::after { transform:scaleX(1); opacity:0.55; }
+
+    .hamburger { position:absolute; right:0; top:50%; transform:translateY(-50%); width:44px; height:44px; border:1px solid rgba(30,30,30,0.14); border-radius:14px; background:rgba(246,245,242,0.78); backdrop-filter:blur(14px); display:none; align-items:center; justify-content:center; gap:6px; flex-direction:column; cursor:pointer; padding:0; transition:transform .28s cubic-bezier(.2,.9,.2,1),background .28s ease; }
+    .hamburger span { width:18px; height:2px; border-radius:999px; background:rgba(30,30,30,0.72); transition:transform .56s cubic-bezier(.2,.9,.2,1),opacity .30s ease; }
+    .topbar.is-open .hamburger span:nth-child(1) { transform:translateY(6px) rotate(45deg); }
+    .topbar.is-open .hamburger span:nth-child(2) { opacity:0; }
+    .topbar.is-open .hamburger span:nth-child(3) { transform:translateY(-6px) rotate(-45deg); }
+    .nav-backdrop { position:fixed; inset:0; z-index:9998; background:radial-gradient(1200px 700px at 50% 10%,rgba(246,245,242,0.72),rgba(246,245,242,0.52) 45%,rgba(246,245,242,0.38)),linear-gradient(180deg,rgba(0,0,0,0.06),rgba(0,0,0,0.10) 60%,rgba(0,0,0,0.14)); backdrop-filter:blur(18px); opacity:0; pointer-events:none; transition:opacity .32s cubic-bezier(.2,.9,.2,1); }
+    .topbar.is-open ~ .nav-backdrop { opacity:1; pointer-events:auto; }
+
+    @media(max-width:768px){
+      .hamburger { display:flex; }
+      .nav { position:fixed; left:0; right:0; top:74px; z-index:9999; visibility:hidden; flex-direction:column; align-items:center; gap:0; padding:14px 16px 18px; background:rgba(246,245,242,0.92); backdrop-filter:blur(18px); border-bottom:1px solid rgba(30,30,30,0.12); transform:translateY(-14px); opacity:0; pointer-events:none; transition:transform .62s cubic-bezier(.2,.9,.2,1),opacity .32s cubic-bezier(.2,.9,.2,1); }
+      .topbar.is-open .nav { visibility:visible; transform:translateY(0); opacity:1; pointer-events:auto; }
+      .nav a { width:100%; max-width:520px; text-align:center; padding:14px; border-radius:14px; border:1px solid rgba(30,30,30,0.10); background:rgba(255,255,255,0.62); margin:7px 0; }
+    }
+
+    /* ===== Breadcrumb ===== */
+    .breadcrumb {
+      padding: 16px 0 0;
+      font-size: 12px;
+      color: var(--muted);
+      display: flex;
+      gap: 6px;
+      align-items: center;
+    }
+    .breadcrumb a:hover { color: var(--charcoal); }
+    .breadcrumb span { opacity: 0.4; }
+
+    /* ===== Product Hero ===== */
+    .product-hero {
+      padding: 40px 0 56px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 56px;
+      align-items: start;
+    }
+
+    .gallery { position: sticky; top: 100px; }
+
+    .gallery-main {
+      width: 100%;
+      aspect-ratio: 1/1;
+      border-radius: 20px;
+      overflow: hidden;
+      background: #fff;
+      border: 1px solid var(--line);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 12px;
+    }
+    .gallery-main img {
+      width: 100%; height: 100%;
+      object-fit: cover; padding: 0;
+      transition: transform 0.5s cubic-bezier(.2,.9,.2,1);
+    }
+    .gallery-main:hover img { transform: scale(1.04); }
+
+    .gallery-thumbs {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 8px;
+    }
+    .thumb {
+      aspect-ratio: 1;
+      border-radius: 12px;
+      overflow: hidden;
+      background: #fff;
+      border: 1px solid var(--line);
+      cursor: pointer;
+      transition: border-color 0.2s, box-shadow 0.2s;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .thumb img { width:100%; height:100%; object-fit:cover; transition:transform 0.4s ease; }
+    .thumb:hover { border-color: var(--charcoal); box-shadow: 0 4px 14px rgba(0,0,0,0.08); }
+    .thumb:hover img { transform: scale(1.06); }
+    .thumb.active { border-color: var(--charcoal); border-width: 1.5px; }
+
+    .product-info { padding-top: 8px; }
+    .product-tag { display:inline-block; font-size:11px; letter-spacing:0.1em; color:var(--muted); text-transform:uppercase; margin-bottom:10px; }
+    .product-name { font-family:'DM Serif Display',Georgia,serif; font-size:clamp(26px,3.2vw,38px); line-height:1.15; color:var(--charcoal); margin-bottom:6px; }
+    .product-sub { font-size:15px; color:var(--muted); margin-bottom:20px; line-height:1.6; }
+    .divider { height:1px; background:var(--line); margin:20px 0; }
+
+    .specs-row { display:flex; flex-wrap:wrap; gap:8px; margin-bottom:20px; }
+    .spec-pill { font-size:12px; padding:6px 12px; border-radius:999px; border:1px solid var(--line); background:var(--bg-soft); color:var(--charcoal-2); }
+    .spec-pill strong { font-weight:600; }
+
+    .benefits { list-style:none; display:flex; flex-direction:column; gap:10px; margin-bottom:24px; }
+    .benefits li { display:flex; gap:10px; font-size:14px; color:var(--muted); line-height:1.5; }
+    .benefits li::before { content:""; width:5px; height:5px; border-radius:50%; background:var(--charcoal); flex-shrink:0; margin-top:7px; }
+
+    .cta-row { display:flex; gap:12px; flex-wrap:wrap; }
+    .btn { display:inline-block; padding:13px 20px; border-radius:14px; font-weight:600; font-size:14px; border:1px solid var(--charcoal); background:var(--charcoal); color:#fff; transition:opacity 0.2s; }
+    .btn:hover { opacity:0.85; }
+    .btn.secondary { background:transparent; color:var(--charcoal); border:1px solid var(--line); }
+    .btn.secondary:hover { background:var(--bg-soft); }
+
+    /* ===== Sections ===== */
+    .section { padding: 52px 0; }
+    .section.soft { background: var(--bg-soft); }
+    .section-label { font-size:11px; letter-spacing:0.1em; text-transform:uppercase; color:var(--muted); margin-bottom:8px; }
+    .section h2 { font-family:'DM Serif Display',Georgia,serif; font-size:clamp(22px,2.8vw,30px); color:var(--charcoal); margin-bottom:14px; line-height:1.2; }
+    .section p { color:var(--muted); font-size:14px; line-height:1.8; }
+
+    .feature-row { display:grid; grid-template-columns:1fr 1fr; gap:40px; align-items:center; margin-top:32px; }
+    .feature-row.reverse { direction:rtl; }
+    .feature-row.reverse > * { direction:ltr; }
+    .feature-img { border-radius:18px; overflow:hidden; background:#fff; border:1px solid var(--line); aspect-ratio:1/1; display:flex; align-items:center; justify-content:center; }
+    .feature-img img { width:100%; height:100%; object-fit:cover; display:block; }
+    .feature-text h3 { font-family:'DM Serif Display',Georgia,serif; font-size:22px; color:var(--charcoal); margin-bottom:10px; line-height:1.2; }
+    .feature-text p { color:var(--muted); font-size:14px; line-height:1.8; }
+    .feature-text ul { margin-top:12px; padding-left:16px; color:var(--muted); font-size:14px; line-height:2; }
+
+    .ingredient-grid { margin-top:24px; display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:14px; }
+    .ingredient-card { background:#fff; border:1px solid var(--line); border-radius:16px; padding:20px 22px; transition:box-shadow 0.3s ease,transform 0.3s ease; }
+    .ingredient-card:hover { box-shadow:0 10px 28px rgba(0,0,0,0.06); transform:translateY(-3px); }
+    .ingredient-card .ic-label { font-size:10px; letter-spacing:0.1em; text-transform:uppercase; color:var(--muted); margin-bottom:4px; }
+    .ingredient-card h4 { font-size:15px; font-weight:600; color:var(--charcoal); margin-bottom:8px; }
+    .ingredient-card p { font-size:13px; color:var(--muted); line-height:1.7; }
+    .ing-list { margin-top:8px; font-size:12px; color:var(--muted); font-style:italic; line-height:1.6; }
+
+    .steps { margin-top:24px; display:flex; flex-direction:column; gap:0; border:1px solid var(--line); border-radius:18px; overflow:hidden; background:#fff; }
+    .step { display:grid; grid-template-columns:56px 1fr; align-items:start; gap:0; border-bottom:1px solid var(--line); padding:20px 24px; transition:background 0.2s; }
+    .step:last-child { border-bottom:none; }
+    .step:hover { background:var(--bg-soft); }
+    .step-num { font-family:'DM Serif Display',Georgia,serif; font-size:28px; color:var(--silver); line-height:1; padding-top:2px; }
+    .step-body h4 { font-size:14px; font-weight:600; color:var(--charcoal); margin-bottom:4px; }
+    .step-body p  { font-size:13px; color:var(--muted); line-height:1.7; }
+
+    .moq-grid { margin-top:24px; display:grid; grid-template-columns:repeat(3,1fr); gap:14px; }
+    .moq-card { border:1px solid var(--line); border-radius:16px; padding:24px 20px; background:#fff; text-align:center; }
+    .moq-card.featured { background:var(--charcoal); border-color:var(--charcoal); color:#fff; }
+    .moq-card .tier-name { font-size:11px; letter-spacing:0.1em; text-transform:uppercase; color:var(--muted); margin-bottom:8px; }
+    .moq-card.featured .tier-name { color:rgba(255,255,255,0.55); }
+    .moq-card .tier-units { font-family:'DM Serif Display',Georgia,serif; font-size:34px; color:var(--charcoal); line-height:1; margin-bottom:4px; }
+    .moq-card.featured .tier-units { color:#fff; }
+    .moq-card .tier-label { font-size:12px; color:var(--muted); }
+    .moq-card.featured .tier-label { color:rgba(255,255,255,0.6); }
+
+    .doc-list { margin-top:16px; display:flex; flex-wrap:wrap; gap:10px; }
+    .doc-pill { font-size:13px; padding:8px 16px; border-radius:999px; border:1px solid var(--line); background:#fff; color:var(--charcoal-2); display:flex; align-items:center; gap:6px; }
+    .doc-pill::before { content:"↓"; font-size:11px; opacity:0.5; }
+
+    footer { padding:28px 0; border-top:1px solid var(--line); color:var(--muted); font-size:13px; background:#fff; }
+    .foot-row { display:flex; justify-content:space-between; gap:14px; flex-wrap:wrap; }
+
+    /* ===== Responsive ===== */
+    @media(max-width:860px){
+      .feature-row { grid-template-columns:1fr; gap:24px; }
+      .feature-row.reverse { direction:ltr; }
+      .moq-grid { grid-template-columns:1fr; max-width:340px; }
+    }
+    @media(max-width:768px){
+      .product-hero { grid-template-columns:1fr; gap:32px; }
+      .gallery { position:static; }
+      .moq-grid { grid-template-columns:1fr; max-width:100%; }
+      .steps { min-width:0; }
+      .step { min-width:0; }
+      .specs-row { min-width:0; }
+      .gallery-thumbs { min-width:0; }
+      img { max-width:100%; }
+    }
+    @media(max-width:560px){
+      .gallery-thumbs { grid-template-columns:repeat(4,1fr); }
+      .ingredient-grid { grid-template-columns:1fr; }
+    }
+    html, body { overflow-x:hidden; max-width:100%; }
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    "name": "BARION Barrier Moisture Complex Cream",
+    "description": "Professional Korean dermocosmetic cream for aesthetic clinics and spa protocols. ISO 22716 GMP certified.",
+    "brand": { "@type": "Brand", "name": "BARION" },
+    "manufacturer": { "@type": "Organization", "name": "KORVEX", "url": "https://korvexgrp.com/" },
+    "offers": { "@type": "Offer", "availability": "https://schema.org/InStock", "priceCurrency": "USD" }
+  }
+  </script>
+</head>
+
+<body>
+
+<!-- ===== TOPBAR ===== -->
+<header class="topbar">
+  <div class="wrap">
+    <div class="topbar-inner">
+      <div class="logo">
+        <div class="brand">BARION</div>
+        <div class="tag">Functional Skin Science</div>
+      </div>
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="nav" id="navMenu">
+        <a href="barion-brandphilosophy.html">Brand Philosophy</a>
+        <a href="barion.html#products">Products</a>
+        <a href="barion-Manufacturing-Certificates.html">Manufacturing & Certificates</a>
+        <a href="barion.html#contact">Contact</a>
+        <a href="https://korvexgrp.com" target="_blank" rel="noopener">KORVEX</a>
+      </nav>
+    </div>
+  </div>
+</header>
+<div class="nav-backdrop" id="navBackdrop" aria-hidden="true"></div>
+
+<main>
+  <div class="wrap">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="barion.html">BARION</a>
+      <span>›</span>
+      <a href="barion.html#products">Products</a>
+      <span>›</span>
+      <span>Barrier Moisture Complex Cream</span>
+    </nav>
+  </div>
+
+  <!-- ===== PRODUCT HERO ===== -->
+  <div class="wrap">
+    <div class="product-hero">
+
+      <!-- Gallery -->
+      <div class="gallery">
+        <div class="gallery-main" id="galleryMain">
+          <img id="mainImg"
+               src="https://raw.githubusercontent.com/tgkim720/product_images/main/cream/barion_cream_box.png"
+               alt="BARION Barrier Moisture Complex Cream – front view">
+        </div>
+
+        <div class="gallery-thumbs">
+          <div class="thumb active"
+               data-src="https://raw.githubusercontent.com/tgkim720/product_images/main/cream/barion_cream_box.png"
+               data-alt="BARION Cream – front view">
+            <img src="https://raw.githubusercontent.com/tgkim720/product_images/main/cream/barion_cream_box.png" alt="BARION Cream front view">
+          </div>
+
+          <div class="thumb"
+               data-src="https://raw.githubusercontent.com/tgkim720/product_images/main/cream/barion_cream_texture.png"
+               data-alt="BARION Cream – texture">
+            <img src="https://raw.githubusercontent.com/tgkim720/product_images/main/cream/barion_cream_texture.png" alt="BARION Cream texture">
+          </div>
+
+          <div class="thumb"
+               data-src="https://raw.githubusercontent.com/tgkim720/product_images/main/cream/cream_clinic_use.png"
+               data-alt="BARION Cream – clinic use">
+            <img src="https://raw.githubusercontent.com/tgkim720/product_images/main/cream/cream_clinic_use.png" alt="BARION Cream clinic use">
+          </div>
+
+          <div class="thumb"
+               data-src="https://raw.githubusercontent.com/tgkim720/product_images/main/cream/barion_cream_ingredient.png"
+               data-alt="BARION Cream – ingredients">
+            <img src="https://raw.githubusercontent.com/tgkim720/product_images/main/cream/barion_cream_ingredient.png" alt="BARION Cream ingredients">
+          </div>
+        </div>
+      </div><!-- /gallery -->
+
+      <!-- Product Info -->
+      <div class="product-info">
+        <div class="product-tag">Clinic-Grade Cream</div>
+        <h1 class="product-name">Barrier Moisture<br>Complex Cream No.1</h1>
+        <p class="product-sub">Professional dermocosmetic cream designed for aesthetic clinics and spa treatment protocols. Barrier reinforcement, deep hydration, post-treatment moisture recovery.</p>
+
+        <div class="divider"></div>
+
+        <div class="specs-row">
+          <span class="spec-pill"><strong>50 ml</strong> Standard</span>
+          <span class="spec-pill"><strong>150 ml</strong> Professional</span>
+          <span class="spec-pill">Glass Jar</span>
+          <span class="spec-pill">Origin: Korea</span>
+          <span class="spec-pill">ISO 22716 GMP</span>
+          <span class="spec-pill">Vegan-Friendly</span>
+        </div>
+
+        <ul class="benefits">
+          <li>Integrates into professional facial and device-based treatment protocols</li>
+          <li>Post-treatment moisturizing care after RF, microneedling, and laser</li>
+          <li>Rich gel-cream texture — comfortable absorption, no interference with follow-up steps</li>
+          <li>Dual-use: clinic protocol finishing step + client homecare resale</li>
+          <li>Supports structured reorder cycles for clinics and aesthetic studios</li>
+        </ul>
+
+        <div class="divider"></div>
+
+        <div class="cta-row">
+          <a class="btn" href="mailto:contact@korvexgrp.com">Request Quotation</a>
+          <a class="btn secondary" href="https://wa.me/601116023115" target="_blank" rel="noopener">WhatsApp</a>
+        </div>
+      </div>
+
+    </div>
+  </div><!-- /wrap -->
+
+
+  <!-- ===== CLINICAL APPLICATION ===== -->
+  <section class="section soft">
+    <div class="wrap">
+      <div class="section-label">Professional Use</div>
+      <h2>Clinical Application</h2>
+      <p>BARION Cream No.1 integrates into a wide range of professional treatment workflows, providing barrier reinforcement and deep hydration as a finishing step after aesthetic procedures.</p>
+
+      <div class="feature-row">
+        <div class="feature-img">
+          <img src="https://raw.githubusercontent.com/tgkim720/product_images/main/cream/cream_clinic_use.png"
+               alt="BARION Cream – clinic treatment use">
+        </div>
+        <div class="feature-text">
+          <h3>Post-Treatment Moisture Recovery</h3>
+          <p>Designed as a finishing moisturizing step following professional aesthetic procedures to seal in hydration and support skin barrier recovery.</p>
+          <ul>
+            <li>Post-RF and radiofrequency moisture sealing</li>
+            <li>Barrier recovery after microneedling</li>
+            <li>Hydration layer following laser and IPL procedures</li>
+            <li>Moisture finishing step after exfoliation treatments</li>
+            <li>Hydration support during LED therapy protocols</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="feature-row reverse" style="margin-top: 40px;">
+        <div class="feature-img">
+          <img src="https://raw.githubusercontent.com/tgkim720/product_images/main/ampoule/barion_profile4.png"
+               alt="BARION Cream – daily homecare">
+        </div>
+        <div class="feature-text">
+          <h3>Daily Homecare Continuation</h3>
+          <p>The same formula used in clinic protocols transitions naturally into daily homecare, enabling clinics to generate retail revenue from post-treatment home-care continuation sales.</p>
+          <ul>
+            <li>Apply as final moisture layer after ampoule</li>
+            <li>Daily barrier support between clinic visits</li>
+            <li>Compatible with most professional skincare routines</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== KEY INGREDIENTS ===== -->
+  <section class="section soft">
+    <div class="wrap">
+      <div class="section-label">Formulation</div>
+      <h2>Key Ingredient System</h2>
+
+      <div style="width:100%; margin: 20px 0 28px; border-radius: 16px; overflow:hidden;">
+        <img src="https://raw.githubusercontent.com/tgkim720/product_images/main/cream/barion_cream_ingredient.png"
+             alt="BARION Cream key ingredients"
+             style="width:100%; max-height: 360px; object-fit:cover; display:block;">
+      </div>
+
+      <p>Three targeted ingredient systems working together for deep hydration, barrier reinforcement, and post-treatment recovery comfort.</p>
+
+      <div class="ingredient-grid">
+        <div class="ingredient-card">
+          <div class="ic-label">Hydration Complex</div>
+          <h4>Deep Moisture & Hydration Retention</h4>
+          <p>Delivers deep moisture, locks in hydration, and maintains long-lasting water balance within the skin barrier.</p>
+          <div class="ing-list">Ceramide NP · Hyaluronic Acid · Glacier Water</div>
+        </div>
+
+        <div class="ingredient-card">
+          <div class="ic-label">Soothing & Recovery System</div>
+          <h4>Post-Treatment Calming</h4>
+          <p>Helps calm sensitized skin, reduce post-treatment discomfort, and support skin recovery following professional aesthetic procedures.</p>
+          <div class="ing-list">Centella Asiatica Extract · Madecassoside · Asiaticoside · Matricaria Flower Extract</div>
+        </div>
+
+        <div class="ingredient-card">
+          <div class="ic-label">Barrier Reinforcement Agents</div>
+          <h4>Long-Term Barrier Stability</h4>
+          <p>Strengthens the skin barrier, supports skin regeneration, and improves overall skin conditioning for long-term stability.</p>
+          <div class="ing-list">Betaine · Allantoin</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ===== HOW TO USE ===== -->
+  <section class="section">
+    <div class="wrap">
+      <div class="section-label">Application</div>
+      <h2>How to Use</h2>
+      <p>Designed as a finishing step in professional protocols, and as a daily moisturizer for homecare continuation.</p>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; margin-top: 28px;">
+        <div>
+          <div style="font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); margin-bottom: 14px;">Clinic Protocol</div>
+          <div class="steps">
+            <div class="step">
+              <div class="step-num">01</div>
+              <div class="step-body">
+                <h4>Complete Procedure</h4>
+                <p>Finish RF, microneedling, laser, or exfoliation treatment.</p>
+              </div>
+            </div>
+            <div class="step">
+              <div class="step-num">02</div>
+              <div class="step-body">
+                <h4>Apply Ampoule (Optional)</h4>
+                <p>Layer BARION Ampoule No.1 as a calming base step if included in protocol.</p>
+              </div>
+            </div>
+            <div class="step">
+              <div class="step-num">03</div>
+              <div class="step-body">
+                <h4>Apply Cream</h4>
+                <p>Apply as finishing moisture layer. Rich gel-cream absorbs smoothly without interfering with follow-up steps.</p>
+              </div>
+            </div>
+            <div class="step">
+              <div class="step-num">04</div>
+              <div class="step-body">
+                <h4>Finish Protocol</h4>
+                <p>Continue with SPF or other finishing steps as needed.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <div style="font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); margin-bottom: 14px;">Daily Homecare</div>
+          <div class="steps">
+            <div class="step">
+              <div class="step-num">01</div>
+              <div class="step-body">
+                <h4>Cleanse</h4>
+                <p>Use preferred gentle cleanser.</p>
+              </div>
+            </div>
+            <div class="step">
+              <div class="step-num">02</div>
+              <div class="step-body">
+                <h4>Tone (Optional)</h4>
+                <p>Apply toner if part of your routine.</p>
+              </div>
+            </div>
+            <div class="step">
+              <div class="step-num">03</div>
+              <div class="step-body">
+                <h4>Apply Ampoule (Optional)</h4>
+                <p>Layer BARION Ampoule No.1 before cream for added barrier support.</p>
+              </div>
+            </div>
+            <div class="step">
+              <div class="step-num">04</div>
+              <div class="step-body">
+                <h4>Apply Cream</h4>
+                <p>Apply as final moisture layer. Use morning and evening as needed.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div style="width:100%; margin-top: 40px; border-radius: 16px; overflow:hidden;">
+        <img src="https://raw.githubusercontent.com/tgkim720/product_images/main/ampoule/barion_profile6.png"
+             alt="BARION dermocosmetic formulation texture"
+             style="width:100%; max-height: 340px; object-fit:cover; display:block;">
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ===== DISTRIBUTION / MOQ ===== -->
+  <section class="section soft">
+    <div class="wrap">
+
+      <div style="width:100%; margin-bottom: 36px; border-radius: 16px; overflow:hidden;">
+        <img src="https://raw.githubusercontent.com/tgkim720/product_images/main/ampoule/BARION%20PROFESSIONAL%20LINE.png"
+             alt="BARION Professional Line — Ampoule and Cream"
+             style="width:100%; max-height: 420px; object-fit:cover; object-position: center 30%; display:block;">
+      </div>
+
+      <div class="section-label">Wholesale</div>
+      <h2>Distribution & MOQ</h2>
+      <p>KORVEX supplies BARION products to international distributors, aesthetic clinics, and professional skincare businesses through a structured export model.</p>
+
+      <div class="moq-grid" style="margin-top: 28px;">
+        <div class="moq-card">
+          <div class="tier-name">Pilot Tier</div>
+          <div class="tier-units">300</div>
+          <div class="tier-label">units minimum</div>
+        </div>
+        <div class="moq-card featured">
+          <div class="tier-name">Growth Tier</div>
+          <div class="tier-units">500</div>
+          <div class="tier-label">units minimum</div>
+        </div>
+        <div class="moq-card">
+          <div class="tier-name">Strategic Partner</div>
+          <div class="tier-units">1000</div>
+          <div class="tier-label">units minimum</div>
+        </div>
+      </div>
+
+      <div style="margin-top: 32px;">
+        <div style="font-size: 13px; color: var(--muted); margin-bottom: 12px;">Export documentation available:</div>
+        <div class="doc-list">
+          <span class="doc-pill">INCI List</span>
+          <span class="doc-pill">COA</span>
+          <span class="doc-pill">SDS</span>
+          <span class="doc-pill">ISO 22716 Certificate</span>
+        </div>
+      </div>
+
+      <div style="margin-top: 32px;" class="cta-row">
+        <a class="btn" href="mailto:contact@korvexgrp.com">Email KORVEX</a>
+        <a class="btn secondary" href="https://wa.me/601116023115" target="_blank" rel="noopener">WhatsApp</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <div class="wrap">
+    <div class="foot-row">
+      <div>© BARION</div>
+      <div style="opacity:0.9;">Functional Skin Science</div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  (function(){
+    const topbar = document.querySelector('.topbar');
+    const hamburger = document.getElementById('hamburger');
+    const navMenu = document.getElementById('navMenu');
+    const backdrop = document.getElementById('navBackdrop');
+    if(!topbar || !hamburger || !navMenu || !backdrop) return;
+    function openMenu(){ topbar.classList.add('is-open'); backdrop.setAttribute('aria-hidden','false'); document.body.style.overflow='hidden'; hamburger.setAttribute('aria-expanded','true'); }
+    function closeMenu(){ topbar.classList.remove('is-open'); backdrop.setAttribute('aria-hidden','true'); document.body.style.overflow=''; hamburger.setAttribute('aria-expanded','false'); }
+    function toggleMenu(){ if(topbar.classList.contains('is-open')) closeMenu(); else openMenu(); }
+    hamburger.addEventListener('click',(e)=>{ e.stopPropagation(); toggleMenu(); });
+    backdrop.addEventListener('click', closeMenu);
+    navMenu.querySelectorAll('a').forEach(a=>{ a.addEventListener('click',()=>closeMenu()); });
+    document.addEventListener('keydown',(e)=>{ if(e.key==='Escape') closeMenu(); });
+    window.addEventListener('resize',()=>{ if(window.innerWidth>768) closeMenu(); });
+  })();
+</script>
+
+<script>
+  // Gallery thumb switcher
+  const mainImg = document.getElementById('mainImg');
+  const thumbs = document.querySelectorAll('.thumb');
+  thumbs.forEach(thumb => {
+    thumb.addEventListener('click', () => {
+      mainImg.src = thumb.dataset.src;
+      mainImg.alt = thumb.dataset.alt;
+      thumbs.forEach(t => t.classList.remove('active'));
+      thumb.classList.add('active');
+    });
+  });
+</script>
+
+</body>
+</html>
