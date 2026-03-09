@@ -465,10 +465,21 @@
         .gallery { position: static; }
       }
 
-      /* 가로 스크롤 방지 */
-    html, body {
+      html, body {
       overflow-x: hidden;
       max-width: 100%;
+    }
+
+    /* 모바일 가로 삐져나옴 방지 */
+    @media(max-width: 768px) {
+      .product-hero { grid-template-columns: 1fr; gap: 32px; }
+      .gallery { position: static; }
+      .moq-grid { grid-template-columns: 1fr; max-width: 100%; }
+      .steps { min-width: 0; }
+      .step { min-width: 0; }
+      .specs-row { min-width: 0; }
+      .gallery-thumbs { min-width: 0; }
+      img { max-width: 100%; }
     }
   </style>
 
@@ -750,7 +761,7 @@
               <div class="step-num">01</div>
               <div class="step-body">
                 <h4>Cleanse</h4>
-                <p>Use BARION Foam Cleanser No.1 or preferred gentle cleanser.</p>
+                <p>Use preferred gentle cleanser.</p>
               </div>
             </div>
             <div class="step">
