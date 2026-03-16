@@ -275,7 +275,6 @@ nav {
   opacity: 0.5;
   line-height: 1;
 }
-.protocol-title-block {}
 .protocol-cat {
   font-size: 10px;
   letter-spacing: 2.5px;
@@ -504,6 +503,184 @@ footer {
   text-align: right;
 }
 
+/* PRODUCT IMAGE */
+.product-img-wrap {
+  width: 100%;
+  aspect-ratio: 4/3;
+  border-radius: 10px;
+  overflow: hidden;
+  margin-bottom: 1.2rem;
+  position: relative;
+  background: var(--bg-secondary);
+}
+.product-img-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s ease;
+}
+.product-card:hover .product-img-wrap img {
+  transform: scale(1.04);
+}
+.product-img-placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  color: rgba(201,162,77,0.3);
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+/* TRUST BAR */
+.trust-bar {
+  background: rgba(201,162,77,0.04);
+  border-top: 1px solid rgba(201,162,77,0.12);
+  border-bottom: 1px solid rgba(201,162,77,0.12);
+  padding: 1.4rem 30px;
+  overflow: hidden;
+}
+.trust-bar-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  gap: 2.5rem;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+}
+.trust-stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  min-width: 100px;
+}
+.trust-stat-num {
+  font-family: 'Orbitron', monospace;
+  font-size: 1.5rem;
+  font-weight: 700;
+  background: var(--gradient-gold);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  line-height: 1;
+}
+.trust-stat-label {
+  font-size: 10px;
+  color: var(--text-muted);
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+/* MANUFACTURING SECTION */
+.mfg-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 1.2rem;
+  margin-bottom: 3rem;
+}
+.mfg-card {
+  background: var(--bg-card);
+  border: 1px solid rgba(201,162,77,0.1);
+  border-radius: 14px;
+  padding: 1.4rem 1.6rem;
+}
+.mfg-icon {
+  font-size: 1.3rem;
+  color: var(--gold-primary);
+  margin-bottom: 10px;
+}
+.mfg-title {
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: var(--text-primary);
+  margin-bottom: 6px;
+}
+.mfg-desc {
+  font-size: 0.83rem;
+  color: var(--text-secondary);
+  line-height: 1.65;
+}
+
+/* MARKET MAP */
+.market-section {
+  margin-top: 2rem;
+}
+.market-title {
+  font-size: 10px;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: var(--gold-primary);
+  margin-bottom: 1rem;
+}
+.market-regions {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 1rem;
+}
+.market-region {
+  background: var(--bg-card);
+  border: 1px solid rgba(201,162,77,0.1);
+  border-radius: 12px;
+  padding: 1rem 1.2rem;
+}
+.region-name {
+  font-size: 11px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--gold-primary);
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.region-countries {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+.country-tag {
+  font-size: 10px;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.08);
+  color: var(--text-secondary);
+  padding: 2px 8px;
+  border-radius: 8px;
+}
+
+/* KEY INGREDIENT BADGES */
+.ingredient-badges {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: 1.5rem;
+}
+.ingr-badge {
+  background: linear-gradient(135deg, rgba(201,162,77,0.12) 0%, rgba(229,193,110,0.08) 100%);
+  border: 1px solid rgba(201,162,77,0.3);
+  border-radius: 10px;
+  padding: 0.7rem 1.2rem;
+  text-align: center;
+}
+.ingr-badge-name {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--gold-light);
+  letter-spacing: 0.5px;
+}
+.ingr-badge-desc {
+  font-size: 10px;
+  color: var(--text-muted);
+  margin-top: 2px;
+}
+
 /* MOBILE */
 @media (max-width: 768px) {
   .hero { padding: 120px 20px 60px; }
@@ -519,6 +696,10 @@ footer {
   footer { flex-direction: column; text-align: center; }
   .footer-right { text-align: center; }
   .cred-bar { gap: 1rem; }
+  .trust-bar-inner { justify-content: center; gap: 1.5rem; }
+  .mfg-grid { grid-template-columns: 1fr; }
+  .market-regions { grid-template-columns: 1fr 1fr; }
+  .ingredient-badges { gap: 8px; }
 }
 </style>
 </head>
@@ -553,6 +734,32 @@ footer {
   </div>
 </div>
 
+<!-- TRUST BAR -->
+<div class="trust-bar">
+  <div class="trust-bar-inner">
+    <div class="trust-stat">
+      <div class="trust-stat-num">25+</div>
+      <div class="trust-stat-label">Export Markets</div>
+    </div>
+    <div class="trust-stat">
+      <div class="trust-stat-num">ISO</div>
+      <div class="trust-stat-label">22716 + 9001 Certified</div>
+    </div>
+    <div class="trust-stat">
+      <div class="trust-stat-num">95%+</div>
+      <div class="trust-stat-label">Sample Success Rate</div>
+    </div>
+    <div class="trust-stat">
+  <div class="trust-stat-num">2016</div>
+  <div class="trust-stat-label">Est. · Seoul, Korea</div>
+</div>
+    <div class="trust-stat">
+      <div class="trust-stat-num">OWN</div>
+      <div class="trust-stat-label">Factory · No Outsourcing</div>
+    </div>
+  </div>
+</div>
+
 <hr class="divider">
 
 <!-- PRODUCTS SECTION -->
@@ -565,6 +772,14 @@ footer {
 
     <!-- PDRN Regenerative Serum -->
     <div class="product-card">
+      <div class="product-img-wrap">
+        <img src="images/products/pdrenza-serum.jpg" alt="PDRN Regenerative Serum"
+          onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+        <div class="product-img-placeholder" style="display:none;">
+          <i class="fas fa-flask" style="font-size:2rem;opacity:0.3;"></i>
+          <span>PDRENZA SERUM</span>
+        </div>
+      </div>
       <div class="product-category">Anti-Aging · Regeneration</div>
       <div class="product-name">PDRN Regenerative Serum</div>
       <div class="product-volume">50ml / 1.69 fl.oz</div>
@@ -585,6 +800,14 @@ footer {
 
     <!-- PDRN Repair Cream -->
     <div class="product-card">
+      <div class="product-img-wrap">
+        <img src="images/products/pdrenza-cream.jpg" alt="PDRN Intensive Repair Cream"
+          onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+        <div class="product-img-placeholder" style="display:none;">
+          <i class="fas fa-jar" style="font-size:2rem;opacity:0.3;"></i>
+          <span>PDRENZA CREAM</span>
+        </div>
+      </div>
       <div class="product-category">Barrier Repair · Anti-Aging</div>
       <div class="product-name">PDRN Intensive Repair Cream</div>
       <div class="product-volume">50ml / 1.69 fl.oz</div>
@@ -605,6 +828,14 @@ footer {
 
     <!-- 7-Collagen Serum -->
     <div class="product-card">
+      <div class="product-img-wrap">
+        <img src="images/products/collagen-serum.jpg" alt="7-Collagen Density Serum"
+          onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+        <div class="product-img-placeholder" style="display:none;">
+          <i class="fas fa-flask" style="font-size:2rem;opacity:0.3;"></i>
+          <span>COLLAGEN SERUM</span>
+        </div>
+      </div>
       <div class="product-category">Elasticity · Volume · Cooling</div>
       <div class="product-name">7-Collagen Density Serum</div>
       <div class="product-volume">50ml / 1.69 fl.oz</div>
@@ -625,6 +856,14 @@ footer {
 
     <!-- Vita-K Repair Mask -->
     <div class="product-card">
+      <div class="product-img-wrap">
+        <img src="images/products/vitak-mask.jpg" alt="Vita-K Repair Mask"
+          onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+        <div class="product-img-placeholder" style="display:none;">
+          <i class="fas fa-star-of-life" style="font-size:2rem;opacity:0.3;"></i>
+          <span>VITA-K REPAIR MASK</span>
+        </div>
+      </div>
       <div class="product-category">Post-Procedure · Soothing</div>
       <div class="product-name">Vita-K Repair Mask</div>
       <div class="product-volume">30ml × 10ea</div>
@@ -645,6 +884,14 @@ footer {
 
     <!-- Vita-K Repair Cream -->
     <div class="product-card">
+      <div class="product-img-wrap">
+        <img src="images/products/vitak-cream.jpg" alt="Vita-K Repair Cream"
+          onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+        <div class="product-img-placeholder" style="display:none;">
+          <i class="fas fa-jar" style="font-size:2rem;opacity:0.3;"></i>
+          <span>VITA-K REPAIR CREAM</span>
+        </div>
+      </div>
       <div class="product-category">Post-Procedure · Brightening</div>
       <div class="product-name">Vita-K Repair Cream</div>
       <div class="product-volume">30ml</div>
@@ -665,6 +912,14 @@ footer {
 
     <!-- Active Protection Sun Serum -->
     <div class="product-card">
+      <div class="product-img-wrap">
+        <img src="images/products/sun-serum.jpg" alt="Active Protection Sun Serum"
+          onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+        <div class="product-img-placeholder" style="display:none;">
+          <i class="fas fa-sun" style="font-size:2rem;opacity:0.3;"></i>
+          <span>SUN SERUM SPF50+</span>
+        </div>
+      </div>
       <div class="product-category">Sun Protection · Brightening</div>
       <div class="product-name">Active Protection Sun Serum</div>
       <div class="product-volume">50ml — SPF 50+ PA++++</div>
@@ -685,6 +940,14 @@ footer {
 
     <!-- Day & Night Dual Cream -->
     <div class="product-card">
+      <div class="product-img-wrap">
+        <img src="images/products/mela-dual.jpg" alt="24H Brightening Dual Cream"
+          onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+        <div class="product-img-placeholder" style="display:none;">
+          <i class="fas fa-jar" style="font-size:2rem;opacity:0.3;"></i>
+          <span>MELA DUAL CREAM</span>
+        </div>
+      </div>
       <div class="product-category">Brightening · Anti-Aging</div>
       <div class="product-name">24H Brightening Dual Cream</div>
       <div class="product-volume">75ml — Day 25ml (SPF10) + Night 50ml</div>
@@ -706,6 +969,14 @@ footer {
 
     <!-- Balance Line -->
     <div class="product-card">
+      <div class="product-img-wrap">
+        <img src="images/products/balance-line.jpg" alt="Balance Mildly Acidic Line"
+          onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+        <div class="product-img-placeholder" style="display:none;">
+          <i class="fas fa-droplet" style="font-size:2rem;opacity:0.3;"></i>
+          <span>BALANCE LINE</span>
+        </div>
+      </div>
       <div class="product-category">Acne · Sensitive · Barrier</div>
       <div class="product-name">Balance Mildly Acidic Line</div>
       <div class="product-volume">Cleansing Gel · Toner · Serum · Cream</div>
@@ -724,6 +995,125 @@ footer {
       </div>
     </div>
 
+  </div>
+</div>
+
+<hr class="divider">
+
+<!-- MANUFACTURING CREDENTIALS SECTION -->
+<div class="section">
+  <div class="section-eyebrow">Why Korean Clinic-Grade</div>
+  <h2 class="section-title">Manufacturing Excellence</h2>
+  <p class="section-desc">Every product in this line is manufactured directly by CMED Cosmetics — a dedicated production facility in Seoul with full in-house R&D, clean room systems, and global certification. No subcontracting. No shared formulas.</p>
+
+  <div class="mfg-grid">
+    <div class="mfg-card">
+      <div class="mfg-icon"><i class="fas fa-certificate"></i></div>
+      <div class="mfg-title">ISO 22716 Cosmetic GMP</div>
+      <div class="mfg-desc">Full compliance with international Good Manufacturing Practice standards for cosmetics. Every batch produced under certified conditions.</div>
+    </div>
+    <div class="mfg-card">
+      <div class="mfg-icon"><i class="fas fa-shield-halved"></i></div>
+      <div class="mfg-title">ISO 9001 Quality Management</div>
+      <div class="mfg-desc">End-to-end quality management system covering formulation, production, and delivery. Consistent product quality across every order.</div>
+    </div>
+    <div class="mfg-card">
+      <div class="mfg-icon"><i class="fas fa-flask-vial"></i></div>
+      <div class="mfg-title">In-House R&D Lab</div>
+      <div class="mfg-desc">PhD-led research team. 95%+ sample success rate. Formulations developed from Korean dermatological science — not off-the-shelf bases.</div>
+    </div>
+    <div class="mfg-card">
+      <div class="mfg-icon"><i class="fas fa-lock"></i></div>
+      <div class="mfg-title">1 Brand : 1 Formula Principle</div>
+      <div class="mfg-desc">No shared formulas between clients. Strict IP protection policy. All proprietary ingredients and market information treated as confidential.</div>
+    </div>
+    <div class="mfg-card">
+      <div class="mfg-icon"><i class="fas fa-industry"></i></div>
+      <div class="mfg-title">Direct Factory Production</div>
+      <div class="mfg-desc">All products manufactured in-house at CMED's own Seoul facility — clean room system, automated filling lines, and direct quality control.</div>
+    </div>
+    <div class="mfg-card">
+      <div class="mfg-icon"><i class="fas fa-file-lines"></i></div>
+      <div class="mfg-title">Full Export Documentation</div>
+      <div class="mfg-desc">COA, MSDS, INCI lists, and ingredient safety data available. Customs, labeling, and regulatory support for target markets on request.</div>
+    </div>
+  </div>
+
+  <!-- KEY INGREDIENT SYSTEM -->
+  <div class="section-eyebrow" style="margin-top:2.5rem;">Core Active System</div>
+  <div class="ingredient-badges">
+    <div class="ingr-badge">
+      <div class="ingr-badge-name">PDRN</div>
+      <div class="ingr-badge-desc">Polydeoxyribonucleotide · Cellular Regeneration</div>
+    </div>
+    <div class="ingr-badge">
+      <div class="ingr-badge-name">NMN</div>
+      <div class="ingr-badge-desc">Nicotinamide Mononucleotide · Cellular Energy</div>
+    </div>
+    <div class="ingr-badge">
+      <div class="ingr-badge-name">Pearl Tomato®</div>
+      <div class="ingr-badge-desc">Patented · Brightening & Antioxidant</div>
+    </div>
+    <div class="ingr-badge">
+      <div class="ingr-badge-name">Peptide Complex</div>
+      <div class="ingr-badge-desc">40+ Types · Elasticity & Firmness</div>
+    </div>
+    <div class="ingr-badge">
+      <div class="ingr-badge-name">SLIMEXIR®</div>
+      <div class="ingr-badge-desc">Patented · Contouring & Firming</div>
+    </div>
+  </div>
+
+  <!-- GLOBAL MARKET MAP -->
+  <div class="market-section">
+    <div class="section-eyebrow" style="margin-top:3rem; margin-bottom:0.5rem;">Active Distribution</div>
+    <p style="font-size:0.88rem; color:var(--text-muted); margin-bottom:1.2rem;">Manufactured in Seoul. Currently distributed across 25+ countries through clinic and distribution partnerships.</p>
+    <div class="market-regions">
+      <div class="market-region">
+        <div class="region-name"><i class="fas fa-circle" style="font-size:6px;"></i> Asia Pacific</div>
+        <div class="region-countries">
+          <span class="country-tag">Korea</span>
+          <span class="country-tag">Japan</span>
+          <span class="country-tag">Malaysia</span>
+          <span class="country-tag">Singapore</span>
+          <span class="country-tag">Vietnam</span>
+          <span class="country-tag">Indonesia</span>
+          <span class="country-tag">Taiwan</span>
+          <span class="country-tag">China</span>
+        </div>
+      </div>
+      <div class="market-region">
+        <div class="region-name"><i class="fas fa-circle" style="font-size:6px;"></i> Middle East</div>
+        <div class="region-countries">
+          <span class="country-tag">UAE</span>
+          <span class="country-tag">Qatar</span>
+          <span class="country-tag">Saudi Arabia</span>
+        </div>
+      </div>
+      <div class="market-region">
+        <div class="region-name"><i class="fas fa-circle" style="font-size:6px;"></i> Europe / CIS</div>
+        <div class="region-countries">
+          <span class="country-tag">Russia</span>
+          <span class="country-tag">Belarus</span>
+          <span class="country-tag">Kazakhstan</span>
+          <span class="country-tag">Armenia</span>
+          <span class="country-tag">Azerbaijan</span>
+          <span class="country-tag">France</span>
+          <span class="country-tag">Sweden</span>
+          <span class="country-tag">Ukraine</span>
+        </div>
+      </div>
+      <div class="market-region">
+        <div class="region-name"><i class="fas fa-circle" style="font-size:6px;"></i> Americas & Others</div>
+        <div class="region-countries">
+          <span class="country-tag">Canada</span>
+          <span class="country-tag">USA</span>
+          <span class="country-tag">Australia</span>
+          <span class="country-tag">India</span>
+          <span class="country-tag">Kenya</span>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
 
@@ -983,7 +1373,7 @@ footer {
       <a href="https://wa.me/601116023115?text=Hello%20KORVEX%2C%20I'm%20interested%20in%20the%20Selected%20Line%20products" target="_blank" class="btn-gold">
         <i class="fab fa-whatsapp"></i> WhatsApp Us
       </a>
-      <a href="mailto:contact@korvexgrp.com" class="btn-outline">
+      <a href="/cdn-cgi/l/email-protection#abc8c4c5dfcac8dfebc0c4d9ddced3ccd9db85c8c4c6" class="btn-outline">
         <i class="fas fa-envelope"></i> Send Email
       </a>
     </div>
@@ -1001,16 +1391,4 @@ footer {
   <div class="footer-logo">KORVEX</div>
   <div class="footer-right">
     Korean Clinic-Grade Skincare — Built for Distribution<br>
-    Seoul · Kuala Lumpur · contact@korvexgrp.com
-  </div>
-</footer>
-
-<script>
-function toggleProtocol(id) {
-  const card = document.getElementById(id);
-  card.classList.toggle('open');
-}
-</script>
-
-</body>
-</html>
+    Seoul · Kuala Lumpur · <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="cfaca0a1bbaeacbb8fa4a0bdb9aab7a8bdbfe1aca0a2">[email&#160;protected]</
