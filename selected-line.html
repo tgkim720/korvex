@@ -252,42 +252,7 @@ nav {
   border-radius: 16px;
   overflow: hidden;
 }
-.protocol-card-header {
-  display: grid;
-  grid-template-columns: 60px 1fr auto;
-  align-items: center;
-  padding: 1.5rem 1.8rem;
-  gap: 16px;
-  cursor: pointer;
-  transition: background 0.2s;
-}
-.protocol-card-header:hover {
-  background: rgba(201,162,77,0.04);
-}
-.protocol-num {
-  font-family: 'Orbitron', monospace;
-  font-size: 1.8rem;
-  font-weight: 700;
-  background: var(--gradient-gold);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  opacity: 0.5;
-  line-height: 1;
-}
-.protocol-cat {
-  font-size: 10px;
-  letter-spacing: 2.5px;
-  text-transform: uppercase;
-  color: var(--gold-primary);
-  margin-bottom: 4px;
-}
-.protocol-name {
-  font-weight: 600;
-  font-size: 1.05rem;
-  color: var(--text-primary);
-  line-height: 1.3;
-}
+
 .protocol-badge {
   font-size: 10px;
   background: rgba(201,162,77,0.1);
@@ -715,15 +680,94 @@ footer {
   line-height: 2;
 }
 
+/* PROTOCOL KEYWORD HEADER */
+.protocol-keyword {
+  font-family: 'Orbitron', monospace;
+  font-size: clamp(1rem, 2.5vw, 1.5rem);
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1.2;
+  margin-bottom: 6px;
+}
+.protocol-empathy {
+  font-size: 0.83rem;
+  color: var(--text-muted);
+  font-style: italic;
+}
+.protocol-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.6rem 1.8rem;
+  gap: 16px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.protocol-header-right {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+}
+.step-timing-clinic {
+  color: #E5C16E;
+  font-weight: 700;
+  font-size: 0.78rem;
+  white-space: nowrap;
+  min-width: 110px;
+  letter-spacing: 0.3px;
+}
+.step-timing-home {
+  color: var(--gold-primary);
+  font-weight: 500;
+  font-size: 0.78rem;
+  white-space: nowrap;
+  min-width: 110px;
+}
+
+/* FILTER TABS */
+.filter-bar {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 2rem;
+}
+.filter-btn {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  padding: 7px 16px;
+  border-radius: 20px;
+  border: 1px solid rgba(201,162,77,0.25);
+  color: var(--text-muted);
+  background: transparent;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.filter-btn:hover {
+  border-color: rgba(201,162,77,0.5);
+  color: var(--gold-light);
+}
+.filter-btn.active {
+  background: rgba(201,162,77,0.12);
+  border-color: var(--gold-primary);
+  color: var(--gold-light);
+}
+.product-card {
+  transition: opacity 0.25s, transform 0.25s;
+}
+.product-card.hidden {
+  display: none;
+}
+
 /* MOBILE */
 @media (max-width: 768px) {
   .hero { padding: 120px 20px 60px; }
   .section { padding: 3rem 20px; }
   .section-full { padding: 3rem 20px; }
-  .protocol-card-header {
-    grid-template-columns: 45px 1fr;
-    gap: 12px;
-  }
+  .protocol-card-header { padding: 1.2rem 1.4rem; gap: 10px; }
+  .protocol-keyword { font-size: 1rem; }
   .protocol-badge { display: none; }
   .steps-table { display: block; overflow-x: auto; }
   .cta-section { padding: 2rem 1.5rem; }
@@ -801,14 +845,22 @@ footer {
 <div class="section">
   <div class="section-eyebrow">Product Line</div>
   <h2 class="section-title">Clinical Skincare Formulations</h2>
-  <p class="section-desc">Each product is selected for its compatibility with clinic workflows — from post-procedure recovery to daily maintenance protocols.</p>
+  <p class="section-desc">Selected for compatibility with clinic workflows — from post-procedure recovery to daily maintenance.</p>
+
+  <div class="filter-bar">
+    <button class="filter-btn active" onclick="filterProducts('all', this)">All</button>
+    <button class="filter-btn" onclick="filterProducts('anti-aging', this)">Anti-Aging</button>
+    <button class="filter-btn" onclick="filterProducts('barrier', this)">Barrier Repair</button>
+    <button class="filter-btn" onclick="filterProducts('post-laser', this)">Post-Laser · RF</button>
+    <button class="filter-btn" onclick="filterProducts('texture', this)">Skin Texture</button>
+  </div>
 
   <div class="product-grid">
 
-    <!-- PDRN Regenerative Serum -->
-    <div class="product-card">
+    <!-- PDRENZA Serum -->
+    <div class="product-card" data-cat="anti-aging post-laser barrier">
       <div class="product-img-wrap">
-        <img src="images/products/pdrenza-serum.jpg" alt="PDRN Regenerative Serum"
+        <img src="https://raw.githubusercontent.com/tgkim720/product_images/main/GTM/Collagen_serum.png" alt="PDRENZA Serum"
           onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
         <div class="product-img-placeholder" style="display:none;">
           <i class="fas fa-flask" style="font-size:2rem;opacity:0.3;"></i>
@@ -816,28 +868,28 @@ footer {
         </div>
       </div>
       <div class="product-category">Intensive First Serum · Anti-Aging</div>
-<div class="product-name">PDRENZA Intensive Serum</div>
-<div class="product-volume">50ml / 1.69 fl.oz — Dual Function Certified</div>
-<div class="product-desc">
-  PDRN × NMN × Pearl Tomato® synergy ampoule serum. Helps restore skin condition weakened by dryness and fatigue — delivering lasting hydration with a lightweight, fast-absorbing texture and a fresh, non-sticky finish.
-</div>
-<div class="product-ingredients">
-  <span class="ingredient-tag">PDRN Complex</span>
-  <span class="ingredient-tag">NMN Energy Care</span>
-  <span class="ingredient-tag">Pearl Tomato®</span>
-  <span class="ingredient-tag">Multi-HA Complex</span>
-  <span class="ingredient-tag">Peptide Care Network</span>
-</div>
-<div class="product-use">
-  <span class="use-dot"></span>
-  Skin booster home care · Post-procedure maintenance · Daily anti-aging · Brightening + Wrinkle (KFD Certified)
-</div>
+      <div class="product-name">PDRENZA Intensive Serum</div>
+      <div class="product-volume">50ml / 1.69 fl.oz — Dual Function Certified</div>
+      <div class="product-desc">
+        PDRN × NMN × Pearl Tomato® synergy ampoule serum. Restores skin condition weakened by dryness and fatigue — lightweight, fast-absorbing, non-sticky finish.
+      </div>
+      <div class="product-ingredients">
+        <span class="ingredient-tag">PDRN Complex</span>
+        <span class="ingredient-tag">NMN Energy Care</span>
+        <span class="ingredient-tag">Pearl Tomato®</span>
+        <span class="ingredient-tag">Multi-HA Complex</span>
+        <span class="ingredient-tag">Peptide Care Network</span>
+      </div>
+      <div class="product-use">
+        <span class="use-dot"></span>
+        Skin booster home care · Post-procedure maintenance · Daily anti-aging
+      </div>
     </div>
 
-    <!-- PDRN Repair Cream -->
-    <div class="product-card">
+    <!-- PDRENZA Cream -->
+    <div class="product-card" data-cat="anti-aging barrier">
       <div class="product-img-wrap">
-        <img src="images/products/pdrenza-cream.jpg" alt="PDRN Intensive Repair Cream"
+        <img src="images/products/pdrenza-cream.jpg" alt="PDRENZA Cream"
           onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
         <div class="product-img-placeholder" style="display:none;">
           <i class="fas fa-jar" style="font-size:2rem;opacity:0.3;"></i>
@@ -845,28 +897,28 @@ footer {
         </div>
       </div>
       <div class="product-category">Intensive Moisture · Anti-Aging</div>
-<div class="product-name">PDRENZA Intensive Cream</div>
-<div class="product-volume">50ml / 1.69 fl.oz — Dual Function Certified</div>
-<div class="product-desc">
-  PDRN × NMN × Pearl Tomato® intensive moisture-elasticity cream. Melting texture wraps the skin without heaviness — minimal shine, lasting hydration. Helps dry and combination skin maintain all-day comfort and firmness.
-</div>
-<div class="product-ingredients">
-  <span class="ingredient-tag">PDRN Moisture Matrix</span>
-  <span class="ingredient-tag">NMN Vitalizing System</span>
-  <span class="ingredient-tag">Pearl Tomato®</span>
-  <span class="ingredient-tag">Ceramide & Multi-HA</span>
-  <span class="ingredient-tag">Peptide Elasticity Support</span>
-</div>
-<div class="product-use">
-  <span class="use-dot"></span>
-  Daily moisture · Barrier reinforcement · Anti-aging · Brightening + Wrinkle (KFD Certified)
-</div>
+      <div class="product-name">PDRENZA Intensive Cream</div>
+      <div class="product-volume">50ml / 1.69 fl.oz — Dual Function Certified</div>
+      <div class="product-desc">
+        PDRN × NMN × Pearl Tomato® moisture-elasticity cream. Melting texture — minimal shine, lasting hydration, non-sticky finish for all skin types.
+      </div>
+      <div class="product-ingredients">
+        <span class="ingredient-tag">PDRN Moisture Matrix</span>
+        <span class="ingredient-tag">NMN Vitalizing System</span>
+        <span class="ingredient-tag">Pearl Tomato®</span>
+        <span class="ingredient-tag">Ceramide & Multi-HA</span>
+        <span class="ingredient-tag">Peptide Elasticity Support</span>
+      </div>
+      <div class="product-use">
+        <span class="use-dot"></span>
+        Daily moisture · Barrier reinforcement · Anti-aging
+      </div>
     </div>
 
     <!-- 7-Collagen Serum -->
-    <div class="product-card">
+    <div class="product-card" data-cat="anti-aging">
       <div class="product-img-wrap">
-        <img src="images/products/collagen-serum.jpg" alt="7-Collagen Density Serum"
+        <img src="images/products/collagen-serum.jpg" alt="7-Collagen Boost Serum"
           onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
         <div class="product-img-placeholder" style="display:none;">
           <i class="fas fa-flask" style="font-size:2rem;opacity:0.3;"></i>
@@ -874,26 +926,26 @@ footer {
         </div>
       </div>
       <div class="product-category">Collagen Density · Elasticity · Cooling</div>
-<div class="product-name">7-Collagen Boost Serum</div>
-<div class="product-volume">50ml / 1.69 fl.oz — Dual Function Certified</div>
-<div class="product-desc">
-  7-Collagen System × 10-HA × 10-Peptide × METACool™ premium ampoule. Multi-layered hydration structure with a firm, elastic texture that absorbs quickly — fresh finish with no stickiness. Targets volume loss and skin fatigue.
-</div>
-<div class="product-ingredients">
-  <span class="ingredient-tag">7-Collagen System</span>
-  <span class="ingredient-tag">10-Peptide Complex</span>
-  <span class="ingredient-tag">10-HA Complex</span>
-  <span class="ingredient-tag">METACool™</span>
-  <span class="ingredient-tag">Sodium DNA</span>
-</div>
-<div class="product-use">
-  <span class="use-dot"></span>
-  Volume & elasticity care · Skin booster maintenance · Sensitive/reactive skin · Brightening + Wrinkle (KFD Certified)
-</div>
+      <div class="product-name">7-Collagen Boost Serum</div>
+      <div class="product-volume">50ml / 1.69 fl.oz — Dual Function Certified</div>
+      <div class="product-desc">
+        7-Collagen System × 10-HA × 10-Peptide × METACool™. Multi-layered hydration, firm elastic texture. Targets volume loss and skin fatigue.
+      </div>
+      <div class="product-ingredients">
+        <span class="ingredient-tag">7-Collagen System</span>
+        <span class="ingredient-tag">10-Peptide Complex</span>
+        <span class="ingredient-tag">10-HA Complex</span>
+        <span class="ingredient-tag">METACool™</span>
+        <span class="ingredient-tag">Sodium DNA</span>
+      </div>
+      <div class="product-use">
+        <span class="use-dot"></span>
+        Volume & elasticity care · Booster maintenance · Sensitive skin
+      </div>
     </div>
 
     <!-- Vita-K Repair Cream -->
-    <div class="product-card">
+    <div class="product-card" data-cat="barrier post-laser">
       <div class="product-img-wrap">
         <img src="images/products/vitak-cream.jpg" alt="Vita-K Repair Cream"
           onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
@@ -903,26 +955,26 @@ footer {
         </div>
       </div>
       <div class="product-category">Post-Procedure Aftercare · Calming</div>
-<div class="product-name">Vita-K Repair Cream</div>
-<div class="product-volume">30ml — Dual Function Certified</div>
-<div class="product-desc">
-  Intensive soothing aftercare cream for post-laser, post-peel, and reactive skin. Vitamin K synergy (Menadione + Natural Vit-K Complex) rapidly calms redness. Squalane + Panthenol rebuilds the barrier. Niacinamide + Adenosine for tone and firmness.
-</div>
-<div class="product-ingredients">
-  <span class="ingredient-tag">Vitamin K (Menadione)</span>
-  <span class="ingredient-tag">Natural Vit-K Complex</span>
-  <span class="ingredient-tag">Squalane + Panthenol</span>
-  <span class="ingredient-tag">Niacinamide</span>
-  <span class="ingredient-tag">Adenosine</span>
-</div>
-<div class="product-use">
-  <span class="use-dot"></span>
-  Post-laser · Post-peel · Redness reduction · Barrier repair · Daily aftercare
-</div>
+      <div class="product-name">Vita-K Repair Cream</div>
+      <div class="product-volume">30ml — Dual Function Certified</div>
+      <div class="product-desc">
+        Vitamin K synergy rapidly calms post-laser redness. Squalane + Panthenol rebuilds the barrier. Niacinamide + Adenosine for tone and firmness.
+      </div>
+      <div class="product-ingredients">
+        <span class="ingredient-tag">Vitamin K (Menadione)</span>
+        <span class="ingredient-tag">Natural Vit-K Complex</span>
+        <span class="ingredient-tag">Squalane + Panthenol</span>
+        <span class="ingredient-tag">Niacinamide</span>
+        <span class="ingredient-tag">Adenosine</span>
+      </div>
+      <div class="product-use">
+        <span class="use-dot"></span>
+        Post-laser · Post-peel · Redness reduction · Barrier repair
+      </div>
     </div>
 
     <!-- Active Protection Sun Serum -->
-    <div class="product-card">
+    <div class="product-card" data-cat="post-laser">
       <div class="product-img-wrap">
         <img src="images/products/sun-serum.jpg" alt="Active Protection Sun Serum"
           onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
@@ -931,23 +983,81 @@ footer {
           <span>SUN SERUM SPF50+</span>
         </div>
       </div>
-     <div class="product-category">Sun Protection · Brightening · Moisture</div>
-<div class="product-name">Active Protection Sun Serum</div>
-<div class="product-volume">50ml — SPF 50+ PA++++</div>
-<div class="product-desc">
-  Watery, non-sticky serum texture that spreads smoothly and absorbs fast — no white cast, no pilling. Blocks both UVA and UVB year-round. Madecassoside + Panthenol calm and protect; Trehalose + Glycerin maintain deep hydration.
-</div>
-<div class="product-ingredients">
-  <span class="ingredient-tag">Madecassoside</span>
-  <span class="ingredient-tag">Panthenol</span>
-  <span class="ingredient-tag">Niacinamide</span>
-  <span class="ingredient-tag">Tromethamine</span>
-  <span class="ingredient-tag">Trehalose</span>
-</div>
-<div class="product-use">
-  <span class="use-dot"></span>
-  Daily AM · Post-procedure UV block · Brightening protocol · Apply 30 min before sun exposure
-</div>
+      <div class="product-category">Sun Protection · Brightening · Moisture</div>
+      <div class="product-name">Active Protection Sun Serum</div>
+      <div class="product-volume">50ml — SPF 50+ PA++++</div>
+      <div class="product-desc">
+        Watery, non-sticky, no white cast. Blocks UVA + UVB year-round. Madecassoside + Panthenol calm; Trehalose + Glycerin hydrate.
+      </div>
+      <div class="product-ingredients">
+        <span class="ingredient-tag">Madecassoside</span>
+        <span class="ingredient-tag">Panthenol</span>
+        <span class="ingredient-tag">Niacinamide</span>
+        <span class="ingredient-tag">Tromethamine</span>
+        <span class="ingredient-tag">Trehalose</span>
+      </div>
+      <div class="product-use">
+        <span class="use-dot"></span>
+        Daily AM · Post-procedure UV block · Brightening protocol
+      </div>
+    </div>
+
+    <!-- Pepticule Ampoule -->
+    <div class="product-card" data-cat="texture">
+      <div class="product-img-wrap">
+        <img src="images/products/pepticule-ampoule.jpg" alt="Pepticule Spicule Ampoule"
+          onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+        <div class="product-img-placeholder" style="display:none;">
+          <i class="fas fa-syringe" style="font-size:2rem;opacity:0.3;"></i>
+          <span>PEPTICULE AMPOULE</span>
+        </div>
+      </div>
+      <div class="product-category">Spicule · Peptide · Home Aesthetic</div>
+      <div class="product-name">Pepticule Spicule Ampoule</div>
+      <div class="product-volume">10ml × 3ea</div>
+      <div class="product-desc">
+        4th-gen plant PDRN spicule × 8-type peptide × Vitamin B12. Hydrogel spicules open micro-channels for deep active delivery — spa-grade treatment in one roll.
+      </div>
+      <div class="product-ingredients">
+        <span class="ingredient-tag">Hydrogel Spicule</span>
+        <span class="ingredient-tag">Phyto PDRN Cica</span>
+        <span class="ingredient-tag">8-Type Peptides</span>
+        <span class="ingredient-tag">Vitamin B12</span>
+        <span class="ingredient-tag">Fullerene</span>
+      </div>
+      <div class="product-use">
+        <span class="use-dot"></span>
+        In-clinic treatment · Home aesthetic · Post-procedure texture care
+      </div>
+    </div>
+
+    <!-- Pepticule Gold Cream -->
+    <div class="product-card" data-cat="anti-aging texture">
+      <div class="product-img-wrap">
+        <img src="images/products/pepticule-cream.jpg" alt="Pepticule Gold Cream"
+          onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+        <div class="product-img-placeholder" style="display:none;">
+          <i class="fas fa-jar" style="font-size:2rem;opacity:0.3;"></i>
+          <span>PEPTICULE GOLD CREAM</span>
+        </div>
+      </div>
+      <div class="product-category">Spicule · Firming · Anti-Aging</div>
+      <div class="product-name">Pepticule Gold Cream</div>
+      <div class="product-volume">50ml</div>
+      <div class="product-desc">
+        Peptide Complex + Gold Capsules for firmness, Hydrogel Spicules for texture, Vitamin B12 + Fullerene for radiance. Collagen & Ceramide barrier for overnight repair.
+      </div>
+      <div class="product-ingredients">
+        <span class="ingredient-tag">Gold Capsules</span>
+        <span class="ingredient-tag">Hydrogel Spicule</span>
+        <span class="ingredient-tag">8-Type Peptides</span>
+        <span class="ingredient-tag">Vitamin B12</span>
+        <span class="ingredient-tag">Collagen & Ceramide</span>
+      </div>
+      <div class="product-use">
+        <span class="use-dot"></span>
+        Post-spicule treatment · Overnight repair · Clinic retail
+      </div>
     </div>
 
   </div>
@@ -1081,7 +1191,7 @@ footer {
     <div class="section-eyebrow">Clinical Integration</div>
     <h2 class="section-title">Treatment Protocols</h2>
     <p class="section-desc">
-      Each protocol maps specific products to common aesthetic clinic scenarios — enabling clinics to extend treatment results and create home-care retail revenue.
+      Each protocol maps products to real clinic scenarios — covering both in-clinic application and home-care prescription. Tap a protocol that matches your patients' needs.
     </p>
 
     <div class="protocol-list">
@@ -1089,56 +1199,51 @@ footer {
       <!-- PROTOCOL 1 -->
       <div class="protocol-card" id="proto1">
         <div class="protocol-card-header" onclick="toggleProtocol('proto1')">
-          <div class="protocol-num">01</div>
           <div class="protocol-title-block">
-            <div class="protocol-cat">Post-Procedure Recovery</div>
-            <div class="protocol-name">Post-Laser & Energy Treatment Protocol</div>
+            <div class="protocol-keyword">POST-PROCEDURE<br>RECOVERY</div>
+            <div class="protocol-empathy">After laser, RF, or energy-based treatment — skin is reactive and the barrier is compromised</div>
           </div>
-          <div style="display:flex; align-items:center; gap:10px;">
+          <div class="protocol-header-right">
             <span class="protocol-badge">Laser · RF · IPL</span>
             <i class="fas fa-chevron-down protocol-toggle"></i>
           </div>
         </div>
         <div class="protocol-body">
           <p class="protocol-intro">
-            After laser, RF, or energy-based procedures, the skin barrier is compromised and reactive. This protocol uses Vitamin K synergy combined with PDRN-based regeneration to accelerate barrier restoration, suppress redness, and extend treatment results at home.
+            Immediately after energy-based procedures, the priority is barrier sealing and redness suppression. Vitamin K synergy is applied in-clinic for instant calming, followed by PDRN-based topicals to sustain regeneration at home.
           </p>
           <table class="steps-table">
             <thead>
-              <tr>
-                <th>Timing</th>
-                <th>Product</th>
-                <th>Instructions</th>
-              </tr>
+              <tr><th>Timing</th><th>Product</th><th>Instructions</th></tr>
             </thead>
             <tbody>
               <tr>
-                <td class="step-timing-cell">Day 0–3</td>
-                <td class="step-product-cell">Vita-K Repair Mask</td>
-                <td class="step-instruction-cell">Apply immediately post-procedure. Vitamin K complex for instant soothing; ceramide seals compromised barrier. 15–20 min daily for first 3 days.</td>
-              </tr>
-              <tr>
-                <td class="step-timing-cell">Day 1–14</td>
+                <td class="step-timing-clinic">In-Clinic</td>
                 <td class="step-product-cell">Vita-K Repair Cream</td>
-                <td class="step-instruction-cell">AM/PM application. Reduces residual redness, accelerates recovery. Suitable for sensitive and reactive skin post-procedure.</td>
+                <td class="step-instruction-cell">Apply immediately post-procedure. Vitamin K + Natural Vit-K Complex for instant redness suppression. Squalane + Panthenol seal the compromised barrier before the patient leaves.</td>
               </tr>
               <tr>
-                <td class="step-timing-cell">Day 7+</td>
-                <td class="step-product-cell">PDRN Regenerative Serum</td>
-                <td class="step-instruction-cell">Introduce once acute phase subsides. High-purity PDRN + NMN for deeper regeneration and elasticity recovery. AM and PM.</td>
-              </tr>
-              <tr>
-                <td class="step-timing-cell">Daily (AM)</td>
+                <td class="step-timing-clinic">In-Clinic</td>
                 <td class="step-product-cell">Active Protection Sun Serum SPF50+</td>
-                <td class="step-instruction-cell">Non-negotiable for post-laser skin. Non-sticky, non-white cast. Triple function: UV protection + brightening + wrinkle improvement.</td>
+                <td class="step-instruction-cell">Final step before patient exits. Non-sticky, no white cast. UV block is non-negotiable on freshly treated skin.</td>
+              </tr>
+              <tr>
+                <td class="step-timing-home">Home — AM/PM</td>
+                <td class="step-product-cell">Vita-K Repair Cream + PDRENZA Serum</td>
+                <td class="step-instruction-cell">Days 1–14 at home. Vita-K for continued redness reduction. Introduce PDRENZA Serum from Day 3 once acute phase subsides — PDRN + NMN for deeper regeneration.</td>
+              </tr>
+              <tr>
+                <td class="step-timing-home">Home — AM</td>
+                <td class="step-product-cell">Active Protection Sun Serum SPF50+</td>
+                <td class="step-instruction-cell">Daily morning essential. Prevents UV-triggered inflammation and pigmentation on recovering skin.</td>
               </tr>
             </tbody>
           </table>
           <div class="protocol-benefits">
-            <span class="benefit-chip">Barrier Restoration</span>
-            <span class="benefit-chip">Redness Suppression</span>
+            <span class="benefit-chip">Instant Redness Suppression</span>
+            <span class="benefit-chip">Barrier Sealing</span>
             <span class="benefit-chip">PDRN Regeneration</span>
-            <span class="benefit-chip">Sun Protection</span>
+            <span class="benefit-chip">UV Protection</span>
           </div>
         </div>
       </div>
@@ -1146,55 +1251,50 @@ footer {
       <!-- PROTOCOL 2 -->
       <div class="protocol-card" id="proto2">
         <div class="protocol-card-header" onclick="toggleProtocol('proto2')">
-          <div class="protocol-num">02</div>
           <div class="protocol-title-block">
-            <div class="protocol-cat">In-Clinic + Home Care Integration</div>
-            <div class="protocol-name">Skin Booster Add-on Home Care Protocol</div>
+            <div class="protocol-keyword">SKIN BOOSTER<br>CARE</div>
+            <div class="protocol-empathy">After injectable skin boosters — sustain results and increase patient return rate</div>
           </div>
-          <div style="display:flex; align-items:center; gap:10px;">
+          <div class="protocol-header-right">
             <span class="protocol-badge">Booster · MTS · Filler</span>
             <i class="fas fa-chevron-down protocol-toggle"></i>
           </div>
         </div>
         <div class="protocol-body">
           <p class="protocol-intro">
-            Skin booster injections deliver excellent short-term results — but effects diminish without maintenance. This protocol bridges clinic sessions with home-use formulations sharing the same key actives (PDRN, NMN, peptide complexes), sustaining results and increasing patient return rates.
+            Injectable booster results fade without topical maintenance. This protocol extends the effect of in-clinic PDRN/NMN boosters through daily home formulations sharing the same key actives — keeping results visible between sessions and driving repeat visits.
           </p>
           <table class="steps-table">
             <thead>
-              <tr>
-                <th>Timing</th>
-                <th>Product</th>
-                <th>Instructions</th>
-              </tr>
+              <tr><th>Timing</th><th>Product</th><th>Instructions</th></tr>
             </thead>
             <tbody>
               <tr>
-                <td class="step-timing-cell">Clinic</td>
-                <td class="step-product-cell">PDRN Skin Booster (Injectable)</td>
-                <td class="step-instruction-cell">In-clinic administration of high-purity PDRN + NMN + 40+ peptide complex. Available in sterile vials for professional use.</td>
+                <td class="step-timing-clinic">In-Clinic</td>
+                <td class="step-product-cell">PDRENZA Serum</td>
+                <td class="step-instruction-cell">Apply topically after booster injection while channels are open. PDRN + NMN complex penetrates more effectively immediately post-needling. Amplifies in-clinic treatment results.</td>
               </tr>
               <tr>
-                <td class="step-timing-cell">Home — AM/PM</td>
-                <td class="step-product-cell">PDRN Regenerative Serum</td>
-                <td class="step-instruction-cell">Topical continuation of the PDRN-NMN complex. Reinforces elasticity and hydration gains between in-clinic sessions.</td>
+                <td class="step-timing-home">Home — AM/PM</td>
+                <td class="step-product-cell">PDRENZA Serum + PDRENZA Cream</td>
+                <td class="step-instruction-cell">Daily topical continuation of the PDRN-NMN active system. Serum reinforces elasticity; cream provides lasting barrier hydration. Same actives as the booster — continuity matters.</td>
               </tr>
               <tr>
-                <td class="step-timing-cell">Home — AM/PM</td>
+                <td class="step-timing-home">Home — AM/PM</td>
                 <td class="step-product-cell">7-Collagen Density Serum</td>
-                <td class="step-instruction-cell">7 collagen types + 10 peptides + METACool™. Targets volume loss and facial contour maintenance between booster sessions.</td>
+                <td class="step-instruction-cell">7 collagen types + 10 peptides + METACool™. Maintains volume and facial contour between booster sessions. METACool™ provides instant cooling for reactive skin.</td>
               </tr>
               <tr>
-                <td class="step-timing-cell">Weekly</td>
-                <td class="step-product-cell">LHA Peel-Off Brightening Mask</td>
-                <td class="step-instruction-cell">Manages skin turnover. Prevents dead-skin buildup that diminishes skin booster efficacy. Simultaneous peeling and brightening.</td>
+                <td class="step-timing-home">Home — AM</td>
+                <td class="step-product-cell">Active Protection Sun Serum SPF50+</td>
+                <td class="step-instruction-cell">UV protection preserves booster results. Prevents collagen degradation and melanin activation post-treatment.</td>
               </tr>
             </tbody>
           </table>
           <div class="protocol-benefits">
             <span class="benefit-chip">Sustained Booster Results</span>
-            <span class="benefit-chip">Increased Return Rate</span>
             <span class="benefit-chip">PDRN Continuity</span>
+            <span class="benefit-chip">Volume Maintenance</span>
             <span class="benefit-chip">Retail Revenue</span>
           </div>
         </div>
@@ -1203,56 +1303,51 @@ footer {
       <!-- PROTOCOL 3 -->
       <div class="protocol-card" id="proto3">
         <div class="protocol-card-header" onclick="toggleProtocol('proto3')">
-          <div class="protocol-num">03</div>
           <div class="protocol-title-block">
-            <div class="protocol-cat">Brightening & Anti-Aging</div>
-            <div class="protocol-name">Pigmentation Control & Anti-Aging Protocol</div>
+            <div class="protocol-keyword">HOME<br>AESTHETIC</div>
+            <div class="protocol-empathy">Clinic-level spicule treatment — performed in-clinic and continued at home</div>
           </div>
-          <div style="display:flex; align-items:center; gap:10px;">
-            <span class="protocol-badge">Melasma · Pigmentation</span>
+          <div class="protocol-header-right">
+            <span class="protocol-badge">Spicule · Peptide</span>
             <i class="fas fa-chevron-down protocol-toggle"></i>
           </div>
         </div>
         <div class="protocol-body">
           <p class="protocol-intro">
-            Targets hyperpigmentation, uneven tone, and early aging signs. Combines in-clinic brightening boosters with a structured home routine addressing melanin production during the day and triggering skin repair overnight — through a dual-action day/night approach.
+            The Pepticule system is designed for both professional in-clinic use and patient self-administration. Hydrogel spicules create temporary micro-channels, dramatically increasing active absorption. Prescribed as a home routine, it extends the clinic experience and builds patient loyalty.
           </p>
           <table class="steps-table">
             <thead>
-              <tr>
-                <th>Timing</th>
-                <th>Product</th>
-                <th>Instructions</th>
-              </tr>
+              <tr><th>Timing</th><th>Product</th><th>Instructions</th></tr>
             </thead>
             <tbody>
               <tr>
-                <td class="step-timing-cell">Clinic</td>
-                <td class="step-product-cell">Brightening Skin Booster</td>
-                <td class="step-instruction-cell">3% Tranexamic Acid + Glutathione + PDRN + 15 amino acids. Targets melanin pathways while restoring skin vitality. Sterile vials for professional use.</td>
+                <td class="step-timing-clinic">In-Clinic</td>
+                <td class="step-product-cell">Pepticule Spicule Ampoule</td>
+                <td class="step-instruction-cell">Step 1: Roll ampoule on cleansed skin to exfoliate and open micro-channels. Step 2: Press and hold for active absorption. 4th-gen plant PDRN spicule + 8 peptides + Vitamin B12 delivered deep into the skin.</td>
               </tr>
               <tr>
-                <td class="step-timing-cell">Home — AM</td>
-                <td class="step-product-cell">24H Dual Cream (Day)</td>
-                <td class="step-instruction-cell">Vitamin C + Niacinamide + Melanin Control Complex + SPF10. Tone correction and brightening during the day.</td>
+                <td class="step-timing-clinic">In-Clinic</td>
+                <td class="step-product-cell">Pepticule Gold Cream</td>
+                <td class="step-instruction-cell">Apply immediately after spicule treatment. Gold capsules + Collagen & Ceramide complex seal results and maintain the moisture barrier. Patients feel the difference immediately.</td>
               </tr>
               <tr>
-                <td class="step-timing-cell">Home — PM</td>
-                <td class="step-product-cell">24H Dual Cream (Night)</td>
-                <td class="step-instruction-cell">Liposomal Retinol + NMN + PDRN. Intensive overnight repair targeting dullness, dark spots, and fine lines.</td>
+                <td class="step-timing-home">Home — Weekly</td>
+                <td class="step-product-cell">Pepticule Spicule Ampoule</td>
+                <td class="step-instruction-cell">Self-administered 1–2× per week. Same rolling protocol as in-clinic. Prescribe as a take-home kit for continued results between visits.</td>
               </tr>
               <tr>
-                <td class="step-timing-cell">Daily (AM)</td>
-                <td class="step-product-cell">Active Protection Sun Serum SPF50+</td>
-                <td class="step-instruction-cell">Critical for brightening protocol. Prevents UV-triggered melanin reactivation. Triple function: whitening + wrinkle + UV.</td>
+                <td class="step-timing-home">Home — AM/PM</td>
+                <td class="step-product-cell">Pepticule Gold Cream</td>
+                <td class="step-instruction-cell">Daily finishing cream. Overnight repair via Vitamin B12 + Fullerene antioxidants. Maintains elasticity and radiance between spicule sessions.</td>
               </tr>
             </tbody>
           </table>
           <div class="protocol-benefits">
-            <span class="benefit-chip">Melanin Suppression</span>
-            <span class="benefit-chip">24H Dual-Action</span>
-            <span class="benefit-chip">UV Protection</span>
-            <span class="benefit-chip">Anti-Aging</span>
+            <span class="benefit-chip">Deep Spicule Delivery</span>
+            <span class="benefit-chip">Clinic-to-Home Continuity</span>
+            <span class="benefit-chip">Patient Loyalty</span>
+            <span class="benefit-chip">Premium Retail</span>
           </div>
         </div>
       </div>
@@ -1260,56 +1355,51 @@ footer {
       <!-- PROTOCOL 4 -->
       <div class="protocol-card" id="proto4">
         <div class="protocol-card-header" onclick="toggleProtocol('proto4')">
-          <div class="protocol-num">04</div>
           <div class="protocol-title-block">
-            <div class="protocol-cat">Acne & Troubled Skin</div>
-            <div class="protocol-name">Acne-Prone & Post-Breakout Recovery Protocol</div>
+            <div class="protocol-keyword">ANTI-AGING<br>& VOLUME</div>
+            <div class="protocol-empathy">Loss of elasticity, facial volume, and skin density — the core aging concern</div>
           </div>
-          <div style="display:flex; align-items:center; gap:10px;">
-            <span class="protocol-badge">Acne · Sensitivity</span>
+          <div class="protocol-header-right">
+            <span class="protocol-badge">Elasticity · Volume · Firming</span>
             <i class="fas fa-chevron-down protocol-toggle"></i>
           </div>
         </div>
         <div class="protocol-body">
           <p class="protocol-intro">
-            For acne-prone patients or those with chronic sensitivity, this protocol uses mildly acidic formulations to restore the skin's natural pH balance, control sebum without over-stripping, and calm post-breakout inflammation — with minimal irritation risk.
+            Targets the structural causes of skin aging — collagen density loss, reduced elasticity, and volume depletion. Combines professional spicule delivery in-clinic with a multi-layered daily collagen and PDRN home routine for visible, sustained results.
           </p>
           <table class="steps-table">
             <thead>
-              <tr>
-                <th>Timing</th>
-                <th>Product</th>
-                <th>Instructions</th>
-              </tr>
+              <tr><th>Timing</th><th>Product</th><th>Instructions</th></tr>
             </thead>
             <tbody>
               <tr>
-                <td class="step-timing-cell">Daily</td>
-                <td class="step-product-cell">Balance Mildly Acidic Cleansing Gel</td>
-                <td class="step-instruction-cell">Weak-acid pH formulation. Gentle removal of impurities without disrupting the acid mantle. AM and PM cleanse for reactive skin.</td>
+                <td class="step-timing-clinic">In-Clinic</td>
+                <td class="step-product-cell">Pepticule Spicule Ampoule</td>
+                <td class="step-instruction-cell">Professional rolling treatment for deep peptide and PDRN delivery. Creates micro-channels that dramatically improve absorption of subsequent topicals. Core anti-aging in-clinic step.</td>
               </tr>
               <tr>
-                <td class="step-timing-cell">Post-Cleanse</td>
-                <td class="step-product-cell">Balance Toner + Control Serum</td>
-                <td class="step-instruction-cell">Mildly acidic toner calms and hydrates. Serum targets sebum control with excellent anti-inflammatory action on irritated skin.</td>
+                <td class="step-timing-home">Home — AM</td>
+                <td class="step-product-cell">7-Collagen Density Serum</td>
+                <td class="step-instruction-cell">7 collagen types + 10 peptides + 10 HA forms. Rebuilds collagen density and facial volume. METACool™ cooling effect soothes and refreshes on application.</td>
               </tr>
               <tr>
-                <td class="step-timing-cell">Weekly × 1–2</td>
-                <td class="step-product-cell">Natural Spicule Peel</td>
-                <td class="step-instruction-cell">100% natural deep-sea bio-silica spicule peeling. Manages skin turnover, removes dead cells without chemical irritation. No downtime.</td>
+                <td class="step-timing-home">Home — PM</td>
+                <td class="step-product-cell">PDRENZA Serum + Pepticule Gold Cream</td>
+                <td class="step-instruction-cell">PDRENZA Serum for PDRN-NMN nightly regeneration. Seal with Pepticule Gold Cream — Gold capsules + Ceramide complex for overnight elasticity repair and deep moisture lock.</td>
               </tr>
               <tr>
-                <td class="step-timing-cell">As needed</td>
-                <td class="step-product-cell">Vita-K Repair Mask</td>
-                <td class="step-instruction-cell">Apply after active breakouts or micro-needling. Instant soothing via Vitamin K complex. Reduces redness, accelerates recovery.</td>
+                <td class="step-timing-home">Home — Weekly</td>
+                <td class="step-product-cell">Pepticule Spicule Ampoule</td>
+                <td class="step-instruction-cell">Self-administered 1× per week. Enhances absorption of the daily serum routine. Keeps skin texture smooth and maximizes anti-aging active penetration between clinic visits.</td>
               </tr>
             </tbody>
           </table>
           <div class="protocol-benefits">
-            <span class="benefit-chip">pH Balance</span>
-            <span class="benefit-chip">Sebum Control</span>
-            <span class="benefit-chip">Gentle Exfoliation</span>
-            <span class="benefit-chip">Low Irritation</span>
+            <span class="benefit-chip">Collagen Density</span>
+            <span class="benefit-chip">Volume Restoration</span>
+            <span class="benefit-chip">PDRN Regeneration</span>
+            <span class="benefit-chip">Overnight Repair</span>
           </div>
         </div>
       </div>
@@ -1347,4 +1437,27 @@ footer {
   <div class="footer-logo">KORVEX</div>
   <div class="footer-right">
     Korean Clinic-Grade Skincare — Built for Distribution<br>
-    Seoul · Kuala Lumpur · <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="cfaca0a1bbaeacbb8fa4a0bdb9aab7a8bdbfe1aca0a2">[email&#160;protected]</
+    Seoul · Kuala Lumpur · <a href="mailto:contact@korvexgrp.com">contact@korvexgrp.com</a>
+  </div>
+</footer>
+
+<script>
+function toggleProtocol(id) {
+  const card = document.getElementById(id);
+  card.classList.toggle('open');
+}
+
+function filterProducts(cat, btn) {
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('.product-card').forEach(card => {
+    if (cat === 'all' || card.dataset.cat.includes(cat)) {
+      card.classList.remove('hidden');
+    } else {
+      card.classList.add('hidden');
+    }
+  });
+}
+</script>
+</body>
+</html>
