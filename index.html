@@ -1113,7 +1113,7 @@
       <div style="background: var(--bg-primary); padding: 2.2rem; border-radius: 18px; border: 1px solid rgba(201,162,77,0.12);">
         <div style="color: var(--gold-primary); font-weight:700; margin-bottom:10px;">Portfolio approach</div>
         <div style="color: var(--text-secondary); opacity:0.95;">
-          We distribute KORVEX-owned clinic-grade brands — starting with BARION.
+          We distribute clinic-grade Korean skincare brands — from proprietary lines to curated Korean dermacosmetic formulations for professional markets.
         </div>
       </div>
     </div>
@@ -1124,37 +1124,55 @@
 <section id="portfolio" class="section" style="background: var(--bg-primary); padding: 6rem 2rem;">
   <div class="container" style="text-align:center;">
     <h2 class="section-title">Discover Brand</h2>
-    <div style="max-width: 980px; margin: 0 auto; display:flex; justify-content:center;">
+    <div style="max-width: 980px; margin: 0 auto; display:grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.8rem; justify-items:center;">
       
       <!-- BARION card -->
-      <div id="barionCard" class="brand-card" style="text-align:center; border: 1px solid rgba(192,192,192,0.85); border-radius: 18px; padding: 2.2rem; background: #2F3133; box-shadow: 0 18px 50px rgba(0,0,0,0.55), 0 0 0 1px rgba(192,192,192,0.25) inset; cursor:pointer;">
-        <div style="
-            color: #FFFFFF;
-            font-weight: 800;
-            letter-spacing: 2.5px;
-            margin-bottom: 10px;
-            font-size: 1.55rem;
-            text-transform: uppercase;
-            text-shadow: 0 0 12px rgba(192,192,192,0.35), 0 0 24px rgba(255,255,255,0.18);
-            ">
+      <div id="barionCard" class="brand-card" style="width:100%; text-align:center; border: 1px solid rgba(192,192,192,0.85); border-radius: 18px; padding: 2.2rem; background: #2F3133; box-shadow: 0 18px 50px rgba(0,0,0,0.55), 0 0 0 1px rgba(192,192,192,0.25) inset; cursor:pointer; display:flex; flex-direction:column;">
+        <div style="color: #FFFFFF; font-weight: 800; letter-spacing: 2.5px; margin-bottom: 10px; font-size: 1.55rem; text-transform: uppercase; text-shadow: 0 0 12px rgba(192,192,192,0.35), 0 0 24px rgba(255,255,255,0.18);">
             BARION
-            </div>
+        </div>
         <div style="color: rgba(255,255,255,0.88); opacity:1; margin-bottom:14px;">
           Clinic-grade dermocosmetics. Barrier-first formulation.
         </div>
-
-        <div style="display:flex; gap:10px; justify-content:center; flex-wrap:wrap;">
+        <div style="display:flex; gap:10px; justify-content:center; flex-wrap:wrap; margin-top: auto;">
             <a href="barion.html" target="_blank" rel="noopener"
-                style="display:inline-block; margin-bottom:0; padding:0.9rem 1.8rem; border-radius:50px;
-                        background:#FFFFFF; color:#2F3133; font-weight:700; letter-spacing:1px; text-transform:uppercase;">
+                style="display:inline-block; margin-bottom:0; padding:0.9rem 1.8rem; border-radius:50px; background:#FFFFFF; color:#2F3133; font-weight:700; letter-spacing:1px; text-transform:uppercase;">
                 Visit Brand
             </a>
         </div>
-
         <div style="margin-top: 12px; font-size: 12px; color: rgba(255,255,255,0.55);">
           Managed and distributed via KORVEX platform
         </div>
       </div>
+
+      <!-- KORVEX Selected Line card -->
+      <div id="selectedLineCard" class="brand-card" style="width:100%; text-align:center; border: 1px solid rgba(201,162,77,0.6); border-radius: 18px; padding: 2.2rem; background: #1a1610; box-shadow: 0 18px 50px rgba(0,0,0,0.55), 0 0 0 1px rgba(201,162,77,0.15) inset; cursor:pointer; display:flex; flex-direction:column;">
+        <div style="font-size: 10px; letter-spacing: 3px; text-transform: uppercase; color: var(--gold-primary); margin-bottom: 10px; opacity: 0.85;">
+          KORVEX CURATED
+        </div>
+        <div style="background: linear-gradient(135deg, var(--gold-primary) 0%, var(--gold-light) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; font-family: 'Orbitron', monospace; font-weight: 700; letter-spacing: 2px; margin-bottom: 10px; font-size: 1.35rem; text-transform: uppercase;">
+            Selected Line
+        </div>
+        <div style="color: rgba(255,255,255,0.75); margin-bottom: 8px; font-size: 0.93rem;">
+          Korean clinic-grade skincare. Curated for aesthetic clinics &amp; post-procedure care.
+        </div>
+        <div style="display:flex; gap:8px; justify-content:center; flex-wrap:wrap; margin-bottom: 16px; margin-top: 14px;">
+          <span style="font-size:11px; background: rgba(201,162,77,0.12); border: 1px solid rgba(201,162,77,0.3); color: var(--gold-light); padding: 4px 12px; border-radius: 20px;">Post-Laser Care</span>
+          <span style="font-size:11px; background: rgba(201,162,77,0.12); border: 1px solid rgba(201,162,77,0.3); color: var(--gold-light); padding: 4px 12px; border-radius: 20px;">Skin Booster</span>
+          <span style="font-size:11px; background: rgba(201,162,77,0.12); border: 1px solid rgba(201,162,77,0.3); color: var(--gold-light); padding: 4px 12px; border-radius: 20px;">Brightening</span>
+          <span style="font-size:11px; background: rgba(201,162,77,0.12); border: 1px solid rgba(201,162,77,0.3); color: var(--gold-light); padding: 4px 12px; border-radius: 20px;">Anti-Aging</span>
+        </div>
+        <div style="display:flex; gap:10px; justify-content:center; flex-wrap:wrap; margin-top: auto;">
+            <a href="selected-line.html" target="_blank" rel="noopener"
+                style="display:inline-block; margin-bottom:0; padding:0.9rem 1.8rem; border-radius:50px; background: linear-gradient(135deg, var(--gold-primary) 0%, var(--gold-light) 100%); color:#0B0B0B; font-weight:700; letter-spacing:1px; text-transform:uppercase;">
+                Explore Line
+            </a>
+        </div>
+        <div style="margin-top: 12px; font-size: 12px; color: rgba(255,255,255,0.45);">
+          ISO-certified Korean manufacturing · Clinic protocol ready
+        </div>
+      </div>
+
     </div>
   </div>
 </section>
@@ -1166,7 +1184,7 @@
         <div class="container">
             <h2 class="section-title">Why Choose KORVEX?</h2>
         <p class="section-subtitle" style="max-width: 700px; margin: 0 auto 4rem; color: var(--text-secondary);">
-            KORVEX supports import partners with documentation, export readiness, and stable supply — exclusively for KORVEX proprietary brands.
+            KORVEX supports import partners with documentation, export readiness, and stable supply — for clinic-grade Korean skincare brands across regulated markets.
         </p>
         
         <div class="why-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; max-width: 1200px; margin: 0 auto;">
@@ -1257,7 +1275,7 @@
                         </div>
                         <div class="contact-item">
                             <i class="fas fa-envelope"></i>
-                            <a href="mailto:contact@korvexgrp.com">contact@korvexgrp.com</a>
+                            <a href="/cdn-cgi/l/email-protection#aac9c5c4decbc9deeac1c5d8dccfd2cdd8da84c9c5c7"><span class="__cf_email__" data-cfemail="f3909c9d87929087b3989c8185968b948183dd909c9e">[email&#160;protected]</span></a>
                         </div>
                         <div class="contact-item">
                             <i class="fas fa-map-marker-alt"></i>
@@ -1284,7 +1302,7 @@
       </a>
 
       <!-- Email -->
-      <a href="mailto:contact@korvexgrp.com" class="contact-method">
+      <a href="/cdn-cgi/l/email-protection#44272b2a30252730042f2b3632213c2336346a272b29" class="contact-method">
         <i class="fas fa-envelope"></i>
         <div>
           <h4>Email</h4>
@@ -1325,7 +1343,7 @@
     </div>
 </footer>
 
-    <script>
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
         // ===== BARION card: click -> floating + shine =====
             const barionCard = document.getElementById('barionCard');
             
@@ -1335,18 +1353,38 @@
   const x = e.clientX - rect.left;
   const y = e.clientY - rect.top;
             
-  // 클릭 위치를 CSS 변수로 전달 (jewelFlash가 이걸 씀)
   barionCard.style.setProperty('--mx', `${x}px`);
   barionCard.style.setProperty('--my', `${y}px`);
 
   barionCard.classList.toggle('selected');
 
-  // Shine 재트리거
   barionCard.classList.remove('shine');
   void barionCard.offsetWidth;
   barionCard.classList.add('shine');
 
   setTimeout(() => barionCard.classList.remove('shine'), 950);
+});
+            }
+
+        // ===== SELECTED LINE card: click -> floating + shine =====
+            const selectedLineCard = document.getElementById('selectedLineCard');
+            
+            if (selectedLineCard) {
+            selectedLineCard.addEventListener('pointerdown', (e) => {
+  const rect = selectedLineCard.getBoundingClientRect();
+  const x = e.clientX - rect.left;
+  const y = e.clientY - rect.top;
+
+  selectedLineCard.style.setProperty('--mx', `${x}px`);
+  selectedLineCard.style.setProperty('--my', `${y}px`);
+
+  selectedLineCard.classList.toggle('selected');
+
+  selectedLineCard.classList.remove('shine');
+  void selectedLineCard.offsetWidth;
+  selectedLineCard.classList.add('shine');
+
+  setTimeout(() => selectedLineCard.classList.remove('shine'), 950);
 });
             }
 
@@ -1443,12 +1481,13 @@
         
         // 메뉴 외부 클릭 시 닫기 + 스크롤 해제
         document.addEventListener('click', (e) => {
-        if (!hamburger.contains(e.target) && !navLinks.contains(e.target)) {
-            hamburger.classList.remove('active');
-            navLinks.classList.remove('active');
-            document.body.style.overflow = '';
-        }
+            if (!navLinks.contains(e.target) && !hamburger.contains(e.target)) {
+                hamburger.classList.remove('active');
+                navLinks.classList.remove('active');
+                document.body.style.overflow = '';
+            }
         });
+
     </script>
 </body>
 </html>
