@@ -763,6 +763,39 @@ footer {
 
 /* MOBILE */
 @media (max-width: 768px) {
+  /* 기존 것들 유지하고 아래만 추가 */
+
+  .steps-table thead { display: none; }
+  .steps-table tbody tr {
+    display: block;
+    padding: 1rem 0;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+  }
+  .steps-table td {
+    display: block;
+    padding: 2px 0;
+    min-width: unset;
+    white-space: normal;
+  }
+  .step-timing-clinic,
+  .step-timing-home {
+    font-size: 10px;
+    letter-spacing: 1px;
+    margin-bottom: 3px;
+    min-width: unset;
+  }
+  .step-product-cell {
+    font-size: 0.9rem;
+    margin-bottom: 4px;
+    min-width: unset;
+  }
+  .step-instruction-cell {
+    font-size: 0.82rem;
+    color: var(--text-muted);
+  }
+}
+
+@media (max-width: 768px) {
   .hero { padding: 120px 20px 60px; }
   .section { padding: 3rem 20px; }
   .section-full { padding: 3rem 20px; }
