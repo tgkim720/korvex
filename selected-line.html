@@ -609,76 +609,110 @@ footer {
   line-height: 1.65;
 }
 
-/* MARKET MAP */
-.market-section {
+/* ACTIVE SYSTEM TABLE */
+.active-system {
   margin-top: 2rem;
-}
-.market-title {
-  font-size: 10px;
-  letter-spacing: 2.5px;
-  text-transform: uppercase;
-  color: var(--gold-primary);
-  margin-bottom: 1rem;
-}
-.market-regions {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  gap: 1rem;
-}
-.market-region {
-  background: var(--bg-card);
+  grid-template-columns: 1fr 1fr;
+  gap: 1px;
+  background: rgba(201,162,77,0.1);
   border: 1px solid rgba(201,162,77,0.1);
-  border-radius: 12px;
-  padding: 1rem 1.2rem;
+  border-radius: 16px;
+  overflow: hidden;
 }
-.region-name {
-  font-size: 11px;
-  letter-spacing: 1.5px;
-  text-transform: uppercase;
-  color: var(--gold-primary);
-  margin-bottom: 8px;
-  display: flex;
-  align-items: center;
-  gap: 6px;
+.active-system-row {
+  background: var(--bg-card);
+  padding: 1.3rem 1.6rem;
+  display: grid;
+  grid-template-columns: 150px 1fr;
+  align-items: start;
+  gap: 1.2rem;
 }
-.region-countries {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 5px;
+.active-system-row:hover {
+  background: rgba(201,162,77,0.03);
 }
-.country-tag {
-  font-size: 10px;
-  background: rgba(255,255,255,0.04);
-  border: 1px solid rgba(255,255,255,0.08);
-  color: var(--text-secondary);
-  padding: 2px 8px;
-  border-radius: 8px;
-}
-
-/* KEY INGREDIENT BADGES */
-.ingredient-badges {
-  display: flex;
-  gap: 10px;
-  flex-wrap: wrap;
-  margin-top: 1.5rem;
-}
-.ingr-badge {
-  background: linear-gradient(135deg, rgba(201,162,77,0.12) 0%, rgba(229,193,110,0.08) 100%);
-  border: 1px solid rgba(201,162,77,0.3);
-  border-radius: 10px;
-  padding: 0.7rem 1.2rem;
-  text-align: center;
-}
-.ingr-badge-name {
-  font-size: 12px;
+.as-name {
+  font-size: 0.88rem;
   font-weight: 700;
   color: var(--gold-light);
-  letter-spacing: 0.5px;
+  letter-spacing: 0.3px;
+  padding-top: 2px;
 }
-.ingr-badge-desc {
-  font-size: 10px;
+.as-desc {
+  font-size: 0.88rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+/* DISTRIBUTION */
+.dist-section {
+  margin-top: 3.5rem;
+}
+.dist-headline {
+  font-family: 'Orbitron', monospace;
+  font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 6px;
+}
+.dist-sub {
+  font-size: 0.9rem;
   color: var(--text-muted);
-  margin-top: 2px;
+  margin-bottom: 2rem;
+}
+.dist-stat-row {
+  display: flex;
+  gap: 3rem;
+  margin-bottom: 2.5rem;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  border-bottom: 1px solid rgba(201,162,77,0.1);
+  padding-bottom: 2rem;
+}
+.dist-stat-num {
+  font-family: 'Orbitron', monospace;
+  font-size: 2.2rem;
+  font-weight: 700;
+  background: var(--gradient-gold);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  line-height: 1;
+  display: block;
+}
+.dist-stat-label {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-top: 5px;
+  display: block;
+}
+.dist-regions {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1px;
+  background: rgba(201,162,77,0.08);
+  border: 1px solid rgba(201,162,77,0.1);
+  border-radius: 16px;
+  overflow: hidden;
+}
+.dist-region {
+  background: var(--bg-card);
+  padding: 1.4rem 1.6rem;
+}
+.dist-region-name {
+  font-size: 10px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--gold-primary);
+  margin-bottom: 12px;
+  font-weight: 600;
+}
+.dist-countries {
+  font-size: 0.83rem;
+  color: var(--text-muted);
+  line-height: 2;
 }
 
 /* MOBILE */
@@ -698,8 +732,9 @@ footer {
   .cred-bar { gap: 1rem; }
   .trust-bar-inner { justify-content: center; gap: 1.5rem; }
   .mfg-grid { grid-template-columns: 1fr; }
-  .market-regions { grid-template-columns: 1fr 1fr; }
-  .ingredient-badges { gap: 8px; }
+  .active-system { grid-template-columns: 1fr; }
+  .dist-regions { grid-template-columns: 1fr 1fr; }
+  .active-system-row { grid-template-columns: 1fr; gap: 4px; }
 }
 </style>
 </head>
@@ -750,9 +785,9 @@ footer {
       <div class="trust-stat-label">Sample Success Rate</div>
     </div>
     <div class="trust-stat">
-  <div class="trust-stat-num">2016</div>
-  <div class="trust-stat-label">Est. · Seoul, Korea</div>
-</div>
+      <div class="trust-stat-num">10Y+</div>
+      <div class="trust-stat-label">Manufacturing Expertise</div>
+    </div>
     <div class="trust-stat">
       <div class="trust-stat-num">OWN</div>
       <div class="trust-stat-label">Factory · No Outsourcing</div>
@@ -780,23 +815,22 @@ footer {
           <span>PDRENZA SERUM</span>
         </div>
       </div>
-      <div class="product-category">Intensive First Serum · Anti-Aging</div>
-<div class="product-name">PDRENZA Intensive Serum</div>
-<div class="product-volume">50ml / 1.69 fl.oz — Dual Function Certified</div>
-<div class="product-desc">
-  PDRN × NMN × Pearl Tomato® synergy ampoule serum. Helps restore skin condition weakened by dryness and fatigue — delivering lasting hydration with a lightweight, fast-absorbing texture and a fresh, non-sticky finish.
-</div>
-<div class="product-ingredients">
-  <span class="ingredient-tag">PDRN Complex</span>
-  <span class="ingredient-tag">NMN Energy Care</span>
-  <span class="ingredient-tag">Pearl Tomato®</span>
-  <span class="ingredient-tag">Multi-HA Complex</span>
-  <span class="ingredient-tag">Peptide Care Network</span>
-</div>
-<div class="product-use">
-  <span class="use-dot"></span>
-  Skin booster home care · Post-procedure maintenance · Daily anti-aging · Brightening + Wrinkle (KFD Certified)
-</div>
+      <div class="product-category">Anti-Aging · Regeneration</div>
+      <div class="product-name">PDRN Regenerative Serum</div>
+      <div class="product-volume">50ml / 1.69 fl.oz</div>
+      <div class="product-desc">
+        High-performance rejuvenating serum enriched with high-purity PDRN, NMN, and Pearl Tomato®. Restores energy to fatigued skin with lightweight absorption. Visibly firmer, smoother skin with enhanced elasticity over time.
+      </div>
+      <div class="product-ingredients">
+        <span class="ingredient-tag">PDRN</span>
+        <span class="ingredient-tag">NMN</span>
+        <span class="ingredient-tag">Pearl Tomato®</span>
+        <span class="ingredient-tag">Hydrolyzed Collagen</span>
+      </div>
+      <div class="product-use">
+        <span class="use-dot"></span>
+        Skin booster home care · Post-procedure maintenance · Daily anti-aging
+      </div>
     </div>
 
     <!-- PDRN Repair Cream -->
@@ -809,23 +843,22 @@ footer {
           <span>PDRENZA CREAM</span>
         </div>
       </div>
-      <div class="product-category">Intensive Moisture · Anti-Aging</div>
-<div class="product-name">PDRENZA Intensive Cream</div>
-<div class="product-volume">50ml / 1.69 fl.oz — Dual Function Certified</div>
-<div class="product-desc">
-  PDRN × NMN × Pearl Tomato® intensive moisture-elasticity cream. Melting texture wraps the skin without heaviness — minimal shine, lasting hydration. Helps dry and combination skin maintain all-day comfort and firmness.
-</div>
-<div class="product-ingredients">
-  <span class="ingredient-tag">PDRN Moisture Matrix</span>
-  <span class="ingredient-tag">NMN Vitalizing System</span>
-  <span class="ingredient-tag">Pearl Tomato®</span>
-  <span class="ingredient-tag">Ceramide & Multi-HA</span>
-  <span class="ingredient-tag">Peptide Elasticity Support</span>
-</div>
-<div class="product-use">
-  <span class="use-dot"></span>
-  Daily moisture · Barrier reinforcement · Anti-aging · Brightening + Wrinkle (KFD Certified)
-</div>
+      <div class="product-category">Barrier Repair · Anti-Aging</div>
+      <div class="product-name">PDRN Intensive Repair Cream</div>
+      <div class="product-volume">50ml / 1.69 fl.oz</div>
+      <div class="product-desc">
+        Intensive repair cream powered by PDRN, NMN, Pearl Tomato®, and a ceramide complex. Restores and fortifies the skin barrier. Creamy texture with lasting hydration — non-sticky finish, suitable for all skin types.
+      </div>
+      <div class="product-ingredients">
+        <span class="ingredient-tag">PDRN</span>
+        <span class="ingredient-tag">NMN</span>
+        <span class="ingredient-tag">Ceramide Complex</span>
+        <span class="ingredient-tag">Collagen</span>
+      </div>
+      <div class="product-use">
+        <span class="use-dot"></span>
+        Post-procedure daily care · Barrier restoration · Night cream
+      </div>
     </div>
 
     <!-- 7-Collagen Serum -->
@@ -838,23 +871,50 @@ footer {
           <span>COLLAGEN SERUM</span>
         </div>
       </div>
-      <div class="product-category">Collagen Density · Elasticity · Cooling</div>
-<div class="product-name">7-Collagen Boost Serum</div>
-<div class="product-volume">50ml / 1.69 fl.oz — Dual Function Certified</div>
-<div class="product-desc">
-  7-Collagen System × 10-HA × 10-Peptide × METACool™ premium ampoule. Multi-layered hydration structure with a firm, elastic texture that absorbs quickly — fresh finish with no stickiness. Targets volume loss and skin fatigue.
-</div>
-<div class="product-ingredients">
-  <span class="ingredient-tag">7-Collagen System</span>
-  <span class="ingredient-tag">10-Peptide Complex</span>
-  <span class="ingredient-tag">10-HA Complex</span>
-  <span class="ingredient-tag">METACool™</span>
-  <span class="ingredient-tag">Sodium DNA</span>
-</div>
-<div class="product-use">
-  <span class="use-dot"></span>
-  Volume & elasticity care · Skin booster maintenance · Sensitive/reactive skin · Brightening + Wrinkle (KFD Certified)
-</div>
+      <div class="product-category">Elasticity · Volume · Cooling</div>
+      <div class="product-name">7-Collagen Density Serum</div>
+      <div class="product-volume">50ml / 1.69 fl.oz</div>
+      <div class="product-desc">
+        Highly concentrated serum with 7 collagen types, 10 peptides, and 10 hyaluronic acid forms. Patented METACool™ cooling complex instantly lowers skin temperature. Targets volume loss and facial contour.
+      </div>
+      <div class="product-ingredients">
+        <span class="ingredient-tag">Atelocollagen</span>
+        <span class="ingredient-tag">10 Peptides</span>
+        <span class="ingredient-tag">10 Hyaluronic Acids</span>
+        <span class="ingredient-tag">METACool™</span>
+      </div>
+      <div class="product-use">
+        <span class="use-dot"></span>
+        Skin booster home care · Volume maintenance · Sensitive/reactive skin
+      </div>
+    </div>
+
+    <!-- Vita-K Repair Mask -->
+    <div class="product-card">
+      <div class="product-img-wrap">
+        <img src="images/products/vitak-mask.jpg" alt="Vita-K Repair Mask"
+          onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+        <div class="product-img-placeholder" style="display:none;">
+          <i class="fas fa-star-of-life" style="font-size:2rem;opacity:0.3;"></i>
+          <span>VITA-K REPAIR MASK</span>
+        </div>
+      </div>
+      <div class="product-category">Post-Procedure · Soothing</div>
+      <div class="product-name">Vita-K Repair Mask</div>
+      <div class="product-volume">30ml × 10ea</div>
+      <div class="product-desc">
+        High-performance recovery mask with Vitamin K synergy for instant soothing. Highly concentrated moisturizing ingredients replenish elasticity. Strengthens skin barrier and accelerates skin restoration after procedures.
+      </div>
+      <div class="product-ingredients">
+        <span class="ingredient-tag">Vitamin K</span>
+        <span class="ingredient-tag">Natural Vit-K Complex</span>
+        <span class="ingredient-tag">Squalane</span>
+        <span class="ingredient-tag">Panthenol</span>
+      </div>
+      <div class="product-use">
+        <span class="use-dot"></span>
+        Immediate post-laser · Post-injection · After micro-needling
+      </div>
     </div>
 
     <!-- Vita-K Repair Cream -->
@@ -867,23 +927,22 @@ footer {
           <span>VITA-K REPAIR CREAM</span>
         </div>
       </div>
-      <div class="product-category">Post-Procedure Aftercare · Calming</div>
-<div class="product-name">Vita-K Repair Cream</div>
-<div class="product-volume">30ml — Dual Function Certified</div>
-<div class="product-desc">
-  Intensive soothing aftercare cream for post-laser, post-peel, and reactive skin. Vitamin K synergy (Menadione + Natural Vit-K Complex) rapidly calms redness. Squalane + Panthenol rebuilds the barrier. Niacinamide + Adenosine for tone and firmness.
-</div>
-<div class="product-ingredients">
-  <span class="ingredient-tag">Vitamin K (Menadione)</span>
-  <span class="ingredient-tag">Natural Vit-K Complex</span>
-  <span class="ingredient-tag">Squalane + Panthenol</span>
-  <span class="ingredient-tag">Niacinamide</span>
-  <span class="ingredient-tag">Adenosine</span>
-</div>
-<div class="product-use">
-  <span class="use-dot"></span>
-  Post-laser · Post-peel · Redness reduction · Barrier repair · Daily aftercare
-</div>
+      <div class="product-category">Post-Procedure · Brightening</div>
+      <div class="product-name">Vita-K Repair Cream</div>
+      <div class="product-volume">30ml</div>
+      <div class="product-desc">
+        Reduces redness via Vitamin K synergy while Squalane and Panthenol rebuild the skin barrier. Brightening and wrinkle-improving properties promote a firmer, more even skin tone. Ideal for post-treatment home use.
+      </div>
+      <div class="product-ingredients">
+        <span class="ingredient-tag">Vitamin K</span>
+        <span class="ingredient-tag">Squalane</span>
+        <span class="ingredient-tag">Niacinamide</span>
+        <span class="ingredient-tag">Adenosine</span>
+      </div>
+      <div class="product-use">
+        <span class="use-dot"></span>
+        Post-laser recovery (Day 1–14) · Redness reduction · Barrier repair
+      </div>
     </div>
 
     <!-- Active Protection Sun Serum -->
@@ -896,23 +955,79 @@ footer {
           <span>SUN SERUM SPF50+</span>
         </div>
       </div>
-      <div class="product-category">Sun Protection · Brightening · Moisture</div>
-<div class="product-name">Active Protection Sun Serum</div>
-<div class="product-volume">50ml — SPF 50+ PA++++</div>
-<div class="product-desc">
-  Watery, non-sticky serum texture that spreads smoothly and absorbs fast — no white cast, no pilling. Blocks both UVA and UVB year-round. Madecassoside + Panthenol calm and protect; Trehalose + Glycerin maintain deep hydration.
-</div>
-<div class="product-ingredients">
-  <span class="ingredient-tag">Madecassoside</span>
-  <span class="ingredient-tag">Panthenol</span>
-  <span class="ingredient-tag">Niacinamide</span>
-  <span class="ingredient-tag">Tromethamine</span>
-  <span class="ingredient-tag">Trehalose</span>
-</div>
-<div class="product-use">
-  <span class="use-dot"></span>
-  Daily AM · Post-procedure UV block · Brightening protocol · Apply 30 min before sun exposure
-</div>
+      <div class="product-category">Sun Protection · Brightening</div>
+      <div class="product-name">Active Protection Sun Serum</div>
+      <div class="product-volume">50ml — SPF 50+ PA++++</div>
+      <div class="product-desc">
+        Non-sticky, non-white-cast sun serum with triple function: UV protection, brightening, and wrinkle improvement. High long-lasting protection. Essential for any brightening or post-procedure protocol.
+      </div>
+      <div class="product-ingredients">
+        <span class="ingredient-tag">Madecassoside</span>
+        <span class="ingredient-tag">Niacinamide</span>
+        <span class="ingredient-tag">Panthenol</span>
+        <span class="ingredient-tag">Trehalose</span>
+      </div>
+      <div class="product-use">
+        <span class="use-dot"></span>
+        Daily AM protection · Post-procedure UV block · Brightening protocol
+      </div>
+    </div>
+
+    <!-- Day & Night Dual Cream -->
+    <div class="product-card">
+      <div class="product-img-wrap">
+        <img src="images/products/mela-dual.jpg" alt="24H Brightening Dual Cream"
+          onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+        <div class="product-img-placeholder" style="display:none;">
+          <i class="fas fa-jar" style="font-size:2rem;opacity:0.3;"></i>
+          <span>MELA DUAL CREAM</span>
+        </div>
+      </div>
+      <div class="product-category">Brightening · Anti-Aging</div>
+      <div class="product-name">24H Brightening Dual Cream</div>
+      <div class="product-volume">75ml — Day 25ml (SPF10) + Night 50ml</div>
+      <div class="product-desc">
+        Dual-action cream with daytime brightening and SPF protection, nighttime intensive repair. Liposomal Retinol, NMN, and PDRN address dullness and dark spots overnight. Melanin Control Complex for 24H pigmentation care.
+      </div>
+      <div class="product-ingredients">
+        <span class="ingredient-tag">Vitamin C</span>
+        <span class="ingredient-tag">Niacinamide</span>
+        <span class="ingredient-tag">Retinol</span>
+        <span class="ingredient-tag">NMN</span>
+        <span class="ingredient-tag">PDRN</span>
+      </div>
+      <div class="product-use">
+        <span class="use-dot"></span>
+        Brightening protocol · Pigmentation care · Anti-aging daily routine
+      </div>
+    </div>
+
+    <!-- Balance Line -->
+    <div class="product-card">
+      <div class="product-img-wrap">
+        <img src="images/products/balance-line.jpg" alt="Balance Mildly Acidic Line"
+          onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+        <div class="product-img-placeholder" style="display:none;">
+          <i class="fas fa-droplet" style="font-size:2rem;opacity:0.3;"></i>
+          <span>BALANCE LINE</span>
+        </div>
+      </div>
+      <div class="product-category">Acne · Sensitive · Barrier</div>
+      <div class="product-name">Balance Mildly Acidic Line</div>
+      <div class="product-volume">Cleansing Gel · Toner · Serum · Cream</div>
+      <div class="product-desc">
+        Complete mildly acidic skincare system for acne-prone and sensitive skin. Maintains optimal skin pH balance, controls sebum without over-stripping, and calms post-breakout inflammation — minimal irritation risk.
+      </div>
+      <div class="product-ingredients">
+        <span class="ingredient-tag">Weak Acid pH Formula</span>
+        <span class="ingredient-tag">Camellia Extract</span>
+        <span class="ingredient-tag">Centella</span>
+        <span class="ingredient-tag">Aloe Vera</span>
+      </div>
+      <div class="product-use">
+        <span class="use-dot"></span>
+        Acne protocol · Sensitive skin daily care · Post-breakout recovery
+      </div>
     </div>
 
   </div>
@@ -961,76 +1076,77 @@ footer {
 
   <!-- KEY INGREDIENT SYSTEM -->
   <div class="section-eyebrow" style="margin-top:2.5rem;">Core Active System</div>
-  <div class="ingredient-badges">
-    <div class="ingr-badge">
-      <div class="ingr-badge-name">PDRN</div>
-      <div class="ingr-badge-desc">Polydeoxyribonucleotide · Cellular Regeneration</div>
+  <div class="active-system">
+    <div class="active-system-row">
+      <div class="as-name">PDRN</div>
+      <div class="as-desc">DNA-derived regeneration complex. Used in clinic-grade skin boosters — topically applied to restore skin condition and support barrier recovery.</div>
     </div>
-    <div class="ingr-badge">
-      <div class="ingr-badge-name">NMN</div>
-      <div class="ingr-badge-desc">Nicotinamide Mononucleotide · Cellular Energy</div>
+    <div class="active-system-row">
+      <div class="as-name">NMN</div>
+      <div class="as-desc">Nicotinamide Mononucleotide. Cellular energy activator that helps combat skin fatigue, dullness, and loss of vitality over time.</div>
     </div>
-    <div class="ingr-badge">
-      <div class="ingr-badge-name">Pearl Tomato®</div>
-      <div class="ingr-badge-desc">Patented · Brightening & Antioxidant</div>
+    <div class="active-system-row">
+      <div class="as-name">Pearl Tomato®</div>
+      <div class="as-desc">Patented colorless carotenoid complex derived from tomato. Targets uneven tone and dullness for a clearer, more uniform complexion.</div>
     </div>
-    <div class="ingr-badge">
-      <div class="ingr-badge-name">Peptide Complex</div>
-      <div class="ingr-badge-desc">40+ Types · Elasticity & Firmness</div>
+    <div class="active-system-row">
+      <div class="as-name">Peptide Complex</div>
+      <div class="as-desc">Multi-type peptide network across formulations — 10, 26, and 40+ peptide systems depending on product. Targets elasticity, texture, and firmness.</div>
     </div>
-    <div class="ingr-badge">
-      <div class="ingr-badge-name">SLIMEXIR®</div>
-      <div class="ingr-badge-desc">Patented · Contouring & Firming</div>
+    <div class="active-system-row">
+      <div class="as-name">METACool™</div>
+      <div class="as-desc">Patented cooling complex via TRPM8 pathway. Instantly lowers skin temperature post-application — calming reactive and heat-sensitive skin.</div>
+    </div>
+    <div class="active-system-row">
+      <div class="as-name">Vitamin K Complex</div>
+      <div class="as-desc">Menadione + Natural Vitamin K Complex. Rapidly reduces post-procedure redness and supports skin recovery after laser and energy-based treatments.</div>
     </div>
   </div>
 
-  <!-- GLOBAL MARKET MAP -->
-  <div class="market-section">
-    <div class="section-eyebrow" style="margin-top:3rem; margin-bottom:0.5rem;">Active Distribution</div>
-    <p style="font-size:0.88rem; color:var(--text-muted); margin-bottom:1.2rem;">Manufactured in Seoul. Currently distributed across 25+ countries through clinic and distribution partnerships.</p>
-    <div class="market-regions">
-      <div class="market-region">
-        <div class="region-name"><i class="fas fa-circle" style="font-size:6px;"></i> Asia Pacific</div>
-        <div class="region-countries">
-          <span class="country-tag">Korea</span>
-          <span class="country-tag">Japan</span>
-          <span class="country-tag">Malaysia</span>
-          <span class="country-tag">Singapore</span>
-          <span class="country-tag">Vietnam</span>
-          <span class="country-tag">Indonesia</span>
-          <span class="country-tag">Taiwan</span>
-          <span class="country-tag">China</span>
+  <!-- GLOBAL DISTRIBUTION -->
+  <div class="dist-section">
+    <div class="section-eyebrow">Active Distribution</div>
+    <div class="dist-headline">Clinic-Trusted. Globally Distributed.</div>
+    <p class="dist-sub">Manufactured in Seoul, Korea — and currently active across clinic and distribution channels in 25+ countries.</p>
+
+    <div class="dist-stat-row">
+      <div>
+        <span class="dist-stat-num">25+</span>
+        <span class="dist-stat-label">Countries Active</span>
+      </div>
+      <div>
+        <span class="dist-stat-num">ISO</span>
+        <span class="dist-stat-label">22716 · 9001 Certified</span>
+      </div>
+      <div>
+        <span class="dist-stat-num">2016</span>
+        <span class="dist-stat-label">Est. Seoul, Korea</span>
+      </div>
+    </div>
+
+    <div class="dist-regions">
+      <div class="dist-region">
+        <div class="dist-region-name">Asia Pacific</div>
+        <div class="dist-countries">
+          Japan<br>Malaysia<br>Singapore<br>Vietnam<br>Indonesia<br>Taiwan<br>China
         </div>
       </div>
-      <div class="market-region">
-        <div class="region-name"><i class="fas fa-circle" style="font-size:6px;"></i> Middle East</div>
-        <div class="region-countries">
-          <span class="country-tag">UAE</span>
-          <span class="country-tag">Qatar</span>
-          <span class="country-tag">Saudi Arabia</span>
+      <div class="dist-region">
+        <div class="dist-region-name">Middle East</div>
+        <div class="dist-countries">
+          UAE<br>Qatar<br>Saudi Arabia
         </div>
       </div>
-      <div class="market-region">
-        <div class="region-name"><i class="fas fa-circle" style="font-size:6px;"></i> Europe / CIS</div>
-        <div class="region-countries">
-          <span class="country-tag">Russia</span>
-          <span class="country-tag">Belarus</span>
-          <span class="country-tag">Kazakhstan</span>
-          <span class="country-tag">Armenia</span>
-          <span class="country-tag">Azerbaijan</span>
-          <span class="country-tag">France</span>
-          <span class="country-tag">Sweden</span>
-          <span class="country-tag">Ukraine</span>
+      <div class="dist-region">
+        <div class="dist-region-name">Europe · CIS</div>
+        <div class="dist-countries">
+          Russia<br>Belarus<br>Kazakhstan<br>Armenia<br>Azerbaijan<br>France<br>Sweden<br>Ukraine
         </div>
       </div>
-      <div class="market-region">
-        <div class="region-name"><i class="fas fa-circle" style="font-size:6px;"></i> Americas & Others</div>
-        <div class="region-countries">
-          <span class="country-tag">Canada</span>
-          <span class="country-tag">USA</span>
-          <span class="country-tag">Australia</span>
-          <span class="country-tag">India</span>
-          <span class="country-tag">Kenya</span>
+      <div class="dist-region">
+        <div class="dist-region-name">Americas · Others</div>
+        <div class="dist-countries">
+          Canada<br>USA<br>Australia<br>India<br>Kenya
         </div>
       </div>
     </div>
