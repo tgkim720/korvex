@@ -1702,14 +1702,12 @@ if (cell29Card) {
     const y = e.clientY - rect.top;
     cell29Card.style.setProperty('--mx', `${x}px`);
     cell29Card.style.setProperty('--my', `${y}px`);
-    cell29Card.classList.toggle('selected');
+    cell29Card.classList.add('selected');
+    setTimeout(() => cell29Card.classList.remove('selected'), 700);
     cell29Card.classList.remove('shine');
     void cell29Card.offsetWidth;
     cell29Card.classList.add('shine');
     setTimeout(() => cell29Card.classList.remove('shine'), 950);
-  });
-  cell29Card.addEventListener('mouseleave', () => {
-    cell29Card.classList.remove('selected');
   });
 }
 
