@@ -286,11 +286,7 @@
             filter: brightness(1.35) contrast(1.1) saturate(1.15);
             background-position: center top;
         }
-        .hero-bg-image:nth-child(3) {
-            background-image: url('images/우주사진.avif');
-            filter: brightness(1.35) contrast(1.1) saturate(1.15);
-            background-position: center top;
-        }
+        
         .hero-bg-image:nth-child(4) {
             background: #0B0B0B;  /* 검은 바탕 */
         }
@@ -794,13 +790,10 @@
                     .container {
                         padding: 0 20px;
                     }
+
     /* Mobile: make Portfolio + About titles match Platform title size */
                 #portfolio .section-title { font-size: 1.85rem !important; }
                 #about .about-content h2 { font-size: 1.85rem !important; }
-
-    /* Mobile: BARION list tighten + keep first item on one line */
-                #portfolio #barionCard ul li { font-size: 0.92rem; }
-                #portfolio #barionCard ul li:first-child { white-space: nowrap; }
                 }
 
         /* Custom scrollbar */
@@ -839,51 +832,20 @@
   will-change: transform;
 }
 
-/* hover는 살짝만 (원치 않으면 지워도 됨) */
-.brand-card:hover {
-  transform: translateY(-4px);
-  border-color: rgba(220,220,220,0.9);
-}
-
 .brand-card.selected {
   transform: translateY(-10px) scale(1.02);
-  border-color: rgba(235,235,235,0.95);
   box-shadow:
     0 28px 70px rgba(0,0,0,0.65),
     0 0 0 1px rgba(255,255,255,0.22) inset,
     0 0 28px rgba(255,255,255,0.10);
 }
 
-/* Click-reactive jewel flash (radial highlight) */
-.brand-card::before{
-  content:"";
-  position:absolute;
-  inset:-2px;
-  pointer-events:none;
-  opacity:0;
-  border-radius: inherit;
-
-  /* 클릭 지점(mx,my)에 빛이 맺히는 느낌 */
-  background:
-    radial-gradient(
-      260px 180px at var(--mx, 50%) var(--my, 35%),
-      rgba(255,255,255,0.38) 0%,
-      rgba(255,255,255,0.14) 22%,
-      rgba(255,255,255,0.00) 60%
-    ),
-    linear-gradient(
-      135deg,
-      rgba(255,255,255,0.06) 0%,
-      rgba(255,255,255,0.00) 40%
-    );
-
-  mix-blend-mode: screen; /* 금속/유리 광택 느낌 */
-  filter: blur(0.2px);
+.selected-line-card.selected {
+  border-color: rgba(201,162,77,0.82);
 }
 
-/* 클릭 시 flash */
-.brand-card.shine::before{
-  animation: jewelFlash 520ms ease-out 1;
+.barion-card.selected {
+  border-color: rgba(210,216,232,0.62);
 }
 
 @keyframes jewelFlash{
@@ -892,9 +854,34 @@
   100% { opacity: 0; transform: scale(1.02); }
 }
 
-/* Shine layer */
-.brand-card::after {
-  content: "";
+.brand-card .flash-layer{
+  position:absolute;
+  inset:-2px;
+  pointer-events:none;
+  opacity:0;
+  border-radius: inherit;
+  z-index: 2;
+  background:
+    radial-gradient(
+      260px 180px at var(--mx, 50%) var(--my, 35%),
+      rgba(255,255,255,0.24) 0%,
+      rgba(255,255,255,0.10) 22%,
+      rgba(255,255,255,0.00) 60%
+    ),
+    linear-gradient(
+      135deg,
+      rgba(255,255,255,0.05) 0%,
+      rgba(255,255,255,0.00) 40%
+    );
+  mix-blend-mode: screen;
+  filter: blur(0.2px);
+}
+
+.brand-card.shine .flash-layer{
+  animation: jewelFlash 520ms ease-out 1;
+}
+
+.brand-card .shine-layer {
   position: absolute;
   top: -40%;
   left: -120%;
@@ -905,23 +892,279 @@
     90deg,
     rgba(255,255,255,0) 0%,
     rgba(255,255,255,0.10) 35%,
-    rgba(255,255,255,0.35) 50%,
+    rgba(255,255,255,0.28) 50%,
     rgba(255,255,255,0.10) 65%,
     rgba(255,255,255,0) 100%
   );
   opacity: 0;
   pointer-events: none;
+  z-index: 2;
 }
 
-/* Trigger: click → add .shine once */
-.brand-card.shine::after {
+.brand-card.shine .shine-layer {
   opacity: 1;
   animation: shineSweep 0.9s ease-out 1;
 }
+
 @keyframes shineSweep {
   0%   { left: -120%; opacity: 0; }
   10%  { opacity: 0.9; }
   100% { left: 140%; opacity: 0; }
+}
+/* ===== Portfolio card system ===== */
+.portfolio-card {
+  width: 100%;
+  max-width: 520px;
+  text-align: center;
+  border-radius: 22px;
+  padding: 2.35rem 2rem 2rem;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  transition: transform 0.32s ease, box-shadow 0.32s ease, border-color 0.32s ease;
+}
+
+.portfolio-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  border-radius: inherit;
+  opacity: 0.9;
+  z-index: 0;
+}
+
+.portfolio-card > * {
+  position: relative;
+  z-index: 1;
+}
+
+.portfolio-eyebrow {
+  font-size: 10px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+  opacity: 0.88;
+}
+
+.portfolio-title {
+  font-family: 'Orbitron', monospace;
+  font-weight: 700;
+  letter-spacing: 2px;
+  margin-bottom: 10px;
+  font-size: 1.35rem;
+  text-transform: uppercase;
+  line-height: 1.2;
+}
+
+.portfolio-desc {
+  margin-bottom: 8px;
+  font-size: 0.93rem;
+  line-height: 1.6;
+}
+
+.portfolio-desc span {
+  display: inline-block;
+  margin-top: 2px;
+  font-size: 0.9rem;
+}
+
+.portfolio-tags {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 16px;
+  margin-top: 14px;
+}
+
+.portfolio-tag {
+  font-size: 11px;
+  padding: 4px 12px;
+  border-radius: 20px;
+  backdrop-filter: blur(8px);
+}
+
+.portfolio-actions {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: auto;
+}
+
+.portfolio-btn {
+  display: inline-block;
+  margin-bottom: 0;
+  padding: 0.9rem 1.8rem;
+  border-radius: 999px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, opacity 0.25s ease;
+}
+
+.portfolio-btn:hover {
+  transform: translateY(-2px);
+}
+
+.portfolio-footnote {
+  margin-top: 12px;
+  font-size: 12px;
+}
+
+/* ===== Premium Active Line ===== */
+.selected-line-card {
+  border: 1px solid rgba(201,162,77,0.42);
+  background:
+    radial-gradient(circle at top center, rgba(229,193,110,0.10) 0%, rgba(229,193,110,0.00) 34%),
+    linear-gradient(180deg, #1B1710 0%, #14110C 55%, #0E0C09 100%);
+  box-shadow:
+    0 20px 55px rgba(0,0,0,0.52),
+    0 0 0 1px rgba(201,162,77,0.10) inset,
+    0 10px 24px rgba(201,162,77,0.06);
+}
+
+.selected-line-card::before {
+  background:
+    linear-gradient(135deg, rgba(255,255,255,0.06) 0%, rgba(255,255,255,0.00) 36%),
+    radial-gradient(circle at 85% 18%, rgba(229,193,110,0.18) 0%, rgba(229,193,110,0.00) 28%);
+}
+
+.selected-line-card .portfolio-eyebrow {
+  color: var(--gold-primary);
+}
+
+.selected-line-card .portfolio-title {
+  background: linear-gradient(135deg, var(--gold-primary) 0%, var(--gold-light) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.selected-line-card .portfolio-desc {
+  color: rgba(255,255,255,0.88);
+}
+
+.selected-line-card .portfolio-desc span {
+  color: rgba(255,255,255,0.60);
+}
+
+.selected-line-card .portfolio-tag {
+  background: rgba(201,162,77,0.12);
+  border: 1px solid rgba(201,162,77,0.28);
+  color: var(--gold-light);
+}
+
+.selected-line-card .portfolio-btn {
+  background: linear-gradient(135deg, var(--gold-primary) 0%, var(--gold-light) 100%);
+  color: #0B0B0B;
+  box-shadow: 0 10px 25px rgba(201,162,77,0.18);
+}
+
+.selected-line-card .portfolio-footnote {
+  color: rgba(255,255,255,0.52);
+}
+
+/* ===== BARION ===== */
+.barion-card {
+  border: 1px solid rgba(214,218,228,0.22);
+  background:
+  radial-gradient(circle at top center, rgba(235,238,245,0.16) 0%, rgba(235,238,245,0.00) 42%),
+  radial-gradient(circle at 20% 18%, rgba(205,212,228,0.08) 0%, rgba(205,212,228,0.00) 28%),
+  linear-gradient(180deg, #1D1F24 0%, #181B20 52%, #14171B 100%);
+  box-shadow:
+    0 20px 55px rgba(0,0,0,0.56),
+    0 0 0 1px rgba(214,218,230,0.08) inset,
+    0 12px 26px rgba(168,170,188,0.10);
+}
+
+.barion-card::before {
+  background:
+    radial-gradient(circle at 78% 14%, rgba(230,234,243,0.14) 0%, rgba(230,234,243,0.00) 24%),
+    radial-gradient(circle at 24% 100%, rgba(205,210,224,0.08) 0%, rgba(205,210,224,0.00) 28%),
+    linear-gradient(135deg, rgba(255,255,255,0.04) 0%, rgba(255,255,255,0.00) 36%);
+}
+
+.barion-card .portfolio-eyebrow {
+  color: rgba(228,231,240,0.68);
+}
+
+.barion-card .portfolio-title {
+  background: linear-gradient(135deg, #F8FAFF 0%, #D6DBEA 45%, #AEB6CC 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.barion-card .portfolio-desc {
+  color: rgba(244,246,251,0.90);
+}
+
+.barion-card .portfolio-desc span {
+  color: rgba(218,223,235,0.62);
+}
+
+.barion-card .portfolio-tag {
+  background: rgba(232,236,244,0.08);
+  border: 1px solid rgba(232,236,244,0.16);
+  color: #E7EBF4;
+}
+
+.barion-card .portfolio-btn {
+  background: linear-gradient(135deg, #EEF1F7 0%, #D9DEEA 55%, #F7F8FC 100%);
+  color: #131313;
+  border: 1px solid rgba(255,255,255,0.18);
+  box-shadow: 0 8px 20px rgba(205,210,224,0.14);
+}
+
+.barion-card .portfolio-footnote {
+  color: rgba(222,226,236,0.48);
+}
+
+.barion-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(210,216,232,0.52);
+}
+
+.selected-line-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(201,162,77,0.72);
+}
+
+.portfolio-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: stretch;
+}
+
+@media (max-width: 900px) {
+  .portfolio-grid {
+    grid-template-columns: 1fr;
+  }
+}
+/* mobile */
+@media (max-width: 768px) {
+  .portfolio-card {
+    padding: 2rem 1.25rem 1.7rem;
+    border-radius: 18px;
+  }
+
+  .portfolio-title {
+    font-size: 1.16rem;
+    letter-spacing: 1.4px;
+  }
+
+  .portfolio-desc {
+    font-size: 0.9rem;
+  }
+
+  .portfolio-btn {
+    width: 100%;
+    text-align: center;
+  }
 }
         /* WhatsApp 플로팅 버튼 */
         .whatsapp-float {
@@ -1086,71 +1329,84 @@
         </div>
         </section>
 
-    <!-- The KORVEX Platform -->
     <!-- Portfolio -->
 <section id="portfolio" class="section" style="background: var(--bg-secondary); padding: 6rem 2rem;">
   <div class="container" style="text-align:center;">
     <h2 class="section-title">Our Portfolio</h2>
-    <div style="max-width: 980px; margin: 0 auto; display:grid; grid-template-columns: 1fr; gap: 1.8rem; justify-items:center;">
+    <p class="section-subtitle" style="max-width: 760px; margin: 0 auto 2.5rem;">
+  A dual-track portfolio structure: curated premium active lines and KORVEX-origin clinical concepts for distribution partners.
+</p>
+    <div class="portfolio-grid" style="max-width: 1100px; margin: 0 auto; display:grid; gap: 1.8rem; justify-items:center;">
 
       <!-- KORVEX Selected Line card -->
-      <div id="selectedLineCard" class="brand-card" style="width:100%; max-width:520px; text-align:center; border: 1px solid rgba(201,162,77,0.6); border-radius: 18px; padding: 2.2rem; background: #1a1610; box-shadow: 0 18px 50px rgba(0,0,0,0.55), 0 0 0 1px rgba(201,162,77,0.15) inset; cursor:pointer; display:flex; flex-direction:column;">
-        <div style="font-size: 10px; letter-spacing: 3px; text-transform: uppercase; color: var(--gold-primary); margin-bottom: 10px; opacity: 0.85;">
-          KORVEX CURATED
-        </div>
-        <div style="background: linear-gradient(135deg, var(--gold-primary) 0%, var(--gold-light) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; font-family: 'Orbitron', monospace; font-weight: 700; letter-spacing: 2px; margin-bottom: 10px; font-size: 1.35rem; text-transform: uppercase;">
-            Premium Active Line
-        </div>
-        <div style="color: rgba(30,30,30,0.85); margin-bottom: 8px; font-size: 0.93rem;">
-          Korean luxury skincare formulations.<br>
-          <span style="color: rgba(255,255,255,0.55); font-size: 0.9rem;">PDRN · NMN · Pearl Tomato® &amp; selected for ingredient depth and professional results.</span>
-        </div>
-        <div style="display:flex; gap:8px; justify-content:center; flex-wrap:wrap; margin-bottom: 16px; margin-top: 14px;">
-          <span style="font-size:11px; background: rgba(201,162,77,0.12); border: 1px solid rgba(201,162,77,0.3); color: var(--gold-light); padding: 4px 12px; border-radius: 20px;">PDRN · NMN</span>
-          <span style="font-size:11px; background: rgba(201,162,77,0.12); border: 1px solid rgba(201,162,77,0.3); color: var(--gold-light); padding: 4px 12px; border-radius: 20px;">Post-Laser Care</span>
-          <span style="font-size:11px; background: rgba(201,162,77,0.12); border: 1px solid rgba(201,162,77,0.3); color: var(--gold-light); padding: 4px 12px; border-radius: 20px;">Anti-Aging</span>
-          <span style="font-size:11px; background: rgba(201,162,77,0.12); border: 1px solid rgba(201,162,77,0.3); color: var(--gold-light); padding: 4px 12px; border-radius: 20px;">Patented Actives</span>
-        </div>
-        <div style="display:flex; gap:10px; justify-content:center; flex-wrap:wrap; margin-top: auto;">
-            <a href="premium_active_line.html" target="_blank" rel="noopener"
-                style="display:inline-block; margin-bottom:0; padding:0.9rem 1.8rem; border-radius:50px; background: linear-gradient(135deg, var(--gold-primary) 0%, var(--gold-light) 100%); color:#0B0B0B; font-weight:700; letter-spacing:1px; text-transform:uppercase;">
-                Explore Line
-            </a>
-        </div>
-        <div style="margin-top: 12px; font-size: 12px; color: rgba(30,30,30,0.55);">
-          ISO 22716 · ISO 9001 · Luxury Korean Formulation Science
-        </div>
-      </div>
+      <div id="selectedLineCard" class="brand-card portfolio-card selected-line-card">
+    <div class="flash-layer"></div>
+    <div class="shine-layer"></div>
+    <div class="portfolio-eyebrow">
+    KORVEX CURATED
+    </div>
+
+  <div class="portfolio-title">
+    Premium Active Line
+  </div>
+
+  <div class="portfolio-desc">
+    Korean luxury skincare formulations.<br>
+    <span>Curated Korean formulations featuring advanced actives for post-treatment care, anti-aging protocols, and premium retail positioning.</span>
+  </div>
+
+  <div class="portfolio-tags">
+    <span class="portfolio-tag">PDRN · NMN</span>
+    <span class="portfolio-tag">Post-Laser Care</span>
+    <span class="portfolio-tag">Anti-Aging</span>
+    <span class="portfolio-tag">Patented Actives</span>
+  </div>
+
+  <div class="portfolio-actions">
+    <a href="premium_active_line.html" target="_blank" rel="noopener" class="portfolio-btn">
+      Explore Line
+    </a>
+  </div>
+
+  <div class="portfolio-footnote">
+    ISO 22716 · ISO 9001 · Luxury Korean Formulation Science
+  </div>
+</div>
 
       <!-- BARION card -->
-      <div id="barionCard" class="brand-card" style="width:100%; max-width:520px; text-align:center; border: 1px solid rgba(180,182,195,0.35); border-radius: 18px; padding: 2.2rem; background: #F8F8F6; box-shadow: 0 18px 50px rgba(0,0,0,0.55), 0 0 0 1px rgba(180,182,195,0.08) inset; cursor:pointer; display:flex; flex-direction:column;">
-        <div style="font-size: 10px; letter-spacing: 3px; text-transform: uppercase; color: #5A5A5A; margin-bottom: 10px; opacity: 0.85;
-">
-          KORVEX ORIGINAL
-        </div>
-        <div style="background: linear-gradient(135deg, #1E1E1E 0%, #2A2A2A 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; font-family: 'Orbitron', monospace; font-weight: 700; letter-spacing: 2px; margin-bottom: 10px; font-size: 1.35rem; text-transform: uppercase;">
-          BARION
-        </div>
-        <div style="color: rgba(255,255,255,0.75); margin-bottom: 8px; font-size: 0.93rem;">
-          Barrier-first Korean dermocosmetics.<br>
-          <span style="color: rgba(255,255,255,0.45); font-size: 0.9rem;">Ampoule No.1 · Cream No.1 — clinic-protocol formulations for aesthetic clinics and distribution partners.</span>
-        </div>
-        <div style="display:flex; gap:8px; justify-content:center; flex-wrap:wrap; margin-bottom: 16px; margin-top: 14px;">
-          <span style="font-size:11px; background: rgba(30,30,30,0.07); border: 1px solid rgba(30,30,30,0.2); color: #2A2A2A; padding: 4px 12px; border-radius: 20px;">Barrier Repair</span>
-          <span style="font-size:11px; background: rgba(30,30,30,0.07); border: 1px solid rgba(30,30,30,0.2); color: #2A2A2A; padding: 4px 12px; border-radius: 20px;">Calming Ampoule</span>
-          <span style="font-size:11px; background: rgba(30,30,30,0.07); border: 1px solid rgba(30,30,30,0.2); color: #2A2A2A; padding: 4px 12px; border-radius: 20px;">Ceramide</span>
-          <span style="font-size:11px; background: rgba(30,30,30,0.07); border: 1px solid rgba(30,30,30,0.2); color: #2A2A2A; padding: 4px 12px; border-radius: 20px;">First-Mover Opportunity</span>
-        </div>
-        <div style="display:flex; gap:10px; justify-content:center; flex-wrap:wrap; margin-top: auto;">
-          <a href="barion.html" target="_blank" rel="noopener"
-            style="display:inline-block; margin-bottom:0; padding:0.9rem 1.8rem; border-radius:50px; background: linear-gradient(135deg, #A8AABC 0%, #E8E9EF 100%); color:#0B0B0B; font-weight:700; letter-spacing:1px; text-transform:uppercase;">
-            Explore Brand
-          </a>
-        </div>
-        <div style="margin-top: 12px; font-size: 12px; color: rgba(255,255,255,0.35);">
-          Korean Manufacturing · Lab Sample Available
-        </div>
-      </div>
+      <div id="barionCard" class="brand-card portfolio-card barion-card">
+    <div class="flash-layer"></div>
+    <div class="shine-layer"></div>
+    <div class="portfolio-eyebrow">
+    KORVEX ORIGINAL
+    </div>
+
+  <div class="portfolio-title">
+    BARION
+  </div>
+
+  <div class="portfolio-desc">
+    Barrier-first Korean dermocosmetics.<br>
+    <span>Ampoule No.1 · Cream No.1 — a barrier-focused Korean dermocosmetic line developed for clinic-oriented positioning and early distribution partnerships.</span>
+  </div>
+
+  <div class="portfolio-tags">
+  <span class="portfolio-tag">Barrier Repair</span>
+  <span class="portfolio-tag">Calming Ampoule</span>
+  <span class="portfolio-tag">Ceramide Complex</span>
+  <span class="portfolio-tag">Early Partner Access</span>
+</div>
+
+  <div class="portfolio-actions">
+    <a href="barion.html" target="_blank" rel="noopener" class="portfolio-btn">
+      Explore Brand
+    </a>
+  </div>
+
+  <div class="portfolio-footnote">
+    Barrier recovery focused · Created for sensitive skin support
+  </div>
+</div>
 
     </div>
   </div>
@@ -1347,8 +1603,9 @@
         </div>
     </div>
 </footer>
+    
+<script>
 
-    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
         // ===== BARION card: click -> floating + shine =====
             const barionCard = document.getElementById('barionCard');
             
@@ -1361,7 +1618,8 @@
   barionCard.style.setProperty('--mx', `${x}px`);
   barionCard.style.setProperty('--my', `${y}px`);
 
-  barionCard.classList.toggle('selected');
+  barionCard.classList.add('selected');
+    setTimeout(() => barionCard.classList.remove('selected'), 700);
 
   barionCard.classList.remove('shine');
   void barionCard.offsetWidth;
@@ -1382,8 +1640,8 @@
 
   selectedLineCard.style.setProperty('--mx', `${x}px`);
   selectedLineCard.style.setProperty('--my', `${y}px`);
-
-  selectedLineCard.classList.toggle('selected');
+    selectedLineCard.classList.add('selected');
+setTimeout(() => selectedLineCard.classList.remove('selected'), 700);
 
   selectedLineCard.classList.remove('shine');
   void selectedLineCard.offsetWidth;
