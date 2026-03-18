@@ -64,7 +64,28 @@ nav {
 .nav-back:hover { color: var(--c29-blue-light); }
 
 /* HERO */
-.hero { padding: 140px 30px 80px; max-width: 1200px; margin: 0 auto; }
+.hero {
+  padding: 140px 30px 80px;
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 80% 20%, rgba(96,165,250,0.10) 0%, rgba(96,165,250,0.00) 28%),
+    radial-gradient(circle at 20% 80%, rgba(37,99,235,0.08) 0%, rgba(37,99,235,0.00) 30%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.hero > * {
+  position: relative;
+  z-index: 1;
+}
 .hero-eyebrow {
   font-size: 11px; letter-spacing: 3px; text-transform: uppercase;
   color: var(--c29-blue-light); margin-bottom: 18px;
@@ -152,11 +173,11 @@ nav {
 .product-card:hover { border-color: rgba(59,130,246,0.32); transform: translateY(-4px); }
 .product-card:hover::before { opacity: 1; }
 .product-img-wrap {
-  width: 100%; height: 170px; background: rgba(13,27,62,0.3);
+  width: 100%; aspect-ratio: 1 / 1; background: rgba(13,27,62,0.3);
   border-radius: 10px; margin-bottom: 1.2rem;
   display: flex; align-items: center; justify-content: center; overflow: hidden;
 }
-.product-img-wrap img { width: 100%; height: 100%; object-fit: contain; padding: 12px; }
+.product-img-wrap img { width: 100%; height: 100%; object-fit: contain; padding: 16px; }
 .product-img-placeholder {
   display: flex; flex-direction: column; align-items: center; gap: 10px;
   color: var(--text-muted); font-size: 0.72rem; letter-spacing: 1px;
@@ -208,6 +229,7 @@ nav {
 /* CLINICAL STRIP */
 .clinical-strip {
   display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 1rem;
+  justify-content: center;
 }
 .clinical-card {
   background: var(--bg-card); border: 1px solid rgba(37,99,235,0.1);
@@ -298,8 +320,8 @@ footer {
   <div class="hero-eyebrow">KORVEX Curated · Clinic Recovery</div>
   <h1 class="hero-title">Korean Clinic<br>Recovery Line</h1>
   <p class="hero-sub">
-    <strong>A curated selection of Korean cosmeceutical formulas built for post-procedure recovery,</strong> clinic retail, and home care continuity.
-Selected by KORVEX for barrier support, recovery-focused recommendation, and repeat-use clinic workflows.
+    <strong>A curated selection of Korean cosmeceutical formulas for post-procedure recovery,</strong> clinic retail, and homecare continuity.
+Selected by KORVEX for barrier support, patient recommendation, and repeat-use clinic workflows.
   </p>
   <div class="hero-tags">
     <span class="hero-tag">Exosome · PDRN · EGF</span>
@@ -343,15 +365,13 @@ Selected by KORVEX for barrier support, recovery-focused recommendation, and rep
 
     <div class="product-card" data-cat="regen post-procedure">
       <div class="product-img-wrap">
-        <div class="product-img-placeholder">
-          <i class="fas fa-flask" style="font-size:2rem;opacity:0.22;"></i>
-          <span>EXOSOME REPAIR AMPOULE</span>
-        </div>
+          <img src="https://raw.githubusercontent.com/tgkim720/product_images/main/cell29/EXOSOME%20REPAIR%20AMPOULE.jpg" alt="Exosome Repair Ampoule" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+          <div class="product-img-placeholder" style="display:none;"><i class="fas fa-flask" style="font-size:2rem;opacity:0.22;"></i><span>EXOSOME REPAIR AMPOULE</span></div>
       </div>
       <span class="product-line-badge badge-regen">Regeneration Line</span>
       <div class="product-name">Exosome Repair Ampoule</div>
         <div class="product-volume">50ml · Collagen Water Base</div>
-        <div class="product-volume" style="margin-top:-8px; opacity:0.65;">Partner SKU reference available upon inquiry</div>
+        <div class="product-sku-note">Partner SKU reference available upon inquiry</div>
         <div class="product-desc">
         Flagship ampoule — Cica-Exosome 10,000ppm and collagen water 830,000ppm. MTS and plasma compatible. Clinical data: 15% skin texture improvement, 18% eye-area wrinkle reduction.
       </div>
@@ -368,15 +388,13 @@ Selected by KORVEX for barrier support, recovery-focused recommendation, and rep
 
     <div class="product-card" data-cat="regen post-procedure">
       <div class="product-img-wrap">
-        <div class="product-img-placeholder">
-          <i class="fas fa-jar" style="font-size:2rem;opacity:0.22;"></i>
-          <span>BARRIER REPAIR CREAM</span>
-        </div>
+          <img src="https://raw.githubusercontent.com/tgkim720/product_images/main/cell29/BARRIER%20REPAIR%20CREAM.jpg" alt="Barrier Repair Cream" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+          <div class="product-img-placeholder" style="display:none;"><i class="fas fa-flask" style="font-size:2rem;opacity:0.22;"></i><span>BARRIER REPAIR CREAM</span></div>
       </div>
       <span class="product-line-badge badge-regen">Regeneration Line</span>
       <div class="product-name">Barrier Repair Cream</div>
       <div class="product-volume">40ml · Dual Function Certified</div>
-      <div class="product-volume" style="margin-top:-8px; opacity:0.65;">Partner SKU reference available upon inquiry</div>
+      <div class="product-sku-note">Partner SKU reference available upon inquiry</div>
       <div class="product-desc">
         Post-procedure repair cream with validated anti-wrinkle data — 37% nasolabial fold improvement, 21% neck wrinkle improvement. Core clinic protocol product post-laser.
       </div>
@@ -393,15 +411,13 @@ Selected by KORVEX for barrier support, recovery-focused recommendation, and rep
 
     <div class="product-card" data-cat="regen post-procedure">
       <div class="product-img-wrap">
-        <div class="product-img-placeholder">
-          <i class="fas fa-fill-drip" style="font-size:2rem;opacity:0.22;"></i>
-          <span>RECOVERY BB BALM</span>
-        </div>
+          <img src="https://raw.githubusercontent.com/tgkim720/product_images/main/cell29/RECOVERY%20BB%20BALM.jpg" alt="Recovery BB Balm" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+          <div class="product-img-placeholder" style="display:none;"><i class="fas fa-flask" style="font-size:2rem;opacity:0.22;"></i><span>RECOVERY BB BALM</span></div>
       </div>
       <span class="product-line-badge badge-regen">Regeneration Line</span>
       <div class="product-name">Recovery BB Balm</div>
       <div class="product-volume">30ml · Hypoallergenic Tested</div>
-      <div class="product-volume" style="margin-top:-8px; opacity:0.65;">Partner SKU reference available upon inquiry</div>
+      <div class="product-sku-note">Partner SKU reference available upon inquiry</div>
       <div class="product-desc">
         No-darkening BB for immediate post-procedure use. Natural luminous finish covers redness without masking — hypoallergenic, skin-safe for sensitized skin.
       </div>
@@ -418,15 +434,13 @@ Selected by KORVEX for barrier support, recovery-focused recommendation, and rep
 
     <div class="product-card" data-cat="regen post-procedure">
       <div class="product-img-wrap">
-        <div class="product-img-placeholder">
-          <i class="fas fa-sun" style="font-size:2rem;opacity:0.22;"></i>
-          <span>RECOVERY SUN SHIELD</span>
-        </div>
+          <img src="https://raw.githubusercontent.com/tgkim720/product_images/main/cell29/RECOVERY%20SUN%20SHIELD.jpg" alt="Recovery Sun Shield" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+          <div class="product-img-placeholder" style="display:none;"><i class="fas fa-flask" style="font-size:2rem;opacity:0.22;"></i><span>RECOVERY SUN SHIELD</span></div>
       </div>
       <span class="product-line-badge badge-regen">Regeneration Line</span>
       <div class="product-name">Recovery Sun Shield</div>
       <div class="product-volume">50ml · SPF50+ PA+++ Hybrid</div>
-      <div class="product-volume" style="margin-top:-8px; opacity:0.65;">Partner SKU reference available upon inquiry</div>
+      <div class="product-sku-note">Partner SKU reference available upon inquiry</div>
       <div class="product-desc">
         Sunscreen + recovery in one — hybrid UV filter with PDRN and 3-type hyaluronic acid. No white cast. Safe on sensitized post-procedure skin.
       </div>
@@ -443,15 +457,13 @@ Selected by KORVEX for barrier support, recovery-focused recommendation, and rep
 
     <div class="product-card" data-cat="regen booster">
       <div class="product-img-wrap">
-        <div class="product-img-placeholder">
-          <i class="fas fa-syringe" style="font-size:2rem;opacity:0.22;"></i>
-          <span>Skin Turnover Booster</span>
-        </div>
+          <img src="https://raw.githubusercontent.com/tgkim720/product_images/main/cell29/Skin%20Turnover%20Booster.jpg" alt="Skin Turnover Booster" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+          <div class="product-img-placeholder" style="display:none;"><i class="fas fa-syringe" style="font-size:2rem;opacity:0.22;"></i><span>SKIN TURNOVER BOOSTER</span></div>
       </div>
       <span class="product-line-badge badge-regen">Regeneration Line</span>
       <div class="product-name">Skin Turnover Booster</div>
       <div class="product-volume">25ml · Nightcare Intensive</div>
-      <div class="product-volume" style="margin-top:-8px; opacity:0.65;">Partner SKU reference available upon inquiry</div>
+      <div class="product-sku-note">Partner SKU reference available upon inquiry</div>
       <div class="product-desc">
         Home MTS-alternative booster. AHA+BHA+LHA+PHA over WTS-10000™ proprietary base — accelerates cell renewal and enhances active absorption without in-clinic treatment.
       </div>
@@ -468,15 +480,13 @@ Selected by KORVEX for barrier support, recovery-focused recommendation, and rep
 
     <div class="product-card" data-cat="glow booster">
       <div class="product-img-wrap">
-        <div class="product-img-placeholder">
-          <i class="fas fa-leaf" style="font-size:2rem;opacity:0.22;"></i>
-          <span>DAILY GLOW PEEL</span>
-        </div>
+          <img src="https://raw.githubusercontent.com/tgkim720/product_images/main/cell29/DAILY%20GLOW%20PEEL.jpg" alt="Daily Glow Peel" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+          <div class="product-img-placeholder" style="display:none;"><i class="fas fa-leaf" style="font-size:2rem;opacity:0.22;"></i><span>DAILY GLOW PEEL</span></div>
       </div>
       <span class="product-line-badge badge-glow">Glow Line</span>
       <div class="product-name">Daily Glow Peel</div>
       <div class="product-volume">120ml · ABP-15% Daily Peel</div>
-      <div class="product-volume" style="margin-top:-8px; opacity:0.65;">Partner SKU reference available upon inquiry</div>
+      <div class="product-sku-note">Partner SKU reference available upon inquiry</div>
       <div class="product-desc">
         VIP clinic exfoliation peel made safe for daily home use. No-rinse formula. Botanical 8-System minimizes irritation — visible glow in 1–2 minutes.
       </div>
@@ -493,15 +503,13 @@ Selected by KORVEX for barrier support, recovery-focused recommendation, and rep
 
     <div class="product-card" data-cat="glow">
       <div class="product-img-wrap">
-        <div class="product-img-placeholder">
-          <i class="fas fa-droplet" style="font-size:2rem;opacity:0.22;"></i>
-          <span>PDRN GLOW CREAM</span>
-        </div>
+          <img src="https://raw.githubusercontent.com/tgkim720/product_images/main/cell29/PDRN%20GLOW%20CREAM.jpg" alt="PDRN Glow Cream" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+          <div class="product-img-placeholder" style="display:none;"><i class="fas fa-droplet" style="font-size:2rem;opacity:0.22;"></i><span>PDRN GLOW CREAM</span></div>
       </div>
       <span class="product-line-badge badge-glow">Glow Line</span>
       <div class="product-name">PDRN Glow Cream</div>
       <div class="product-volume">30ml · Water-Glow Infusion</div>
-      <div class="product-volume" style="margin-top:-8px; opacity:0.65;">Partner SKU reference available upon inquiry</div>
+      <div class="product-sku-note">Partner SKU reference available upon inquiry</div>
       <div class="product-desc">
         PDRN 5,000ppm delivered via liposome technology for deep-layer glow. SQUACERA System (squalane + ceramide) seals barrier moisture post-application.
       </div>
@@ -530,7 +538,7 @@ Selected by KORVEX for barrier support, recovery-focused recommendation, and rep
   <div class="active-system">
     <div class="active-system-row">
       <div class="as-name">Exosome (Cica)</div>
-      <div class="as-desc">Cica-derived exosome at 10,000ppm — nano-sized vesicles for deep barrier penetration and regeneration. Core active in Exosome Repair Ampoule. Clinical: 15% skin texture improvement.</div>
+      <div class="as-desc">Cica-derived exosome at 10,000ppm — nano-sized vesicles for deep barrier penetration and regeneration. Core active in Exosome Repair Ampoule. Supports texture refinement and post-procedure recovery.</div>
     </div>
     <div class="active-system-row">
       <div class="as-name">ALL EGF+</div>
@@ -538,7 +546,7 @@ Selected by KORVEX for barrier support, recovery-focused recommendation, and rep
     </div>
     <div class="active-system-row">
       <div class="as-name">PDRN</div>
-      <div class="as-desc">Polynucleotide complex at 5,000ppm in PDRN Glow Cream and formulated into Sun Recover. Supports barrier density restoration post-procedure.</div>
+      <div class="as-desc">Polynucleotide complex at 5,000ppm in PDRN Glow Cream and integrated into Recovery Sun Shield. Supports barrier density restoration post-procedure.</div>
     </div>
     <div class="active-system-row">
       <div class="as-name">CICA-7 Complex</div>
@@ -579,7 +587,7 @@ Selected by KORVEX for barrier support, recovery-focused recommendation, and rep
 <!-- CTA -->
 <div class="section">
   <div class="cta-section">
-    <div class="cta-title">Bring This Line to Your Clinic</div>
+    <div class="cta-title">Request a Clinic Trial Selection</div>
     <p class="cta-desc">
       Interested in bringing this line to your clinic? Contact KORVEX — we handle sourcing, documentation, and partner onboarding. Select the SKUs that match your protocols and we'll put together a trial order.
     </p>
@@ -587,7 +595,7 @@ Selected by KORVEX for barrier support, recovery-focused recommendation, and rep
       <a href="https://wa.me/601116023115?text=Hello%20KORVEX%2C%20I'm%20interested%20in%20your%20clinic%20recovery%20line" target="_blank" class="btn-blue">
         <i class="fab fa-whatsapp"></i> WhatsApp Us
       </a>
-      <a href="mailto:info@korvexgrp.com" class="btn-outline-blue">
+      <a href="/cdn-cgi/l/email-protection#ff96919990bf94908d899a87988d8fd19c9092" class="btn-outline-blue">
         <i class="fas fa-envelope"></i> Send Email
       </a>
     </div>
@@ -597,10 +605,10 @@ Selected by KORVEX for barrier support, recovery-focused recommendation, and rep
 <!-- FOOTER -->
 <footer>
   <div class="footer-logo">KORVEX</div>
-  <div>Cosmeceutical Distribution · Seoul · Kuala Lumpur · info@korvexgrp.com</div>
+  <div>Cosmeceutical Distribution · Seoul · Kuala Lumpur · <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="f59c9b939ab59e9a8783908d928785db969a98">[email&#160;protected]</a></div>
 </footer>
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 function filterProducts(cat, btn) {
   document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
   btn.classList.add('active');

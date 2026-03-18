@@ -1130,6 +1130,47 @@
   border-color: rgba(210,216,232,0.52);
 }
 
+/* ===== CELL29 Clinic Recovery ===== */
+.cell29-card {
+  border: 1px solid rgba(37,99,235,0.28);
+  background:
+    radial-gradient(circle at top center, rgba(59,130,246,0.10) 0%, rgba(59,130,246,0.00) 38%),
+    linear-gradient(180deg, #0E1220 0%, #0B0F1A 55%, #080B14 100%);
+  box-shadow:
+    0 20px 55px rgba(0,0,0,0.54),
+    0 0 0 1px rgba(37,99,235,0.08) inset,
+    0 10px 24px rgba(37,99,235,0.07);
+}
+.cell29-card::before {
+  background:
+    linear-gradient(135deg, rgba(255,255,255,0.04) 0%, rgba(255,255,255,0.00) 36%),
+    radial-gradient(circle at 82% 16%, rgba(96,165,250,0.14) 0%, rgba(96,165,250,0.00) 26%);
+}
+.cell29-card .portfolio-eyebrow { color: #60A5FA; }
+.cell29-card .portfolio-title {
+  background: linear-gradient(135deg, #FFFFFF 0%, #93C5FD 60%, #60A5FA 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.cell29-card .portfolio-desc { color: rgba(255,255,255,0.88); }
+.cell29-card .portfolio-desc span { color: rgba(147,197,253,0.65); }
+.cell29-card .portfolio-tag {
+  background: rgba(37,99,235,0.12);
+  border: 1px solid rgba(59,130,246,0.26);
+  color: #93C5FD;
+}
+.cell29-card .portfolio-btn {
+  background: linear-gradient(135deg, #1D4ED8 0%, #3B82F6 100%);
+  color: #ffffff;
+  box-shadow: 0 10px 25px rgba(37,99,235,0.22);
+}
+.cell29-card .portfolio-footnote { color: rgba(147,197,253,0.45); }
+.brand-card.cell29-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(59,130,246,0.55);
+}
+
 .selected-line-card:hover {
   transform: translateY(-6px);
   border-color: rgba(201,162,77,0.72);
@@ -1334,6 +1375,32 @@
   <div class="container" style="text-align:center;">
     <h2 class="section-title">Our Portfolio</h2>
     <div class="portfolio-grid" style="max-width: 1100px; margin: 0 auto; display:grid; gap: 1.8rem; justify-items:center;">
+
+<!-- CELL29 Clinic Recovery card -->
+<div id="cell29Card" class="brand-card portfolio-card cell29-card">
+  <div class="flash-layer"></div>
+  <div class="shine-layer"></div>
+  <div class="portfolio-eyebrow">KORVEX CURATED · CLINIC RECOVERY</div>
+  <div class="portfolio-title">Clinic Integration Line</div>
+  <div class="portfolio-desc">
+    Clinic-grade recovery formulas for aesthetic practices.<br>
+    <span>Exosome · PDRN · EGF — post-procedure, barrier repair, and daily maintenance. FDA MoCRA &amp; EU CPNP registered.</span>
+  </div>
+  <div class="portfolio-tags">
+    <span class="portfolio-tag">Post-Procedure</span>
+    <span class="portfolio-tag">Exosome · PDRN</span>
+    <span class="portfolio-tag">Clinic-to-Home</span>
+    <span class="portfolio-tag">FDA · EU Registered</span>
+  </div>
+  <div class="portfolio-actions">
+    <a href="cell29.html" target="_blank" rel="noopener" class="portfolio-btn">
+      Explore Line
+    </a>
+  </div>
+  <div class="portfolio-footnote">
+    Clinic protocol ready · Post-procedure · Retail compatible
+  </div>
+</div>
 
       <!-- KORVEX Selected Line card -->
       <div id="selectedLineCard" class="brand-card portfolio-card selected-line-card">
@@ -1625,6 +1692,23 @@
   setTimeout(() => barionCard.classList.remove('shine'), 950);
 });
             }
+
+// ===== CELL29 card: click -> floating + shine =====
+const cell29Card = document.getElementById('cell29Card');
+if (cell29Card) {
+  cell29Card.addEventListener('pointerdown', (e) => {
+    const rect = cell29Card.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+    cell29Card.style.setProperty('--mx', `${x}px`);
+    cell29Card.style.setProperty('--my', `${y}px`);
+    cell29Card.classList.toggle('selected');
+    cell29Card.classList.remove('shine');
+    void cell29Card.offsetWidth;
+    cell29Card.classList.add('shine');
+    setTimeout(() => cell29Card.classList.remove('shine'), 950);
+  });
+}
 
         // ===== SELECTED LINE card: click -> floating + shine =====
             const selectedLineCard = document.getElementById('selectedLineCard');
