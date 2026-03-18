@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Korean Clinic Recovery Line | KORVEX</title>
+<link rel="icon" href="images/favicon.ico" sizes="any">
+<link rel="icon" href="images/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Orbitron:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<style>
+:root {
+  --bg-primary: #0B0B0B;
+  --bg-secondary: #111318;
+  --bg-card: #13151C;
+  --c29-navy: #0D1B3E;
+  --c29-blue: #2563EB;
+  --c29-blue-light: #3B82F6;
+  --c29-blue-pale: #93C5FD;
+  --c29-accent: #60A5FA;
+  --gradient-c29: linear-gradient(135deg, #1D4ED8 0%, #3B82F6 50%, #60A5FA 100%);
+  --gold-primary: #C9A24D;
+  --gold-light: #E5C16E;
+  --gradient-gold: linear-gradient(135deg, var(--gold-primary) 0%, var(--gold-light) 100%);
+  --text-primary: #FFFFFF;
+  --text-secondary: #C5C5C5;
+  --text-muted: #727890;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: 'Inter', sans-serif;
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+a { color: inherit; text-decoration: none; }
+
+/* NAV */
+nav {
+  position: fixed; top: 0; left: 0; width: 100%;
+  background: rgba(11,11,11,0.98);
+  backdrop-filter: blur(20px);
+  z-index: 9999;
+  border-bottom: 1px solid rgba(37,99,235,0.22);
+  padding: 1rem 0;
+}
+.nav-inner {
+  max-width: 1200px; margin: 0 auto; padding: 0 30px;
+  display: flex; justify-content: space-between; align-items: center;
+}
+.nav-logo {
+  font-family: 'Orbitron', monospace; font-size: 1.2rem; font-weight: 700;
+  background: var(--gradient-gold);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+  letter-spacing: 2px; display: flex; align-items: center; gap: 10px;
+}
+.nav-logo img { height: 36px; width: auto; }
+.nav-back {
+  font-size: 0.88rem; color: var(--text-muted);
+  display: flex; align-items: center; gap: 6px; transition: color 0.2s;
+}
+.nav-back:hover { color: var(--c29-blue-light); }
+
+/* HERO */
+.hero { padding: 140px 30px 80px; max-width: 1200px; margin: 0 auto; }
+.hero-eyebrow {
+  font-size: 11px; letter-spacing: 3px; text-transform: uppercase;
+  color: var(--c29-blue-light); margin-bottom: 18px;
+}
+.hero-title {
+  font-family: 'Orbitron', monospace;
+  font-size: clamp(1.8rem, 4vw, 3rem); font-weight: 700;
+  background: linear-gradient(135deg, #FFFFFF 0%, var(--c29-blue-pale) 60%, var(--c29-accent) 100%);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+  margin-bottom: 12px; line-height: 1.2;
+}
+.hero-sub {
+  font-size: 1.05rem; color: var(--text-secondary);
+  max-width: 600px; margin-bottom: 30px; line-height: 1.7;
+}
+.hero-sub strong { color: var(--c29-blue-pale); font-weight: 600; }
+.hero-tags { display: flex; gap: 10px; flex-wrap: wrap; }
+.hero-tag {
+  font-size: 11px;
+  background: rgba(37,99,235,0.1); border: 1px solid rgba(37,99,235,0.28);
+  color: var(--c29-blue-pale); padding: 5px 14px; border-radius: 20px; letter-spacing: 0.5px;
+}
+
+/* THESIS BANNER - 2 col */
+.thesis-banner {
+  background: linear-gradient(135deg, rgba(13,27,62,0.65) 0%, rgba(30,58,138,0.35) 100%);
+  border: 1px solid rgba(37,99,235,0.18); border-radius: 16px;
+  padding: 1.8rem 2.5rem;
+  max-width: 1200px; margin: 0 auto;
+  display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem;
+}
+.thesis-stat { text-align: center; }
+.thesis-stat-num {
+  font-family: 'Orbitron', monospace; font-size: 2rem; font-weight: 700;
+  background: var(--gradient-c29);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+  line-height: 1; margin-bottom: 6px;
+}
+.thesis-stat-label { font-size: 0.8rem; color: var(--text-muted); line-height: 1.5; }
+
+/* SECTION */
+.section { padding: 5rem 30px; max-width: 1200px; margin: 0 auto; }
+.section-eyebrow {
+  font-size: 10px; letter-spacing: 3px; text-transform: uppercase;
+  color: var(--c29-blue-light); margin-bottom: 12px;
+}
+.section-title {
+  font-family: 'Orbitron', monospace;
+  font-size: clamp(1.3rem, 3vw, 1.9rem); font-weight: 600;
+  color: var(--text-primary); margin-bottom: 14px;
+}
+.section-desc {
+  color: var(--text-secondary); max-width: 620px;
+  line-height: 1.75; margin-bottom: 3rem; font-size: 0.95rem;
+}
+.divider { border: none; border-top: 1px solid rgba(37,99,235,0.1); margin: 0; }
+
+/* FILTER BAR */
+.filter-bar { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 2rem; }
+.filter-btn {
+  font-size: 11px; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase;
+  padding: 7px 16px; border-radius: 20px;
+  border: 1px solid rgba(37,99,235,0.22); color: var(--text-muted);
+  background: transparent; cursor: pointer; transition: all 0.2s;
+}
+.filter-btn:hover { border-color: rgba(59,130,246,0.45); color: var(--c29-blue-pale); }
+.filter-btn.active {
+  background: rgba(37,99,235,0.12); border-color: var(--c29-blue); color: var(--c29-blue-pale);
+}
+
+/* PRODUCT GRID */
+.product-grid {
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.5rem;
+}
+.product-card {
+  background: var(--bg-card); border: 1px solid rgba(37,99,235,0.1);
+  border-radius: 16px; padding: 1.8rem;
+  transition: border-color 0.3s, transform 0.3s;
+  position: relative; overflow: hidden; display: flex; flex-direction: column;
+}
+.product-card::before {
+  content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
+  background: var(--gradient-c29); opacity: 0; transition: opacity 0.3s;
+}
+.product-card:hover { border-color: rgba(59,130,246,0.32); transform: translateY(-4px); }
+.product-card:hover::before { opacity: 1; }
+.product-img-wrap {
+  width: 100%; height: 170px; background: rgba(13,27,62,0.3);
+  border-radius: 10px; margin-bottom: 1.2rem;
+  display: flex; align-items: center; justify-content: center; overflow: hidden;
+}
+.product-img-wrap img { width: 100%; height: 100%; object-fit: contain; padding: 12px; }
+.product-img-placeholder {
+  display: flex; flex-direction: column; align-items: center; gap: 10px;
+  color: var(--text-muted); font-size: 0.72rem; letter-spacing: 1px;
+  text-align: center; padding: 20px;
+}
+.product-line-badge {
+  display: inline-block; font-size: 9px; letter-spacing: 2px;
+  text-transform: uppercase; padding: 3px 10px; border-radius: 10px;
+  margin-bottom: 10px; font-weight: 600;
+}
+.badge-regen {
+  background: rgba(37,99,235,0.14); border: 1px solid rgba(37,99,235,0.28); color: var(--c29-blue-pale);
+}
+.badge-glow {
+  background: rgba(96,165,250,0.1); border: 1px solid rgba(96,165,250,0.28); color: var(--c29-accent);
+}
+.product-name { font-weight: 700; font-size: 1.02rem; color: var(--text-primary); margin-bottom: 5px; line-height: 1.3; }
+.product-volume { font-size: 11px; color: var(--text-muted); margin-bottom: 12px; }
+.product-sku-note {font-size: 11px; color: var(--text-muted); margin-top: -8px; opacity: 0.65;}
+.product-desc { font-size: 0.87rem; color: var(--text-secondary); line-height: 1.7; margin-bottom: 14px; flex: 1; }
+.product-ingredients { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 14px; }
+.ingredient-tag {
+  font-size: 10px; background: rgba(37,99,235,0.08); border: 1px solid rgba(37,99,235,0.18);
+  color: var(--c29-blue-pale); padding: 3px 10px; border-radius: 10px;
+}
+.product-use {
+  display: flex; align-items: flex-start; gap: 8px;
+  font-size: 0.82rem; color: var(--text-muted); line-height: 1.5;
+  padding-top: 12px; border-top: 1px solid rgba(37,99,235,0.08); margin-top: auto;
+}
+.use-dot {
+  width: 6px; height: 6px; border-radius: 50%; background: var(--c29-blue);
+  flex-shrink: 0; margin-top: 5px;
+}
+.product-card.hidden { display: none; }
+
+/* ACTIVE SYSTEM */
+.active-system { border: 1px solid rgba(37,99,235,0.12); border-radius: 14px; overflow: hidden; margin-bottom: 3rem; }
+.active-system-row {
+  display: grid; grid-template-columns: 180px 1fr;
+  border-bottom: 1px solid rgba(37,99,235,0.07);
+  padding: 1.1rem 1.4rem; transition: background 0.2s;
+}
+.active-system-row:last-child { border-bottom: none; }
+.active-system-row:hover { background: rgba(37,99,235,0.04); }
+.as-name { font-weight: 700; font-size: 0.9rem; color: var(--c29-blue-pale); display: flex; align-items: center; }
+.as-desc { font-size: 0.87rem; color: var(--text-secondary); line-height: 1.65; }
+
+/* CLINICAL STRIP */
+.clinical-strip {
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 1rem;
+}
+.clinical-card {
+  background: var(--bg-card); border: 1px solid rgba(37,99,235,0.1);
+  border-radius: 14px; padding: 1.5rem; position: relative; overflow: hidden;
+}
+.clinical-card::after {
+  content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 2px;
+  background: var(--gradient-c29); opacity: 0.45;
+}
+.clinical-eyebrow { font-size: 9px; letter-spacing: 2px; text-transform: uppercase; color: var(--c29-blue-light); margin-bottom: 8px; }
+.clinical-title { font-weight: 700; color: var(--text-primary); font-size: 0.95rem; margin-bottom: 6px; }
+.clinical-desc { font-size: 0.83rem; color: var(--text-secondary); line-height: 1.65; }
+.clinical-desc span { color: var(--text-muted); }
+
+/* CTA */
+.cta-section {
+  background: linear-gradient(135deg, rgba(13,27,62,0.55) 0%, rgba(30,58,138,0.22) 100%);
+  border: 1px solid rgba(37,99,235,0.18); border-radius: 20px;
+  padding: 3rem; text-align: center;
+}
+.cta-title {
+  font-family: 'Orbitron', monospace;
+  font-size: clamp(1.2rem, 2.5vw, 1.7rem); font-weight: 700;
+  color: var(--text-primary); margin-bottom: 14px;
+}
+.cta-desc { color: var(--text-secondary); max-width: 500px; margin: 0 auto 2rem; line-height: 1.7; font-size: 0.95rem; }
+.cta-buttons { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+.btn-blue {
+  display: inline-flex; align-items: center; gap: 8px; padding: 0.9rem 2rem;
+  border-radius: 50px; background: var(--gradient-c29); color: #fff;
+  font-weight: 700; letter-spacing: 1px; text-transform: uppercase; font-size: 0.88rem;
+  transition: opacity 0.2s, transform 0.2s;
+}
+.btn-blue:hover { opacity: 0.88; transform: translateY(-2px); }
+.btn-outline-blue {
+  display: inline-flex; align-items: center; gap: 8px; padding: 0.9rem 2rem;
+  border-radius: 50px; border: 1px solid rgba(59,130,246,0.45);
+  color: var(--c29-blue-pale); font-weight: 600; letter-spacing: 1px;
+  text-transform: uppercase; font-size: 0.88rem; transition: all 0.2s;
+}
+.btn-outline-blue:hover { background: rgba(37,99,235,0.1); border-color: var(--c29-blue); }
+
+/* FOOTER */
+footer {
+  background: var(--bg-primary); padding: 2rem 30px;
+  border-top: 1px solid rgba(37,99,235,0.1);
+  display: flex; justify-content: space-between; align-items: center;
+  flex-wrap: wrap; gap: 12px; font-size: 0.82rem; color: var(--text-muted);
+}
+.footer-logo {
+  font-family: 'Orbitron', monospace; font-size: 0.9rem; font-weight: 700;
+  background: var(--gradient-gold);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+  letter-spacing: 2px;
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+  .hero { padding: 120px 20px 60px; }
+  .section { padding: 4rem 20px; }
+  .thesis-banner { padding: 1.5rem; }
+  .thesis-stat-num { font-size: 1.6rem; }
+  .active-system-row { grid-template-columns: 1fr; gap: 4px; }
+  .cta-section { padding: 2rem 1.5rem; }
+  footer { flex-direction: column; text-align: center; padding: 1.5rem 20px; }
+  .product-grid { grid-template-columns: 1fr; }
+  .clinical-strip { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <div class="nav-logo">
+      <img src="images/logo nobg.png" alt="KORVEX">
+      KORVEX
+    </div>
+    <a href="index.html" class="nav-back">
+      <i class="fas fa-arrow-left"></i> Back to Portfolio
+    </a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-eyebrow">KORVEX Curated · Clinic Recovery</div>
+  <h1 class="hero-title">Korean Clinic<br>Recovery Line</h1>
+  <p class="hero-sub">
+    <strong>A curated selection of Korean cosmeceutical formulas built for post-procedure recovery,</strong> clinic retail, and home care continuity.
+Selected by KORVEX for barrier support, recovery-focused recommendation, and repeat-use clinic workflows.
+  </p>
+  <div class="hero-tags">
+    <span class="hero-tag">Exosome · PDRN · EGF</span>
+    <span class="hero-tag">Post-Procedure Care</span>
+    <span class="hero-tag">FDA MoCRA · EU CPNP</span>
+    <span class="hero-tag">Clinic-to-Home System</span>
+  </div>
+</div>
+
+<!-- THESIS BANNER (2-col) -->
+<div style="padding: 0 30px; max-width: 1260px; margin: 0 auto;">
+  <div class="thesis-banner">
+    <div class="thesis-stat">
+      <div class="thesis-stat-num">Recovery</div>
+      <div class="thesis-stat-label">Selected for post-procedure calming,<br>barrier support, and clinic homecare continuity</div>
+    </div>
+    <div class="thesis-stat">
+      <div class="thesis-stat-num">7 SKUs</div>
+      <div class="thesis-stat-label">Curated across recovery and glow<br>protocols for aesthetic clinic retail</div>
+    </div>
+  </div>
+</div>
+
+<hr class="divider" style="margin-top: 4rem;">
+
+<!-- PRODUCTS -->
+<div class="section">
+  <div class="section-eyebrow">KORVEX Curated Selection</div>
+  <h2 class="section-title">Clinic Recovery Formulas</h2>
+  <p class="section-desc">7 formulas across recovery and glow protocols — sourced from a Korean cosmeceutical partner and selected by KORVEX for clinic workflow compatibility and post-procedure use.</p>
+
+  <div class="filter-bar">
+    <button class="filter-btn active" onclick="filterProducts('all', this)">All</button>
+    <button class="filter-btn" onclick="filterProducts('regen', this)">Regeneration Line</button>
+    <button class="filter-btn" onclick="filterProducts('glow', this)">Glow Line</button>
+    <button class="filter-btn" onclick="filterProducts('post-procedure', this)">Post-Procedure</button>
+    <button class="filter-btn" onclick="filterProducts('booster', this)">Booster</button>
+  </div>
+
+  <div class="product-grid">
+
+    <div class="product-card" data-cat="regen post-procedure">
+      <div class="product-img-wrap">
+        <div class="product-img-placeholder">
+          <i class="fas fa-flask" style="font-size:2rem;opacity:0.22;"></i>
+          <span>EXOSOME REPAIR AMPOULE</span>
+        </div>
+      </div>
+      <span class="product-line-badge badge-regen">Regeneration Line</span>
+      <div class="product-name">Exosome Repair Ampoule</div>
+        <div class="product-volume">50ml · Collagen Water Base</div>
+        <div class="product-volume" style="margin-top:-8px; opacity:0.65;">Partner SKU reference available upon inquiry</div>
+        <div class="product-desc">
+        Flagship ampoule — Cica-Exosome 10,000ppm and collagen water 830,000ppm. MTS and plasma compatible. Clinical data: 15% skin texture improvement, 18% eye-area wrinkle reduction.
+      </div>
+      <div class="product-ingredients">
+        <span class="ingredient-tag">Cica-Exosome 10,000ppm</span>
+        <span class="ingredient-tag">Collagen 830,000ppm</span>
+        <span class="ingredient-tag">EGF · IGF · FGF</span>
+      </div>
+      <div class="product-use">
+        <span class="use-dot"></span>
+        Post-procedure booster · MTS synergy · Daily anti-aging ampoule
+      </div>
+    </div>
+
+    <div class="product-card" data-cat="regen post-procedure">
+      <div class="product-img-wrap">
+        <div class="product-img-placeholder">
+          <i class="fas fa-jar" style="font-size:2rem;opacity:0.22;"></i>
+          <span>BARRIER REPAIR CREAM</span>
+        </div>
+      </div>
+      <span class="product-line-badge badge-regen">Regeneration Line</span>
+      <div class="product-name">Barrier Repair Cream</div>
+      <div class="product-volume">40ml · Dual Function Certified</div>
+      <div class="product-volume" style="margin-top:-8px; opacity:0.65;">Partner SKU reference available upon inquiry</div>
+      <div class="product-desc">
+        Post-procedure repair cream with validated anti-wrinkle data — 37% nasolabial fold improvement, 21% neck wrinkle improvement. Core clinic protocol product post-laser.
+      </div>
+      <div class="product-ingredients">
+        <span class="ingredient-tag">Niacinamide · Adenosine</span>
+        <span class="ingredient-tag">Guaiazulene (Calming)</span>
+        <span class="ingredient-tag">ALL EGF+ Complex</span>
+      </div>
+      <div class="product-use">
+        <span class="use-dot"></span>
+        Post-laser recovery · Sensitive care · Daily repair moisturizer
+      </div>
+    </div>
+
+    <div class="product-card" data-cat="regen post-procedure">
+      <div class="product-img-wrap">
+        <div class="product-img-placeholder">
+          <i class="fas fa-fill-drip" style="font-size:2rem;opacity:0.22;"></i>
+          <span>RECOVERY BB BALM</span>
+        </div>
+      </div>
+      <span class="product-line-badge badge-regen">Regeneration Line</span>
+      <div class="product-name">Recovery BB Balm</div>
+      <div class="product-volume">30ml · Hypoallergenic Tested</div>
+      <div class="product-volume" style="margin-top:-8px; opacity:0.65;">Partner SKU reference available upon inquiry</div>
+      <div class="product-desc">
+        No-darkening BB for immediate post-procedure use. Natural luminous finish covers redness without masking — hypoallergenic, skin-safe for sensitized skin.
+      </div>
+      <div class="product-ingredients">
+        <span class="ingredient-tag">CICA-7 Complex (3 stages)</span>
+        <span class="ingredient-tag">Yeast Extract</span>
+        <span class="ingredient-tag">Helianthus Oil</span>
+      </div>
+      <div class="product-use">
+        <span class="use-dot"></span>
+        Post-procedure BB coverage · Sensitive tone correction · Daily finish
+      </div>
+    </div>
+
+    <div class="product-card" data-cat="regen post-procedure">
+      <div class="product-img-wrap">
+        <div class="product-img-placeholder">
+          <i class="fas fa-sun" style="font-size:2rem;opacity:0.22;"></i>
+          <span>RECOVERY SUN SHIELD</span>
+        </div>
+      </div>
+      <span class="product-line-badge badge-regen">Regeneration Line</span>
+      <div class="product-name">Recovery Sun Shield</div>
+      <div class="product-volume">50ml · SPF50+ PA+++ Hybrid</div>
+      <div class="product-volume" style="margin-top:-8px; opacity:0.65;">Partner SKU reference available upon inquiry</div>
+      <div class="product-desc">
+        Sunscreen + recovery in one — hybrid UV filter with PDRN and 3-type hyaluronic acid. No white cast. Safe on sensitized post-procedure skin.
+      </div>
+      <div class="product-ingredients">
+        <span class="ingredient-tag">PDRN</span>
+        <span class="ingredient-tag">3-Type Hyaluronic Acid</span>
+        <span class="ingredient-tag">SPF50+ PA+++ Hybrid</span>
+      </div>
+      <div class="product-use">
+        <span class="use-dot"></span>
+        Post-treatment SPF · Daily UV protection · Barrier-safe sunscreen
+      </div>
+    </div>
+
+    <div class="product-card" data-cat="regen booster">
+      <div class="product-img-wrap">
+        <div class="product-img-placeholder">
+          <i class="fas fa-syringe" style="font-size:2rem;opacity:0.22;"></i>
+          <span>Skin Turnover Booster</span>
+        </div>
+      </div>
+      <span class="product-line-badge badge-regen">Regeneration Line</span>
+      <div class="product-name">Skin Turnover Booster</div>
+      <div class="product-volume">25ml · Nightcare Intensive</div>
+      <div class="product-volume" style="margin-top:-8px; opacity:0.65;">Partner SKU reference available upon inquiry</div>
+      <div class="product-desc">
+        Home MTS-alternative booster. AHA+BHA+LHA+PHA over WTS-10000™ proprietary base — accelerates cell renewal and enhances active absorption without in-clinic treatment.
+      </div>
+      <div class="product-ingredients">
+        <span class="ingredient-tag">WTS-10000™ Base</span>
+        <span class="ingredient-tag">AHA · BHA · LHA · PHA</span>
+        <span class="ingredient-tag">Bumble Bee Peptide</span>
+      </div>
+      <div class="product-use">
+        <span class="use-dot"></span>
+        Home MTS alternative · Nightly turnover · Absorption booster
+      </div>
+    </div>
+
+    <div class="product-card" data-cat="glow booster">
+      <div class="product-img-wrap">
+        <div class="product-img-placeholder">
+          <i class="fas fa-leaf" style="font-size:2rem;opacity:0.22;"></i>
+          <span>DAILY GLOW PEEL</span>
+        </div>
+      </div>
+      <span class="product-line-badge badge-glow">Glow Line</span>
+      <div class="product-name">Daily Glow Peel</div>
+      <div class="product-volume">120ml · ABP-15% Daily Peel</div>
+      <div class="product-volume" style="margin-top:-8px; opacity:0.65;">Partner SKU reference available upon inquiry</div>
+      <div class="product-desc">
+        VIP clinic exfoliation peel made safe for daily home use. No-rinse formula. Botanical 8-System minimizes irritation — visible glow in 1–2 minutes.
+      </div>
+      <div class="product-ingredients">
+        <span class="ingredient-tag">ABP (AHA+BHA+PHA) 15%</span>
+        <span class="ingredient-tag">Botanical 8-System</span>
+        <span class="ingredient-tag">Daily Glow Technology</span>
+      </div>
+      <div class="product-use">
+        <span class="use-dot"></span>
+        Daily glow peel · Post-clinic maintenance · Texture refinement
+      </div>
+    </div>
+
+    <div class="product-card" data-cat="glow">
+      <div class="product-img-wrap">
+        <div class="product-img-placeholder">
+          <i class="fas fa-droplet" style="font-size:2rem;opacity:0.22;"></i>
+          <span>PDRN GLOW CREAM</span>
+        </div>
+      </div>
+      <span class="product-line-badge badge-glow">Glow Line</span>
+      <div class="product-name">PDRN Glow Cream</div>
+      <div class="product-volume">30ml · Water-Glow Infusion</div>
+      <div class="product-volume" style="margin-top:-8px; opacity:0.65;">Partner SKU reference available upon inquiry</div>
+      <div class="product-desc">
+        PDRN 5,000ppm delivered via liposome technology for deep-layer glow. SQUACERA System (squalane + ceramide) seals barrier moisture post-application.
+      </div>
+      <div class="product-ingredients">
+        <span class="ingredient-tag">PDRN 5,000ppm</span>
+        <span class="ingredient-tag">Liposome Delivery</span>
+        <span class="ingredient-tag">SQUACERA System</span>
+      </div>
+      <div class="product-use">
+        <span class="use-dot"></span>
+        Glow cream · PDRN home care · VIP clinic retail
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<hr class="divider">
+
+<!-- ACTIVE INGREDIENT SYSTEM + CLINICAL -->
+<div class="section">
+  <div class="section-eyebrow">Active Systems in This Line</div>
+  <h2 class="section-title">Selected Active Systems</h2>
+  <p class="section-desc">Each formula is built around a focused active system selected for post-procedure use, barrier support, and clinic homecare compatibility.</p>
+
+  <div class="active-system">
+    <div class="active-system-row">
+      <div class="as-name">Exosome (Cica)</div>
+      <div class="as-desc">Cica-derived exosome at 10,000ppm — nano-sized vesicles for deep barrier penetration and regeneration. Core active in Exosome Repair Ampoule. Clinical: 15% skin texture improvement.</div>
+    </div>
+    <div class="active-system-row">
+      <div class="as-name">ALL EGF+</div>
+      <div class="as-desc">Full EGF complex (EGF, IGF, FGF) — cellular growth factors that stimulate renewal and repair. Anti-wrinkle clinical trials completed at K-Skin Clinical Center.</div>
+    </div>
+    <div class="active-system-row">
+      <div class="as-name">PDRN</div>
+      <div class="as-desc">Polynucleotide complex at 5,000ppm in PDRN Glow Cream and formulated into Sun Recover. Supports barrier density restoration post-procedure.</div>
+    </div>
+    <div class="active-system-row">
+      <div class="as-name">CICA-7 Complex</div>
+      <div class="as-desc">3-stage centella asiatica in Recovery BB Balm. Calms post-procedure inflammation while providing natural coverage. Hypoallergenic tested.</div>
+    </div>
+    <div class="active-system-row">
+      <div class="as-name">ABP-15%</div>
+      <div class="as-desc">AHA + BHA + PHA triple acid at 15% in Daily Glow Peel. Professional exfoliation system adapted for daily home use with Botanical 8-System irritation control.</div>
+    </div>
+    <div class="active-system-row">
+      <div class="as-name">WTS-10000™</div>
+      <div class="as-desc">Proprietary penetration base in Skin Turnover Booster. Enhances absorption of actives layered over it — designed to enhance active absorption within a homecare routine.</div>
+    </div>
+  </div>
+
+  <div class="clinical-strip">
+    <div class="clinical-card">
+      <div class="clinical-eyebrow">Regulatory</div>
+      <div class="clinical-title">FDA MoCRA + EU CPNP</div>
+      <div class="clinical-desc">Most SKUs registered as of Dec 2025. <span>COA, MSDS, INCI, and safety assessment available to distribution partners.</span></div>
+    </div>
+    <div class="clinical-card">
+      <div class="clinical-eyebrow">Clinical Validation</div>
+      <div class="clinical-title">Anti-Aging Trials Complete</div>
+      <div class="clinical-desc">Wrinkle and texture improvement trials at K-Skin Clinical Center. <span>Results available on request for import partners.</span></div>
+    </div>
+    <div class="clinical-card">
+      <div class="clinical-eyebrow">Manufacturing</div>
+      <div class="clinical-title">ISO 22716 · Clinician Co-Dev</div>
+      <div class="clinical-desc">GMP certified. Co-developed with 20+ year dermatology team. <span>Beta-tested across 30 clinic partnerships before launch.</span></div>
+    </div>
+
+  </div>
+</div>
+
+<hr class="divider">
+
+<!-- CTA -->
+<div class="section">
+  <div class="cta-section">
+    <div class="cta-title">Bring This Line to Your Clinic</div>
+    <p class="cta-desc">
+      Interested in bringing this line to your clinic? Contact KORVEX — we handle sourcing, documentation, and partner onboarding. Select the SKUs that match your protocols and we'll put together a trial order.
+    </p>
+    <div class="cta-buttons">
+      <a href="https://wa.me/601116023115?text=Hello%20KORVEX%2C%20I'm%20interested%20in%20your%20clinic%20recovery%20line" target="_blank" class="btn-blue">
+        <i class="fab fa-whatsapp"></i> WhatsApp Us
+      </a>
+      <a href="mailto:info@korvexgrp.com" class="btn-outline-blue">
+        <i class="fas fa-envelope"></i> Send Email
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">KORVEX</div>
+  <div>Cosmeceutical Distribution · Seoul · Kuala Lumpur · info@korvexgrp.com</div>
+</footer>
+
+<script>
+function filterProducts(cat, btn) {
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('.product-card').forEach(card => {
+    if (cat === 'all' || card.dataset.cat.includes(cat)) {
+      card.classList.remove('hidden');
+    } else {
+      card.classList.add('hidden');
+    }
+  });
+}
+</script>
+</body>
+</html>
