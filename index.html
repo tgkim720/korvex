@@ -1381,7 +1381,7 @@
   <div class="flash-layer"></div>
   <div class="shine-layer"></div>
   <div class="portfolio-eyebrow">KORVEX CURATED · CLINIC RECOVERY</div>
-  <div class="portfolio-title">Clinic Integration Line</div>
+  <div class="portfolio-title">Clinical Recovery Line</div>
   <div class="portfolio-desc">
     Clinic-grade recovery formulas for aesthetic practices.<br>
     <span>Exosome · PDRN · EGF — post-procedure, barrier repair, and daily maintenance. FDA MoCRA &amp; EU CPNP registered.</span>
@@ -1707,6 +1707,9 @@ if (cell29Card) {
     void cell29Card.offsetWidth;
     cell29Card.classList.add('shine');
     setTimeout(() => cell29Card.classList.remove('shine'), 950);
+  });
+  cell29Card.addEventListener('mouseleave', () => {
+    cell29Card.classList.remove('selected');
   });
 }
 
