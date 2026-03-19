@@ -164,7 +164,10 @@ nav {
   font-family: 'Orbitron', monospace;
   font-size: clamp(1.3rem, 3vw, 1.9rem);
   font-weight: 600;
-  color: var(--text-primary);
+  background: var(--gradient-gold);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
   margin-bottom: 14px;
 }
 .section-desc {
@@ -206,7 +209,8 @@ nav {
   font-size: 10px;
   letter-spacing: 2.5px;
   text-transform: uppercase;
-  color: var(--gold-primary);
+  color: var(--text-primary);
+  opacity: 0.9;
   margin-bottom: 10px;
 }
 .product-name {
@@ -235,9 +239,9 @@ nav {
 }
 .ingredient-tag {
   font-size: 10px;
-  background: rgba(201,162,77,0.08);
-  border: 1px solid rgba(201,162,77,0.2);
-  color: var(--gold-light);
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.10);
+  color: var(--text-secondary);
   padding: 3px 9px;
   border-radius: 12px;
 }
@@ -273,16 +277,16 @@ nav {
 
 .protocol-badge {
   font-size: 10px;
-  background: rgba(201,162,77,0.1);
-  border: 1px solid rgba(201,162,77,0.25);
-  color: var(--gold-light);
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.10);
+  color: var(--text-secondary);
   padding: 4px 12px;
   border-radius: 20px;
   white-space: nowrap;
   flex-shrink: 0;
 }
 .protocol-toggle {
-  color: var(--gold-primary);
+  color: var(--text-secondary);
   font-size: 0.9rem;
   transition: transform 0.3s;
   margin-left: 10px;
@@ -360,9 +364,9 @@ nav {
 }
 .benefit-chip {
   font-size: 11px;
-  background: rgba(201,162,77,0.08);
-  border: 1px solid rgba(201,162,77,0.2);
-  color: var(--gold-light);
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.10);
+  color: var(--text-secondary);
   padding: 4px 12px;
   border-radius: 20px;
 }
@@ -422,8 +426,8 @@ nav {
   gap: 8px;
   padding: 0.9rem 1.8rem;
   border-radius: 50px;
-  border: 1px solid rgba(201,162,77,0.5);
-  color: var(--gold-light);
+  border: 1px solid rgba(255,255,255,0.16);
+  color: var(--text-primary);
   font-weight: 600;
   letter-spacing: 1px;
   text-transform: uppercase;
@@ -431,8 +435,8 @@ nav {
   transition: border-color 0.2s, background 0.2s;
 }
 .btn-outline:hover {
-  border-color: var(--gold-primary);
-  background: rgba(201,162,77,0.06);
+  border-color: rgba(255,255,255,0.28);
+  background: rgba(255,255,255,0.04);
 }
 
 /* CREDENTIALS */
@@ -575,7 +579,7 @@ footer {
 .as-name {
   font-size: 0.88rem;
   font-weight: 700;
-  color: var(--gold-light);
+  color: var(--text-primary);
   letter-spacing: 0.3px;
   padding-top: 2px;
 }
@@ -646,7 +650,7 @@ footer {
   font-size: 11px;
   letter-spacing: 2px;
   text-transform: uppercase;
-  color: var(--gold-primary);
+  color: var(--text-primary);
   margin-bottom: 10px;
   font-weight: 700;
 }
@@ -686,7 +690,7 @@ footer {
   flex-shrink: 0;
 }
 .step-timing-clinic {
-  color: #E5C16E;
+  color: var(--text-primary);
   font-weight: 700;
   font-size: 0.78rem;
   white-space: nowrap;
@@ -694,7 +698,7 @@ footer {
   letter-spacing: 0.3px;
 }
 .step-timing-home {
-  color: var(--gold-primary);
+  color: var(--text-secondary);
   font-weight: 500;
   font-size: 0.78rem;
   white-space: nowrap;
@@ -827,9 +831,8 @@ footer {
   <div class="hero-eyebrow">Premium Active Skincare · Clinic Retail Edition</div>
   <h1 class="hero-title">KORVEX<br>CLINIC LUXE</h1>
   <p class="hero-sub">
-    <strong style="-webkit-text-fill-color: var(--gold-light); color: var(--gold-light); font-weight: 600;">
-      A curated selection of high-performance Korean active skincare for clinic retail, anti-aging recommendation, and repeat purchase.
-  </p>
+  A curated selection of high-performance Korean active skincare for clinic retail, anti-aging recommendation, and repeat purchase.
+</p>
     <div class="hero-tags">
     <span class="hero-tag">PDRN · NMN · Pearl Tomato®</span>
     <span class="hero-tag">Post-Procedure Care</span>
@@ -1344,6 +1347,7 @@ footer {
 </div>
 
      <!-- GLOBAL DISTRIBUTION -->
+      <div class="section"> 
   <div class="dist-section">
     <div class="section-eyebrow">KORVEX Support</div>
     <div class="dist-headline">Small-Batch Sourcing for Clinic Trial</div>
@@ -1365,6 +1369,7 @@ footer {
       <div class="dist-region">
         <div class="dist-region-name">Documents</div>
         <div class="dist-countries">COA, MSDS, INCI list, and product data available on request</div>
+      </div>
       </div>
     </div>
   </div>
