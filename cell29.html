@@ -228,7 +228,7 @@ nav {
 
 /* CLINICAL STRIP */
 .clinical-strip {
-  display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 1rem;
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1rem;
   justify-content: center;
 }
 .clinical-card {
@@ -286,6 +286,78 @@ footer {
   letter-spacing: 2px;
 }
 
+/* MODAL */
+.modal-overlay {
+  position: fixed; inset: 0; z-index: 10000;
+  background: rgba(0,0,0,0.78); backdrop-filter: blur(6px);
+  display: flex; align-items: center; justify-content: center;
+  padding: 20px; opacity: 0; pointer-events: none; transition: opacity 0.25s;
+}
+.modal-overlay.open { opacity: 1; pointer-events: all; }
+.modal-box {
+  background: #13151C; border: 1px solid rgba(37,99,235,0.3);
+  border-radius: 20px; max-width: 680px; width: 100%;
+  max-height: 88vh; overflow-y: auto; padding: 2.5rem;
+  position: relative; scrollbar-width: thin; scrollbar-color: rgba(37,99,235,0.3) transparent;
+}
+.modal-close {
+  position: absolute; top: 1.2rem; right: 1.2rem;
+  background: rgba(37,99,235,0.1); border: 1px solid rgba(37,99,235,0.2);
+  color: var(--text-muted); width: 32px; height: 32px; border-radius: 50%;
+  cursor: pointer; font-size: 0.85rem; display: flex; align-items: center; justify-content: center;
+  transition: all 0.2s;
+}
+.modal-close:hover { background: rgba(37,99,235,0.22); color: var(--text-primary); }
+.modal-badge {
+  display: inline-block; font-size: 9px; letter-spacing: 2px;
+  text-transform: uppercase; padding: 3px 10px; border-radius: 10px;
+  margin-bottom: 10px; font-weight: 600;
+}
+.modal-name {
+  font-family: 'Orbitron', monospace; font-size: 1.2rem; font-weight: 700;
+  color: var(--text-primary); margin-bottom: 4px; padding-right: 36px; line-height: 1.3;
+}
+.modal-volume { font-size: 11px; color: var(--text-muted); margin-bottom: 1.2rem; }
+.modal-positioning {
+  font-size: 0.87rem; color: var(--text-secondary); line-height: 1.72;
+  padding: 0.9rem 1.1rem; background: rgba(37,99,235,0.06);
+  border-left: 2px solid var(--c29-blue); border-radius: 0 8px 8px 0; margin-bottom: 1.5rem;
+}
+.modal-section-label {
+  font-size: 9px; letter-spacing: 2.5px; text-transform: uppercase;
+  color: var(--c29-blue-light); margin-bottom: 0.6rem; display: block;
+}
+.modal-actives { display: flex; flex-direction: column; gap: 7px; margin-bottom: 1.5rem; }
+.modal-active-row {
+  display: grid; grid-template-columns: 175px 1fr; gap: 10px;
+  padding: 0.65rem 0.9rem; background: rgba(37,99,235,0.05);
+  border-radius: 8px; border: 1px solid rgba(37,99,235,0.1);
+}
+.modal-active-name { font-size: 0.8rem; font-weight: 700; color: var(--c29-blue-pale); display: flex; align-items: flex-start; padding-top: 1px; }
+.modal-active-desc { font-size: 0.79rem; color: var(--text-secondary); line-height: 1.58; }
+.modal-claims {
+  font-size: 0.82rem; color: var(--text-secondary); line-height: 1.72;
+  margin-bottom: 1.5rem; padding: 0.9rem 1.1rem;
+  background: rgba(96,165,250,0.04); border-radius: 8px;
+  border: 1px solid rgba(96,165,250,0.1);
+}
+.modal-uses { display: flex; flex-direction: column; gap: 11px; }
+.modal-use-item { display: flex; gap: 11px; align-items: flex-start; }
+.modal-use-bullet {
+  width: 5px; height: 5px; border-radius: 50%; background: var(--c29-blue);
+  flex-shrink: 0; margin-top: 7px;
+}
+.modal-use-text { font-size: 0.82rem; color: var(--text-secondary); line-height: 1.68; }
+.modal-hr { border: none; border-top: 1px solid rgba(37,99,235,0.1); margin: 1.2rem 0; }
+.btn-view-details {
+  width: 100%; margin-top: 1rem; padding: 0.6rem 1rem;
+  border-radius: 50px; border: 1px solid rgba(37,99,235,0.25);
+  color: var(--text-muted); background: transparent;
+  font-size: 0.75rem; font-weight: 600; letter-spacing: 1px; text-transform: uppercase;
+  cursor: pointer; transition: all 0.2s;
+}
+.btn-view-details:hover { background: rgba(37,99,235,0.1); border-color: var(--c29-blue); color: var(--c29-blue-pale); }
+
 /* MOBILE */
 @media (max-width: 768px) {
   .hero { padding: 120px 20px 60px; }
@@ -297,6 +369,8 @@ footer {
   footer { flex-direction: column; text-align: center; padding: 1.5rem 20px; }
   .product-grid { grid-template-columns: 1fr; }
   .clinical-strip { grid-template-columns: 1fr; }
+  .modal-box { padding: 1.5rem; }
+  .modal-active-row { grid-template-columns: 1fr; gap: 4px; }
 }
 </style>
 </head>
@@ -317,15 +391,15 @@ footer {
 
 <!-- HERO -->
 <div class="hero">
-  <div class="hero-eyebrow">KORVEX Curated · Clinic Recovery</div>
-  <h1 class="hero-title">Clinical Recovery Line</h1>
+  <div class="hero-eyebrow">KORVEX Curated · Korean Clinical Skincare</div>
+  <h1 class="hero-title">Korean Clinical Skincare Selection</h1>
   <p class="hero-sub">
-  <strong>A curated Korean recovery-focused line for post-procedure care,</strong> clinic retail recommendation, and homecare continuity.
-  Selected by KORVEX for barrier support, patient-friendly use, and repeat-order clinic workflows.
+  <strong>16 clinic-grade Korean formulas across recovery, hydration, brightening, and intervention —</strong> curated by KORVEX for post-procedure protocols, clinic retail, and homecare continuity.
+  Selected for barrier support, patient-friendly compliance, and repeat-order clinic workflows.
 </p>
   <div class="hero-tags">
     <span class="hero-tag">Exosome · PDRN · EGF</span>
-    <span class="hero-tag">Post-Procedure Care</span>
+    <span class="hero-tag">Recovery · Hydration · Brightening</span>
     <span class="hero-tag">FDA MoCRA · EU CPNP</span>
     <span class="hero-tag">Clinic-to-Home System</span>
   </div>
@@ -333,33 +407,54 @@ footer {
 
 <hr class="divider" style="margin-top: 4rem;">
 
+<section style="padding: 50px 30px; background: rgba(37,99,235,0.04); border-radius: 20px; margin: 3rem auto; max-width: 1200px; border: 1px solid rgba(37,99,235,0.12);">
+  <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px;">
+    <div style="text-align: center; padding: 10px;">
+      <div style="width:44px;height:44px;border-radius:50%;background:rgba(37,99,235,0.12);border:1px solid rgba(37,99,235,0.25);display:flex;align-items:center;justify-content:center;margin:0 auto 16px;color:#60A5FA;font-size:1rem;"><i class="fas fa-layer-group"></i></div>
+      <h4 style="color: #60A5FA; font-family: 'Orbitron'; margin-bottom: 12px; font-size: 0.95rem;">Starter-Friendly Tiers</h4>
+      <p style="font-size: 0.88rem; color: #C5C5C5; line-height: 1.6;">Lowering the barrier for market entry. We offer <strong>Starter Pack</strong> options with optimized MOQ tiers for efficient market testing.</p>
+    </div>
+    <div style="text-align: center; padding: 10px;">
+      <div style="width:44px;height:44px;border-radius:50%;background:rgba(37,99,235,0.12);border:1px solid rgba(37,99,235,0.25);display:flex;align-items:center;justify-content:center;margin:0 auto 16px;color:#60A5FA;font-size:1rem;"><i class="fas fa-file-shield"></i></div>
+      <h4 style="color: #60A5FA; font-family: 'Orbitron'; margin-bottom: 12px; font-size: 0.95rem;">Compliance Ready</h4>
+      <p style="font-size: 0.88rem; color: #C5C5C5; line-height: 1.6;">Full export documentation support (MSDS/COA). Specialized guidance for regional compliance and NPRA notifications.</p>
+    </div>
+    <div style="text-align: center; padding: 10px;">
+      <div style="width:44px;height:44px;border-radius:50%;background:rgba(37,99,235,0.12);border:1px solid rgba(37,99,235,0.25);display:flex;align-items:center;justify-content:center;margin:0 auto 16px;color:#60A5FA;font-size:1rem;"><i class="fas fa-stethoscope"></i></div>
+      <h4 style="color: #60A5FA; font-family: 'Orbitron'; margin-bottom: 12px; font-size: 0.95rem;">Clinic Protocols</h4>
+      <p style="font-size: 0.88rem; color: #C5C5C5; line-height: 1.6;">Access professional treatment manuals and clinical protocols developed for advanced aesthetic workflows.</p>
+    </div>
+  </div>
+</section>
+
 <!-- PRODUCTS -->
 <div class="section">
   <div class="section-eyebrow">KORVEX Curated Selection</div>
   <h2 class="section-title">Clinic Recovery Formulas</h2>
-  <p class="section-desc">7 selected formulas across recovery and glow use cases — curated by KORVEX for post-procedure care, clinic retail recommendation, and homecare continuity.</p>
+  <p class="section-desc">16 selected formulas across recovery, hydration, brightening, and booster use cases — curated by KORVEX for post-procedure care, clinic retail recommendation, and homecare continuity.</p>
 
   <div class="filter-bar">
     <button class="filter-btn active" onclick="filterProducts('all', this)">All</button>
-    <button class="filter-btn" onclick="filterProducts('regen', this)">Regeneration Line</button>
-    <button class="filter-btn" onclick="filterProducts('glow', this)">Glow Line</button>
     <button class="filter-btn" onclick="filterProducts('post-procedure', this)">Post-Procedure</button>
-    <button class="filter-btn" onclick="filterProducts('booster', this)">Booster</button>
-  </div>
+    <button class="filter-btn" onclick="filterProducts('regen', this)">Recovery & Repair</button>
+    <button class="filter-btn" onclick="filterProducts('hydration', this)">Hydration</button>
+    <button class="filter-btn" onclick="filterProducts('brightening', this)">Brightening</button>
+    <button class="filter-btn" onclick="filterProducts('booster', this)">Clinical Boosters</button>
+</div>
 
   <div class="product-grid">
 
-    <div class="product-card" data-cat="regen post-procedure">
+    <div class="product-card" data-cat="regen post-procedure" data-pid="exo-cica">
       <div class="product-img-wrap">
-          <img src="https://raw.githubusercontent.com/tgkim720/product_images/main/cell29/EXOSOME%20REPAIR%20AMPOULE.jpg" alt="Exosome Repair Ampoule" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
-          <div class="product-img-placeholder" style="display:none;"><i class="fas fa-flask" style="font-size:2rem;opacity:0.22;"></i><span>EXOSOME REPAIR AMPOULE</span></div>
+          <img src="https://raw.githubusercontent.com/tgkim720/product_images/main/cell29/EXOSOME%20REPAIR%20AMPOULE.jpg" alt="Exo-Cica Recovery" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+          <div class="product-img-placeholder" style="display:none;"><i class="fas fa-flask" style="font-size:2rem;opacity:0.22;"></i><span>Exo-Cica Recovery</span></div>
       </div>
       <span class="product-line-badge badge-regen">Regeneration Line</span>
-      <div class="product-name">Exosome Repair Ampoule</div>
+      <div class="product-name">Exo-Cica Recovery</div>
         <div class="product-volume">50ml · Collagen Water Base</div>
         <div class="product-sku-note">Partner SKU reference available upon inquiry</div>
         <div class="product-desc">
-        Flagship ampoule — Cica-Exosome 10,000ppm and collagen water 830,000ppm. MTS and plasma compatible. Clinical data: 15% skin texture improvement, 18% eye-area wrinkle reduction.
+        A professional recovery serum formulated with 10,000ppm Cica-Exosome and 83% Collagen Water. Specifically developed to support natural skin regeneration and provide immediate soothing effects for sensitized skin following clinical procedures.
       </div>
       <div class="product-ingredients">
         <span class="ingredient-tag">Cica-Exosome 10,000ppm</span>
@@ -370,19 +465,20 @@ footer {
         <span class="use-dot"></span>
         Post-procedure booster · MTS synergy · Daily anti-aging ampoule
       </div>
+      <button class="btn-view-details" onclick="openModal('exo-cica')">View Details</button>
     </div>
 
-    <div class="product-card" data-cat="regen post-procedure">
+    <div class="product-card" data-cat="regen post-procedure" data-pid="azulene-repair">
       <div class="product-img-wrap">
-          <img src="https://raw.githubusercontent.com/tgkim720/product_images/main/cell29/BARRIER%20REPAIR%20CREAM.jpg" alt="Barrier Repair Cream" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
-          <div class="product-img-placeholder" style="display:none;"><i class="fas fa-flask" style="font-size:2rem;opacity:0.22;"></i><span>BARRIER REPAIR CREAM</span></div>
+          <img src="https://raw.githubusercontent.com/tgkim720/product_images/main/cell29/BARRIER%20REPAIR%20CREAM.jpg" alt="Azulene Repair Cream" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+          <div class="product-img-placeholder" style="display:none;"><i class="fas fa-flask" style="font-size:2rem;opacity:0.22;"></i><span>Azulene Repair Cream</span></div>
       </div>
       <span class="product-line-badge badge-regen">Regeneration Line</span>
-      <div class="product-name">Barrier Repair Cream</div>
+      <div class="product-name">Azulene Repair Cream</div>
       <div class="product-volume">40ml · Dual Function Certified</div>
       <div class="product-sku-note">Partner SKU reference available upon inquiry</div>
       <div class="product-desc">
-        Post-procedure repair cream with validated anti-wrinkle data — 37% nasolabial fold improvement, 21% neck wrinkle improvement. Core clinic protocol product post-laser.
+        An intensive post-care cream featuring a 3GF Complex and Guaiazulene. It reinforces the skin's moisture barrier and protects the skin from external environmental stressors while maintaining deep hydration levels.
       </div>
       <div class="product-ingredients">
         <span class="ingredient-tag">Niacinamide · Adenosine</span>
@@ -393,19 +489,20 @@ footer {
         <span class="use-dot"></span>
         Post-laser recovery · Sensitive care · Daily repair moisturizer
       </div>
+      <button class="btn-view-details" onclick="openModal('azulene-repair')">View Details</button>
     </div>
 
-    <div class="product-card" data-cat="regen post-procedure">
+    <div class="product-card" data-cat="regen post-procedure" data-pid="blemish-balm">
       <div class="product-img-wrap">
-          <img src="https://raw.githubusercontent.com/tgkim720/product_images/main/cell29/RECOVERY%20BB%20BALM.jpg" alt="Recovery BB Balm" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
-          <div class="product-img-placeholder" style="display:none;"><i class="fas fa-flask" style="font-size:2rem;opacity:0.22;"></i><span>RECOVERY BB BALM</span></div>
+          <img src="https://raw.githubusercontent.com/tgkim720/product_images/main/cell29/RECOVERY%20BB%20BALM.jpg" alt="Blemish Recovery Balm" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+          <div class="product-img-placeholder" style="display:none;"><i class="fas fa-flask" style="font-size:2rem;opacity:0.22;"></i><span>Blemish Recovery Balm</span></div>
       </div>
       <span class="product-line-badge badge-regen">Regeneration Line</span>
-      <div class="product-name">Recovery BB Balm</div>
+      <div class="product-name">Blemish Recovery Balm</div>
       <div class="product-volume">30ml · Hypoallergenic Tested</div>
       <div class="product-sku-note">Partner SKU reference available upon inquiry</div>
       <div class="product-desc">
-        No-darkening BB for immediate post-procedure use. Natural luminous finish covers redness without masking — hypoallergenic, skin-safe for sensitized skin.
+        A hypoallergenic recovery balm designed to naturally conceal post-procedure redness. Formulated with skin-soothing botanical extracts to maintain comfort and provide a seamless finish for sensitized skin.
       </div>
       <div class="product-ingredients">
         <span class="ingredient-tag">CICA-7 Complex (3 stages)</span>
@@ -416,19 +513,20 @@ footer {
         <span class="use-dot"></span>
         Post-procedure BB coverage · Sensitive tone correction · Daily finish
       </div>
+      <button class="btn-view-details" onclick="openModal('blemish-balm')">View Details</button>
     </div>
 
-    <div class="product-card" data-cat="regen post-procedure">
+    <div class="product-card" data-cat="regen post-procedure" data-pid="pdrn-sun">
       <div class="product-img-wrap">
-          <img src="https://raw.githubusercontent.com/tgkim720/product_images/main/cell29/RECOVERY%20SUN%20SHIELD.jpg" alt="Recovery Sun Shield" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
-          <div class="product-img-placeholder" style="display:none;"><i class="fas fa-flask" style="font-size:2rem;opacity:0.22;"></i><span>RECOVERY SUN SHIELD</span></div>
+          <img src="https://raw.githubusercontent.com/tgkim720/product_images/main/cell29/RECOVERY%20SUN%20SHIELD.jpg" alt="PDRN Sun Defense" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+          <div class="product-img-placeholder" style="display:none;"><i class="fas fa-flask" style="font-size:2rem;opacity:0.22;"></i><span>PDRN Sun Defense</span></div>
       </div>
       <span class="product-line-badge badge-regen">Regeneration Line</span>
-      <div class="product-name">Recovery Sun Shield</div>
+      <div class="product-name">PDRN Sun Defense</div>
       <div class="product-volume">50ml · SPF50+ PA+++ Hybrid</div>
       <div class="product-sku-note">Partner SKU reference available upon inquiry</div>
       <div class="product-desc">
-        Sunscreen + recovery in one — hybrid UV filter with PDRN and 3-type hyaluronic acid. No white cast. Safe on sensitized post-procedure skin.
+        Advanced UV protection integrated with 5,000ppm PDRN. This hybrid sun shield defends against harmful UV rays while delivering essential moisture and supporting the recovery of sensitized skin.
       </div>
       <div class="product-ingredients">
         <span class="ingredient-tag">PDRN</span>
@@ -439,42 +537,44 @@ footer {
         <span class="use-dot"></span>
         Post-treatment SPF · Daily UV protection · Barrier-safe sunscreen
       </div>
+      <button class="btn-view-details" onclick="openModal('pdrn-sun')">View Details</button>
     </div>
 
-    <div class="product-card" data-cat="regen booster">
+    <div class="product-card" data-cat="regen booster" data-pid="active-synergy">
       <div class="product-img-wrap">
-          <img src="https://raw.githubusercontent.com/tgkim720/product_images/main/cell29/Skin%20Turnover%20Booster.jpg" alt="Skin Turnover Booster" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
-          <div class="product-img-placeholder" style="display:none;"><i class="fas fa-syringe" style="font-size:2rem;opacity:0.22;"></i><span>SKIN TURNOVER BOOSTER</span></div>
+          <img src="https://raw.githubusercontent.com/tgkim720/product_images/main/cell29/Skin%20Turnover%20Booster.jpg" alt="Active Synergy Booster" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+          <div class="product-img-placeholder" style="display:none;"><i class="fas fa-syringe" style="font-size:2rem;opacity:0.22;"></i><span>ACTIVE SYNERGY BOOSTER</span></div>
       </div>
       <span class="product-line-badge badge-regen">Regeneration Line</span>
-      <div class="product-name">Skin Turnover Booster</div>
-      <div class="product-volume">25ml · Nightcare Intensive</div>
+      <div class="product-name">Active Synergy Booster</div>
+      <div class="product-volume">25ml · Weekly Treatment</div>
       <div class="product-sku-note">Partner SKU reference available upon inquiry</div>
       <div class="product-desc">
-        Home MTS-alternative booster. AHA+BHA+LHA+PHA over WTS-10000™ proprietary base — accelerates cell renewal and enhances active absorption without in-clinic treatment.
+        A topical MTS-alternative booster powered by 99% high-purity spicules — sea sponge-derived microcrystal needles that physically stimulate the skin surface. Replicates the effect of in-clinic needle treatments at home with less irritation. Recommended 1–2x per week.
       </div>
       <div class="product-ingredients">
+        <span class="ingredient-tag">Spicules 99% (Sea Sponge)</span>
         <span class="ingredient-tag">WTS-10000™ Base</span>
-        <span class="ingredient-tag">AHA · BHA · LHA · PHA</span>
-        <span class="ingredient-tag">Bumble Bee Peptide</span>
+        <span class="ingredient-tag">Microcrystal Delivery</span>
       </div>
       <div class="product-use">
         <span class="use-dot"></span>
-        Home MTS alternative · Nightly turnover · Absorption booster
+        Topical MTS alternative · Weekly skin renewal · Active absorption booster
       </div>
+      <button class="btn-view-details" onclick="openModal('active-synergy')">View Details</button>
     </div>
 
-    <div class="product-card" data-cat="glow booster">
+    <div class="product-card" data-cat="brightening booster" data-pid="phyto-glow-peel">
       <div class="product-img-wrap">
-          <img src="https://raw.githubusercontent.com/tgkim720/product_images/main/cell29/DAILY%20GLOW%20PEEL.jpg" alt="Daily Glow Peel" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
-          <div class="product-img-placeholder" style="display:none;"><i class="fas fa-leaf" style="font-size:2rem;opacity:0.22;"></i><span>DAILY GLOW PEEL</span></div>
+          <img src="https://raw.githubusercontent.com/tgkim720/product_images/main/cell29/DAILY%20GLOW%20PEEL.jpg" alt="Phyto-Glow Peel" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+          <div class="product-img-placeholder" style="display:none;"><i class="fas fa-leaf" style="font-size:2rem;opacity:0.22;"></i><span>PHYTO-GLOW PEEL</span></div>
       </div>
       <span class="product-line-badge badge-glow">Glow Line</span>
-      <div class="product-name">Daily Glow Peel</div>
+      <div class="product-name">Phyto-Glow Peel</div>
       <div class="product-volume">120ml · ABP-15% Daily Peel</div>
       <div class="product-sku-note">Partner SKU reference available upon inquiry</div>
       <div class="product-desc">
-        VIP clinic exfoliation peel made safe for daily home use. No-rinse formula. Botanical 8-System minimizes irritation — visible glow in 1–2 minutes.
+        A professional-grade, no-rinse exfoliating solution containing 15% ABP (AHA, BHA, PHA). It utilizes a botanical 8-system to minimize irritation while effectively refining texture and improving overall skin radiance.
       </div>
       <div class="product-ingredients">
         <span class="ingredient-tag">ABP (AHA+BHA+PHA) 15%</span>
@@ -483,21 +583,22 @@ footer {
       </div>
       <div class="product-use">
         <span class="use-dot"></span>
-        Daily glow peel · Post-clinic maintenance · Texture refinement
+        Phyto-Glow Peel · Post-clinic maintenance · Texture refinement
       </div>
+      <button class="btn-view-details" onclick="openModal('phyto-glow-peel')">View Details</button>
     </div>
 
-    <div class="product-card" data-cat="glow">
+    <div class="product-card" data-cat="regen brightening" data-pid="pdrn-luminous">
       <div class="product-img-wrap">
-          <img src="https://raw.githubusercontent.com/tgkim720/product_images/main/cell29/PDRN%20GLOW%20CREAM.jpg" alt="PDRN Glow Cream" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
-          <div class="product-img-placeholder" style="display:none;"><i class="fas fa-droplet" style="font-size:2rem;opacity:0.22;"></i><span>PDRN GLOW CREAM</span></div>
+          <img src="https://raw.githubusercontent.com/tgkim720/product_images/main/cell29/PDRN%20GLOW%20CREAM.jpg" alt="PDRN Luminous Cream" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+          <div class="product-img-placeholder" style="display:none;"><i class="fas fa-droplet" style="font-size:2rem;opacity:0.22;"></i><span>PDRN LUMINOUS CREAM</span></div>
       </div>
       <span class="product-line-badge badge-glow">Glow Line</span>
-      <div class="product-name">PDRN Glow Cream</div>
+      <div class="product-name">PDRN Luminous Cream</div>
       <div class="product-volume">30ml · Water-Glow Infusion</div>
       <div class="product-sku-note">Partner SKU reference available upon inquiry</div>
       <div class="product-desc">
-        PDRN 5,000ppm delivered via liposome technology for deep-layer glow. SQUACERA System (squalane + ceramide) seals barrier moisture post-application.
+        A nutrient-dense radiance cream with 5,000ppm PDRN. Using liposome technology, it delivers active ingredients deep into the skin's layers to restore moisture balance and promote a healthy-looking, non-sticky glow.
       </div>
       <div class="product-ingredients">
         <span class="ingredient-tag">PDRN 5,000ppm</span>
@@ -508,7 +609,215 @@ footer {
         <span class="use-dot"></span>
         Glow cream · PDRN home care · VIP clinic retail
       </div>
+      <button class="btn-view-details" onclick="openModal('pdrn-luminous')">View Details</button>
     </div>
+
+    <div class="product-card" data-cat="hydration" data-pid="barrier-toner">
+    <div class="product-img-wrap">
+        <div class="product-img-placeholder"><i class="fas fa-droplet" style="font-size:2rem;opacity:0.22;"></i><span>AQUA BARRIER TONER</span></div>
+    </div>
+    <span class="product-line-badge badge-glow" style="background: rgba(147,197,253,0.1); border-color: rgba(147,197,253,0.3); color: #93C5FD;">Hydration Control</span>
+    <div class="product-name">Deep Channel Barrier Toner</div>
+    <div class="product-volume">300ml · Collagen Water Base</div>
+    <div class="product-sku-note">Partner SKU reference available upon inquiry</div>
+    <div class="product-desc">
+        A high-volume barrier toner featuring a Collagen Water base and Resurrection Plant extract. It utilizes an Aquaporin-activating system to facilitate deep moisture channels and reinforce the skin's primary defense layer.
+    </div>
+    <div class="product-ingredients">
+        <span class="ingredient-tag">Collagen Water</span>
+        <span class="ingredient-tag">Aquaporin System</span>
+        <span class="ingredient-tag">Triple HA</span>
+    </div>
+    <div class="product-use">
+        <span class="use-dot" style="background: #93C5FD;"></span>
+        Hydration base · Barrier prep · Moisture channel activation
+    </div>
+    <button class="btn-view-details" onclick="openModal('barrier-toner')">View Details</button>
+</div>
+
+<div class="product-card" data-cat="hydration" data-pid="propolis-cream">
+    <div class="product-img-wrap">
+        <div class="product-img-placeholder"><i class="fas fa-droplet" style="font-size:2rem;opacity:0.22;"></i><span>HYCLAIR INTENSIVE CREAM</span></div>
+    </div>
+    <span class="product-line-badge badge-glow" style="background: rgba(147,197,253,0.1); border-color: rgba(147,197,253,0.3); color: #93C5FD;">Hydration Control</span>
+    <div class="product-name">Propolis-Bond Barrier Cream</div>
+    <div class="product-volume">50ml · 10-Type HA Complex</div>
+    <div class="product-sku-note">Partner SKU reference available upon inquiry</div>
+    <div class="product-desc">
+        A deep-hydration barrier cream formulated with 580,000ppm Propolis extract and Squalane. Designed with a 10-type Hyaluronic Acid complex for triple-layered absorption, ensuring optimal oil-water balance for sensitized skin.
+    </div>
+    <div class="product-ingredients">
+        <span class="ingredient-tag">Propolis 580,000ppm</span>
+        <span class="ingredient-tag">Squalane</span>
+        <span class="ingredient-tag">10-Type HA</span>
+    </div>
+    <div class="product-use">
+        <span class="use-dot" style="background: #93C5FD;"></span>
+        Moisture barrier support · Post-procedure hydration · Oil-water balance
+    </div>
+    <button class="btn-view-details" onclick="openModal('propolis-cream')">View Details</button>
+</div>
+
+<div class="product-card" data-cat="hydration" data-pid="propolis-ampoule">
+    <div class="product-img-wrap">
+        <div class="product-img-placeholder"><i class="fas fa-droplet" style="font-size:2rem;opacity:0.22;"></i><span>HYCLAIR RECOVERY AMPOULE</span></div>
+    </div>
+    <span class="product-line-badge badge-glow" style="background: rgba(147,197,253,0.1); border-color: rgba(147,197,253,0.3); color: #93C5FD;">Hydration Control</span>
+    <div class="product-name">Propolis Seal Ampoule</div>
+    <div class="product-volume">100ml · Value Size Ampoule</div>
+    <div class="product-sku-note">Partner SKU reference available upon inquiry</div>
+    <div class="product-desc">
+        A professional-size hydration ampoule optimized for clinic use. It delivers concentrated Propolis and multi-weight Hyaluronic Acid to provide a dewy, non-sticky finish, suitable for layering under clinical creams.
+    </div>
+    <div class="product-ingredients">
+        <span class="ingredient-tag">Propolis Cera</span>
+        <span class="ingredient-tag">Multi-HA</span>
+        <span class="ingredient-tag">Layer-Friendly</span>
+    </div>
+    <div class="product-use">
+        <span class="use-dot" style="background: #93C5FD;"></span>
+        Intensive hydration · Clinic-to-home continuity · Dewy finish
+    </div>
+    <button class="btn-view-details" onclick="openModal('propolis-ampoule')">View Details</button>
+</div>
+
+<div class="product-card" data-cat="hydration post-procedure" data-pid="lacto-cleanser">
+    <div class="product-img-wrap">
+        <div class="product-img-placeholder"><i class="fas fa-soap" style="font-size:2rem;opacity:0.22;"></i><span>BALANCING CLEANSER</span></div>
+    </div>
+    <span class="product-line-badge badge-glow" style="background: rgba(147,197,253,0.1); border-color: rgba(147,197,253,0.3); color: #93C5FD;">Prep & Cleanse</span>
+    <div class="product-name">Lacto-Mild Cleansing Gel</div>
+    <div class="product-volume">200ml · Low-pH Gel Formula</div>
+    <div class="product-sku-note">Partner SKU reference available upon inquiry</div>
+    <div class="product-desc">
+        A weakly acidic gel cleanser formulated for sensitized and post-procedure skin. Live lactic acid fermentation technology cleanses while supplementing moisture — removes impurities and sunscreen without stripping the barrier.
+    </div>
+    <div class="product-ingredients">
+        <span class="ingredient-tag">Lactic Acid Fermentation</span>
+        <span class="ingredient-tag">Low-pH Formula</span>
+        <span class="ingredient-tag">Barrier-Safe</span>
+    </div>
+    <div class="product-use">
+        <span class="use-dot" style="background: #93C5FD;"></span>
+        Daily gentle cleanse · Post-procedure prep · Non-stripping
+    </div>
+    <button class="btn-view-details" onclick="openModal('lacto-cleanser')">View Details</button>
+</div>
+
+<div class="product-card" data-cat="brightening booster" data-pid="vit-tree-booster">
+    <div class="product-img-wrap">
+        <div class="product-img-placeholder"><i class="fas fa-sun" style="font-size:2rem;opacity:0.22;"></i><span>ILLUNA-EX BOOSTER</span></div>
+    </div>
+    <span class="product-line-badge badge-glow" style="background: rgba(253,224,71,0.1); border-color: rgba(253,224,71,0.3); color: #FDE047;">Tone Balancing</span>
+    <div class="product-name">Vit-Tree Radiance Booster</div>
+    <div class="product-volume">10ml x 5 Vials · Intensive Kit</div>
+    <div class="product-sku-note">Partner SKU reference available upon inquiry</div>
+    <div class="product-desc">
+        A VIP clinic whitening booster with a sea buckthorn (vitamin tree) fruit water base at 780,000ppm — a natural source of vitamin C and antioxidants. Part of a 4-week clinical tone-lifting program targeting hyperpigmentation at the deeper skin layer.
+    </div>
+    <div class="product-ingredients">
+        <span class="ingredient-tag">Sea Buckthorn Water 780,000ppm</span>
+        <span class="ingredient-tag">Vit-Tree Brightening Complex</span>
+        <span class="ingredient-tag">Tone Lifting System</span>
+    </div>
+    <div class="product-use">
+        <span class="use-dot" style="background: #FDE047;"></span>
+        Intensive brightening · Hyper-pigmentation care · Tone-lifting
+    </div>
+    <button class="btn-view-details" onclick="openModal('vit-tree-booster')">View Details</button>
+</div>
+
+<div class="product-card" data-cat="brightening" data-pid="melanin-block">
+    <div class="product-img-wrap">
+        <div class="product-img-placeholder"><i class="fas fa-sun" style="font-size:2rem;opacity:0.22;"></i><span>LUMINOUS POTENCY CREAM</span></div>
+    </div>
+    <span class="product-line-badge badge-glow" style="background: rgba(253,224,71,0.1); border-color: rgba(253,224,71,0.3); color: #FDE047;">Tone Balancing</span>
+    <div class="product-name">Melanin-Block Tone Cream</div>
+    <div class="product-volume">50ml · Spot-Correcting Formula</div>
+    <div class="product-sku-note">Partner SKU reference available upon inquiry</div>
+    <div class="product-desc">
+        A synergistic brightening cream powered by Tranexamic Acid and Niacinamide. It targets melanin pathways to reduce discoloration while reinforcing the skin barrier with a 5-Vitamin complex and Alpha-Arbutin.
+    </div>
+    <div class="product-ingredients">
+        <span class="ingredient-tag">Tranexamic Acid</span>
+        <span class="ingredient-tag">Niacinamide</span>
+        <span class="ingredient-tag">VITA5 CPS</span>
+    </div>
+    <div class="product-use">
+        <span class="use-dot" style="background: #FDE047;"></span>
+        Daily spot correction · Radiance enhancement · Evening tone
+    </div>
+    <button class="btn-view-details" onclick="openModal('melanin-block')">View Details</button>
+</div>
+
+<div class="product-card" data-cat="booster" data-pid="collagen-lift">
+    <div class="product-img-wrap">
+        <div class="product-img-placeholder"><i class="fas fa-up-long" style="font-size:2rem;opacity:0.22;"></i><span>COLLAREV BOOSTER</span></div>
+    </div>
+    <span class="product-line-badge badge-regen" style="background: rgba(167,139,250,0.1); border-color: rgba(167,139,250,0.3); color: #A78BFA;">Intervention System</span>
+    <div class="product-name">Collagen Density Lift Booster</div>
+    <div class="product-volume">8ml x 4 Vials · Elasticity Kit</div>
+    <div class="product-sku-note">Partner SKU reference available upon inquiry</div>
+    <div class="product-desc">
+        A high-concentration collagen booster designed for clinical lifting protocols. It delivers essential structural proteins and peptides to the skin's layers, supporting a firmer, more resilient complexion.
+    </div>
+    <div class="product-ingredients">
+        <span class="ingredient-tag">High-Conc. Collagen</span>
+        <span class="ingredient-tag">Peptide Complex</span>
+        <span class="ingredient-tag">Firming System</span>
+    </div>
+    <div class="product-use">
+        <span class="use-dot" style="background: #A78BFA;"></span>
+        Professional lifting · Skin firming · Post-clinic homecare
+    </div>
+    <button class="btn-view-details" onclick="openModal('collagen-lift')">View Details</button>
+</div>
+
+<div class="product-card" data-cat="booster" data-pid="pdrn-elasticity">
+    <div class="product-img-wrap">
+        <div class="product-img-placeholder"><i class="fas fa-up-long" style="font-size:2rem;opacity:0.22;"></i><span>PDRNIX BOOSTER</span></div>
+    </div>
+    <span class="product-line-badge badge-regen" style="background: rgba(167,139,250,0.1); border-color: rgba(167,139,250,0.3); color: #A78BFA;">Intervention System</span>
+    <div class="product-name">PDRN Elasticity Restore Booster</div>
+    <div class="product-volume">8ml x 4 Vials · Vitalizing Kit</div>
+    <div class="product-sku-note">Partner SKU reference available upon inquiry</div>
+    <div class="product-desc">
+        A specialized PDRN-infused ampoule formulated to support skin revitalization and elasticity. Complemented by Phyto-Collagen and Beta-Glucan, it enhances skin softness and overall suppleness.
+    </div>
+    <div class="product-ingredients">
+        <span class="ingredient-tag">PDRN</span>
+        <span class="ingredient-tag">Phyto Collagen</span>
+        <span class="ingredient-tag">Beta-Glucan</span>
+    </div>
+    <div class="product-use">
+        <span class="use-dot" style="background: #A78BFA;"></span>
+        Skin revitalization · Suppleness booster · Vitality care
+    </div>
+    <button class="btn-view-details" onclick="openModal('pdrn-elasticity')">View Details</button>
+</div>
+
+<div class="product-card" data-cat="booster post-procedure" data-pid="calm-reset">
+    <div class="product-img-wrap">
+        <div class="product-img-placeholder"><i class="fas fa-up-long" style="font-size:2rem;opacity:0.22;"></i><span>REJUVERA BOOSTER</span></div>
+    </div>
+    <span class="product-line-badge badge-regen" style="background: rgba(167,139,250,0.1); border-color: rgba(167,139,250,0.3); color: #A78BFA;">Intervention System</span>
+    <div class="product-name">Calm-Reset Post-Care Booster</div>
+    <div class="product-volume">8ml x 4 Vials · Calming Kit</div>
+    <div class="product-sku-note">Partner SKU reference available upon inquiry</div>
+    <div class="product-desc">
+        A targeted soothing booster developed for post-procedure stabilization. It provides an immediate calming effect for sensitive skin while supporting long-term barrier health and moisture retention.
+    </div>
+    <div class="product-ingredients">
+        <span class="ingredient-tag">Calming Complex</span>
+        <span class="ingredient-tag">c-PDRN Support</span>
+        <span class="ingredient-tag">Barrier Defense</span>
+    </div>
+    <div class="product-use">
+        <span class="use-dot" style="background: #A78BFA;"></span>
+        Intensive calming · Post-clinic stabilization · Sensitive care
+    </div>
+    <button class="btn-view-details" onclick="openModal('calm-reset')">View Details</button>
+</div>
 
   </div>
 </div>
@@ -524,27 +833,51 @@ footer {
   <div class="active-system">
     <div class="active-system-row">
       <div class="as-name">Exosome (Cica)</div>
-      <div class="as-desc">Cica-derived exosome at 10,000ppm — nano-sized vesicles for deep barrier penetration and regeneration. Core active in Exosome Repair Ampoule. Supports texture refinement and post-procedure recovery.</div>
+      <div class="as-desc">Cica-derived exosome at 10,000ppm — nano-sized vesicles for deep barrier penetration and regeneration. Core active in Exo-Cica Recovery. Supports texture refinement and post-procedure recovery.</div>
     </div>
     <div class="active-system-row">
       <div class="as-name">ALL EGF+</div>
-      <div class="as-desc">Full EGF complex (EGF, IGF, FGF) — cellular growth factors that stimulate renewal and repair. Anti-wrinkle clinical trials completed at K-Skin Clinical Center.</div>
+      <div class="as-desc">Full growth factor complex (EGF, IGF, FGF) — stimulates cellular renewal and tissue repair. Anti-wrinkle clinical trials completed at K-Skin Clinical Center. Present in Exo-Cica Recovery and Azulene Repair Cream.</div>
     </div>
     <div class="active-system-row">
       <div class="as-name">PDRN</div>
-      <div class="as-desc">Polynucleotide complex at 5,000ppm in PDRN Glow Cream and integrated into Recovery Sun Shield. Supports barrier density restoration post-procedure.</div>
+      <div class="as-desc">Polynucleotide complex at 5,000ppm — supports barrier density restoration and tissue revitalization. Present in PDRN Luminous Cream, PDRN Sun Defense, and PDRN Elasticity Restore Booster.</div>
     </div>
     <div class="active-system-row">
       <div class="as-name">CICA-7 Complex</div>
-      <div class="as-desc">3-stage centella asiatica in Recovery BB Balm. Calms post-procedure inflammation while providing natural coverage. Hypoallergenic tested.</div>
+      <div class="as-desc">3-stage centella asiatica in Blemish Recovery Balm. Tri-phase delivery calms post-procedure inflammation at different skin depths while providing hypoallergenic coverage.</div>
     </div>
     <div class="active-system-row">
       <div class="as-name">ABP-15%</div>
-      <div class="as-desc">AHA + BHA + PHA triple acid at 15% in Daily Glow Peel. Professional exfoliation system adapted for daily home use with Botanical 8-System irritation control.</div>
+      <div class="as-desc">AHA + BHA + PHA triple acid at 15% in Phyto-Glow Peel. Professional exfoliation concentration adapted for daily home use with Botanical 8-System irritation buffering.</div>
+    </div>
+    <div class="active-system-row">
+      <div class="as-name">Spicules 99%</div>
+      <div class="as-desc">99% high-purity sea sponge microcrystal needles in Active Synergy Booster. Physical micro-stimulation mechanism that replicates in-clinic MTS topically — less irritation than needle-based treatments.</div>
+    </div>
+    <div class="active-system-row">
+      <div class="as-name">Tranexamic Acid Alpha 5™</div>
+      <div class="as-desc">Proprietary upgraded tranexamic acid complex in Melanin-Block Tone Cream. Targets all 3 stages of melanin production simultaneously — more comprehensive than standard tranexamic acid formulations.</div>
+    </div>
+    <div class="active-system-row">
+      <div class="as-name">Vit-Tree / Sea Buckthorn</div>
+      <div class="as-desc">Sea buckthorn (vitamin tree) fruit water at 780,000ppm as the base in Vit-Tree Radiance Booster — naturally concentrated antioxidant and vitamin source targeting hyperpigmentation at the deeper skin layer.</div>
+    </div>
+    <div class="active-system-row">
+      <div class="as-name">Propolis Complex</div>
+      <div class="as-desc">Honey-derived propolis at 580,000ppm in Propolis-Bond Barrier Cream and coating-film mechanism in Propolis Seal Ampoule. Seals barrier moisture while delivering anti-inflammatory bioactives.</div>
+    </div>
+    <div class="active-system-row">
+      <div class="as-name">Aquaporin System (Aqua GG)</div>
+      <div class="as-desc">Patented barrier-strengthening complex in Deep Channel Barrier Toner. Activates aquaporin water channels for deeper moisture transport than standard hyaluronic acid alone — 97% specialist satisfaction rate.</div>
+    </div>
+    <div class="active-system-row">
+      <div class="as-name">Lactic Acid Fermentation</div>
+      <div class="as-desc">Live fermentation-derived lactic acid in Lacto-Mild Cleansing Gel. Cleanses at physiological pH while supplementing moisture — maintains the skin's acid mantle rather than disrupting it like alkaline foaming cleansers.</div>
     </div>
     <div class="active-system-row">
       <div class="as-name">WTS-10000™</div>
-      <div class="as-desc">Proprietary penetration base in Skin Turnover Booster. Enhances absorption of actives layered over it — designed to enhance active absorption within a homecare routine.</div>
+      <div class="as-desc">Proprietary penetration-enhancing delivery base in Active Synergy Booster. Amplifies absorption of all active products applied after treatment — designed for home-use protocol sequencing.</div>
     </div>
   </div>
 
@@ -570,21 +903,71 @@ footer {
 
 <hr class="divider">
 
-<!-- CTA -->
-<div class="section">
-  <div class="cta-section">
-    <div class="cta-title">Request a Clinic Trial Selection</div>
-    <p class="cta-desc">
-      Contact KORVEX for sourcing, documentation, and partner onboarding. Select the SKUs that fit your clinic workflow and we’ll prepare a trial order.
-    </p>
-    <div class="cta-buttons">
-      <a href="https://wa.me/601116023115?text=Hello%20KORVEX%2C%20I'm%20interested%20in%20your%20clinic%20recovery%20line" target="_blank" class="btn-blue">
-        <i class="fab fa-whatsapp"></i> WhatsApp Us
-      </a>
-      <a href="mailto:contact@korvexgrp.com" class="btn-outline-blue">
-        <i class="fas fa-envelope"></i> Send Email
-      </a>
-    </div>
+<!-- Formspree -->
+
+<div id="inquiry" class="section" style="padding-top: 2rem; padding-bottom: 2rem;">
+  <div style="max-width: 700px; margin: 0 auto; padding: 50px; background: #13151C; border-radius: 24px; border: 1px solid #2563EB; box-shadow: 0 30px 60px rgba(0,0,0,0.5);">
+    <h3 style="font-family: 'Orbitron', monospace; color: #FFFFFF; margin-bottom: 12px; text-align: center; font-size: 1.6rem; letter-spacing: 1px;">Wholesale & Partnership Inquiry</h3>
+    <p style="color: #93C5FD; text-align: center; font-size: 0.9rem; margin-bottom: 40px; opacity: 0.85;">Submit your business profile to receive our professional partner catalog and customized pricing tiers.</p>
+    
+    <form action="https://formspree.io/f/meernaql" method="POST" style="display: flex; flex-direction: column; gap: 20px;">
+      
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+        <div>
+          <label style="font-size: 0.7rem; color: #60A5FA; text-transform: uppercase; letter-spacing: 1.5px; margin-left: 5px;">Company / Clinic Name</label>
+          <input type="text" name="company_name" required placeholder="Enter name" style="width: 100%; padding: 15px; background: #0B0B0B; border: 1px solid #333; color: white; border-radius: 12px; margin-top: 8px;">
+        </div>
+        <div>
+          <label style="font-size: 0.7rem; color: #60A5FA; text-transform: uppercase; letter-spacing: 1.5px; margin-left: 5px;">Target Market</label>
+          <input type="text" name="market_location" required placeholder="e.g. Malaysia" style="width: 100%; padding: 15px; background: #0B0B0B; border: 1px solid #333; color: white; border-radius: 12px; margin-top: 8px;">
+        </div>
+      </div>
+
+      <div>
+        <label style="font-size: 0.7rem; color: #60A5FA; text-transform: uppercase; letter-spacing: 1.5px; margin-left: 5px;">Business Type</label>
+        <select name="business_type" style="width: 100%; padding: 15px; background: #0B0B0B; border: 1px solid #333; color: white; border-radius: 12px; margin-top: 8px; appearance: none; cursor: pointer;">
+          <option value="Aesthetic Clinic">Aesthetic Clinic / Medical Spa</option>
+          <option value="Distributor">Wholesale Distributor</option>
+          <option value="Retailer">Dermocosmetic Retailer</option>
+          <option value="Pharmacy">Pharmacy Group</option>
+        </select>
+      </div>
+
+      <div>
+        <label style="font-size: 0.7rem; color: #60A5FA; text-transform: uppercase; letter-spacing: 1.5px; margin-left: 5px;">Contact Info (WhatsApp or Email)</label>
+        <input type="text" name="contact_method" required placeholder="e.g. +60123456789 or email@example.com" style="width: 100%; padding: 15px; background: #0B0B0B; border: 1px solid #333; color: white; border-radius: 12px; margin-top: 8px;">
+      </div>
+
+      <div>
+        <label style="font-size: 0.7rem; color: #60A5FA; text-transform: uppercase; letter-spacing: 1.5px; margin-left: 5px;">Inquiry Details</label>
+        <textarea name="message" placeholder="Please specify the products or volume you are interested in." style="width: 100%; padding: 15px; background: #0B0B0B; border: 1px solid #333; color: white; border-radius: 12px; margin-top: 8px; min-height: 120px; font-family: inherit; resize: vertical;"></textarea>
+      </div>
+
+      <button type="submit" style="margin-top: 10px; padding: 18px; background: linear-gradient(135deg, #1D4ED8 0%, #3B82F6 100%); color: white; border: none; border-radius: 60px; font-weight: 800; cursor: pointer; text-transform: uppercase; letter-spacing: 2px; transition: all 0.3s ease; box-shadow: 0 10px 20px rgba(37, 99, 235, 0.3);">
+        Submit Partnership Request
+      </button>
+
+      <div style="text-align:center; margin-top:20px; padding-top:20px; border-top:1px solid rgba(37,99,235,0.12);">
+        <p style="font-size:0.75rem; color:#727890; margin-bottom:12px;">Prefer to reach out directly?</p>
+        <div style="display:flex; justify-content:center; gap:14px; flex-wrap:wrap;">
+          <a href="https://wa.me/601116023115?text=Hello%20KORVEX%2C%20I'm%20interested%20in%20your%20clinic%20recovery%20line" target="_blank" style="display:inline-flex;align-items:center;gap:7px;padding:9px 20px;border-radius:50px;background:rgba(37,99,235,0.1);border:1px solid rgba(37,99,235,0.25);color:#93C5FD;font-size:0.8rem;font-weight:600;letter-spacing:0.5px;transition:all 0.2s;">
+            <i class="fab fa-whatsapp"></i> WhatsApp
+          </a>
+          <a href="mailto:contact@korvexgrp.com" style="display:inline-flex;align-items:center;gap:7px;padding:9px 20px;border-radius:50px;background:rgba(37,99,235,0.1);border:1px solid rgba(37,99,235,0.25);color:#93C5FD;font-size:0.8rem;font-weight:600;letter-spacing:0.5px;transition:all 0.2s;">
+            <i class="fas fa-envelope"></i> Email
+          </a>
+        </div>
+      </div>
+
+    </form>
+  </div>
+</div>
+
+<!-- MODAL OVERLAY -->
+<div class="modal-overlay" id="productModal" onclick="handleOverlayClick(event)">
+  <div class="modal-box" id="modalBox">
+    <button class="modal-close" onclick="closeModal()"><i class="fas fa-times"></i></button>
+    <div id="modalContent"></div>
   </div>
 </div>
 
@@ -606,6 +989,318 @@ function filterProducts(cat, btn) {
     }
   });
 }
+
+/* ── MODAL ── */
+const productData = {
+  'exo-cica': {
+    name: 'Exo-Cica Recovery', badge: 'Regeneration Line',
+    badgeStyle: 'background:rgba(37,99,235,0.14);border:1px solid rgba(37,99,235,0.28);color:#93C5FD;',
+    volume: '50ml · Collagen Water Base',
+    positioning: 'Flagship clinic ampoule formulated on 83% collagen water. Validated for post-procedure barrier recovery, MTS synergy, and anti-aging in aesthetic clinic protocols.',
+    actives: [
+      ['Cica-Exosome 10,000ppm','Nano-vesicles derived from centella asiatica for deep barrier penetration and cellular regeneration'],
+      ['Collagen Water 830,000ppm','Replaces standard distilled water — structural hydration support at the base formulation level'],
+      ['ALL EGF+ Complex','Full growth factor trio (EGF, IGF, FGF) that stimulates cellular renewal and tissue repair']
+    ],
+    claims: '4-week aesthetic clinic barrier program. Eye-area wrinkle improvement validated. Compatible with MTS, plasma, and laser protocols. Sold in 300+ Korean pharmacies.',
+    uses: [
+      'Post-MTS patients who plateau on standard serums — exosome delivery at 10,000ppm produces visible luminosity within the session, giving patients a same-day reason to repurchase',
+      'Clients resistant to injectables — presents a credible non-needle anti-aging conversation backed by growth factors and clinical validation',
+      'Proven long-term retention product — verified multi-year repurchase behaviour in the Korean market, making it a reliable homecare staple that keeps patients returning'
+    ]
+  },
+  'azulene-repair': {
+    name: 'Azulene Repair Cream', badge: 'Regeneration Line',
+    badgeStyle: 'background:rgba(37,99,235,0.14);border:1px solid rgba(37,99,235,0.28);color:#93C5FD;',
+    volume: '40ml · Dual Function Certified',
+    positioning: 'Post-procedure repair cream with 37% nasolabial fold improvement in 4 weeks. Dermatologist-preferred recovery cream for post-laser and energy-based treatment protocols.',
+    actives: [
+      ['Guaiazulene','Anti-inflammatory azulene derivative that calms post-procedure erythema and reduces barrier disruption'],
+      ['ALL EGF+ Complex','EGF, IGF, FGF growth factor complex for cellular regeneration and validated wrinkle improvement'],
+      ['Niacinamide · Adenosine','Tone-evening and anti-wrinkle actives certified under dual-function cosmetic classification']
+    ],
+    claims: '37% nasolabial fold and 21% neck wrinkle improvement in 4 weeks. Anti-wrinkle dual-function certified. Clinically validated at K-Skin Clinical Center. Preferred by dermatologists in 300+ Korean pharmacies.',
+    uses: [
+      'Post-laser or RF recovery — replaces generic moisturizers with a cream backed by quantifiable wrinkle data, giving your patients a clinical rationale for the recommendation',
+      'Consultation conversion tool — the 37% NLF improvement figure gives clinicians a concrete talking point that supports treatment investment decisions',
+      'Reliable retail anchor — Korean reviewers cite 3+ years of uninterrupted use, indicating the kind of patient loyalty that drives consistent retail revenue at the clinic counter'
+    ]
+  },
+  'blemish-balm': {
+    name: 'Blemish Recovery Balm', badge: 'Regeneration Line',
+    badgeStyle: 'background:rgba(37,99,235,0.14);border:1px solid rgba(37,99,235,0.28);color:#93C5FD;',
+    volume: '30ml · Hypoallergenic Tested',
+    positioning: 'Hypoallergenic post-procedure BB balm safe for immediate application after treatments. Natural luminous coverage over sensitized skin without occluding the recovery process.',
+    actives: [
+      ['CICA-7 Complex (3-stage)','Tri-phase centella asiatica for layered anti-inflammatory action at different skin depths simultaneously'],
+      ['Yeast Extract','Fermentation-derived recovery support that reinforces barrier integrity and aids post-procedure healing'],
+      ['Helianthus (Sunflower) Oil','Lightweight barrier lipid that restores natural protection without blocking pore recovery']
+    ],
+    claims: 'Hypoallergenic clinically tested. No color darkening — natural luminous finish. Endorsed by 1.4M-subscriber Korean skincare creator. Available in 300+ pharmacies.',
+    uses: [
+      'Patients who refuse to leave the clinic without coverage — the only post-procedure BB safe for immediate application, eliminating the "I can\'t go out looking like this" objection before it starts',
+      'Redness concealment without healing interference — natural luminous finish covers erythema without occluding the skin during active recovery phases post-laser or peel',
+      'High-margin checkout retail — patients who used it in-clinic are primed to purchase at the counter before they leave, with zero additional selling required'
+    ]
+  },
+  'pdrn-sun': {
+    name: 'PDRN Sun Defense', badge: 'Regeneration Line',
+    badgeStyle: 'background:rgba(37,99,235,0.14);border:1px solid rgba(37,99,235,0.28);color:#93C5FD;',
+    volume: '50ml · SPF50+ PA+++ Hybrid',
+    positioning: 'Recovery-grade sunscreen combining high-purity PDRN with SPF50+ PA+++ hybrid UV filter. No white cast. Formulated for sensitized post-procedure skin.',
+    actives: [
+      ['High-Purity PDRN','Polynucleotide complex that supports barrier density restoration during UV exposure periods following procedures'],
+      ['3-Type Hyaluronic Acid','Multi-molecular-weight HA for layered moisture retention through sun exposure throughout the day'],
+      ['Hybrid UV Filter SPF50+ PA+++','Combined mineral-chemical system for broad-spectrum protection without white cast or irritation']
+    ],
+    claims: 'Validated for post-procedure sensitized skin. Dewy glow finish. Used by professional golfers in Korea for high-UV outdoor exposure. 4.6 stars across 42 reviews.',
+    uses: [
+      'Post-laser SPF compliance problem solved — patients skip sunscreen because it stings, leaves white cast, or feels heavy on sensitized skin; this resolves all three objections in one product',
+      'One-step morning routine for recovery patients — PDRN recovery + SPF50+ in a single application reduces protocol drop-off, which directly impacts your treatment outcomes',
+      'Outdoor and active patients — specific positioning for high-UV conditions makes it a natural recommendation for golfers, athletes, or patients in equatorial climates'
+    ]
+  },
+  'active-synergy': {
+    name: 'Active Synergy Booster', badge: 'Regeneration Line',
+    badgeStyle: 'background:rgba(37,99,235,0.14);border:1px solid rgba(37,99,235,0.28);color:#93C5FD;',
+    volume: '25ml · Weekly Treatment',
+    positioning: 'Topical MTS-alternative booster using 99% high-purity spicules — sea sponge microcrystal needles that physically stimulate skin renewal without requiring a clinic visit.',
+    actives: [
+      ['Spicules 99% (Sea Sponge)','99% high-purity marine sponge microcrystal needles — physical micro-stimulation that replicates in-clinic MTS topically with less irritation than needle-based treatment'],
+      ['WTS-10000™ Base','Proprietary penetration-enhancing delivery system that amplifies the absorption of active products applied after treatment']
+    ],
+    claims: 'Replicates professional MTS needle treatment topically. Recommended 1–2x per week. VIP aesthetic clinic treatment staple in Korea. 4.7 stars across 61 reviews — customers describe "luminous, glass-skin" result.',
+    uses: [
+      'Between-session revenue gap — MTS patients who visit monthly use nothing in between. This fills that gap with a home treatment that extends in-clinic results and creates a repurchase rhythm',
+      'Pre-treatment skin priming — weekly spicule application improves active absorption for subsequent in-clinic procedures, making your treatments measurably more effective',
+      'MTS patient upsell at checkout — a natural conversation after treatment: "To extend what we just did, use this twice a week at home." Converts easily because it mirrors the same mechanism'
+    ]
+  },
+  'phyto-glow-peel': {
+    name: 'Phyto-Glow Peel', badge: 'Glow Line',
+    badgeStyle: 'background:rgba(96,165,250,0.1);border:1px solid rgba(96,165,250,0.28);color:#60A5FA;',
+    volume: '120ml · ABP-15% Daily Peel',
+    positioning: 'Professional-grade no-rinse exfoliating solution with 15% ABP (AHA+BHA+PHA) adapted for daily home use. Botanical 8-system minimizes irritation while maintaining clinical efficacy.',
+    actives: [
+      ['ABP 15% (AHA+BHA+PHA)','15% triple-acid professional peel complex — the same concentration used in VIP clinic peeling treatments, adapted for daily leave-on home use'],
+      ['Botanical 8-System','8 herbal extract complex specifically formulated to buffer the irritation potential of the 15% acid blend for daily use compatibility'],
+      ['No-Rinse Absorption Formula','Leave-on application format — significantly higher patient compliance versus rinse-off formulations that require multiple steps']
+    ],
+    claims: 'Adapts clinic-grade peel concentration for daily home use. Visible glow in 1–2 minutes of application. No-rinse formula. Used in VIP aesthetic clinics in Korea.',
+    uses: [
+      'Peel patients between monthly appointments — gives them a clinic-grade exfoliation experience at home that maintains results without requiring additional chair time from you',
+      'Busy patients who skip multi-step routines — no-rinse format and visible 1–2 minute glow result means high follow-through on the recommendation vs. products that require extra steps',
+      'Retail add-on with strong perceived value — 15% professional acid concentration is a differentiated talking point; patients understand they\'re getting something clinically meaningful'
+    ]
+  },
+  'pdrn-luminous': {
+    name: 'PDRN Luminous Cream', badge: 'Glow Line',
+    badgeStyle: 'background:rgba(96,165,250,0.1);border:1px solid rgba(96,165,250,0.28);color:#60A5FA;',
+    volume: '30ml · Water-Glow Infusion',
+    positioning: 'PDRN 5,000ppm delivered via liposome technology for deep-layer radiance and barrier restoration. SQUACERA System (squalane + ceramide) seals moisture post-application.',
+    actives: [
+      ['PDRN 5,000ppm','Polynucleotide complex via liposome encapsulation for targeted release at deeper skin layers — moisture-glow restoration beyond surface hydration'],
+      ['Liposome Delivery System','Encapsulates PDRN for precision delivery to deeper skin layers rather than surface hydration only'],
+      ['SQUACERA System','Squalane + ceramide dual-lock barrier system that seals in moisture and active delivery post-application']
+    ],
+    claims: 'Used in VIP skin clinics in Korea. Liposome PDRN delivery for deep-layer glow. Temperature-reducing conditioning effect reported by users. Non-sticky finish.',
+    uses: [
+      'Post-procedure glow recovery — for patients who undergo treatments specifically for the "glass skin" result, this delivers visible PDRN-driven radiance without a greasy or heavy finish',
+      'VIP retail placement — compact 30ml size with PDRN positioning supports premium pricing; patients associate it with the same active ingredient used in their injectable treatments',
+      'Post-filler or post-PDRN injection homecare — creates a natural homecare extension conversation: "Continue the PDRN benefit at home between your injection sessions"'
+    ]
+  },
+  'barrier-toner': {
+    name: 'Deep Channel Barrier Toner', badge: 'Hydration Control',
+    badgeStyle: 'background:rgba(147,197,253,0.1);border:1px solid rgba(147,197,253,0.3);color:#93C5FD;',
+    volume: '300ml · Collagen Water Base',
+    positioning: 'Ultra-barrier toner on 70% collagen water base. Aquaporin-activating system opens moisture channels for ampoule-grade hydration delivered in a first-step toner format.',
+    actives: [
+      ['Collagen Water 70%','Collagen water base replacing standard distilled water — structural hydration support from the very first application step in any protocol'],
+      ['Aqua GG (Aquaporin Complex)','Patented barrier-strengthening complex that activates aquaporin channels for deeper moisture transport than hyaluronic acid alone'],
+      ['Triple Hyaluronic Acid','Multi-weight HA for simultaneous layered hydration absorption across different skin depths']
+    ],
+    claims: '97% specialist director satisfaction rate. Described as "ampoule-grade moisture replenishment in toner format." Rapid absorption confirmed. No tackiness.',
+    uses: [
+      'First post-procedure hydration step — aquaporin activation immediately after treatment primes the skin for every subsequent product, multiplying the overall protocol\'s efficacy',
+      'Pre-laser barrier priming — applying 1–2 days before energy-based treatments prepares skin hydration levels, which directly impacts treatment comfort and recovery speed',
+      '300ml professional size is practical for multi-patient clinic dispensing — reduces restocking frequency and supports consistent protocol delivery across the clinic'
+    ]
+  },
+  'propolis-cream': {
+    name: 'Propolis-Bond Barrier Cream', badge: 'Hydration Control',
+    badgeStyle: 'background:rgba(147,197,253,0.1);border:1px solid rgba(147,197,253,0.3);color:#93C5FD;',
+    volume: '50ml · 10-Type HA Complex',
+    positioning: 'Deep-barrier moisture cream with 580,000ppm propolis extract and 10-type hyaluronic acid. Formulated for compromised, acne-prone, and chronically dry skin types.',
+    actives: [
+      ['Propolis 580,000ppm','High-concentration honey extract that forms a conditioning moisture film while delivering anti-inflammatory and barrier-supporting bioactives'],
+      ['Squalane','Skin-identical lipid that restores the protective lipid layer of the barrier without comedogenic risk — safe for acne-prone patients'],
+      ['10-Type Hyaluronic Acid','Ten molecular weights of HA for layered absorption — from deep structural hydration to surface moisture sealing in a single application']
+    ],
+    claims: 'Specifically formulated for itchy, severely dry, and acne-prone skin. Focus on barrier moisturizing at the cellular level vs. surface hydration. 30-day free trial in Korea.',
+    uses: [
+      'Post-procedure patients with acne-prone skin — standard recovery creams cause breakouts; this resolves that specific conflict and keeps acne-prone patients compliant with their protocol',
+      'Chronic dry or sensitivity-prone patients — the "barrier moisturizing vs. surface hydration" distinction addresses why other creams have failed them, giving clinicians a clinical rationale for the switch',
+      'Long-term homecare anchor — the 10-type HA and propolis combination is genuinely differentiated enough to retain patients who\'ve cycled through generic moisturizers without results'
+    ]
+  },
+  'propolis-ampoule': {
+    name: 'Propolis Seal Ampoule', badge: 'Hydration Control',
+    badgeStyle: 'background:rgba(147,197,253,0.1);border:1px solid rgba(147,197,253,0.3);color:#93C5FD;',
+    volume: '100ml · Value Size Ampoule',
+    positioning: 'Professional-size hydration ampoule with propolis coating-film mechanism. Balanced oil-water ratio compatible with acne-prone skin. Dewy non-sticky finish designed for layering.',
+    actives: [
+      ['Propolis Cera','Honey-derived cera complex that creates a transparent moisture-sealing film over the skin — locks in the efficacy of all active products applied before it'],
+      ['Multi-Weight HA','Multiple hyaluronic acid molecular weights providing both deep hydration and surface moisture retention simultaneously'],
+      ['Oil-Water Balance System','Formulated to balance sebum and moisture simultaneously — compatible with both oily and dry skin without requiring separate formulations']
+    ],
+    claims: 'Described as "cream that transforms into a coating film ampoule." All-day moisture sensation reported. Maintains skin elasticity through propolis honey coating membrane.',
+    uses: [
+      'Layering ampoule in clinic protocols — applied under heavier treatment creams, the coating film mechanism seals in the efficacy of all active products applied before it',
+      'Tropical and humid market clinics — lightweight film finish is strongly preferred by patients in high-humidity environments where heavy creams feel uncomfortable or trigger sweat-related congestion',
+      '100ml professional size reduces cost-per-use for multi-patient protocols or facial treatment room dispensing — practical advantage for high-volume clinic settings'
+    ]
+  },
+  'lacto-cleanser': {
+    name: 'Lacto-Mild Cleansing Gel', badge: 'Prep & Cleanse',
+    badgeStyle: 'background:rgba(147,197,253,0.1);border:1px solid rgba(147,197,253,0.3);color:#93C5FD;',
+    volume: '200ml · Low-pH Gel Formula',
+    positioning: 'Weakly acidic gel cleanser safe for immediate post-procedure use. Live lactic acid fermentation technology cleanses while supplementing moisture — no barrier stripping.',
+    actives: [
+      ['Lactic Acid Fermentation','Live fermentation-derived lactic acid that gently exfoliates at physiological pH while maintaining moisture balance — not a harsh AHA strip'],
+      ['Low-pH Formula','Maintains skin\'s natural acidic mantle (pH 4.5–5.5) to preserve barrier function — unlike alkaline foaming cleansers that disrupt the acid layer at the worst possible time'],
+      ['Moisture-Supplementing Base','Formulated to leave skin feeling hydrated post-cleanse rather than tight or stripped — critical for post-procedure skin tolerance']
+    ],
+    claims: 'Safe for immediate use the evening of any in-clinic procedure. "Water-radiance cleanser" category in Korean market. Reviewers report clearer-looking skin and softer texture from daily use.',
+    uses: [
+      'The only cleanser you can safely recommend the night of a procedure — standard foaming cleansers strip the acid mantle exactly when it\'s most vulnerable post-treatment; this is the correct clinical alternative',
+      'Transitioning patients off barrier-disrupting cleansers — many chronic sensitivity cases trace directly back to alkaline cleansers; this resolves the root cause without a complicated protocol change',
+      'Embedded gentle exfoliation removes the need for a separate exfoliation step for maintenance patients — simplifying their homecare routine directly increases long-term compliance'
+    ]
+  },
+  'vit-tree-booster': {
+    name: 'Vit-Tree Radiance Booster', badge: 'Tone Balancing',
+    badgeStyle: 'background:rgba(253,224,71,0.1);border:1px solid rgba(253,224,71,0.3);color:#FDE047;',
+    volume: '10ml x 5 Vials · Intensive Kit',
+    positioning: '4-week VIP clinic whitening program built on a sea buckthorn (vitamin tree) fruit water base at 780,000ppm. Targets hyperpigmentation at deeper skin layers beyond surface-level brightening.',
+    actives: [
+      ['Sea Buckthorn (Vit-Tree) 780,000ppm','Vitamin tree fruit water at 780,000ppm — naturally concentrated source of antioxidants and vitamin-rich bioactives replacing standard distilled water base'],
+      ['Vit-Tree Brightening Complex','Proprietary brightening complex from sea buckthorn bioactives targeting tone irregularities at the melanin production layer rather than surface discolouration only'],
+      ['4-Week Tone Lifting System','Structured delivery designed to align with clinic revisit cycles — measurable tone improvement at the 4-week follow-up appointment']
+    ],
+    claims: '4-week VIP whitening program validated in aesthetic clinics. Targets hyperpigmentation at deeper skin layer. Vial format (5 x 10ml) creates perceived professional treatment course.',
+    uses: [
+      'Post-IPL or laser toning homecare — the 4-week vial kit naturally aligns with clinic revisit intervals, reinforcing that patients are completing a program rather than just using another product',
+      'Patients wanting clinical results without prescription-strength whitening risks — sea buckthorn brightening is effective and carries no whitening agent regulatory concerns for most markets',
+      'The completed vial kit creates tangible proof of commitment — patients who finish a course are significantly more likely to repurchase the next cycle at their follow-up appointment'
+    ]
+  },
+  'melanin-block': {
+    name: 'Melanin-Block Tone Cream', badge: 'Tone Balancing',
+    badgeStyle: 'background:rgba(253,224,71,0.1);border:1px solid rgba(253,224,71,0.3);color:#FDE047;',
+    volume: '50ml · Spot-Correcting Formula',
+    positioning: 'Brightening cream powered by Tranexamic Acid Alpha 5™ targeting all 3 stages of melanin production. Protects barrier while delivering comprehensive tone correction.',
+    actives: [
+      ['Tranexamic Acid Alpha 5™','Upgraded proprietary tranexamic acid complex that blocks melanin synthesis at multiple pathway stages simultaneously — more comprehensive than standard tranexamic acid formulations'],
+      ['Niacinamide','Inhibits melanosome transfer from melanocytes to keratinocytes — blocking the final visible dark spot formation step'],
+      ['VITA5 CPS','Five-vitamin complex that supports barrier health during active brightening — prevents sensitivity and rebound hyperpigmentation often seen with aggressive whitening treatments']
+    ],
+    claims: '3-week skin tone lifting program. 3-stage melanin pathway blocking. Barrier-protective brightening formula. Consistent 4–5 star Korean reviews with visible tone improvement reported.',
+    uses: [
+      'Melasma maintenance between laser sessions — Tranexamic Acid Alpha 5™ suppresses melanin reactivation during the critical gap period that determines whether laser results last or rebound within weeks',
+      'Post-IPL patients prone to post-inflammatory hyperpigmentation — 3-stage melanin blocking gives clinicians a scientifically grounded homecare recommendation they can explain with confidence',
+      'Consultation storytelling — the 3-stage melanin pathway explanation gives clinicians a clear visual narrative about why this cream performs differently from the brightening products patients have tried before'
+    ]
+  },
+  'collagen-lift': {
+    name: 'Collagen Density Lift Booster', badge: 'Intervention System',
+    badgeStyle: 'background:rgba(167,139,250,0.1);border:1px solid rgba(167,139,250,0.3);color:#A78BFA;',
+    volume: '8ml x 4 Vials · Elasticity Kit',
+    positioning: 'High-density collagen booster at 730,000ppm for clinical lifting protocols. Delivers structural proteins and peptides for firmer, more resilient skin as a homecare complement to lifting procedures.',
+    actives: [
+      ['Collagen 730,000ppm','High-concentration collagen in vial delivery format — structural protein at near-saturation concentration for intensive skin-firming support'],
+      ['Peptide Complex','Signaling peptides that stimulate endogenous collagen synthesis — supporting long-term structural improvement beyond the topical collagen effect alone'],
+      ['Firming System','Formulation system designed to enhance delivery depth for lifting-focused treatment outcomes']
+    ],
+    claims: 'Designed as a home-care complement to professional collagen and lifting treatments. 5-star average across 11 Korean reviews. Vial format mirrors clinical treatment course structure.',
+    uses: [
+      'HIFU or thread lift homecare protocol — collagen at 730,000ppm makes a credible claim that directly complements the mechanism of lifting procedures and gives patients a way to protect their investment',
+      'Patients with early sagging who aren\'t ready for invasive treatment — positions as the clinical first step before committing to a procedure, keeping them in your ecosystem while building trust',
+      'The 4-vial kit structure creates a natural 4-week rhythm — aligned with monthly clinic visits when used one vial per week, driving consistent re-engagement with your practice'
+    ]
+  },
+  'pdrn-elasticity': {
+    name: 'PDRN Elasticity Restore Booster', badge: 'Intervention System',
+    badgeStyle: 'background:rgba(167,139,250,0.1);border:1px solid rgba(167,139,250,0.3);color:#A78BFA;',
+    volume: '8ml x 4 Vials · Vitalizing Kit',
+    positioning: 'PDRN 5,000ppm elasticity booster with Panthenol in vial format. Supports skin revitalization and volume restoration as a homecare extension of injectable PDRN protocols.',
+    actives: [
+      ['PDRN 5,000ppm','Polynucleotide complex supporting tissue revitalization, cellular regeneration, and elasticity restoration at the dermal level'],
+      ['Panthenol (Provitamin B5)','Dual-synergy with PDRN — panthenol reinforces barrier health and moisture retention while PDRN addresses tissue-level restoration simultaneously'],
+      ['Phyto Collagen','Plant-derived collagen support that complements PDRN\'s revitalization effect with surface suppleness and softness']
+    ],
+    claims: 'PDRN at 5,000ppm validated for elasticity and volume restoration. Dual-synergy barrier strengthening with panthenol. Professional-grade home-use formulation.',
+    uses: [
+      'Post-filler homecare — PDRN 5,000ppm directly supports tissue vitality in the treated area, extending and reinforcing the structural result of hyaluronic acid filler treatments',
+      'Skin laxity patients between lifting sessions — maintains elasticity gains between appointments, reducing the "sag between visits" complaint that leads patients to seek more aggressive interventions',
+      'Injectable PDRN treatment continuity — for clinics offering PDRN mesotherapy or salmon DNA injections, this is the natural homecare bridge: "Continue what we injected at home"'
+    ]
+  },
+  'calm-reset': {
+    name: 'Calm-Reset Post-Care Booster', badge: 'Intervention System',
+    badgeStyle: 'background:rgba(167,139,250,0.1);border:1px solid rgba(167,139,250,0.3);color:#A78BFA;',
+    volume: '8ml x 4 Vials · Calming Kit',
+    positioning: 'Post-procedure soothing booster with resurrection plant complex for immediate skin stabilization. Supports long-term barrier health for reactive and recently treated skin.',
+    actives: [
+      ['Resurrection Plant Complex','Extract from a plant that survives complete desiccation — bioactives support extreme barrier recovery and skin resilience under acute stress conditions'],
+      ['c-PDRN Support','Complementary PDRN fraction for barrier density recovery and post-procedure tissue stabilization alongside the calming complex'],
+      ['Barrier Defense System','Multi-layer barrier repair addressing lipid loss, inflammation, and moisture retention simultaneously in acutely compromised skin']
+    ],
+    claims: 'Immediate calming effect validated for sensitive skin. Korean reviewers report visible improvement within 24 hours of first application. 30-day free trial with 100% refund guarantee.',
+    uses: [
+      'Day-1 post-procedure application — the most vulnerable moment for the patient experience; a product that calms visibly within 24 hours directly reduces post-procedure anxiety calls and improves satisfaction scores',
+      'Sensitive or reactive skin patients who flare after energy-based treatments — gives your clinic a protocol answer for the patients most likely to report poor outcomes or leave negative reviews',
+      'The 4-vial structure (8ml x 4) creates a structured 4-week recovery narrative — elevates perceived clinical care from "use some moisturizer at home" to "you are on a post-procedure recovery program"'
+    ]
+  }
+};
+
+function openModal(pid) {
+  const d = productData[pid];
+  if (!d) return;
+  const activesHtml = d.actives.map(a =>
+    `<div class="modal-active-row"><div class="modal-active-name">${a[0]}</div><div class="modal-active-desc">${a[1]}</div></div>`
+  ).join('');
+  const usesHtml = d.uses.map(u =>
+    `<div class="modal-use-item"><div class="modal-use-bullet"></div><div class="modal-use-text">${u}</div></div>`
+  ).join('');
+  document.getElementById('modalContent').innerHTML = `
+    <span class="modal-badge" style="${d.badgeStyle}">${d.badge}</span>
+    <div class="modal-name">${d.name}</div>
+    <div class="modal-volume">${d.volume}</div>
+    <div class="modal-positioning">${d.positioning}</div>
+    <span class="modal-section-label">Key Actives</span>
+    <div class="modal-actives">${activesHtml}</div>
+    <span class="modal-section-label">Clinical Claims</span>
+    <div class="modal-claims">${d.claims}</div>
+    <hr class="modal-hr">
+    <span class="modal-section-label">Clinic Use Cases</span>
+    <div class="modal-uses">${usesHtml}</div>
+  `;
+  document.getElementById('productModal').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeModal() {
+  document.getElementById('productModal').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+function handleOverlayClick(e) {
+  if (e.target === document.getElementById('productModal')) closeModal();
+}
+
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
 </script>
 </body>
 </html>
